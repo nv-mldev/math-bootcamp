@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.8.15)  6 JAN 2025 16:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.8.15)  6 JAN 2025 21:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -711,7 +711,7 @@ Package pdftex.def Info: pics/real-line.png  used on input line 90.
 <pics/irrational-geometry.png, id=180, 262.9825pt x 174.6525pt>
 File: pics/irrational-geometry.png Graphic file (type png)
 <use pics/irrational-geometry.png>
-Package pdftex.def Info: pics/irrational-geometry.png  used on input line 106.
+Package pdftex.def Info: pics/irrational-geometry.png  used on input line 104.
 (pdftex.def)             Requested size: 92.04524pt x 61.12929pt.
  [6
 
@@ -742,7 +742,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  128i,15n,123p,467b,591s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on real-number.pdf (6 pages, 124901 bytes).
+Output written on real-number.pdf (6 pages, 125517 bytes).
 PDF statistics:
  256 PDF objects out of 1000 (max. 8388607)
  201 compressed objects within 3 object streams
