@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1736177960.21644 "/home/nithin/Work/tutorials/math-bootcamp/chapters/real-numbers/real-number.tex" "real-number.pdf" "real-number" 1736177960.94133 0
+["pdflatex"] 1736266613.07149 "/home/nithin/Work/tutorials/math-bootcamp/chapters/real-numbers/real-number.tex" "real-number.pdf" "real-number" 1736266613.82257 0
   "/etc/texmf/web2c/texmf.cnf" 1723687623.79219 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/nithin/Work/tutorials/math-bootcamp/chapters/real-numbers/real-number.tex" 1736177960.0505 3708 835b3b3bc4277e840d32fc1e5767bf5d ""
+  "/home/nithin/Work/tutorials/math-bootcamp/chapters/real-numbers/real-number.tex" 1736266612.9052 3789 7bbb90a277b64cab902daeedbf1529a8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -204,10 +204,10 @@
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1723687725 8215674 8d2ba6d07baa352f3afc894ac7429bd0 ""
   "pics/irrational-geometry.png" 1736162345.53948 2971 d58a370c41715704f62368bad3348162 ""
   "pics/real-line.png" 1736159791.88715 12511 e77671c7030a98de1a8f21244a596402 ""
-  "real-number.aux" 1736177960.87854 1215 2e458073651123d6b5c5e93598efc831 "pdflatex"
-  "real-number.nav" 1736177960.87954 747 0e276c0940a342ad38699132b0e9aa8d "pdflatex"
-  "real-number.out" 1736177960.65953 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "real-number.tex" 1736177960.0505 3708 835b3b3bc4277e840d32fc1e5767bf5d ""
+  "real-number.aux" 1736266613.75909 1215 2e458073651123d6b5c5e93598efc831 "pdflatex"
+  "real-number.nav" 1736266613.76009 747 0e276c0940a342ad38699132b0e9aa8d "pdflatex"
+  "real-number.out" 1736266613.53612 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "real-number.tex" 1736266612.9052 3789 7bbb90a277b64cab902daeedbf1529a8 ""
   (generated)
   "real-number.aux"
   "real-number.log"
