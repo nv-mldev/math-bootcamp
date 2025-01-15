@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1736938459.89363 "/home/nithin/Work/tutorials/math-bootcamp/chapters/algebra/algebra.tex" "algebra.pdf" "algebra" 1736938460.70089 0
+["pdflatex"] 1736952013.07119 "/home/nithin/Work/tutorials/math-bootcamp/chapters/algebra/algebra.tex" "algebra.pdf" "algebra" 1736952013.91826 0
   "/etc/texmf/web2c/texmf.cnf" 1723687623.79219 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/nithin/Work/tutorials/math-bootcamp/chapters/algebra/algebra.tex" 1736938458.89146 7252 c732789cdc12b760a7a8db4411fcee2f ""
+  "/home/nithin/Work/tutorials/math-bootcamp/chapters/algebra/algebra.tex" 1736952011.95742 7286 0eed9259d741691f0b8d143c55ad9bbe ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -203,10 +203,10 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1723687635.49297 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1723687725 8215674 8d2ba6d07baa352f3afc894ac7429bd0 ""
-  "algebra.aux" 1736938460.64148 1722 20e91bfaba50c3806d05ddd6b6b8b67e "pdflatex"
-  "algebra.nav" 1736938460.64148 1109 07396102f9d82bf25877ba7d82798efb "pdflatex"
-  "algebra.out" 1736938460.32448 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "algebra.tex" 1736938458.89146 7252 c732789cdc12b760a7a8db4411fcee2f ""
+  "algebra.aux" 1736952013.85424 1724 211e944a52363d71dfa782f4d88b21e6 "pdflatex"
+  "algebra.nav" 1736952013.85524 1111 8c19763951727c5689920c5dc82aaea3 "pdflatex"
+  "algebra.out" 1736952013.52527 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "algebra.tex" 1736952011.95742 7286 0eed9259d741691f0b8d143c55ad9bbe ""
   "pics/irrational-geometry.png" 1736162345.53948 2971 d58a370c41715704f62368bad3348162 ""
   "pics/real-line.png" 1736159791.88715 12511 e77671c7030a98de1a8f21244a596402 ""
   (generated)
