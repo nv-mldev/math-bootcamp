@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.8.15)  7 JAN 2025 21:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.8.15)  15 JAN 2025 16:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/nithin/Work/tutorials/math-bootcamp/chapters/real-numbers/real-number.tex
-(/home/nithin/Work/tutorials/math-bootcamp/chapters/real-numbers/real-number.tex
+**/home/nithin/Work/tutorials/math-bootcamp/chapters/algebra/algebra.tex
+(/home/nithin/Work/tutorials/math-bootcamp/chapters/algebra/algebra.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamer.cls
@@ -538,8 +538,8 @@ Package: amsthm 2020/05/29 v2.20.6
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count336
 \l__pdf_internal_box=\box76
-) (./real-number.aux)
-\openout1 = `real-number.aux'.
+) (./algebra.aux)
+\openout1 = `algebra.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
@@ -614,9 +614,9 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package hyperref Info: Link coloring OFF on input line 13.
- (./real-number.out) (./real-number.out)
+ (./algebra.out) (./algebra.out)
 \@outlinefile=\write5
-\openout5 = `real-number.out'.
+\openout5 = `algebra.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 13.
@@ -679,18 +679,18 @@ Dictionary: translator-months-dictionary, Language: English
 Dictionary: translator-numbers-dictionary, Language: English 
 ) (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
-) (./real-number.nav) [1
+) (./algebra.nav) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 36.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 48.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 36.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 48.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 36.
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 48.
  (/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
 ) [2
@@ -699,53 +699,61 @@ File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mat
 
 ] [4
 
+] [5
+
+] [6
+
 ]
-<pics/real-line.png, id=152, 725.71124pt x 113.42375pt>
+<pics/real-line.png, id=207, 725.71124pt x 113.42375pt>
 File: pics/real-line.png Graphic file (type png)
 <use pics/real-line.png>
-Package pdftex.def Info: pics/real-line.png  used on input line 90.
+Package pdftex.def Info: pics/real-line.png  used on input line 136.
 (pdftex.def)             Requested size: 254.00273pt x 39.6989pt.
- [5
+ [7
 
  <./pics/real-line.png (PNG copy)>]
-<pics/irrational-geometry.png, id=180, 262.9825pt x 174.6525pt>
+<pics/irrational-geometry.png, id=237, 262.9825pt x 174.6525pt>
 File: pics/irrational-geometry.png Graphic file (type png)
 <use pics/irrational-geometry.png>
-Package pdftex.def Info: pics/irrational-geometry.png  used on input line 104.
+Package pdftex.def Info: pics/irrational-geometry.png  used on input line 151.
 (pdftex.def)             Requested size: 92.04524pt x 61.12929pt.
- [6
+ [8
 
- <./pics/irrational-geometry.png>]
+ <./pics/irrational-geometry.png>] [9
+
+] [10
+
+]
 \tf@nav=\write6
-\openout6 = `real-number.nav'.
+\openout6 = `algebra.nav'.
 
 \tf@toc=\write7
-\openout7 = `real-number.toc'.
+\openout7 = `algebra.toc'.
 
 \tf@snm=\write8
-\openout8 = `real-number.snm'.
+\openout8 = `algebra.snm'.
 
- (./real-number.aux)
+ (./algebra.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
-Package rerunfilecheck Info: File `real-number.out' has not changed.
+Package rerunfilecheck Info: File `algebra.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 21692 strings out of 474222
- 421528 string characters out of 5748733
- 1936975 words of memory out of 5000000
- 43480 multiletter control sequences out of 15000+600000
- 568907 words of font info for 75 fonts, out of 8000000 for 9000
+ 21747 strings out of 474222
+ 422672 string characters out of 5748733
+ 1939975 words of memory out of 5000000
+ 43526 multiletter control sequences out of 15000+600000
+ 569570 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,15n,123p,467b,591s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,15n,123p,458b,593s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on real-number.pdf (6 pages, 125716 bytes).
+Output written on algebra.pdf (10 pages, 148537 bytes).
 PDF statistics:
- 256 PDF objects out of 1000 (max. 8388607)
- 201 compressed objects within 3 object streams
- 13 named destinations out of 1000 (max. 500000)
- 101 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 385 PDF objects out of 1000 (max. 8388607)
+ 313 compressed objects within 4 object streams
+ 21 named destinations out of 1000 (max. 500000)
+ 143 words of extra memory for PDF output out of 10000 (max. 10000000)
 
