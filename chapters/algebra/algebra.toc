@@ -1,0 +1,2 @@
+\beamer@sectionintoc {1}{Algebra of real numbers}{11}{0}{1}
+\beamer@subsectionintoc {1}{1}{Inequalities,Intervals and Absolute Value}{13}{0}{1}
