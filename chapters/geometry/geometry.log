@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.8.15)  20 JAN 2025 17:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.8.15)  20 JAN 2025 05:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/nithin/Work/tutorials/math-bootcamp/chapters/algebra/algebra.tex
-(/home/nithin/Work/tutorials/math-bootcamp/chapters/algebra/algebra.tex
+**/home/nithin/Work/tutorials/math-bootcamp/chapters/geometry/geometry.tex
+(/home/nithin/Work/tutorials/math-bootcamp/chapters/geometry/geometry.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamer.cls
@@ -534,38 +534,31 @@ Package: amsthm 2020/05/29 v2.20.6
 ) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasethemes.sty)) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerthemedefault.sty (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerfontthemedefault.sty) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamercolorthemedefault.sty) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerinnerthemedefault.sty
 \beamer@dima=\dimen292
 \beamer@dimb=\dimen293
-) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerouterthemedefault.sty))) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerthemeMadrid.sty (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamercolorthemewhale.sty) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamercolorthemeorchid.sty) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerinnerthemerounded.sty) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerouterthemeinfolines.sty)) (/usr/share/texlive/texmf-dist/tex/latex/framed/framed.sty
-Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
-\OuterFrameSep=\skip65
-\fb@frw=\dimen294
-\fb@frh=\dimen295
-\FrameRule=\dimen296
-\FrameSep=\dimen297
-) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerfontthemeserif.sty) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerouterthemedefault.sty))) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerthemeMadrid.sty (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamercolorthemewhale.sty) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamercolorthemeorchid.sty) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerinnerthemerounded.sty) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerouterthemeinfolines.sty)) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamercolorthemebeaver.sty) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count336
 \l__pdf_internal_box=\box76
-) (./algebra.aux)
-\openout1 = `algebra.aux'.
+) (./geometry.aux)
+\openout1 = `geometry.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -604,13 +597,13 @@ LaTeX Font Info:    ... okay on input line 18.
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count337
-\scratchdimen=\dimen298
+\scratchdimen=\dimen294
 \scratchbox=\box77
 \nofMPsegments=\count338
 \nofMParguments=\count339
 \everyMPshowfont=\toks46
 \MPscratchCnt=\count340
-\MPscratchDim=\dimen299
+\MPscratchDim=\dimen295
 \MPnumerator=\count341
 \makeMPintoPDFobject=\count342
 \everyMPtoPDFconversion=\toks47
@@ -620,11 +613,60 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 18.
- (./algebra.out) (./algebra.out)
+Package hyperref Info: Link coloring OFF on input line 13.
+ (./geometry.out) (./geometry.out)
 \@outlinefile=\write5
-\openout5 = `algebra.out'.
+\openout5 = `geometry.out'.
 
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 13.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 13.
+\symnumbers=\mathgroup6
+\sympureletters=\mathgroup7
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 13.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 13.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 13.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 13.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 13.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 13.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 13.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 13.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 13.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 13.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 13.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 13.
+LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 13.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 13.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
+(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 13.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 13.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 13.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 13.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 13.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 13.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
+(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 13.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 13.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on input line 13.
  (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
 ) (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-bibliography-dictionary-English.dict
@@ -637,43 +679,52 @@ Dictionary: translator-months-dictionary, Language: English
 Dictionary: translator-numbers-dictionary, Language: English 
 ) (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
-) (./algebra.nav) [1
+) (./geometry.nav) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 53.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 53.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [2
+<pics/the_school_of_athens.jpg, id=92, 578.16pt x 396.58162pt>
+File: pics/the_school_of_athens.jpg Graphic file (type jpg)
+<use pics/the_school_of_athens.jpg>
+Package pdftex.def Info: pics/the_school_of_athens.jpg  used on input line 23.
+(pdftex.def)             Requested size: 308.06367pt x 211.3128pt.
+ [2
 
-] [3
+ <./pics/the_school_of_athens.jpg>] [3
 
 ] [4
 
-] [5
-
-] [6
+]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 57.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 57.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 57.
+ (/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
+File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
+) [5
 
 ]
-<pics/real-line.png, id=223, 725.71124pt x 113.42375pt>
-File: pics/real-line.png Graphic file (type png)
-<use pics/real-line.png>
-Package pdftex.def Info: pics/real-line.png  used on input line 141.
-(pdftex.def)             Requested size: 254.00273pt x 39.6989pt.
- [7
+<pics/ratio.png, id=212, 820.5054pt x 581.5326pt>
+File: pics/ratio.png Graphic file (type png)
+<use pics/ratio.png>
+Package pdftex.def Info: pics/ratio.png  used on input line 73.
+(pdftex.def)             Requested size: 164.09818pt x 116.30446pt.
+<pics/rate.jpeg, id=214, 246.6816pt x 185.0112pt>
+File: pics/rate.jpeg Graphic file (type jpg)
+<use pics/rate.jpeg>
+Package pdftex.def Info: pics/rate.jpeg  used on input line 73.
+(pdftex.def)             Requested size: 123.34048pt x 92.50537pt.
+ [6
 
- <./pics/real-line.png (PNG copy)>]
-<pics/irrational-geometry.png, id=253, 262.9825pt x 174.6525pt>
-File: pics/irrational-geometry.png Graphic file (type png)
-<use pics/irrational-geometry.png>
-Package pdftex.def Info: pics/irrational-geometry.png  used on input line 156.
-(pdftex.def)             Requested size: 92.04524pt x 61.12929pt.
- [8
+ <./pics/ratio.png> <./pics/rate.jpeg>] [7
 
- <./pics/irrational-geometry.png>] [9
+] [8
+
+] [9
 
 ] [10
 
@@ -681,49 +732,158 @@ Package pdftex.def Info: pics/irrational-geometry.png  used on input line 156.
 
 ] [12
 
-] [13
+]
+<pics/geometry.png, id=449, 1091.07625pt x 679.53876pt>
+File: pics/geometry.png Graphic file (type png)
+<use pics/geometry.png>
+Package pdftex.def Info: pics/geometry.png  used on input line 181.
+(pdftex.def)             Requested size: 273.83728pt x 170.54788pt.
+ [13
 
-] [14
+ <./pics/geometry.png (PNG copy)>]
+<pics/coplanar.jpg, id=478, 542.025pt x 406.51875pt>
+File: pics/coplanar.jpg Graphic file (type jpg)
+<use pics/coplanar.jpg>
+Package pdftex.def Info: pics/coplanar.jpg  used on input line 187.
+(pdftex.def)             Requested size: 273.83728pt x 205.38649pt.
+ [14
 
-] [15
+ <./pics/coplanar.jpg>]
+<pics/dimensions.jpeg, id=506, 980.16188pt x 405.01312pt>
+File: pics/dimensions.jpeg Graphic file (type jpg)
+<use pics/dimensions.jpeg>
+Package pdftex.def Info: pics/dimensions.jpeg  used on input line 194.
+(pdftex.def)             Requested size: 273.83728pt x 113.1495pt.
+ [15
 
-] [16
+ <./pics/dimensions.jpeg>] [16
 
-] [17
+]
+<pics/parallel_perpendicular.jpg, id=583, 284.56313pt x 157.08687pt>
+File: pics/parallel_perpendicular.jpg Graphic file (type jpg)
+<use pics/parallel_perpendicular.jpg>
+Package pdftex.def Info: pics/parallel_perpendicular.jpg  used on input line 211.
+(pdftex.def)             Requested size: 273.83728pt x 151.18037pt.
+ [17
 
-] [18
+ <./pics/parallel_perpendicular.jpg>]
+LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 224.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmss.fd
+File: ts1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+) [18
 
-] [19
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [19
 
 ] [20
 
 ] [21
 
-] [22
+]
+<pics/Parallellines.png, id=722, 633.36626pt x 384.43625pt>
+File: pics/Parallellines.png Graphic file (type png)
+<use pics/Parallellines.png>
+Package pdftex.def Info: pics/Parallellines.png  used on input line 270.
+(pdftex.def)             Requested size: 171.14764pt x 103.88129pt.
+ [22
 
-] [23
+ <./pics/Parallellines.png (PNG copy)>] [23
 
-] [24
+]
+<pics/complementary_supplementary_angles.png, id=778, 456.95718pt x 206.27063pt>
+File: pics/complementary_supplementary_angles.png Graphic file (type png)
+<use pics/complementary_supplementary_angles.png>
+Package pdftex.def Info: pics/complementary_supplementary_angles.png  used on input line 282.
+(pdftex.def)             Requested size: 308.06367pt x 139.06299pt.
+ [24
 
-] [25
+ <./pics/complementary_supplementary_angles.png>]
+<pics/supplementary_angles.png, id=806, 401.5pt x 220.825pt>
+File: pics/supplementary_angles.png Graphic file (type png)
+<use pics/supplementary_angles.png>
+Package pdftex.def Info: pics/supplementary_angles.png  used on input line 291.
+(pdftex.def)             Requested size: 308.06367pt x 169.44609pt.
+ [25
 
-] [26
+ <./pics/supplementary_angles.png>]
+<pics/vertical_angles_1.png, id=848, 489.83pt x 475.7775pt>
+File: pics/vertical_angles_1.png Graphic file (type png)
+<use pics/vertical_angles_1.png>
+Package pdftex.def Info: pics/vertical_angles_1.png  used on input line 302.
+(pdftex.def)             Requested size: 171.14764pt x 166.23422pt.
+ [26
 
-] [27
+ <./pics/vertical_angles_1.png>]
+<pics/vertical_angles_2.png, id=878, 567.5604pt x 474.0912pt>
+File: pics/vertical_angles_2.png Graphic file (type png)
+<use pics/vertical_angles_2.png>
+Package pdftex.def Info: pics/vertical_angles_2.png  used on input line 310.
+(pdftex.def)             Requested size: 171.14764pt x 142.95909pt.
+ [27
 
-] [28
+ <./pics/vertical_angles_2.png>]
+<pics/alternate_interior_angles.png, id=907, 885.3075pt x 767.86874pt>
+File: pics/alternate_interior_angles.png Graphic file (type png)
+<use pics/alternate_interior_angles.png>
+Package pdftex.def Info: pics/alternate_interior_angles.png  used on input line 328.
+(pdftex.def)             Requested size: 132.79039pt x 115.17534pt.
+<pics/alternate_exterior_angles.png, id=908, 788.9475pt x 707.64375pt>
+File: pics/alternate_exterior_angles.png Graphic file (type png)
+<use pics/alternate_exterior_angles.png>
+Package pdftex.def Info: pics/alternate_exterior_angles.png  used on input line 328.
+(pdftex.def)             Requested size: 118.337pt x 106.14198pt.
+ [28
 
-] [29
+ <./pics/alternate_interior_angles.png> <./pics/alternate_exterior_angles.png>]
+<pics/altitudes.jpeg, id=938, 494.84875pt x 348.30125pt>
+File: pics/altitudes.jpeg Graphic file (type jpg)
+<use pics/altitudes.jpeg>
+Package pdftex.def Info: pics/altitudes.jpeg  used on input line 348.
+(pdftex.def)             Requested size: 123.71188pt x 87.07509pt.
+<pics/medians.jpeg, id=939, 518.93875pt x 288.07625pt>
+File: pics/medians.jpeg Graphic file (type jpg)
+<use pics/medians.jpeg>
+Package pdftex.def Info: pics/medians.jpeg  used on input line 348.
+(pdftex.def)             Requested size: 129.73436pt x 72.01888pt.
+ [29
 
-] [30
+ <./pics/altitudes.jpeg> <./pics/medians.jpeg>]
+<pics/exterior_angle.png, id=967, 436.63126pt x 321.2pt>
+File: pics/exterior_angle.png Graphic file (type png)
+<use pics/exterior_angle.png>
+Package pdftex.def Info: pics/exterior_angle.png  used on input line 355.
+(pdftex.def)             Requested size: 171.14764pt x 125.89973pt.
+ [30
 
-] [31
+ <./pics/exterior_angle.png>]
+<pics/triangle.png, id=997, 887.315pt x 773.89125pt>
+File: pics/triangle.png Graphic file (type png)
+<use pics/triangle.png>
+Package pdftex.def Info: pics/triangle.png  used on input line 362.
+(pdftex.def)             Requested size: 171.14764pt x 149.26088pt.
+ [31
 
-] [32
+ <./pics/triangle.png>]
+<pics/equilateral_triangle.png, id=1027, 1243.64626pt x 1096.095pt>
+File: pics/equilateral_triangle.png Graphic file (type png)
+<use pics/equilateral_triangle.png>
+Package pdftex.def Info: pics/equilateral_triangle.png  used on input line 378.
+(pdftex.def)             Requested size: 124.3719pt x 109.61592pt.
+<pics/isoscles_triangle.png, id=1028, 709.65125pt x 569.12625pt>
+File: pics/isoscles_triangle.png Graphic file (type png)
+<use pics/isoscles_triangle.png>
+Package pdftex.def Info: pics/isoscles_triangle.png  used on input line 378.
+(pdftex.def)             Requested size: 106.44308pt x 85.36525pt.
+ [32
 
-] [33
+ <./pics/equilateral_triangle.png> <./pics/isoscles_triangle.png>]
+<pics/triangle_inequality.jpeg, id=1071, 795.97375pt x 592.2125pt>
+File: pics/triangle_inequality.jpeg Graphic file (type jpg)
+<use pics/triangle_inequality.jpeg>
+Package pdftex.def Info: pics/triangle_inequality.jpeg  used on input line 393.
+(pdftex.def)             Requested size: 102.68962pt x 76.39392pt.
+ [33
 
-] [34
+ <./pics/triangle_inequality.jpeg>] [34
 
 ] [35
 
@@ -731,45 +891,201 @@ Package pdftex.def Info: pics/irrational-geometry.png  used on input line 156.
 
 ] [37
 
-]
-<pics/cartesian.png, id=1245, 803.1606pt x 724.1454pt>
-File: pics/cartesian.png Graphic file (type png)
-<use pics/cartesian.png>
-Package pdftex.def Info: pics/cartesian.png  used on input line 615.
-(pdftex.def)             Requested size: 184.72305pt x 166.54993pt.
- [38
+] [38
 
- <./pics/cartesian.png>]
+] [39
+
+]
+<pics/exer_20.png, id=1268, 1797.71625pt x 998.73125pt>
+File: pics/exer_20.png Graphic file (type png)
+<use pics/exer_20.png>
+Package pdftex.def Info: pics/exer_20.png  used on input line 496.
+(pdftex.def)             Requested size: 308.06367pt x 171.13837pt.
+ [40
+
+ <./pics/exer_20.png>] [41
+
+] [42
+
+] [43
+
+] [44
+
+] [45
+
+]
+<pics/1.png, id=1529, 383.4325pt x 388.45125pt>
+File: pics/1.png Graphic file (type png)
+<use pics/1.png>
+Package pdftex.def Info: pics/1.png  used on input line 574.
+(pdftex.def)             Requested size: 191.71577pt x 194.22514pt.
+ [46
+
+ <./pics/1.png>]
+<pics/2.png, id=1558, 381.425pt x 396.48125pt>
+File: pics/2.png Graphic file (type png)
+<use pics/2.png>
+Package pdftex.def Info: pics/2.png  used on input line 581.
+(pdftex.def)             Requested size: 190.71202pt x 198.24013pt.
+ [47
+
+ <./pics/2.png>] [48
+
+]
+<pics/3.png, id=1627, 348.30125pt x 383.4325pt>
+File: pics/3.png Graphic file (type png)
+<use pics/3.png>
+Package pdftex.def Info: pics/3.png  used on input line 613.
+(pdftex.def)             Requested size: 87.07509pt x 95.85788pt.
+<pics/4.png, id=1628, 349.305pt x 396.48125pt>
+File: pics/4.png Graphic file (type png)
+<use pics/4.png>
+Package pdftex.def Info: pics/4.png  used on input line 613.
+(pdftex.def)             Requested size: 87.32603pt x 99.12006pt.
+ [49
+
+ <./pics/3.png> <./pics/4.png>]
+<pics/5.png, id=1671, 358.33875pt x 428.60126pt>
+File: pics/5.png Graphic file (type png)
+<use pics/5.png>
+Package pdftex.def Info: pics/5.png  used on input line 620.
+(pdftex.def)             Requested size: 179.16893pt x 214.3001pt.
+ [50
+
+ <./pics/5.png>] [51
+
+]
+<pics/6.png, id=1737, 980.66376pt x 381.425pt>
+File: pics/6.png Graphic file (type png)
+<use pics/6.png>
+Package pdftex.def Info: pics/6.png  used on input line 634.
+(pdftex.def)             Requested size: 294.2014pt x 114.42838pt.
+ [52
+
+ <./pics/6.png>] [53
+
+] [54
+
+]
+<pics/7.png, id=1841, 408.52625pt x 397.485pt>
+File: pics/7.png Graphic file (type png)
+<use pics/7.png>
+Package pdftex.def Info: pics/7.png  used on input line 664.
+(pdftex.def)             Requested size: 102.1313pt x 99.371pt.
+ [55
+
+ <./pics/7.png>]
+<pics/8.png, id=1883, 1027.84pt x 748.7975pt>
+File: pics/8.png Graphic file (type png)
+<use pics/8.png>
+Package pdftex.def Info: pics/8.png  used on input line 675.
+(pdftex.def)             Requested size: 226.12549pt x 164.73595pt.
+ [56
+
+ <./pics/8.png>] [57
+
+] [58
+
+]
+File: pics/1.png Graphic file (type png)
+<use pics/1.png>
+Package pdftex.def Info: pics/1.png  used on input line 703.
+(pdftex.def)             Requested size: 191.71577pt x 194.22514pt.
+ [59
+
+]
+File: pics/2.png Graphic file (type png)
+<use pics/2.png>
+Package pdftex.def Info: pics/2.png  used on input line 710.
+(pdftex.def)             Requested size: 190.71202pt x 198.24013pt.
+ [60
+
+] [61
+
+]
+File: pics/3.png Graphic file (type png)
+<use pics/3.png>
+Package pdftex.def Info: pics/3.png  used on input line 742.
+(pdftex.def)             Requested size: 87.07509pt x 95.85788pt.
+File: pics/4.png Graphic file (type png)
+<use pics/4.png>
+Package pdftex.def Info: pics/4.png  used on input line 742.
+(pdftex.def)             Requested size: 87.32603pt x 99.12006pt.
+ [62
+
+]
+File: pics/5.png Graphic file (type png)
+<use pics/5.png>
+Package pdftex.def Info: pics/5.png  used on input line 749.
+(pdftex.def)             Requested size: 179.16893pt x 214.3001pt.
+ [63
+
+] [64
+
+]
+File: pics/6.png Graphic file (type png)
+<use pics/6.png>
+Package pdftex.def Info: pics/6.png  used on input line 763.
+(pdftex.def)             Requested size: 294.2014pt x 114.42838pt.
+ [65
+
+] [66
+
+] [67
+
+]
+File: pics/7.png Graphic file (type png)
+<use pics/7.png>
+Package pdftex.def Info: pics/7.png  used on input line 793.
+(pdftex.def)             Requested size: 102.1313pt x 99.371pt.
+ [68
+
+]
+<pics/sine-cosine-tangent.png, id=2306, 600.2425pt x 632.3625pt>
+File: pics/sine-cosine-tangent.png Graphic file (type png)
+<use pics/sine-cosine-tangent.png>
+Package pdftex.def Info: pics/sine-cosine-tangent.png  used on input line 802.
+(pdftex.def)             Requested size: 132.05376pt x 139.12018pt.
+ [69
+
+ <./pics/sine-cosine-tangent.png>]
+File: pics/8.png Graphic file (type png)
+<use pics/8.png>
+Package pdftex.def Info: pics/8.png  used on input line 812.
+(pdftex.def)             Requested size: 226.12549pt x 164.73595pt.
+ [70
+
+]
 \tf@nav=\write6
-\openout6 = `algebra.nav'.
+\openout6 = `geometry.nav'.
 
 \tf@toc=\write7
-\openout7 = `algebra.toc'.
+\openout7 = `geometry.toc'.
 
 \tf@snm=\write8
-\openout8 = `algebra.snm'.
+\openout8 = `geometry.snm'.
 
- (./algebra.aux)
+ (./geometry.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
-Package rerunfilecheck Info: File `algebra.out' has not changed.
-(rerunfilecheck)             Checksum: 1B883C873DB86447CBB380F20CDF7B1C;527.
+Package rerunfilecheck Info: File `geometry.out' has not changed.
+(rerunfilecheck)             Checksum: 4A5D2E60B295461465D6491A189CE603;1027.
  ) 
 Here is how much of TeX's memory you used:
- 22007 strings out of 474222
- 427599 string characters out of 5748733
- 1941975 words of memory out of 5000000
- 43724 multiletter control sequences out of 15000+600000
- 569091 words of font info for 78 fonts, out of 8000000 for 9000
+ 22431 strings out of 474222
+ 437401 string characters out of 5748733
+ 1944975 words of memory out of 5000000
+ 44076 multiletter control sequences out of 15000+600000
+ 571859 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,15n,123p,458b,696s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on algebra.pdf (38 pages, 370656 bytes).
+ 128i,15n,123p,460b,682s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1095.pfb>
+Output written on geometry.pdf (70 pages, 2275838 bytes).
 PDF statistics:
- 1358 PDF objects out of 1440 (max. 8388607)
- 1134 compressed objects within 12 object streams
- 80 named destinations out of 1000 (max. 500000)
- 652 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2446 PDF objects out of 2487 (max. 8388607)
+ 2029 compressed objects within 21 object streams
+ 149 named destinations out of 1000 (max. 500000)
+ 1300 words of extra memory for PDF output out of 10000 (max. 10000000)
 
