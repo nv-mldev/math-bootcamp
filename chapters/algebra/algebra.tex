@@ -492,6 +492,12 @@ or
   -x, & \text{if } x < 0.
   \end{cases}
   \]
+Breaking the absolute value: 
+  \begin{itemize}
+    \item \( |f(x)| \leq c \quad \implies \quad -c \leq f(x) \leq c \)
+    \item \( |f(x)| \geq c \quad \implies \quad f(x) \leq -c \quad \text{or} \quad f(x) \geq c \)
+\end{itemize}
+
 \end{frame}
 
 % Slide 3: Examples
@@ -540,11 +546,53 @@ The ball bearings are acceptable if  diameter \( d \) is
 \begin{frame}
   \frametitle{Exercise}
   Find all numbers \(x\) such that \[ \left| \frac{3x-5}{x-1} \right|< 2 \]
+  Solution :  \pause 
+  \[ |3x-5| < 2 |x-1| \]
+  \begin{enumerate}
+    \item \(x-1 > 0 \)
+  \end{enumerate}
+    \vspace{2pt}
 
-  \vspace{5pt}
+    Breaking the absolute value:
+
+    \begin{flalign}
+      &\implies -2(x-1) < 3x-5 < 2(x-1) = -2x + 7 < 3x < 2x + 3  \\ 
+      &\implies 3x > -2x+7   \;\& \; 3x < 2x + 3  
+    \end{flalign}
+\end{frame} 
 
 
 
+\begin{frame}{Exercise}
+  Solving for \( 3x < 2x + 3\)
+  \begin{flalign}
+    &\implies x < 3 \\
+  \end{flalign}
+  Solving for \(3x > -2x+7 \)
+  \begin{flalign}
+    &\implies 3x > -2x+7 \implies 5x > 7 \implies x > 7/5 \\
+    &\implies x \in (7/5,3) 
+    \end{flalign}
+  
+\end{frame}
+
+
+\begin{frame}{Exercise} 
+\begin{enumerate}
+  \setcounter{enumi}{1}
+  \item \(x-1 < 0 \implies x < 1 \)
+\end{enumerate}
+\begin{flalign}
+  &\implies |3x-5| < 2 |x-1| == |3x-5| < -2(x-1) \\
+  &\implies         3x-5 < -2(x-1) \;\; and \;\; -(3x-5) < -2(x-1) \\
+  &\implies  3x-5 < -2(x-1)  \; and \; 3x-5 > 2(x-1) 
+\end{flalign}
+\begin{flalign}
+  &3x-5 < -2(x-1) \implies  3x < -2x+7 \implies 5x < 7 \implies x < 7/5 \\
+  &\implies 3x-5 > 2(x-1) \implies 3x > 2x + 3 \implies x > 3 
+\end{flalign}
+Here \( x > 3\) is inconsistent with our assumption \(x < 1\). So for \(x<1\) there are no values of \(x\) satisfying the inequality
+  
 \end{frame}
 
 
