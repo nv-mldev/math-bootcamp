@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1738085527 "/Users/nithinvadekkapat/dev/tutorials/maths/math-bootcamp/chapters/algebra/algebra.tex" "algebra.pdf" "algebra" 1738085530 0
-  "/Users/nithinvadekkapat/dev/tutorials/maths/math-bootcamp/chapters/algebra/algebra.tex" 1738085527 26400 180485cfe999997a319ace5f125a7c9b ""
+["pdflatex"] 1738133754 "/Users/nithinvadekkapat/dev/tutorials/maths/math-bootcamp/chapters/algebra/algebra.tex" "algebra.pdf" "algebra" 1738133757 0
+  "/Users/nithinvadekkapat/dev/tutorials/maths/math-bootcamp/chapters/algebra/algebra.tex" 1738133754 26662 953a36668458562f6eb9c2234bec3082 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -211,10 +211,10 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1684425956 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1684425911 7883455 938180f2acef8909a469ea0b2292a446 ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "algebra.aux" 1738085530 9594 8f59eb7813a72a55f0c80de6a2aa715f "pdflatex"
-  "algebra.nav" 1738085530 6521 f7b9543d9c13110cabb4484ecfb82254 "pdflatex"
-  "algebra.out" 1738085530 806 efe505b355131924ec76e5e45f982c36 "pdflatex"
-  "algebra.tex" 1738085527 26400 180485cfe999997a319ace5f125a7c9b ""
+  "algebra.aux" 1738133757 9594 8f59eb7813a72a55f0c80de6a2aa715f "pdflatex"
+  "algebra.nav" 1738133757 6521 f7b9543d9c13110cabb4484ecfb82254 "pdflatex"
+  "algebra.out" 1738133757 806 efe505b355131924ec76e5e45f982c36 "pdflatex"
+  "algebra.tex" 1738133754 26662 953a36668458562f6eb9c2234bec3082 ""
   "pics/cartesian.png" 1737388023 69411 23bc387c701f24f215b55df4ca90d672 ""
   "pics/function-engine.png" 1737430191 60665 635af36555e0e884bc68ad999626ee6d ""
   "pics/graph.png" 1737557205 21739 58f433cc7380054f3b388dbcd2ff6e80 ""

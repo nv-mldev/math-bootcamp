@@ -1352,6 +1352,9 @@ INPUT ./pics/horizontal-shift.png
 INPUT pics/horizontal-shift.png
 INPUT ./pics/horizontal-shift.png
 INPUT ./pics/horizontal-shift.png
+INPUT ./pics/horizontal-shift.png
+INPUT pics/horizontal-shift.png
+INPUT ./pics/horizontal-shift.png
 OUTPUT algebra.nav
 OUTPUT algebra.toc
 OUTPUT algebra.snm
