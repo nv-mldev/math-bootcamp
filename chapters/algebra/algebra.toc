@@ -1,3 +1,5 @@
-\beamer@sectionintoc {1}{Algebra of real numbers}{11}{0}{1}
-\beamer@subsectionintoc {1}{1}{Inequalities,Intervals and Absolute Value}{13}{0}{1}
-\beamer@sectionintoc {2}{Functions}{37}{0}{2}
+\beamer@sectionintoc {1}{Introduction}{2}{0}{1}
+\beamer@sectionintoc {2}{Algebra of real numbers}{11}{0}{2}
+\beamer@subsectionintoc {2}{1}{Inequalities,Intervals and Absolute Value}{13}{0}{2}
+\beamer@sectionintoc {3}{Functions}{37}{0}{3}
+\beamer@subsectionintoc {3}{1}{Function Transformation}{56}{0}{3}
