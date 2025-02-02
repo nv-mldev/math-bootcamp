@@ -882,10 +882,128 @@ The graph of an even function is symmetric if flipped or rotated 18 across the o
     \includegraphics[width=\linewidth]{odd2.png}
     \end{figure}
   \end{column}
-
 \end{columns}
+\end{frame}
 
+
+\begin{frame}
+  \frametitle{Algebra of Functions} 
+    Suppose \(f\) and \(g\) are functions. We can define new functions from \(f\) and \(g\) as follows: \\
+  
+  \pause
+    \textbf{Sum:}  
+    \[
+    (f+g)(x) = f(x) + g(x)
+    \]
+    
+    \pause
+    \textbf{Difference:}  
+    \[
+    (f-g)(x) = f(x) - g(x)
+    \]
+    
+    \pause
+    \textbf{Product:}  
+    \[
+    (f\cdot g)(x) = f(x) \cdot g(x)
+    \]
+    
+    \pause
+    \textbf{Quotient:}  
+    \[
+    \left(\frac{f}{g}\right)(x) = \frac{f(x)}{g(x)} \quad \text{provided } g(x) \neq 0.
+    \]
+    \textbf{Note:} If \(f\) and \(g\) have domains \(D_f\) and \(D_g\), then these operations are defined on the intersection \(D_f \cap D_g\). In the case of the quotient, it is defined on
+    \[
+    \{x \in D_f \cap D_g : g(x) \neq 0\}.
+    \]
+    
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Exercise }
+    \( f(x)  = \sqrt{x-3}\) and \(g(x) = \sqrt{8 - x }\)
+    
+    Evaluate
+    \begin{enumerate}
+      \item[a.] \((f+g)(x)\)  
+      \item[b.]  \((fg)(x)\)
+      \item[c.] Find the domain of above 
+    \end{enumerate}
+  \pause 
+  Sol: 
+  \begin{enumerate}
+    \item[a.] \(\sqrt{x-3} + \sqrt{8-x} \) 
+    \item[b.] \(\sqrt{(x-3)(8-x)} \)  
+    \item[c.]  Domian of \begin{enumerate}
+      \item[a.] \(x\geq 3 \)  
+      \item[b.] \(x \leq 8 \)  
+      \item[c.] \( 3 \leq x \leq 8 \)    
+    \end{enumerate}
+  \end{enumerate}
+\end{frame}
+  \begin{frame}{Function Composition }
+    \begin{block}{Definition:}  
+    If \( f(x) \) and \( g(x) \) are functions, then the composition of \( f \) and \( g \), denoted by \( f \circ g \), is defined by
+    \[
+      (f \circ g)(x) = f(g(x)).
+    \]
+    \end{block}
+    \medskip
+    
+    \textbf{Example:}
+    Consider the function
+    \[
+      h(x) = \sqrt{x+3}.
+    \]
+    We can express \( h(x) \) as a composition of two functions \( f \) and \( g \) where:
+    \[
+      f(x) = \sqrt{x} \quad \text{and} \quad g(x) = x+3.
+    \]
+    
+    Then,
+    \[
+      h(x) = f(g(x)) = f(x+3) = \sqrt{x+3}.
+    \]
+    
+   
+  \end{frame}
+  
+\begin{frame}
+  \frametitle{Exercise}
+  \(
+  f(x) = \frac{1}{x-4} 
+  \) and \( g(x) = x^{2} \) 
+
+  \begin{enumerate}
+    \item \(f \circ g \)  
+    \item \( g \circ f \)   
+    \item domian of \(f \circ g \) 
+    \item domain of \( g \circ f \) 
+  \end{enumerate}
+
+  Sol: \pause 
+
+  \begin{enumerate}
+    \item  \(f(g(x)) = \frac{1}{x^{2} - 4}\)
+    \item \(g(f(x)) = (\frac{1}{x-4})^{2}\) 
+    \item \(R - \{-2,2\} \)  
+    \item \(R - \{4\} \)  
+
+  \end{enumerate}
+
+\end{frame}
+  
+\begin{frame}
+  \frametitle{Composition Machine}
+\begin{figure}
+  \centering 
+  \includegraphics[scale=0.3]{composition.png}
+\end{figure}
   
 
 \end{frame}
+
+
+
 \end{document}

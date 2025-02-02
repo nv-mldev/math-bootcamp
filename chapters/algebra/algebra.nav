@@ -125,8 +125,18 @@
 \headcommand {\beamer@framepages {65}{65}}
 \headcommand {\slideentry {3}{1}{11}{66/66}{Function Transformation}{0}}
 \headcommand {\beamer@framepages {66}{66}}
-\headcommand {\beamer@partpages {1}{66}}
-\headcommand {\beamer@subsectionpages {56}{66}}
-\headcommand {\beamer@sectionpages {37}{66}}
-\headcommand {\beamer@documentpages {66}}
-\headcommand {\gdef \inserttotalframenumber {57}}
+\headcommand {\slideentry {3}{1}{12}{67/71}{Function Transformation}{0}}
+\headcommand {\beamer@framepages {67}{71}}
+\headcommand {\slideentry {3}{1}{13}{72/73}{Function Transformation}{0}}
+\headcommand {\beamer@framepages {72}{73}}
+\headcommand {\slideentry {3}{1}{14}{74/74}{Function Transformation}{0}}
+\headcommand {\beamer@framepages {74}{74}}
+\headcommand {\slideentry {3}{1}{15}{75/76}{Function Transformation}{0}}
+\headcommand {\beamer@framepages {75}{76}}
+\headcommand {\slideentry {3}{1}{16}{77/77}{Function Transformation}{0}}
+\headcommand {\beamer@framepages {77}{77}}
+\headcommand {\beamer@partpages {1}{77}}
+\headcommand {\beamer@subsectionpages {56}{77}}
+\headcommand {\beamer@sectionpages {37}{77}}
+\headcommand {\beamer@documentpages {77}}
+\headcommand {\gdef \inserttotalframenumber {62}}
