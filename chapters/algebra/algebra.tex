@@ -7,6 +7,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{framed}
+\usepackage{tikz}
 \setbeamercolor{mycolorbox}{%
   bg=blue!20,   % background color (20% blue)
   fg=black      % foreground (text) color
@@ -1310,6 +1311,13 @@ it has same slope
     \end{figure}
   \end{frame}
   \subsubsection{Quadratic Functions and Conics}
+  \begin{frame}{Conics}
+    \begin{figure}
+      \begin{center}
+        \includegraphics[scale = 0.3]{conic-section.png}
+      \end{center}
+    \end{figure}
+  \end{frame}
   \begin{frame}
     \frametitle{Quadratic Function}
     \begin{block}{Definition}
@@ -1341,6 +1349,7 @@ it has same slope
     \end{block}
   \end{frame}
 
+  
   \begin{frame}
     \frametitle{Parabola}
    \begin{exampleblock}{Example}
@@ -1428,15 +1437,9 @@ it has same slope
   \begin{block}{Foci}
 The \textbf{foci} of an ellispe are two points with the property that the
 sum of the distances from the \textbf{foci} to any point on the ellipse is a constant independent of the point on the ellispe    
-  \end{block}
-
- 
-  
+  \end{block} 
  
  \end{frame}
-
-
-
 
  \begin{frame}
   \frametitle{Ellispe}
@@ -1445,4 +1448,108 @@ sum of the distances from the \textbf{foci} to any point on the ellipse is a con
     \includegraphics[scale=0.5]{ellipse1.png}
   \end{figure}
  \end{frame}
+
+ \begin{frame}
+  \frametitle{Ellispe}
+  \begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{foci.png}
+  \end{figure}
+ \end{frame}
+
+ \begin{frame}{Eccentricity of an Ellipse}
+  \begin{block}{Definition}
+      The \textbf{eccentricity} ($e$) of an ellipse is a measure of how much the ellipse deviates from being a circle. It is defined as
+      \[
+      e = \frac{c}{a} .
+      \]
+      \[
+  c^2 = a^2 - b^2,
+  \]
+  \[e = \sqrt{1 - \frac{b^2}{a^2}}\]
+      where:
+      \begin{itemize}
+          \item $c$ is the distance from the center to a focus.
+          \item $a$ is the length of the semi-major axis.
+      \end{itemize}
+  \end{block}
+  
+  
+ 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Eccentricity}
+  \bigskip
+  \begin{center}
+  \begin{tikzpicture}[scale=0.8]
+      % Draw the ellipse
+      \draw[thick] (0,0) ellipse (3cm and 2cm);
+      
+      % Draw major and minor axes
+      \draw[dashed] (-3,0) -- (3,0);
+      \draw[dashed] (0,-2) -- (0,2);
+      
+      % Mark the center
+      \fill (0,0) circle (2pt) node[below right] {Center};
+      
+      % Mark the foci
+      \fill (-2,0) circle (2pt) node[below] {$F_1$};
+      \fill (2,0) circle (2pt) node[below] {$F_2$};
+      
+      % Indicate the semi-major axis (a)
+      \draw[<->, blue] (0, -2.5) -- (3, -2.5) node[midway, fill=white] {$a$};
+      
+      % Indicate the focal distance (c)
+      \draw[<->, red] (0, -3.0) -- (2, -3.0) node[midway, fill=white] {$c$};
+  \end{tikzpicture}
+  \end{center}
+  Additionally, the semi-minor axis $b$ is related to $a$ and $c$ by:
+  
+  \bigskip
+  \textbf{Key Points:}
+  \begin{itemize}
+      \item If $e = 0$, the ellipse is a circle.
+      \item If $0 < e < 1$, the ellipse is elongated, with greater elongation as $e$ increases.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hyperbola}
+\begin{block}{Definition}
+  The graph of the equation of the form 
+  \[
+\frac{y^2}{b^2} - \frac{x^2}{a^2} = 1
+\]
+where \(a,b\) are non-zero numbers
+\end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \centering 
+    \includegraphics[scale=0.5]{hyperbola2.png}
+  \end{figure}
+\end{frame}
+\begin{frame}
+  \frametitle{Hyperbola}
+  \begin{block}{Foci}
+    The foci of a hyperbola are two points with the property that the difference of
+the distances from the foci to a point on the hyperbola is a constant independent
+of the point on the hyperbola
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \centering 
+    \includegraphics[scale=0.4]{hyperbola3.png}
+  \end{figure}
+\end{frame}
+\begin{frame}
+  \begin{figure}
+    \centering 
+    \includegraphics[scale=0.5]{hyperbola1.png}
+  \end{figure}
+\end{frame}
 \end{document}
