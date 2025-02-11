@@ -9,4 +9,6 @@
 \beamer@subsectionintoc {3}{4}{Function Composition}{67}{0}{3}
 \beamer@subsectionintoc {3}{5}{Inverse Functions}{89}{0}{3}
 \beamer@sectionintoc {4}{Linear,Quadratic, Polynomial and Rational Functions}{99}{0}{4}
-\beamer@subsubsectionintoc {4}{0}{1}{Quadratic Functions and Conics}{112}{0}{4}
+\beamer@subsectionintoc {4}{1}{Lines and Linear Function}{99}{0}{4}
+\beamer@subsectionintoc {4}{2}{Quadratic Functions and Conics}{112}{0}{4}
+\beamer@subsectionintoc {4}{3}{Exponents}{132}{0}{4}
