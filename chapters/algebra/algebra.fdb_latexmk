@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1739362925.47663 "/home/nithin/Work/tutorials/math-bootcamp/chapters/algebra/algebra.tex" "algebra.pdf" "algebra" 1739362931.08104 2
+["pdflatex"] 1739363093.91012 "/home/nithin/Work/tutorials/math-bootcamp/chapters/algebra/algebra.tex" "algebra.pdf" "algebra" 1739363099.65105 0
   "/etc/texmf/web2c/texmf.cnf" 1723687623.79219 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/nithin/Work/tutorials/math-bootcamp/chapters/algebra/algebra.tex" 1739362919.52167 56339 7d114d8526d6bd0ad20ff37a68ccdd22 ""
+  "/home/nithin/Work/tutorials/math-bootcamp/chapters/algebra/algebra.tex" 1739363088.04466 56083 548f5775bfb12888951ca97d25b9ffc1 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcss1095.tfm" 1136768653 1536 f0fa079cdc83a6ffeda21e42352cf1ea ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -264,10 +264,10 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1723687635.49297 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1723687725 8215674 8d2ba6d07baa352f3afc894ac7429bd0 ""
-  "algebra.aux" 1739362930.94791 22756 2716af052ae3843be412e3a99e3c1cc7 "pdflatex"
-  "algebra.nav" 1739362930.94991 16405 fae9f1b6d020c8f9d24d785953157868 "pdflatex"
-  "algebra.out" 1739362930.94991 2286 ff5ce528a8cc5691c2c1b271fdf474f3 "pdflatex"
-  "algebra.tex" 1739362919.52167 56339 7d114d8526d6bd0ad20ff37a68ccdd22 ""
+  "algebra.aux" 1739363099.55066 22615 aa7456455abd69cea1c4ffc8e8eb67cc "pdflatex"
+  "algebra.nav" 1739363099.55266 16300 dbbf393429ebd6c2f1c4886514e9d9fe "pdflatex"
+  "algebra.out" 1739363099.55266 2286 ff5ce528a8cc5691c2c1b271fdf474f3 "pdflatex"
+  "algebra.tex" 1739363088.04466 56083 548f5775bfb12888951ca97d25b9ffc1 ""
   "pics/Celsius to Fahrenheit Comparison.png" 1739077352.71011 115868 6fa5fa6218033929f6ad7e94ccd33cd1 ""
   "pics/Kilograms to Pounds Comparison.png" 1739077352.71011 118032 79b55627cdc2c712db115ea9107f8ed5 ""
   "pics/cartesian.png" 1737335423.20606 69411 23bc387c701f24f215b55df4ca90d672 ""
