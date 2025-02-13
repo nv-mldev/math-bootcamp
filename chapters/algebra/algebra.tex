@@ -1677,7 +1677,151 @@ The number \(x^{1/m}\) is called the \textbf{\(m^{th}\)} root of \(x\).
 \end{frame}
 
 
+\begin{frame}{Rational Exponents}
+  \begin{block}{Definition}
+  Suppose \(\frac{n}{m}\) is a fraction in reduced form, where \(n\) and \(m\) are integers and \(m > 0\). Then, whenever it makes sense,
+  \[
+    x^{\frac{n}{m}} = \Bigl(x^{\frac{1}{m}}\Bigr)^n.
+  \]
+  \vspace{0.5em}
+  \textbf{Note:} For the expression \(x^{\frac{1}{m}}\) to be defined, additional conditions on \(x\) may be required (for example, if \(m\) is even, then typically \(x \ge 0\)).
+  \end{block}
+\end{frame}
 
+\begin{frame}{Algebra of Exponents}
+  \begin{block}{Exponent Rules}
+    Let \(p, q\) be rational numbers and \(x, y\) be positive numbers. Then the following rules hold:
+    \begin{itemize}
+      \item \(x^p \cdot x^q = x^{\,p+q}\)
+      \item \(x^p \cdot y^p = (xy)^p\)
+      \item \((x^p)^q = x^{\,pq}\)
+      \item \(x^0 = 1\)
+      \item \(x^{-p} = \dfrac{1}{x^p}\)
+      \item \(\dfrac{x^p}{x^q} = x^{\,p-q}\)
+      \item \(\left(\dfrac{x}{y}\right)^p = \dfrac{x^p}{y^p}\)
+    \end{itemize}
+  \end{block}
+\end{frame}
+\subsection{Polynomials}
+\begin{frame}{Polynomial Definition}
+  \begin{block}{Definition of a Polynomial}
+    A polynomial is a function \( p \) such that
+    \[
+      p(x) = a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n,
+    \]
+    where \( n \) is a nonnegative integer and \( a_0, a_1, a_2, \dots, a_n \) are numbers.
+  \end{block}
+\end{frame}
+
+\begin{frame}{Degree of a Polynomial}
+  \begin{block}{Definition}
+    Suppose \( p \) is a polynomial defined by
+    \[
+      p(x) = a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n.
+    \]
+    If \( a_n \neq 0 \), then we say that \( p \) has degree \( n \). The degree of \( p \) is denoted by \(\deg p\).
+  \end{block}
+\end{frame}
+
+
+\begin{frame}{Polynomial Graphs}
+  \centering
+  % First Column
+  \begin{minipage}[t]{0.45\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{polynomial_degree_0.png}\\[1mm]
+    \includegraphics[width=0.9\linewidth]{polynomial_degree_1.png}\\[1mm]
+  \end{minipage}
+  \begin{minipage}[t]{0.45\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{polynomial_degree_2.png}
+  \end{minipage}
+\end{frame}
+
+
+\begin{frame}
+  \centering
+  \begin{minipage}[t]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{polynomial_degree_4.png}\\[1mm]
+    \includegraphics[width=\linewidth]{polynomial_degree_7.png}
+  \end{minipage}
+\end{frame}
+
+
+\begin{frame}{The Algebra of Polynomials}
+  Two functions can be added, subtracted, or multiplied, producing another function. Specifically, if \(p\) and \(q\) are functions, then the functions 
+  \[
+    p+q,\quad p-q,\quad \text{and} \quad pq
+  \]
+  are defined by
+  \[
+    (p+q)(x) = p(x) + q(x),
+  \]
+  \[
+    (p-q)(x) = p(x) - q(x),
+  \]
+  \[
+    (pq)(x) = p(x) \, q(x).
+  \]
+\end{frame}
+
+
+\begin{frame}{Degree of the Sum and Difference of Two Polynomials}
+  \begin{alertblock}{Important Result}
+  If \(p\) and \(q\) are nonzero polynomials, then
+  \[
+  \deg(p+q) \leq \max\{\deg p,\, \deg q\},
+  \]
+  and
+  \[
+  \deg(p-q) \leq \max\{\deg p,\, \deg q\}.
+  \]
+  \end{alertblock}
+
+ 
+  \begin{alertblock}{Degree of the Product of Two Polynomials}
+    If \(p\) and \(q\) are nonzero polynomials, then
+    \[
+    \deg(pq) = \deg p + \deg q.
+    \]
+  \end{alertblock}
+\end{frame}
+  
+
+\begin{frame}{Example: Polynomials \(p\) and \(q\)}
+  \begin{exampleblock}{Problem}
+  Suppose \(p\) and \(q\) are polynomials defined by
+  \[
+  p(x) = 2 - 3x^2 \quad \text{and} \quad q(x) = 4x + 7x^5.
+  \]
+  Answer the following:
+  \begin{enumerate}
+      \item What is \(\deg p\)?
+      \item What is \(\deg q\)?
+      \item Find a formula for \(pq\).
+      \item What is \(\deg(pq)\)?
+  \end{enumerate}
+  \end{exampleblock}
+\end{frame} 
+\begin{frame}
+  \begin{exampleblock}{Solution}
+  \begin{enumerate}
+      \item Since \(p(x) = 2 - 3x^2\) has the highest power \(x^2\), we have \(\deg p = 2\).
+      \item For \(q(x) = 4x + 7x^5\), the highest power is \(x^5\), so \(\deg q = 5\).
+      \item The product \(pq\) is computed as follows:
+      \[
+      pq = (2-3x^2)(4x+7x^5) = 2\cdot 4x + 2\cdot 7x^5 - 3x^2\cdot 4x - 3x^2\cdot 7x^5,
+      \]
+      which simplifies to:
+      \[
+      pq = 8x - 12x^3 + 14x^5 - 21x^7.
+      \]
+      \item The highest power in \(pq\) is \(x^7\), so \(\deg(pq) = 7\).
+  \end{enumerate}
+  \end{exampleblock}
+  \end{frame}
+  
 
 
 \end{document}

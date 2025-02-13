@@ -12,3 +12,4 @@
 \beamer@subsectionintoc {4}{1}{Lines and Linear Function}{99}{0}{4}
 \beamer@subsectionintoc {4}{2}{Quadratic Functions and Conics}{112}{0}{4}
 \beamer@subsectionintoc {4}{3}{Exponents}{132}{0}{4}
+\beamer@subsectionintoc {4}{4}{Polynomials}{142}{0}{4}

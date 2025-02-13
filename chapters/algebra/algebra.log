@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.8.15)  12 FEB 2025 17:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.8.15)  13 FEB 2025 17:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -824,7 +824,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ] [6
 
 ]
-<pics/real-line.png, id=299, 725.71124pt x 113.42375pt>
+<pics/real-line.png, id=304, 725.71124pt x 113.42375pt>
 File: pics/real-line.png Graphic file (type png)
 <use pics/real-line.png>
 Package pdftex.def Info: pics/real-line.png  used on input line 150.
@@ -832,7 +832,7 @@ Package pdftex.def Info: pics/real-line.png  used on input line 150.
  [7
 
  <./pics/real-line.png (PNG copy)>]
-<pics/irrational-geometry.png, id=330, 262.9825pt x 174.6525pt>
+<pics/irrational-geometry.png, id=334, 262.9825pt x 174.6525pt>
 File: pics/irrational-geometry.png Graphic file (type png)
 <use pics/irrational-geometry.png>
 Package pdftex.def Info: pics/irrational-geometry.png  used on input line 164.
@@ -902,7 +902,7 @@ Package pdftex.def Info: pics/irrational-geometry.png  used on input line 164.
 ] [39
 
 ]
-<pics/function-engine.png, id=1452, 659.46375pt x 245.91875pt>
+<pics/function-engine.png, id=1456, 659.46375pt x 245.91875pt>
 File: pics/function-engine.png Graphic file (type png)
 <use pics/function-engine.png>
 Package pdftex.def Info: pics/function-engine.png  used on input line 600.
@@ -930,7 +930,7 @@ Package pdftex.def Info: pics/function-engine.png  used on input line 600.
 ] [50
 
 ]
-<pics/cartesian.png, id=1856, 803.1606pt x 724.1454pt>
+<pics/cartesian.png, id=1860, 803.1606pt x 724.1454pt>
 File: pics/cartesian.png Graphic file (type png)
 <use pics/cartesian.png>
 Package pdftex.def Info: pics/cartesian.png  used on input line 666.
@@ -940,12 +940,12 @@ Package pdftex.def Info: pics/cartesian.png  used on input line 666.
  <./pics/cartesian.png>] [52
 
 ]
-<pics/graph.png, id=1925, 409.7709pt x 330.2739pt>
+<pics/graph.png, id=1929, 409.7709pt x 330.2739pt>
 File: pics/graph.png Graphic file (type png)
 <use pics/graph.png>
 Package pdftex.def Info: pics/graph.png  used on input line 684.
 (pdftex.def)             Requested size: 122.9322pt x 99.08292pt.
-<pics/graph2.png, id=1926, 400.3758pt x 317.2653pt>
+<pics/graph2.png, id=1930, 400.3758pt x 317.2653pt>
 File: pics/graph2.png Graphic file (type png)
 <use pics/graph2.png>
 Package pdftex.def Info: pics/graph2.png  used on input line 684.
@@ -953,7 +953,7 @@ Package pdftex.def Info: pics/graph2.png  used on input line 684.
  [53
 
  <./pics/graph.png> <./pics/graph2.png>]
-<pics/not-fn.png, id=1957, 255.95625pt x 182.6825pt>
+<pics/not-fn.png, id=1961, 255.95625pt x 182.6825pt>
 File: pics/not-fn.png Graphic file (type png)
 <use pics/not-fn.png>
 Package pdftex.def Info: pics/not-fn.png  used on input line 697.
@@ -968,7 +968,7 @@ Package pdftex.def Info: pics/not-fn.png  used on input line 697.
  [55
 
 ]
-<pics/vertical_shift.png, id=2039, 409.7709pt x 298.4751pt>
+<pics/vertical_shift.png, id=2043, 409.7709pt x 298.4751pt>
 File: pics/vertical_shift.png Graphic file (type png)
 <use pics/vertical_shift.png>
 Package pdftex.def Info: pics/vertical_shift.png  used on input line 711.
@@ -976,7 +976,7 @@ Package pdftex.def Info: pics/vertical_shift.png  used on input line 711.
  [56
 
  <./pics/vertical_shift.png>]
-<pics/vertical_stretch.png, id=2082, 401.8212pt x 298.4751pt>
+<pics/vertical_stretch.png, id=2086, 401.8212pt x 298.4751pt>
 File: pics/vertical_stretch.png Graphic file (type png)
 <use pics/vertical_stretch.png>
 Package pdftex.def Info: pics/vertical_stretch.png  used on input line 722.
@@ -984,7 +984,7 @@ Package pdftex.def Info: pics/vertical_stretch.png  used on input line 722.
  [57
 
  <./pics/vertical_stretch.png>]
-<pics/vertical_flip.png, id=2123, 410.4936pt x 298.4751pt>
+<pics/vertical_flip.png, id=2127, 410.4936pt x 298.4751pt>
 File: pics/vertical_flip.png Graphic file (type png)
 <use pics/vertical_flip.png>
 Package pdftex.def Info: pics/vertical_flip.png  used on input line 733.
@@ -992,7 +992,7 @@ Package pdftex.def Info: pics/vertical_flip.png  used on input line 733.
  [58
 
  <./pics/vertical_flip.png>]
-<pics/horizontal-shift.png, id=2165, 393.8715pt x 298.4751pt>
+<pics/horizontal-shift.png, id=2169, 393.8715pt x 298.4751pt>
 File: pics/horizontal-shift.png Graphic file (type png)
 <use pics/horizontal-shift.png>
 Package pdftex.def Info: pics/horizontal-shift.png  used on input line 743.
@@ -1000,7 +1000,7 @@ Package pdftex.def Info: pics/horizontal-shift.png  used on input line 743.
  [59
 
  <./pics/horizontal-shift.png>]
-<pics/horizontal-stretch.png, id=2206, 395.3169pt x 298.4751pt>
+<pics/horizontal-stretch.png, id=2210, 395.3169pt x 298.4751pt>
 File: pics/horizontal-stretch.png Graphic file (type png)
 <use pics/horizontal-stretch.png>
 Package pdftex.def Info: pics/horizontal-stretch.png  used on input line 753.
@@ -1008,7 +1008,7 @@ Package pdftex.def Info: pics/horizontal-stretch.png  used on input line 753.
  [60
 
  <./pics/horizontal-stretch.png>]
-<pics/vertical-axis-flip.png, id=2244, 403.9893pt x 298.4751pt>
+<pics/vertical-axis-flip.png, id=2248, 403.9893pt x 298.4751pt>
 File: pics/vertical-axis-flip.png Graphic file (type png)
 <use pics/vertical-axis-flip.png>
 Package pdftex.def Info: pics/vertical-axis-flip.png  used on input line 763.
@@ -1016,7 +1016,7 @@ Package pdftex.def Info: pics/vertical-axis-flip.png  used on input line 763.
  [61
 
  <./pics/vertical-axis-flip.png>]
-<pics/vertical_combination.png, id=2274, 403.9893pt x 314.3745pt>
+<pics/vertical_combination.png, id=2278, 403.9893pt x 314.3745pt>
 File: pics/vertical_combination.png Graphic file (type png)
 <use pics/vertical_combination.png>
 Package pdftex.def Info: pics/vertical_combination.png  used on input line 770.
@@ -1026,12 +1026,12 @@ Package pdftex.def Info: pics/vertical_combination.png  used on input line 770.
  <./pics/vertical_combination.png>] [63
 
 ]
-<pics/even.png, id=2343, 413.3844pt x 314.3745pt>
+<pics/even.png, id=2347, 413.3844pt x 314.3745pt>
 File: pics/even.png Graphic file (type png)
 <use pics/even.png>
 Package pdftex.def Info: pics/even.png  used on input line 790.
 (pdftex.def)             Requested size: 171.14764pt x 130.15598pt.
-<pics/even2.png, id=2344, 398.9304pt x 314.3745pt>
+<pics/even2.png, id=2348, 398.9304pt x 314.3745pt>
 File: pics/even2.png Graphic file (type png)
 <use pics/even2.png>
 Package pdftex.def Info: pics/even2.png  used on input line 790.
@@ -1041,12 +1041,12 @@ Package pdftex.def Info: pics/even2.png  used on input line 790.
  <./pics/even.png> <./pics/even2.png>] [65
 
 ]
-<pics/odd.png, id=2410, 413.3844pt x 314.3745pt>
+<pics/odd.png, id=2414, 413.3844pt x 314.3745pt>
 File: pics/odd.png Graphic file (type png)
 <use pics/odd.png>
 Package pdftex.def Info: pics/odd.png  used on input line 816.
 (pdftex.def)             Requested size: 171.14764pt x 130.15598pt.
-<pics/odd2.png, id=2411, 403.9893pt x 314.3745pt>
+<pics/odd2.png, id=2415, 403.9893pt x 314.3745pt>
 File: pics/odd2.png Graphic file (type png)
 <use pics/odd2.png>
 Package pdftex.def Info: pics/odd2.png  used on input line 816.
@@ -1074,7 +1074,7 @@ Package pdftex.def Info: pics/odd2.png  used on input line 816.
 ] [76
 
 ]
-<pics/composition.png, id=2724, 1110.1475pt x 310.15875pt>
+<pics/composition.png, id=2728, 1110.1475pt x 310.15875pt>
 File: pics/composition.png Graphic file (type png)
 <use pics/composition.png>
 Package pdftex.def Info: pics/composition.png  used on input line 924.
@@ -1114,7 +1114,7 @@ File: ts1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 ] [91
 
 ]
-<pics/inverse.jpeg, id=3279, 758.835pt x 252.945pt>
+<pics/inverse.jpeg, id=3283, 758.835pt x 252.945pt>
 File: pics/inverse.jpeg Graphic file (type jpg)
 <use pics/inverse.jpeg>
 Package pdftex.def Info: pics/inverse.jpeg  used on input line 1092.
@@ -1126,7 +1126,7 @@ Package pdftex.def Info: pics/inverse.jpeg  used on input line 1092.
 ] [94
 
 ]
-<pics/increase.jpeg, id=3403, 1316.92pt x 666.49pt>
+<pics/increase.jpeg, id=3407, 1316.92pt x 666.49pt>
 File: pics/increase.jpeg Graphic file (type jpg)
 <use pics/increase.jpeg>
 Package pdftex.def Info: pics/increase.jpeg  used on input line 1131.
@@ -1141,7 +1141,7 @@ Package pdftex.def Info: pics/increase.jpeg  used on input line 1131.
  [96
 
 ]
-<pics/non-increse-decrese.png, id=3457, 252.945pt x 270.00874pt>
+<pics/non-increse-decrese.png, id=3461, 252.945pt x 270.00874pt>
 File: pics/non-increse-decrese.png Graphic file (type png)
 <use pics/non-increse-decrese.png>
 Package pdftex.def Info: pics/non-increse-decrese.png  used on input line 1138.
@@ -1151,7 +1151,7 @@ Package pdftex.def Info: pics/non-increse-decrese.png  used on input line 1138.
  <./pics/non-increse-decrese.png>] [98
 
 ]
-<pics/slope.png, id=3522, 969.6225pt x 519.9425pt>
+<pics/slope.png, id=3526, 969.6225pt x 519.9425pt>
 File: pics/slope.png Graphic file (type png)
 <use pics/slope.png>
 Package pdftex.def Info: pics/slope.png  used on input line 1157.
@@ -1161,7 +1161,7 @@ Package pdftex.def Info: pics/slope.png  used on input line 1157.
  <./pics/slope.png (PNG copy)>] [100
 
 ]
-<pics/slope2.png, id=3591, 869.2475pt x 1174.3875pt>
+<pics/slope2.png, id=3595, 869.2475pt x 1174.3875pt>
 File: pics/slope2.png Graphic file (type png)
 <use pics/slope2.png>
 Package pdftex.def Info: pics/slope2.png  used on input line 1184.
@@ -1169,7 +1169,7 @@ Package pdftex.def Info: pics/slope2.png  used on input line 1184.
  [101
 
  <./pics/slope2.png>]
-<pics/line1.png, id=3633, 600.2425pt x 885.3075pt>
+<pics/line1.png, id=3637, 600.2425pt x 885.3075pt>
 File: pics/line1.png Graphic file (type png)
 <use pics/line1.png>
 Package pdftex.def Info: pics/line1.png  used on input line 1201.
@@ -1177,7 +1177,7 @@ Package pdftex.def Info: pics/line1.png  used on input line 1201.
  [102
 
  <./pics/line1.png>]
-<pics/line2.png, id=3674, 487.8225pt x 485.815pt>
+<pics/line2.png, id=3678, 487.8225pt x 485.815pt>
 File: pics/line2.png Graphic file (type png)
 <use pics/line2.png>
 Package pdftex.def Info: pics/line2.png  used on input line 1218.
@@ -1194,12 +1194,12 @@ Package pdftex.def Info: pics/line2.png  used on input line 1235.
 ] [105
 
 ]
-<pics/Celsius to Fahrenheit Comparison.png, id=3780, 507.3354pt x 397.84634pt>
+<pics/Celsius to Fahrenheit Comparison.png, id=3784, 507.3354pt x 397.84634pt>
 File: pics/Celsius to Fahrenheit Comparison.png Graphic file (type png)
 <use pics/Celsius to Fahrenheit Comparison.png>
 Package pdftex.def Info: pics/Celsius to Fahrenheit Comparison.png  used on input line 1267.
 (pdftex.def)             Requested size: 136.91862pt x 107.36531pt.
-<pics/Kilograms to Pounds Comparison.png, id=3781, 497.2176pt x 397.84634pt>
+<pics/Kilograms to Pounds Comparison.png, id=3785, 497.2176pt x 397.84634pt>
 File: pics/Kilograms to Pounds Comparison.png Graphic file (type png)
 <use pics/Kilograms to Pounds Comparison.png>
 Package pdftex.def Info: pics/Kilograms to Pounds Comparison.png  used on input line 1267.
@@ -1207,7 +1207,7 @@ Package pdftex.def Info: pics/Kilograms to Pounds Comparison.png  used on input 
  [106
 
  <./pics/Celsius to Fahrenheit Comparison.png> <./pics/Kilograms to Pounds Comparison.png>]
-<pics/constant.png, id=3823, 998.73125pt x 640.3925pt>
+<pics/constant.png, id=3827, 998.73125pt x 640.3925pt>
 File: pics/constant.png Graphic file (type png)
 <use pics/constant.png>
 Package pdftex.def Info: pics/constant.png  used on input line 1274.
@@ -1215,7 +1215,7 @@ Package pdftex.def Info: pics/constant.png  used on input line 1274.
  [107
 
  <./pics/constant.png (PNG copy)>]
-<pics/parallel.png, id=3851, 698.61pt x 550.055pt>
+<pics/parallel.png, id=3855, 698.61pt x 550.055pt>
 File: pics/parallel.png Graphic file (type png)
 <use pics/parallel.png>
 Package pdftex.def Info: pics/parallel.png  used on input line 1284.
@@ -1223,7 +1223,7 @@ Package pdftex.def Info: pics/parallel.png  used on input line 1284.
  [108
 
  <./pics/parallel.png>]
-<pics/negative-slope.png, id=3881, 640.3925pt x 315.1775pt>
+<pics/negative-slope.png, id=3885, 640.3925pt x 315.1775pt>
 File: pics/negative-slope.png Graphic file (type png)
 <use pics/negative-slope.png>
 Package pdftex.def Info: pics/negative-slope.png  used on input line 1294.
@@ -1231,7 +1231,7 @@ Package pdftex.def Info: pics/negative-slope.png  used on input line 1294.
  [109
 
  <./pics/negative-slope.png>]
-<pics/perpendicular.png, id=3911, 409.53pt x 794.97pt>
+<pics/perpendicular.png, id=3915, 409.53pt x 794.97pt>
 File: pics/perpendicular.png Graphic file (type png)
 <use pics/perpendicular.png>
 Package pdftex.def Info: pics/perpendicular.png  used on input line 1312.
@@ -1239,7 +1239,7 @@ Package pdftex.def Info: pics/perpendicular.png  used on input line 1312.
  [110
 
  <./pics/perpendicular.png>]
-<pics/unequal-scale.png, id=3951, 439.6425pt x 586.19pt>
+<pics/unequal-scale.png, id=3955, 439.6425pt x 586.19pt>
 File: pics/unequal-scale.png Graphic file (type png)
 <use pics/unequal-scale.png>
 Package pdftex.def Info: pics/unequal-scale.png  used on input line 1324.
@@ -1247,7 +1247,7 @@ Package pdftex.def Info: pics/unequal-scale.png  used on input line 1324.
  [111
 
  <./pics/unequal-scale.png>]
-<pics/conic-section.png, id=3979, 768.8725pt x 612.2875pt>
+<pics/conic-section.png, id=3983, 768.8725pt x 612.2875pt>
 File: pics/conic-section.png Graphic file (type png)
 <use pics/conic-section.png>
 Package pdftex.def Info: pics/conic-section.png  used on input line 1332.
@@ -1261,7 +1261,7 @@ Package pdftex.def Info: pics/conic-section.png  used on input line 1332.
 ] [115
 
 ]
-<pics/parabola.png, id=4133, 406.8801pt x 298.4751pt>
+<pics/parabola.png, id=4137, 406.8801pt x 298.4751pt>
 File: pics/parabola.png Graphic file (type png)
 <use pics/parabola.png>
 Package pdftex.def Info: pics/parabola.png  used on input line 1389.
@@ -1269,7 +1269,7 @@ Package pdftex.def Info: pics/parabola.png  used on input line 1389.
  [116
 
  <./pics/parabola.png>]
-<pics/distance-between-points.png, id=4162, 646.415pt x 371.3875pt>
+<pics/distance-between-points.png, id=4166, 646.415pt x 371.3875pt>
 File: pics/distance-between-points.png Graphic file (type png)
 <use pics/distance-between-points.png>
 Package pdftex.def Info: pics/distance-between-points.png  used on input line 1403.
@@ -1279,7 +1279,7 @@ Package pdftex.def Info: pics/distance-between-points.png  used on input line 14
  <./pics/distance-between-points.png>] [118
 
 ]
-<pics/ellipse0.png, id=4243, 307.1475pt x 578.16pt>
+<pics/ellipse0.png, id=4247, 307.1475pt x 578.16pt>
 File: pics/ellipse0.png Graphic file (type png)
 <use pics/ellipse0.png>
 Package pdftex.def Info: pics/ellipse0.png  used on input line 1419.
@@ -1287,7 +1287,7 @@ Package pdftex.def Info: pics/ellipse0.png  used on input line 1419.
  [119
 
  <./pics/ellipse0.png>]
-<pics/ellipse.png, id=4281, 721.69624pt x 297.11pt>
+<pics/ellipse.png, id=4285, 721.69624pt x 297.11pt>
 File: pics/ellipse.png Graphic file (type png)
 <use pics/ellipse.png>
 Package pdftex.def Info: pics/ellipse.png  used on input line 1431.
@@ -1299,7 +1299,7 @@ Package pdftex.def Info: pics/ellipse.png  used on input line 1431.
 ] [122
 
 ]
-<pics/ellipse1.png, id=4402, 301.125pt x 259.97125pt>
+<pics/ellipse1.png, id=4406, 301.125pt x 259.97125pt>
 File: pics/ellipse1.png Graphic file (type png)
 <use pics/ellipse1.png>
 Package pdftex.def Info: pics/ellipse1.png  used on input line 1462.
@@ -1307,7 +1307,7 @@ Package pdftex.def Info: pics/ellipse1.png  used on input line 1462.
  [123
 
  <./pics/ellipse1.png>]
-<pics/foci.png, id=4431, 761.84625pt x 250.9375pt>
+<pics/foci.png, id=4435, 761.84625pt x 250.9375pt>
 File: pics/foci.png Graphic file (type png)
 <use pics/foci.png>
 Package pdftex.def Info: pics/foci.png  used on input line 1470.
@@ -1321,7 +1321,7 @@ Package pdftex.def Info: pics/foci.png  used on input line 1470.
 ] [127
 
 ]
-<pics/hyperbola2.png, id=4566, 288.07625pt x 459.7175pt>
+<pics/hyperbola2.png, id=4570, 288.07625pt x 459.7175pt>
 File: pics/hyperbola2.png Graphic file (type png)
 <use pics/hyperbola2.png>
 Package pdftex.def Info: pics/hyperbola2.png  used on input line 1545.
@@ -1331,7 +1331,7 @@ Package pdftex.def Info: pics/hyperbola2.png  used on input line 1545.
  <./pics/hyperbola2.png>] [129
 
 ]
-<pics/hyperbola3.png, id=4632, 306.14375pt x 531.9875pt>
+<pics/hyperbola3.png, id=4636, 306.14375pt x 531.9875pt>
 File: pics/hyperbola3.png Graphic file (type png)
 <use pics/hyperbola3.png>
 Package pdftex.def Info: pics/hyperbola3.png  used on input line 1560.
@@ -1339,7 +1339,7 @@ Package pdftex.def Info: pics/hyperbola3.png  used on input line 1560.
  [130
 
  <./pics/hyperbola3.png>]
-<pics/hyperbola1.png, id=4660, 289.08pt x 458.71375pt>
+<pics/hyperbola1.png, id=4664, 289.08pt x 458.71375pt>
 File: pics/hyperbola1.png Graphic file (type png)
 <use pics/hyperbola1.png>
 Package pdftex.def Info: pics/hyperbola1.png  used on input line 1566.
@@ -1355,12 +1355,12 @@ Package pdftex.def Info: pics/hyperbola1.png  used on input line 1566.
 ] [135
 
 ]
-<pics/exponent-graph1.png, id=4859, 394.5942pt x 317.988pt>
+<pics/exponent-graph1.png, id=4865, 394.5942pt x 317.988pt>
 File: pics/exponent-graph1.png Graphic file (type png)
 <use pics/exponent-graph1.png>
 Package pdftex.def Info: pics/exponent-graph1.png  used on input line 1632.
 (pdftex.def)             Requested size: 157.83487pt x 127.19293pt.
-<pics/exponent-graph2.png, id=4860, 392.4261pt x 319.4334pt>
+<pics/exponent-graph2.png, id=4866, 392.4261pt x 319.4334pt>
 File: pics/exponent-graph2.png Graphic file (type png)
 <use pics/exponent-graph2.png>
 Package pdftex.def Info: pics/exponent-graph2.png  used on input line 1632.
@@ -1372,6 +1372,53 @@ Package pdftex.def Info: pics/exponent-graph2.png  used on input line 1632.
 ] [138
 
 ] [139
+
+] [140
+
+] [141
+
+] [142
+
+] [143
+
+]
+<pics/polynomial_degree_0.png, id=5185, 462.528pt x 346.896pt>
+File: pics/polynomial_degree_0.png Graphic file (type png)
+<use pics/polynomial_degree_0.png>
+Package pdftex.def Info: pics/polynomial_degree_0.png  used on input line 1739.
+(pdftex.def)             Requested size: 138.6277pt x 103.96902pt.
+<pics/polynomial_degree_1.png, id=5186, 462.528pt x 346.896pt>
+File: pics/polynomial_degree_1.png Graphic file (type png)
+<use pics/polynomial_degree_1.png>
+Package pdftex.def Info: pics/polynomial_degree_1.png  used on input line 1739.
+(pdftex.def)             Requested size: 138.6277pt x 103.96902pt.
+<pics/polynomial_degree_2.png, id=5187, 462.528pt x 346.896pt>
+File: pics/polynomial_degree_2.png Graphic file (type png)
+<use pics/polynomial_degree_2.png>
+Package pdftex.def Info: pics/polynomial_degree_2.png  used on input line 1739.
+(pdftex.def)             Requested size: 138.6277pt x 103.96902pt.
+ [144
+
+ <./pics/polynomial_degree_0.png> <./pics/polynomial_degree_1.png> <./pics/polynomial_degree_2.png>]
+<pics/polynomial_degree_4.png, id=5218, 462.528pt x 346.896pt>
+File: pics/polynomial_degree_4.png Graphic file (type png)
+<use pics/polynomial_degree_4.png>
+Package pdftex.def Info: pics/polynomial_degree_4.png  used on input line 1749.
+(pdftex.def)             Requested size: 154.03183pt x 115.52408pt.
+<pics/polynomial_degree_7.png, id=5219, 462.528pt x 346.896pt>
+File: pics/polynomial_degree_7.png Graphic file (type png)
+<use pics/polynomial_degree_7.png>
+Package pdftex.def Info: pics/polynomial_degree_7.png  used on input line 1749.
+(pdftex.def)             Requested size: 154.03183pt x 115.52408pt.
+ [145
+
+ <./pics/polynomial_degree_4.png> <./pics/polynomial_degree_7.png>] [146
+
+] [147
+
+] [148
+
+] [149
 
 ]
 \tf@nav=\write6
@@ -1389,21 +1436,21 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `algebra.out' has not changed.
-(rerunfilecheck)             Checksum: FF5CE528A8CC5691C2C1B271FDF474F3;2286.
+(rerunfilecheck)             Checksum: 86C006CB31CA4B23741C09CB3FA2377B;2401.
  ) 
 Here is how much of TeX's memory you used:
- 32916 strings out of 474222
- 699027 string characters out of 5748733
+ 33047 strings out of 474222
+ 702807 string characters out of 5748733
  1960975 words of memory out of 5000000
- 54275 multiletter control sequences out of 15000+600000
+ 54385 multiletter control sequences out of 15000+600000
  570981 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,15n,123p,458b,903s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1095.pfb>
-Output written on algebra.pdf (139 pages, 2245754 bytes).
+Output written on algebra.pdf (149 pages, 2384394 bytes).
 PDF statistics:
- 5181 PDF objects out of 6186 (max. 8388607)
- 4198 compressed objects within 42 object streams
- 293 named destinations out of 1000 (max. 500000)
- 3636 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 5568 PDF objects out of 6186 (max. 8388607)
+ 4504 compressed objects within 46 object streams
+ 314 named destinations out of 1000 (max. 500000)
+ 3951 words of extra memory for PDF output out of 10000 (max. 10000000)
 
