@@ -1,0 +1,362 @@
+\section{Algebra of real numbers}
+\begin{frame}{Properties of Real Numbers}
+  \begin{itemize}
+      \item \textbf{Commutative Properties}
+      \begin{itemize}
+          \item Addition: $a + b = b + a$
+          \item Multiplication: $a \cdot b = b \cdot a$
+      \end{itemize}
+      \vspace{5pt}
+
+      \item \textbf{Associative Properties}
+      \begin{itemize}
+          \item Addition: $(a + b) + c = a + (b + c)$
+          \item Multiplication: $(a \cdot b) \cdot c = a \cdot (b \cdot c)$
+      \end{itemize}
+      \vspace{5pt}
+      \item \textbf{Distributive Property}
+      \begin{itemize}
+          \item $a \cdot (b + c) = (a \cdot b) + (a \cdot c)$
+      \end{itemize}
+      \vspace{5pt}
+      \item \textbf{Identity Elements}
+      \begin{itemize}
+          \item Additive Identity: $a + 0 = a$
+          \item Multiplicative Identity: $a \cdot 1 = a$
+      \end{itemize}
+      \vspace{5pt}
+      \item \textbf{Inverse Elements}
+      \begin{itemize}
+          \item Additive Inverse: $a + (-a) = 0$
+          \item Multiplicative Inverse (if $a \neq 0$): $a \cdot \frac{1}{a} = 1$
+      \end{itemize}
+    \end{itemize}
+    \end{frame}
+    \begin{frame}{Properties of Real Numbers}
+    \begin{itemize}
+      \vspace{5pt}
+      \item \textbf{Closure Property}
+      \begin{itemize}
+          \item Real numbers are closed under addition, subtraction, multiplication, and division (except division by zero).
+      \end{itemize}
+  \end{itemize}
+  \end{frame}
+\subsection{Inequalities,Intervals and Absolute Value}
+\begin{frame}
+  \frametitle{Inequalities}
+  \begin{block}{Transitivity}
+    \begin{itemize}
+        \item If $a < b$ and $b < c$, then $a < c$
+      \end{itemize}
+  \end{block}
+  \begin{block}{Multiplication}
+    Suppose $a < b$
+    \begin{itemize}
+      \item If $c > 0$, then $ac < bc$
+      \item If $c <  0$, then $ ac > bc$
+    \end{itemize}
+  \end{block}
+\end{frame} 
+\begin{frame}
+  \frametitle{Exercise }
+  Find all number \( x \) such that 
+  \[\frac{x-8}{x-4} < 3 \] 
+Our first step  is to multiply by \(x-4\)
+Here there are two conditions:
+\begin{enumerate}
+  \item \( x-4 > 0 \) 
+  \[ x -8 < 3(x-4)  \implies x-8 < 3x-12 \implies 2x > 4  \implies x > 2\]
+  But our initial assumption is \(x-4 > 0 \implies x > 4 \). As \( 4 > 2 \), original inequality holds if \( x > 4\)
+\end{enumerate} 
+\end{frame}
+\begin{frame}
+  \frametitle{Exercise Conti.}
+\begin{enumerate}
+  \setcounter{enumi}{1}
+  \item \( x-4 < 0 \) 
+  \[ x-8 > 3(x-4) \implies  x < 2 \] 
+  Initial assumption is \( x<4 \). As \( 2 < 4\), inequality holds for \( x < 2 \)
+\end{enumerate}
+The original inequality holds true for \[x < 2 ,  x > 4 \]   
+or 
+\[  (-\infty, 2) \cup (4,\infty) \]
+\end{frame}
+\begin{frame}
+  \frametitle{Inequalities}
+  \begin{block}{Additive Inverse}
+    If \( a < b \) then \( -a > -b \)
+    Direction of inequalities has to be reversed when taking additive inverses on both sides 
+  \end{block}
+  \begin{block}{Multiplicative Inverse}
+    If \( a < b \) 
+    \begin{itemize}
+      \item If \(a > 0, b > 0\), then \(\frac{1}{a} > \frac{1}{b} \)
+      \item If \(a < 0 < b\), then \(\frac{1}{a} < \frac{1}{b} \)
+    \end{itemize} 
+  \end{block}
+\end{frame}
+\begin{frame}{What is a Set?}
+  \begin{block}{Definition}
+      A \textbf{set} is a well-defined collection of distinct objects, called \textbf{elements} or \textbf{members} of the set.
+  \end{block}
+  \vspace{10pt}
+  \textbf{Representation of a Set:}
+  \begin{itemize}
+      \item \textbf{Roster Form:} List elements inside curly braces:
+      \[
+      A = \{1, 2, 3, 4\}
+      \]
+      \item \textbf{Set-Builder Notation:} Describe properties of elements:
+      \[
+      A = \{x \mid x \text{ is a positive integer less than 5}\}
+      \]
+  \end{itemize}
+  \vspace{10pt}
+  \begin{block}{Membership}
+      \begin{itemize}
+          \item If \(x\) belongs to \(A\), write \(x \in A\).
+          \item If \(x\) does not belong to \(A\), write \(x \notin A\).
+      \end{itemize}
+  \end{block}
+\end{frame}
+\begin{frame}{Types of Sets}
+  \begin{block}{Types of Sets}
+      \begin{itemize}
+          \item \textbf{Finite Set:} A set with a countable number of elements. \\
+          Example: \(A = \{1, 2, 3, 4\}\)
+          
+          \item \textbf{Infinite Set:} A set with an uncountable or infinite number of elements. \\
+          Example: \(\mathbb{N} = \{1, 2, 3, \dots\}\)
+
+          \item \textbf{Empty/Null Set:} A set with no elements, denoted as \(\emptyset\) or \(\{\}\).
+
+          \item \textbf{Subset:} \(A \subseteq B\) if every element of \(A\) is in \(B\).
+
+          \item \textbf{Universal Set:} A set containing all objects under consideration, usually denoted by \(U\).
+
+          \item \textbf{Power Set:} The set of all subsets of \(A\), denoted as \(P(A)\). \\
+          Example: If \(A = \{1, 2\}\), then \(P(A) = \{\emptyset, \{1\}, \{2\}, \{1, 2\}\}\).
+      \end{itemize}
+  \end{block}
+\end{frame}
+\begin{frame}{Set Operations}
+  \begin{block}{Union (\(\cup\))}
+      Combines elements of two sets:
+      \[
+      A \cup B = \{x \mid x \in A \text{ or } x \in B\}
+      \]
+  \end{block}
+  \begin{block}{Intersection (\(\cap\))}
+      Elements common to both sets:
+      \[
+      A \cap B = \{x \mid x \in A \text{ and } x \in B\}
+      \]
+  \end{block}
+  \begin{block}{Difference (\(A - B\))}
+      Elements in \(A\) but not in \(B\):
+      \[
+      A - B = \{x \mid x \in A \text{ and } x \notin B\}
+      \]
+  \end{block}
+\end{frame}
+\begin{frame}{Set Operations}
+  \begin{block}{Complement (\(A^c\))}
+    Elements not in the set \(A\):
+    \[
+    A^c = \{x \mid x \notin A\}
+    \]
+\end{block}
+  \begin{block}{Examples}
+      \begin{itemize}
+          \item The set of natural numbers: \(\mathbb{N} = \{1, 2, 3, \dots\}\).
+          \item The set of integers: \(\mathbb{Z} = \{\dots, -3, -2, -1, 0, 1, 2, 3, \dots\}\).
+          \item The set of even numbers: \(\{2, 4, 6, \dots\}\).
+      \end{itemize}
+  \end{block}
+\end{frame} 
+\begin{frame}{What is an Interval?}
+  \begin{block}{Definition}
+      An \textbf{interval} is a set of real numbers that includes all the numbers between two given endpoints.
+  \end{block}
+  \vspace{10pt}
+  Intervals describe ranges of values on the real number line and are widely used in mathematics.
+\end{frame}
+% Slide 3: Types of Intervals
+\begin{frame}{Types of Intervals}
+  \begin{itemize}
+      \item \textbf{Closed Interval (\([a, b]\))}: Includes both endpoints \(a\) and \(b\).
+      \[
+      [a, b] = \{x \in \mathbb{R} \mid a \leq x \leq b\}
+      \]
+      Example: \([2, 5] = \{x \mid 2 \leq x \leq 5\}\).
+      \vspace{5pt}
+
+      \item \textbf{Open Interval (\((a, b)\))}: Excludes both endpoints \(a\) and \(b\).
+      \[
+      (a, b) = \{x \in \mathbb{R} \mid a < x < b\}
+      \]
+      Example: \((2, 5) = \{x \mid 2 < x < 5\}\).
+  \end{itemize}
+\end{frame}
+% Slide 4: Half-Open Intervals
+\begin{frame}{Half-Open or Half-Closed Intervals}
+  \begin{itemize}
+      \item \textbf{Left-Closed, Right-Open (\([a, b)\))}:
+      \[
+      [a, b) = \{x \in \mathbb{R} \mid a \leq x < b\}
+      \]
+      Example: \([2, 5) = \{x \mid 2 \leq x < 5\}\).
+      \vspace{5pt}
+
+      \item \textbf{Left-Open, Right-Closed (\((a, b]\))}:
+      \[
+      (a, b] = \{x \in \mathbb{R} \mid a < x \leq b\}
+      \]
+      Example: \((2, 5] = \{x \mid 2 < x \leq 5\}\).
+  \end{itemize}
+\end{frame}
+% Slide 5: Infinite Intervals
+\begin{frame}{Infinite Intervals}
+  \begin{itemize}
+      \item \((a, \infty)\): All numbers greater than \(a\).
+      \[
+      (a, \infty) = \{x \in \mathbb{R} \mid x > a\}
+      \]
+      Example: \((3, \infty)\) includes all numbers greater than 3.
+
+      \item \((-\infty, b)\): All numbers less than \(b\).
+      \[
+      (-\infty, b) = \{x \in \mathbb{R} \mid x < b\}
+      \]
+      Example: \((-\infty, 4)\) includes all numbers less than 4.
+
+      \item \((-\infty, \infty)\): The entire real number line.
+      \[
+      (-\infty, \infty) = \mathbb{R}
+      \]
+  \end{itemize}
+\end{frame}
+% Slide 6: Summary Table
+\begin{frame}{Summary of Interval Types}
+  \begin{tabular}{|c|c|c|}
+      \hline
+      \textbf{Type} & \textbf{Interval Notation} & \textbf{Description} \\
+      \hline
+      Closed         & \([a, b]\)      & Includes both endpoints \(a, b\) \\
+      Open           & \((a, b)\)      & Excludes both endpoints \(a, b\) \\
+      Half-Open Left & \([a, b)\)      & Includes \(a\), excludes \(b\) \\
+      Half-Open Right & \((a, b]\)     & Excludes \(a\), includes \(b\) \\
+      Infinite Left  & \((-\infty, b)\)& All \(x < b\) \\
+      Infinite Right & \((a, \infty)\) & All \(x > a\) \\
+      Entire Line    & \((-\infty, \infty)\) & All real numbers \\
+      \hline
+  \end{tabular}
+\end{frame}
+\begin{frame}{What is Absolute Value?}
+  \begin{block}{Definition}
+      The \textbf{absolute value} of a number is its distance from zero on the number line, regardless of direction. It is always non-negative.
+  \end{block}
+  \vspace{10pt}
+  For a real number \(x\), the absolute value, denoted as \(|x|\), is defined as:
+  \[
+  |x| =
+  \begin{cases} 
+  x, & \text{if } x \geq 0, \\
+  -x, & \text{if } x < 0.
+  \end{cases}
+  \]
+Breaking the absolute value: 
+  \begin{itemize}
+    \item \( |f(x)| \leq c \quad \implies \quad -c \leq f(x) \leq c \)
+    \item \( |f(x)| \geq c \quad \implies \quad f(x) \leq -c \quad \text{or} \quad f(x) \geq c \)
+\end{itemize}
+\end{frame}
+% Slide 3: Examples
+\begin{frame}{Examples of Absolute Value}
+  \begin{itemize}
+      \item \(|3| = 3\) \quad (because \(3 \geq 0\))
+      \item \(|-5| = -(-5) = 5\) \quad (because \(-5 < 0\))
+      \item \(|0| = 0\) \quad (because \(0\) is neither positive nor negative)
+  \end{itemize}
+\end{frame}
+% Slide 4: Properties of Absolute Value
+\begin{frame}{Properties of Absolute Value}
+  \begin{itemize}
+      \item \textbf{Non-Negativity:} \(|x| \geq 0\) for all \(x\).
+      \item \textbf{Identity Property:} \(|x| = 0 \quad \text{if and only if } x = 0.\)
+      \item \textbf{Multiplicative Property:} \(|x \cdot y| = |x| \cdot |y|\).
+      \item \textbf{Triangle Inequality:} \(|x + y| \leq |x| + |y|\).
+      \item \textbf{Distance Interpretation:} \(|x - y|\) represents the distance between \(x\) and \(y\).
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Exercises}
+Ball bearings need to have extremely accurate sizes to work correctly. The ideal diameter of a particular ball bearing is 0.8 cm, but a ball bearing is declared
+acceptable if the error in the diameter size is less than 0.001 cm. Write the inequality for acceptance criteria
+\vspace{0.5cm}
+Solution: \pause
+The ball bearings are acceptable if  diameter \( d \) is 
+\[ | d-0.8| \leq 0.001 \]
+\end{frame}
+\begin{frame}
+  \frametitle{Exercises}
+  Find all numbers \(t \) such that \( |3t-4| = 10\)
+
+  \vspace{5pt} 
+
+  Solution : \pause  
+  \[ 3t -4  = 10  \; or \; 3t-4 = -10  \implies t = \frac{14}{3}, t = -2 \]
+\end{frame} 
+
+\begin{frame}
+  \frametitle{Exercise}
+  Find all numbers \(x\) such that \[ \left| \frac{3x-5}{x-1} \right|< 2 \]
+  Solution :  \pause 
+  \[ |3x-5| < 2 |x-1| \]
+  \begin{enumerate}
+    \item \(x-1 > 0 \)
+  \end{enumerate}
+    \vspace{2pt}
+
+    Breaking the absolute value:
+
+    \begin{flalign}
+      &\implies -2(x-1) < 3x-5 < 2(x-1) = -2x + 7 < 3x < 2x + 3  \\ 
+      &\implies 3x > -2x+7   \;\& \; 3x < 2x + 3  
+    \end{flalign}
+\end{frame} 
+
+
+
+\begin{frame}{Exercise}
+  Solving for \( 3x < 2x + 3\)
+  \begin{flalign}
+    &\implies x < 3 \\
+  \end{flalign}
+  Solving for \(3x > -2x+7 \)
+  \begin{flalign}
+    &\implies 3x > -2x+7 \implies 5x > 7 \implies x > 7/5 \\
+    &\implies x \in (7/5,3) 
+    \end{flalign}
+  
+\end{frame}
+
+
+\begin{frame}{Exercise} 
+\begin{enumerate}
+  \setcounter{enumi}{1}
+  \item \(x-1 < 0 \implies x < 1 \)
+\end{enumerate}
+\begin{flalign}
+  &\implies |3x-5| < 2 |x-1| == |3x-5| < -2(x-1) \\
+  &\implies         3x-5 < -2(x-1) \;\; and \;\; -(3x-5) < -2(x-1) \\
+  &\implies  3x-5 < -2(x-1)  \; and \; 3x-5 > 2(x-1) 
+\end{flalign}
+\begin{flalign}
+  &3x-5 < -2(x-1) \implies  3x < -2x+7 \implies 5x < 7 \implies x < 7/5 \\
+  &\implies 3x-5 > 2(x-1) \implies 3x > 2x + 3 \implies x > 3 
+\end{flalign}
+Here \( x > 3\) is inconsistent with our assumption \(x < 1\). So for \(x<1\) there are no values of \(x\) satisfying the inequality
+  
+\end{frame}
+
