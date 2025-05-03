@@ -242,3 +242,114 @@
       \]
     \end{block}
   \end{frame}
+\begin{frame}
+  \frametitle{Radioactive Decay}
+  If a radioactive isotope has half-life \(h\), then the function modeling the number of
+  atoms in a sample of this isotope is
+  \[ a(t) = a_{0}2^{-t/h}\]
+  where \(a_{0}\) is the number of atoms of the isotope in the sample at time \(0\)
+  \end{frame} 
+
+
+  \begin{frame}
+  \frametitle{Exponential Growth}
+  \begin{block}{A story}
+A mathematician in ancient India invented the game of chess. Filled with gratitude for the remarkable entertainment of this game, the king offered themathematician anything he wanted. The king expected the mathematician to
+ask for rare jewels or a majestic palace.
+But the mathematician asked only that he be given one grain of rice for the
+first square on a chessboard, plus two grains of rice for the next square, plus
+four grains for the next square, and so on, doubling the amount for each square,
+until the 64th square on an 8-by-8 chessboard had been reached. The king was
+pleasantly surprised that the mathematician had asked for such a modest reward.
+A bag of rice was opened, and first 1 grain was set aside, then 2, then 4, then 8,
+and so on. As the eighth square  was
+reached, 128 grains of rice were counted out. The king was secretly delighted
+to be paying such a small reward and also wondering at the foolishness of the
+mathematician.
+  \end{block}
+  
+  \end{frame}
+
+  \begin{frame}
+    \begin{block}{Story Cont..}
+      As the 16th square was reached, 32,768 grains of rice were counted out—this
+was a small part of a bag of rice. But the 21st square required a full bag of rice,
+and the 24th square required eight bags of rice. This was more than the king had
+expected. However, it was a trivial amount because the royal granary contained
+about 200,000 bags of rice to feed the kingdom during the coming winter.
+As the 31st square was reached, over a thousand bags of rice were required
+and were delivered from the royal granary. Now the king was worried. By the
+37th square, the royal granary was two-thirds empty. The 38th square would have
+required more bags of rice than were left. The king then stopped the process
+and ordered that the mathematician's head be chopped off as a warning about
+the greed induced by exponential growth
+    \end{block}
+  \end{frame}
+  \begin{frame}
+    \frametitle{Mathematical analysis}
+    \begin{itemize}
+      \item \(64^{th}\) square requires \( 2^{63} \) grains \(\approx\) \(2^{3}* (2^{10})^{6} = 8*(10^{3})^{6} = 8*10^{18} \approx 10^{19} \) 
+      \item if one large bag = \(10^{6} \) grains of rice , then total bags = \(10^{19}/10^{6} \) 
+      \item In 2025 India's population is \(\approx 1 * 10^{9} \)
+    \end{itemize}
+     
+    \end{frame}
+
+    \begin{frame}
+      \frametitle{Exponential Growth}
+      \begin{block}{Definition}
+      A function \(f\) is said to have \textbf{exponential growth} if \(f(x) = cb^{kx} \) where 
+      \(c\) and \(k\) are positive numbers and \(b > 1\)
+      \end{block}
+      \begin{itemize}
+        \item \(f(x) > p(x)\)  where \(f\) is exponenetial and \(p\) is polynomial for sufficiently large \(x\) 
+        \item \(2^{x} > x^{1000} \)  \(\forall \;\; x > 13747 \)  
+        \item A function \(f\) has exponential growth if and only if the graph of \(\log f(x)\) is a line with a positive slope
+      \end{itemize}
+
+
+    \end{frame}
+    
+
+    \begin{frame}
+      \frametitle{Population Growth}
+        \begin{block}{Exponential Growth}
+          \[
+            p(t) = p_0\,e^{rt}
+          \]
+          \begin{itemize}
+            \item \(p_0\): initial population  
+            \item \(r\): constant per-capita growth rate  
+            \item Assumes unlimited resources → population grows without bound  
+            \item Populations of various organisms, ranging from bacteria to humans, often exhibit exponential growth
+          \end{itemize}
+        \end{block}
+    \end{frame}
+    \begin{frame}
+      \frametitle{Population Growth: Example}
+      Suppose a colony of bacteria in a petri dish has 700 cells at 1 pm. These bacteria
+      reproduce at a rate that leads to doubling every three hours. How many bacteria
+      cells will be in the petri dish at 9 pm on the same day?
+      \pause 
+      \[
+       p(t) = p_{0}2^{t/3} \implies 700 \cdot 2^{8/3} 
+       \]
+    \end{frame}
+
+
+    \begin{frame} 
+      \frametitle{Population Growth}
+      \begin{block}{Exponential growth and doubling}
+        If a population doubles every \( d \) time units, then the function \( p \) modeling this population growth is given by the formula
+
+        \[
+          p(t) = p_{0} \cdot 2^{(t-t_{0})/d}
+        \]
+        where \(p_{0}\) is the population at time \(t_{0}\)
+        \end{block}    
+    \end{frame}
+
+
+
+
+
