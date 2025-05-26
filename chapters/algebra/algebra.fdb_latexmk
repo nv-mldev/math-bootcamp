@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1746347368 "/Users/nithinvadekkapat/work/math-bootcamp/chapters/algebra/algebra.tex" "algebra.pdf" "algebra" 1746347370 0
+["pdflatex"] 1746350416 "/Users/nithinvadekkapat/work/math-bootcamp/chapters/algebra/algebra.tex" "algebra.pdf" "algebra" 1746350418 0
   "/Users/nithinvadekkapat/work/math-bootcamp/chapters/algebra/algebra.tex" 1746345505 1289 434a387033b151a208f2cc42157c96e9 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -309,15 +309,16 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1684425956 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1684425911 7883455 938180f2acef8909a469ea0b2292a446 ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "algebra.aux" 1746347370 4795 b2a345af33472dcba5ff5a3edec99bc7 "pdflatex"
-  "algebra.nav" 1746347370 2995 ee748e7541483baac629b08fef19d962 "pdflatex"
-  "algebra.out" 1746347370 250 16ea6a0a07f144e1932de32b8196297e "pdflatex"
+  "algebra.aux" 1746350418 5182 e549aa8223b4d68a38f4e667a7d7f21f "pdflatex"
+  "algebra.nav" 1746350418 3274 934e0708377f996b73078dac0ca037e6 "pdflatex"
+  "algebra.out" 1746350418 250 16ea6a0a07f144e1932de32b8196297e "pdflatex"
   "algebra.tex" 1746345505 1289 434a387033b151a208f2cc42157c96e9 ""
-  "algebra.toc" 1746347370 75 e02995071f5c96213a49b27dc5ff392a "pdflatex"
+  "algebra.toc" 1746350418 75 e02995071f5c96213a49b27dc5ff392a "pdflatex"
   "pics//CI-comic.png" 1746344995 578493 ebe4c0dbb1ec18d64ba045b7b1f0dc3b ""
+  "pics//SI_vs_CI.png" 1746348964 27153 a62434f2c09e142b16addd1c34256092 ""
   "pics//exp-vs-poly1.png" 1746344995 27804 34f59c72cdf44eab81a5b2affb5e6ec1 ""
   "pics//exp-vs-poly2.png" 1746344995 36640 195993282c3b687b303c1cacbb2a8373 ""
-  "sections/Exponentials-Logarithms-e.tex" 1746347368 15160 fda35d711cbc7e8def9e761c8f260ca1 ""
+  "sections/Exponentials-Logarithms-e.tex" 1746350416 16396 65c93027630561f2e4a7aa6735f4b472 ""
   (generated)
   "algebra.aux"
   "algebra.log"

@@ -1672,6 +1672,10 @@ INPUT ./pics//CI-comic.png
 INPUT pics//CI-comic.png
 INPUT ./pics//CI-comic.png
 INPUT ./pics//CI-comic.png
+INPUT ./pics//SI_vs_CI.png
+INPUT pics//SI_vs_CI.png
+INPUT ./pics//SI_vs_CI.png
+INPUT ./pics//SI_vs_CI.png
 OUTPUT algebra.nav
 OUTPUT algebra.toc
 OUTPUT algebra.snm
