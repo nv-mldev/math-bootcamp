@@ -105,12 +105,15 @@
       2 & 4 & 4 \\
       3 & 8 & 6 \\
       4 & 16 & 8 \\
-      5 & 32 & 10 \\
-      6 & 64 & 12 \\
     \end{tabular}
     \caption{Exponential vs. Linear Growth.}
   \end{table}
+  \begin{itemize}
+    \item Linear growth (e.g., \(g(x)=2x\)) increases by a constant amount (2) for each increase in \(x\), that is, it is adding or subtracting a constant value. A constant amount \( \rightarrow \) linear growth or additive growth.
+    \item Exponential growth (e.g., \(f(x)=2^x\)) increases by a constant factor (2) for each increase in \(x\), that is, it is multiplying or dividing by a constant value. A constant factor \( \rightarrow \) exponential growth or multiplicative growth.
+  \end{itemize}
 \end{frame}
+
 
 
 \begin{frame}{Example: The Function \(f(x)=2^x\)}
@@ -352,7 +355,7 @@ the greed induced by exponential growth
     \begin{frame}
       \frametitle{Compound Interest}
       \begin{figure}
-        \includegraphics[scale=0.2]{CI-comic.png}
+        \includegraphics[scale=0.3]{CI-comic.png}
       \end{figure}
     \end{frame}
 
@@ -434,8 +437,135 @@ pounded twice per year. How much will you have at the end of one year?
   \end{block}
 \end{frame}
 
+\begin{frame}
+  \frametitle{\( e \)}
+  \begin{figure}
+    \includegraphics[scale=0.5]{e_1.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{area\((\frac{1}{x},1,2) < 1 \) }
+  \begin{figure}
+    \includegraphics[scale=0.8]{e_2.png}
+  \end{figure}
+  \begin{itemize}
+    \item The area of the rectangle between \(x=1\) and \(x=2\) is \(1\) 
+    \item The yellow region lies inside the rectangle and the area of the yellow region is less than \(1\) 
+  \end{itemize}
+\end{frame}
 
 
 
+\begin{frame}
+  \frametitle{area\((\frac{1}{x},1,3) > 1 \) }
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item Interval \([1, 3]\) divided into 8 equal parts; each has width \(\frac{1}{4}\).
+        \item Heights are calculated using \(f(x) = \frac{1}{x}\) at left endpoints of subintervals.
+        \item First three rectangles:
+        \begin{itemize}
+            \item 1st: Height = \(\frac{1}{\frac{5}{4}} = \frac{4}{5}\), Area = \(\frac{1}{4} \cdot \frac{4}{5} = \frac{1}{5}\)
+            \item 2nd: Height = \(\frac{1}{\frac{7}{4}} = \frac{4}{7}\), Area = \(\frac{1}{4} \cdot \frac{4}{7} = \frac{1}{7}\)
+            \item 3rd: Height = \(\frac{1}{\frac{9}{4}} = \frac{4}{9}\), Area = \(\frac{1}{4} \cdot \frac{4}{9} = \frac{1}{9}\)
+        \end{itemize}
+        \item Guess for all areas: \(\frac{1}{5}, \frac{1}{6}, \frac{1}{7}, \dots, \frac{1}{12}\)
+        \item Total area: \(\sum_{k=5}^{12} \frac{1}{k} = \frac{28271}{27720} > 1\)
+        
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+        \includegraphics[scale=0.28]{e_3.png}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Defining \(e\)}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item Consider the area under \(y = \frac{1}{x}\) from \(1\) to \(c\).
+        \item area\((\frac{1}{x},1,2^{2})\) = \(2*\text{area}(\frac{1}{x},1,2)\)
+        \item area\((\frac{1}{x},1,3^{2})\) = \(2*\text{area}(\frac{1}{x},1,3)\)                 
+        \item area\((\frac{1}{x},1,2^{3})\) = \(3*\text{area}(\frac{1}{x},1,2)\)
+        \item In general, area\((\frac{1}{x},1,c^{t}) = t*\text{area}(\frac{1}{x},1,c)\) for every \(t>0\) and \(c>1\).
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{tabular}{|c|c|}
+        \hline
+        \( c \) & \( \text{Area }( \frac{1}{x},1, c )\) \\
+        \hline
+        2 & 0.693147 \\
+        3 & 1.098612 \\
+        4 & 1.386294 \\
+        5 & 1.609438 \\
+        6 & 1.791759 \\
+        7 & 1.945910 \\
+        8 & 2.079442 \\
+        9 & 2.197225 \\
+        \hline
+      \end{tabular}
+    \end{column}
+  \end{columns}
+\end{frame}
 
 
+\begin{frame}
+  \frametitle{\(e \) }
+  \begin{figure}
+    \includegraphics[scale=0.5]{e_4.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Irrationality of \(e\)}
+  \begin{itemize}
+    \item The number \(e\) is irrational.
+    \item Here is a 40-digit approximation of \(e\):
+    \item \(e \approx 2.718281828459045235360287471352662497757\)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Defining the Natural Logarithm}
+  \begin{block}{Area under \(y = \frac{1}{x}\)}
+      area\((\frac{1}{x},1,c^{t}) = t*\text{area}(\frac{1}{x},1,c) \)
+  \end{block}
+  \begin{itemize}
+    \item The formula resembles the bhaviour of logarithms.
+    \item Thus, area uner the curve \(y = \frac{1}{x}\) is connected with a logarithm
+  \end{itemize}
+  \[\text{area}(\frac{1}{x},1,e) = 1 \]
+\[\text{area}(\frac{1}{x},1,e^{t}) = t \]
+
+Assume \(t = \log_e c\) (the natural logarithm of \(c\)). Then we have
+\[\text{area}(\frac{1}{x},1,c) = \text{area}(\frac{1}{x},1,e^{\log_e c}) = \log_e c\]  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Natural Logarithm}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{block}{Natural Logarithm}
+        The natural logarithm, denoted \(\ln\), is defined as follows:
+        \[
+          \ln c = \log_e c
+        \]
+        for \(c > 0\).
+      \end{block}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[scale=0.5]{e_5.png}
+        \caption{Graph of the natural logarithm function.}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
