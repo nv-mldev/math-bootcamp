@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1748920434.33499 "/home/nithin/work/math-bootcamp/chapters/algebra/algebra.tex" "algebra.pdf" "algebra" 1748920436.4386 0
+["pdflatex"] 1748920535.54357 "/home/nithin/work/math-bootcamp/chapters/algebra/algebra.tex" "algebra.pdf" "algebra" 1748920537.73028 0
   "/etc/texmf/web2c/texmf.cnf" 1748181933.0304 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/nithin/work/math-bootcamp/chapters/algebra/algebra.tex" 1748259672.32529 1289 434a387033b151a208f2cc42157c96e9 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -308,11 +308,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1741904018 41538 c016915c1d51223b6dbbfe27341748a8 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1748182078 5467255 9a64d1b40e0b893fc5588ecce9d8accf ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1748182128 3347410 38affb07e31a38c76d6236b907fa2460 ""
-  "algebra.aux" 1748920436.35678 5822 13d878ea91b097243e8c173859553032 "pdflatex"
-  "algebra.nav" 1748920436.35763 4018 fa67b826d7a246485d72dbd5079aaf4f "pdflatex"
-  "algebra.out" 1748920436.35707 250 16ea6a0a07f144e1932de32b8196297e "pdflatex"
+  "algebra.aux" 1748920537.64166 5951 a725d803980ecba44d4730dbf61fc35e "pdflatex"
+  "algebra.nav" 1748920537.64256 4111 40de7208527f49d43c8be7bf1995ed48 "pdflatex"
+  "algebra.out" 1748920537.64198 250 16ea6a0a07f144e1932de32b8196297e "pdflatex"
   "algebra.tex" 1748259672.32529 1289 434a387033b151a208f2cc42157c96e9 ""
-  "algebra.toc" 1748920436.35763 75 e02995071f5c96213a49b27dc5ff392a "pdflatex"
+  "algebra.toc" 1748920537.64256 75 e02995071f5c96213a49b27dc5ff392a "pdflatex"
   "pics/CI-comic.png" 1746285361.34681 578493 ebe4c0dbb1ec18d64ba045b7b1f0dc3b ""
   "pics/SI_vs_CI.png" 1748259672.32558 27153 a62434f2c09e142b16addd1c34256092 ""
   "pics/e_1.png" 1748423298.43301 40193 70dfece31f307d4fccf43f57a6b3a405 ""
@@ -322,7 +322,7 @@
   "pics/e_5.png" 1748441766.85247 29178 f4b09e5550c881fd77a918050c7c523e ""
   "pics/exp-vs-poly1.png" 1746175495.38678 27804 34f59c72cdf44eab81a5b2affb5e6ec1 ""
   "pics/exp-vs-poly2.png" 1746175495.38678 36640 195993282c3b687b303c1cacbb2a8373 ""
-  "sections/Exponentials-Logarithms-e.tex" 1748920431.97326 21160 03e725a8f8081d94b41a9ec316c17bb6 ""
+  "sections/Exponentials-Logarithms-e.tex" 1748920533.0378 21583 a2c8c593e77627916be31f72c47fe370 ""
   (generated)
   "algebra.aux"
   "algebra.log"
