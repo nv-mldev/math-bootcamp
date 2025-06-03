@@ -568,7 +568,7 @@ Assume \(t = \log_e c\) (the natural logarithm of \(c\)). Then we have
   \begin{block}{The exponenetial function}
     The \textbf{exponential function} is the function \(f\) defined by 
     \[ f(x) = e^{x} \]
-    where \(e\) is the base of the natural logarithm.
+    for all \(x \in \mathbb{R}\).
   \end{block}
         \begin{itemize}
             \item The exponential function with base \( b \) is defined as \( b^x \).
@@ -576,4 +576,206 @@ Assume \(t = \log_e c\) (the natural logarithm of \(c\)). Then we have
             \item The graph of \( e^x \) resembles \( 2^x \), \( 3^x \), etc., for \( b > 1 \).
             \item The function \(b^{x}\) is defined as \( b^{x} = e^{\ln b^{x}} \)
         \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Properties of the Natural Logarithm} 
+  \begin{itemize}
+    \item \(\ln 1 = 0\)
+    \item \(\ln e = 1\)
+    \item \(\ln e^{x} = x\)
+    \item \(e^{\ln x} = x\) for \(x > 0\)
+    \item \(\ln(ab) = \ln a + \ln b\)
+    \item \(\ln\left(\frac{a}{b}\right) = \ln a - \ln b\)
+    \item \(\ln(a^{b}) = b \cdot \ln a\)
+    \item \(\ln\left(\frac{1}{a}\right) = -\ln a\)
+    \item \(\ln a < \ln b\) if and only if \(a < b\) for \(a, b > 0\)
+    \item \(\ln a = \ln b\) if and only if \(a = b\) for \(a, b > 0\)
+    \item \(\ln a > 0\) if and only if \(a > 1\)
+    \item \(\ln a < 0\) if and only if \(0 < a < 1\)
+    \item \(\ln a = 0\) if and only if \(a = 1\)
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Values of \(t\) and \(\ln(1+t)\)}
+  \begin{table}[]
+    \centering
+    \begin{tabular}{|c|c|}
+      \hline
+      \(t\) & \(\ln(1+t)\) \\
+      \hline
+      0.05 & 0.04879 \\
+      0.005 & 0.00499 \\
+      0.0005 & 0.00050 \\
+      0.00005 & 0.00005 \\
+      -0.05 & -0.05129 \\
+      -0.005 & -0.00501 \\
+      -0.0005 & -0.00050 \\
+      -0.00005 & -0.00005 \\
+      \hline
+    \end{tabular}
+    \caption{Table of \(t\) and \(\ln(1+t)\) for positive and negative values of \(t\).}
+  \end{table}
+\end{frame}
+
+\begin{frame}
+  \frametitle{ \(y = \ln(1+t)\) as area under the curve \(y = \frac{1}{x}\)}
+  \begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{e_6.png}
+  \end{figure}
+  \begin{itemize}
+    \item for small values of \(t\), the area rectangle becomes very small and it approximates the curve \(y = \frac{1}{x}\) very closely.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Exponential Function and the Natural Logarithm}
+  \begin{block}{Approximation of the Natural Logarithm}
+  if \(t\) is a small positive number, then
+  \[
+    \ln(1+t) \approx t
+  \]
+
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Inequalites Involving the Natural Logarithm} 
+  \begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{e_7.png}
+  \end{figure}
+  \begin{itemize}
+    \item The area of the big rectangle is \( t * 1 = t \). 
+    \item Ther area of the smaller rectangle is \( t * \frac{1}{1+t} \). 
+    \item the area of the yellow region is \(   \frac{t}{1+t}  < \ln(1+t) < t \)
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Approximation of the exponential function for small \(x\)}
+  \begin{itemize}
+    \item \(\ln(1+x) \approx x\ \implies e^{x} \approx e^{\ln(1+x)}  \implies e^{x} \approx 1 + x\)
+  \end{itemize}
+  \begin{block}{Approximation of the Exponential Function}
+    If \(x\) is a small positive number, then
+    \[
+      e^{x} \approx 1 + x
+    \]
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Approximation of the exponential function for large \(x\)}
+  \begin{itemize}
+    \item If \(r << x\) then \(\frac{r}{x}\) is small \(\implies \left( e^{\frac{r}{x}}\right) \approx 1 + \frac{r}{x}\) 
+    \item \(e^{r} \approx \left(1+\frac{r}{x}\right)^{x} \)
+  \end{itemize}
+  \begin{block}{Approximation of the Exponential Function}
+    If \(x\) is a large positive number and is much larger than \(|r|\), then
+    \[
+      \left(1+\frac{r}{x}\right)^{x} \approx e^{r}
+    \]
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Estimate \(1.00002^{40}\)}  
+  \[ 1.00002^{40} = \left(1 + 0.00002\right)^{40} = \left(1 + \frac{40*0.00002}{40} \right)^{40} = \left(1 + \frac{0.0008}{40} \right)^{40} \]\[ \approx e^{0.0008}\]
+  \[\approx 1 + 0.0008 = 1.0008 \]
+\end{frame}
+
+\begin{frame}
+  \frametitle{ \( \left(1 + t\right)^{n}\)}
+  
+  \( \left( 1 + t\right)^{n} = \left(1 + \frac{nt}{n}\right)^{n} \approx e^{nt} \approx  1 + nt  \)
+
+  \begin{block}{Approximation}
+   Suppose \(t\) and \(n\) are numbers such that \(|t|\) and \(|nt|\) are small. Then  
+   
+   \[ \left(1+t\right)^{n} \approx 1 + nt \]
+    
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Proof of area\( \left( \frac{1}{x}, 1, c^{t} \right) \) = \(t*\text{area}(\frac{1}{x}, 1, c)\)}
+
+  \begin{figure}
+    \centering 
+    \includegraphics[scale=0.3]{e_8.png}
+  \end{figure}
+  \begin{itemize}
+    \item Applying the Area Stretch Theorem:
+    \begin{itemize}
+      \item The area under the curve in the left  = \(2*\frac{1}{2}\) times the area of the curve in the centre because the center curve can be obtained by stretching horizontally by \(2\) and verticall y by \(\frac{1}{2}\) the curve in the left 
+    \item The area under the curve in the right  = \(\frac{1}{4}*4\) times the area of the curve in the left because the right curve can be obtained by stretching horizontally by \(\frac{1}{4}\) and vertically by \(4\) the curve in the left 
+  \end{itemize}
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Proof : area\( \left( \frac{1}{x}, 1, 2^{3} \right) \) = \(3*\text{area}(\frac{1}{x}, 1, 2)\)}
+  \begin{figure}
+    \centering 
+    \includegraphics[scale=0.4]{e_9.png}
+  \end{figure}
+  Each of these regions has the same area from the Area Stretch Theorem. 
+
+  Generalizing the above in the case of \(2\) to \( c \)  
+
+  \[ \text{area}\left(\frac{1}{x}, 1, c^{t}\right) = t*\text{area}\left(\frac{1}{x}, 1, c\right) \]
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exponential Growth Revisited}
+  For compounding \(n\) times per year at an annual interest rate of \(r\), the amount after \(t\) years is given by
+  \[
+    P(t) = P_{0}\left(1+\frac{r}{n}\right)^{nt}
+  \]
+  Assume \(n\) is large, let say once per hour \(n= 365*24 = 8760\), then we can use the approximation 
+  \[
+    \left(1+\frac{r}{n}\right)^{n} \approx e^{r} 
+  \]
+  \begin{block}{Continuous Compounded Interest}
+    If we let \(n\) approach infinity, we get the formula for continuous compounding:
+    \[
+      P(t) = P_{0}e^{rt}
+    \]
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exponential Growth Revisited} 
+  \begin{block}{Continuous growth rates}
+    If a population grows at a continuous rate of \(r\), then the population at time \(t\) is given by
+    \[
+      P(t) = P_{0}e^{rt}
+    \]
+    where \(P_{0}\) is the initial population.
+    
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Doubling Time} 
+  \begin{block}{Doubling Time}
+    The time it takes for a quantity to double in size is called the \textbf{doubling time}. For continuous growth, the doubling time \(T\) can be calculated using the formula:
+    \[
+      T = \frac{\ln(2)}{r}  \approx \frac{70}{R}
+    \]
+    where \(R = 100*r \)  is the percentage continuous growth rate.
+  \end{block}
+  \begin{block}{Doubling rate}
+    The annual interest rate needed for money to double in \(t\) years with continuous compounding is approximately 
+    \[
+      r \approx \frac{\ln(2)}{t}   \implies R \approx \frac{70}{t}
+    \]
+    percent
+  \end{block}
 \end{frame}
