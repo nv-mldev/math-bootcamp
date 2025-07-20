@@ -1,3 +1,0 @@
-\beamer@sectionintoc {1}{Exponential Functions, Logarithms and e}{3}{0}{1}
-\beamer@sectionintoc {2}{Trigonometric Functions}{60}{0}{2}
-\beamer@subsectionintoc {2}{1}{The Unit Circle}{60}{0}{2}

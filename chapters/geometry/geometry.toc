@@ -1,8 +1,0 @@
-\beamer@sectionintoc {1}{ Geometry}{2}{0}{1}
-\beamer@subsectionintoc {1}{1}{Eucledian Geometry}{14}{0}{1}
-\beamer@sectionintoc {2}{Similarity}{35}{0}{2}
-\beamer@subsectionintoc {2}{1}{Transformations}{35}{0}{2}
-\beamer@subsectionintoc {2}{2}{Congruence}{43}{0}{2}
-\beamer@subsectionintoc {2}{3}{Congruence in Triangles}{44}{0}{2}
-\beamer@subsectionintoc {2}{4}{Similarity in Triangles}{45}{0}{2}
-\beamer@sectionintoc {3}{Statistics}{58}{0}{3}
