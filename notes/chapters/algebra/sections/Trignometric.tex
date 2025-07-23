@@ -248,3 +248,244 @@
         \item \textbf{TOA}: \(\tan(\theta) = \frac{\text{opposite}}{\text{adjacent}}\)
     \end{itemize}
 \end{frame}
+
+\begin{frame}
+    \frametitle{Trigonometric Identities}
+   
+    \begin{block}{Trigonometric Identities}
+        \begin{itemize}
+            \item \(\sin^2(\theta) + \cos^2(\theta) = 1\)
+            \item \(\tan(\theta) = \frac{\sin(\theta)}{\cos(\theta)}\)
+            \item \(\cot(\theta) = \frac{1}{\tan(\theta)} = \frac{\cos(\theta)}{\sin(\theta)}\)
+            \item \(\sec(\theta) = \frac{1}{\cos(\theta)}\)
+            \item \(\csc(\theta) = \frac{1}{\sin(\theta)}\)
+            \item 
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Trigonometric Identities For Negative Angles}
+\begin{columns}
+    \begin{column}{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[scale=0.4]{/unit_circle/14.png}
+            \caption{Trigonometric identities in a right triangle}
+        \end{figure}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+        \begin{block}{}
+            \begin{itemize}
+                \item \(\sin(-\theta) = -\sin(\theta)\)
+                \item \(\cos(-\theta) = \cos(\theta)\)
+                \item \(\tan(-\theta) = -\tan(\theta)\)
+            \end{itemize}
+        \end{block}
+    \end{column}
+\end{columns}
+\end{frame} 
+
+\begin{frame}
+    \frametitle{Even and Odd Trigonometric Functions}
+    \begin{itemize}
+        \item \textbf{Even Functions:} \(\cos(-\theta) = \cos(\theta)\) 
+        \item \textbf{Odd Functions:} \(\sin(-\theta) = -\sin(\theta)\), \(\tan(-\theta) = -\tan(\theta) \)
+    \end{itemize}   
+\end{frame}
+
+\begin{frame}
+    \frametitle{Trigonometric Identities with Right Triangles}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.4]{/unit_circle/15.png}
+        \caption{Trigonometric identities in a right triangle}
+    \end{figure}
+
+    \begin{itemize}
+        \item  \(\sin(\pi/2 - \theta) = \cos(\theta)\)
+        \item \(\cos(\pi/2 - \theta) = \sin(\theta)\)
+        \item \(\tan(\pi/2 - \theta) = \frac{1}{\tan(\theta)} = \cot(\theta)\)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Trigonometric Identities involving multiples of \(\pi\)}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.5]{/unit_circle/16.png}
+        \caption{Trigonometric identities involving multiples of \(\pi\)}
+    \end{figure}
+    \begin{itemize}
+        \item \(\sin(n\pi + \theta) = (-1)^n \sin(\theta)\)
+        \item \(\cos(n\pi + \theta) = (-1)^n \cos(\theta)\)
+        \item \(\tan(n\pi + \theta) = \tan(\theta)\)
+    \end{itemize}
+    For example, if \(n\) is even, \(\sin(n\pi + \theta) = \sin(\theta)\) and if \(n\) is odd, \(\sin(n\pi + \theta) = -\sin(\theta)\). 
+\end{frame}
+
+\section{Trigonometric Algebra and Geometry}
+\subsection{Inverse Trigonometric Functions}
+\begin{frame}
+    \frametitle{The Arccosine Function}
+    \begin{itemize}
+        \item A function is called one-to-one if it maps distinct inputs to distinct outputs.
+        \item The \textbf{cosine function} whose domain is entire real line \(\mathbb{R}\) is not one-to-one because it takes the same value for different angles. For example, \(\cos(0) = \cos(2\pi) = 1\).
+        \item Thus the cosine function is not invertible. It fails in horixontal line test
+        \item To make it invertible, we restrict the domain to \([0, \pi]\) where it is one-to-one.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{The Arccosine Function}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.3]{/unit_circle/18.png}
+        \caption{Graph of the cosine function restricted to \([0, \pi]\)}
+    \end{figure}
+    \begin{block}{The Arccosine Function}
+        The \textbf{arccosine function} is the inverse of the cosine function restricted to the interval \([0, \pi]\):
+        \[
+        \arccos(x) = \theta \quad \text{if and only if} \quad x = \cos(\theta) \text{ for } 0 \leq \theta \leq \pi
+        \]
+    \end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{The domain and range of the Arccosine Function}
+\begin{itemize}
+    \item \textbf{Domain:} The domain of the arccosine function is \([-1, 1]\) because the cosine function takes values in this interval.
+    \item \textbf{Range:} The range of the arccosine function is \([0, \pi]\) because it outputs angles in this interval.
+\end{itemize}       
+\end{frame}
+
+\begin{frame}
+    \frametitle{The Arcsine Function}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.3]{/unit_circle/19.png}
+        \caption{Graph of the sine function restricted to \([- \frac{\pi}{2}, \frac{\pi}{2}]\)}
+    \end{figure}
+    \begin{itemize}
+        \item The \textbf{sine function} is also not one-to-one over the entire real line because it takes the same value for different angles. For example, \(\sin(0) = \sin(\pi) = 0\).
+        \item To make it invertible, we restrict the domain to \([- \frac{\pi}{2}, \frac{\pi}{2}]\) where it is one-to-one.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{The Arcsine Function}
+    \begin{block}{The Arcsine Function}
+        The \textbf{arcsine function} is the inverse of the sine function restricted to the interval \([- \frac{\pi}{2}, \frac{\pi}{2}]\):
+        \[
+        \arcsin(x) = \theta \quad \text{if and only if} \quad x = \sin(\theta) \text{ for } -\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}
+        \]
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{The domain and range of the Arcsine Function}
+    \begin{itemize}
+        \item \textbf{Domain:} The domain of the arcsine function is \([-1, 1]\) because the sine function takes values in this interval.
+        \item \textbf{Range:} The range of the arcsine function is \([- \frac{\pi}{2}, \frac{\pi}{2}]\) because it outputs angles in this interval.
+    \end{itemize}       
+\end{frame}
+
+
+    \begin{frame}
+    \frametitle{The Arctangent Function}
+    \begin{block}{The Arctangent Function}
+    \begin{itemize}
+        \item The \textbf{tangent function} is not one-to-one over the entire real line because it takes the same value for different angles. For example, \(\tan(0) = \tan(\pi) = 0\).
+        \item To make it invertible, we restrict the domain to \((- \frac{\pi}{2}, \frac{\pi}{2})\) where it is one-to-one.
+    \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{The Arctangent Function}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.4]{/unit_circle/20.png}
+        \caption{Graph of the tangent function restricted to \((- \frac{\pi}{2}, \frac{\pi}{2})\)}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{The Arctangent Function}
+    \begin{block}{The Arctangent Function}
+        The \textbf{arctangent function} is the inverse of the tangent function restricted to the interval \((- \frac{\pi}{2}, \frac{\pi}{2})\):
+        \[
+        \arctan(x) = \theta \quad \text{if and only if} \quad x = \tan(\theta) \text{ for } -\frac{\pi}{2} < \theta < \frac{\pi}{2}
+        \]
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Inverse Trigonometric Identities}
+    \begin{itemize}
+        \item \(\arccos(\cos(x)) = x\) for \(0 \leq x \leq \pi\)
+        \item \(\arcsin(\sin(x)) = x\) for \(-\frac{\pi}{2} \leq x \leq \frac{\pi}{2}\)
+        \item \(\arctan(\tan(x)) = x\) for \(-\frac{\pi}{2} < x < \frac{\pi}{2}\)
+    \end{itemize}
+    \begin{block}{Note}
+        \begin{itemize}
+            \item The inverse trigonometric functions return angles in their respective ranges.
+            \item For example, \(\arccos(0.5) = \frac{\pi}{3}\) because \(\cos(\frac{\pi}{3}) = 0.5\) and \(\frac{\pi}{3}\) is in the range of the arccosine function.
+            \item Similarly, \(\arcsin(0.5) = \frac{\pi}{6}\) because \(\sin(\frac{\pi}{6}) = 0.5\) and \(\frac{\pi}{6}\) is in the range of the arcsine function.
+            \item \(\arctan(1) = \frac{\pi}{4}\) because \(\tan(\frac{\pi}{4}) = 1\) and \(\frac{\pi}{4}\) is in the range of the arctangent function.
+        \end{itemize}
+    \end{block} 
+\end{frame}
+
+% Add this line to your preamble if not already present:
+% \usepackage{enumitem}
+
+\begin{frame}{Inverse of $f(x)=3+4\cos x$}
+  \begin{block}{Problem}
+    Suppose $f(x)=3+4\cos x$, where the domain of $f$ is $[0,\pi]$.
+    \begin{enumerate}[]
+      \item Find a formula for $f^{-1}(y)$.
+      \item What is the domain of $f^{-1}$?
+      \item What is the range of $f^{-1}$?
+    \end{enumerate}
+  \end{block}
+  \begin{block}{Solution}
+    \begin{itemize}
+      \item $f^{-1}(y)=\arccos\left(\frac{y-3}{4}\right)$.
+      \item $\operatorname{dom}(f^{-1})=[-1,7]$.
+      \item $\operatorname{range}(f^{-1})=[0,\pi]$.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Find the \(\arccos(-t)\)}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.4]{/unit_circle/21.png}
+        \caption{Graph of the arccosine function}
+    \end{figure}
+    \textbf{Solution:} 
+    \[ x = -t \implies \arccos(-t) = \pi - \arccos(t) \] 
+\end{frame}
+
+\begin{frame}
+\frametitle{Find the \(\arcsin(t)\)}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{/unit_circle/22.png}
+    \caption{Graph of the arcsine function}
+\end{figure}
+\textbf{Solution:} 
+\[ y = -t \implies \arcsin(-t) = -\sin(\theta) \] 
+\end{frame}
+
+\begin{frame}
+    \frametitle{Inverse trigonometric identities for \(-t\)}
+    \begin{itemize}
+        \item \( \cos^{-1}(-t) = \pi - \cos^{-1}(t) \)
+        \item \( \sin^{-1}(-t) = - \sin^{-1}(t) \)  
+        \item \( \tan^{-1}(-t) = -\tan^{-1}(t) \)
+    \end{itemize}
+\end{frame}
