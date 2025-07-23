@@ -489,3 +489,155 @@
         \item \( \tan^{-1}(-t) = -\tan^{-1}(t) \)
     \end{itemize}
 \end{frame}
+
+\begin{frame}
+    \frametitle{Find the \(\arctan(-t)\)}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.4]{/unit_circle/23.png}
+        \caption{Graph of the arctangent function}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{arcsin plus arccosine}
+    \begin{block}{Identity}
+        \[ \arcsin(t) + \arccos(t) = \frac{\pi}{2} \]
+    \end{block}
+    \begin{itemize}
+        \item This identity holds for all \(t\) in the domain of both functions, which is \([-1, 1]\).
+        \item The identity reflects the complementary nature of the sine and cosine functions.
+        \item Geometrically, it represents the relationship between the angles in a right triangle where one angle is \(\arcsin(t)\) and the other is \(\arccos(t)\).
+    \end{itemize}   
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{arcsin + arccosine}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.4]{/unit_circle/24.png}
+        \caption{right angle triangle involving arcsine and arccosine functions}      
+    \end{figure}
+\end{frame}
+
+\subsection{Trignometry to Compute Area}
+
+\begin{frame}
+    \frametitle{Area of a Triangle}
+    \begin{block}{Area of a Triangle}
+        The area \(A\) of a triangle with base \(b\) and height \(h\) is given by:
+        \[
+        A = \frac{1}{2} b h = \frac{1}{2} b c \sin(\theta)
+        \]
+        where \(\theta\) is the angle between the two sides of length \(b\) and \(c\).
+    \end{block}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.4]{/unit_circle/25.png}
+        \caption{Area of a triangle using sine function}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Ambiguous Angles}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.3]{/unit_circle/26.png}
+        \caption{\(\sin(\pi - \theta) = \sin(\theta)\)}
+    \end{figure}
+    \begin{itemize}
+        \item  \(A = \frac{1}{2} b c \sin(\theta) \implies \theta = \arcsin\left(\frac{2A}{bc}\right) \)
+        \item Assume \( \frac{2A}{bc} = \frac{1}{2} \) 
+        \item Then \( \theta = \arcsin\left(\frac{1}{2}\right) = \frac{\pi}{6} \) or \( \frac{5\pi}{6} \)
+        \item That is given any number \(t \in [-1,1]\) there are two possible angles \(\theta\) that satisfy the equation.
+        \item \(\sin (\pi - \theta) = \sin(-(\theta - \pi )) = - \sin(\theta - \pi) = -(-\sin \theta) = \sin \theta \)
+    \end{itemize}
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{Area of a parallelogram}
+        \begin{block}{Area of a Parallelogram}
+            The area \(A\) of a parallelogram with base \(b\) and height \(h\) is given by:
+            \[
+            A = b h
+            \]
+            Alternatively, if we know the lengths of two sides \(a\) and \(b\) and the angle \(\theta\) between them, we can use:
+            \[
+            A =  bc \sin(\theta)
+            \]
+        \end{block}
+        \begin{figure}
+            \centering
+            \includegraphics[scale=0.3]{/unit_circle/27.png}
+            \caption{Area of a parallelogram using sine function}
+        \end{figure}
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{Area of Polygon}
+        \begin{columns}
+            \begin{column}{0.5\textwidth}
+                \begin{itemize}
+                    \item Area of one triangle = \(\frac{1}{2} \cdot 1 \cdot 1 \sin(\frac{2\pi}{8})\)
+                    \item Total Area of polygon = \(8 \cdot \frac{1}{2} \cdot 1 \cdot 1 \sin(\frac{2\pi}{8})\)
+                    \item Total area of regular polygon with \(n\) sides = \(\frac{n}{2} \cdot 1 \cdot 1 \sin(\frac{2\pi}{n})\)
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.5\textwidth}
+                \begin{figure}
+                    \centering
+                    \includegraphics[scale=0.3]{/unit_circle/28.png}
+                    \caption{Area of a regular polygon using sine function}
+                \end{figure}
+            \end{column}
+        \end{columns}
+    \end{frame}
+    
+    \begin{frame}
+        \frametitle{Example: Area of a Regular Pentagon}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            Each side of the Pentagon that houses the U.S. Department of Defense has a length of 921 feet.
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.3]{/unit_circle/29.png}
+                \caption{Area of a regular pentagon}
+            \end{figure}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{block}{Solution}
+                \begin{itemize}
+                    \item \(h = \frac{460.5}{\tan (\frac{\pi}{5})}\) 
+                    \item \(\frac{1}{2} \cdot 921 \cdot h\)
+                    \item \(5 \cdot \frac{1}{2} \cdot 921 \cdot h\)
+                \end{itemize}
+            \end{block}
+        \end{column}
+    \end{columns}
+    \end{frame}
+
+    \begin{frame}
+    \frametitle{Trignometric Approximation}
+
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{|c|c|c|}
+            \hline
+            $q$ & $\sin q$ & $\tan q$ \\
+            \hline
+            0.5 & 0.47943 & 0.54630 \\
+            0.05 & 0.04998 & 0.05004 \\
+            0.005 & 0.00499998 & 0.00500004 \\
+            0.0005 & 0.00049999998 & 0.00050000004 \\
+            0.00005 & 0.00004999999998 & 0.00005000000004 \\
+            \hline
+        \end{tabular}
+        \caption{Values of $\sin q$ and $\tan q$ for small $q$}
+    \end{table}
+
+    \begin{block}{Approximation of \(\sin \theta\) and \(\tan \theta\)}
+        If \(| \theta | < 1\), then \(\sin \theta \approx \theta\) and \(\tan \theta \approx \theta\).
+    \end{block}
+
+    \end{frame}
