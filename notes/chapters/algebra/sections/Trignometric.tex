@@ -637,7 +637,82 @@
     \end{table}
 
     \begin{block}{Approximation of \(\sin \theta\) and \(\tan \theta\)}
-        If \(| \theta | < 1\), then \(\sin \theta \approx \theta\) and \(\tan \theta \approx \theta\).
+        If \(| \theta | << 1\), then \(\sin \theta \approx \theta\) and \(\tan \theta \approx \theta\).
     \end{block}
+    \begin{block}{Note}
+        This approximation is applicable only for radians. For small angles in degrees, the approximation is not valid.
+    \end{block}
+
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{\(\sin \theta\) for small angles}
+        \begin{columns}
+            \begin{column}{0.5\textwidth}
+                \begin{figure}
+                    \centering
+                    \includegraphics[scale=0.4]{/unit_circle/30.png}
+                    \caption{Graph of \(\sin \theta\) for small angles}
+                \end{figure}
+            \end{column}
+            \begin{column}{0.5\textwidth}
+                \begin{itemize}
+                    \item The blue vertical line and the blue circular arc have nearly the same length if \(|\theta| << 1\).
+                    \item The blue vertical line represents \(\sin \theta\), and the blue circular arc represents \(\theta\).
+                    \item From the figure, we see that \(\sin \theta < \theta\) for small angles.
+                \end{itemize}
+            \end{column}
+        \end{columns}
+        \end{frame}
+
+    \begin{frame}
+        \frametitle{\(\tan \theta\) for small angles}
+        \begin{columns}
+            \begin{column}{0.5\textwidth}
+                \begin{figure}
+                    \centering
+                    \includegraphics[scale=0.4]{/unit_circle/31.png}
+                    \caption{Graph of \(\tan \theta\) for small angles}
+                \end{figure}
+            \end{column}
+            \begin{column}{0.5\textwidth}
+                \begin{itemize}
+                    \item The yellow region has the area = \(\frac{1}{2} \cdot \theta\)  
+                    \item The blue vertical line has the length \(\tan \theta\) 
+                    \item The right triangle which has the base 1 and height \(\tan \theta\) has area = \(\frac{1}{2} \cdot 1 \cdot \tan \theta\)
+                    \item As the yellow region lies inside the triangle, we have \(\frac{1}{2} \cdot \theta < \frac{1}{2} \cdot 1 \cdot \tan \theta\)  
+                    \item Thus \(\theta < \tan \theta\)     
+                \end{itemize}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}
+    \frametitle{Trignometric Inequality}
+    \begin{block}{Inequality of \(\sin \theta\) and \(\tan \theta\)}
+        If \( 0 < \theta < \frac{\pi}{2} \), then \(\sin \theta < \theta < \tan \theta \).
+    \end{block}
+    \begin{displaymath}
+        \theta < \tan \theta \implies \theta < \frac{\sin \theta}{\cos \theta} \implies \theta \cos \theta < \sin \theta \implies \cos \theta < \frac{\sin \theta}{\theta}
+    \end{displaymath}
+    \begin{displaymath}
+        \sin \theta < \theta \implies \frac{\sin \theta}{\theta} < 1
+    \end{displaymath}
+    \begin{block}{Inequality for \( \frac{\sin \theta}{\theta} \)}
+        If \( 0 < |\theta| < \frac{\pi}{2} \), then
+        \[ \cos \theta <  \frac{\sin \theta}{\theta} < 1 \]
+    \end{block}
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{Approximations}
+        \begin{block}{\( \frac{\sin \theta}{\theta} \)}
+            As \( \theta \) approaches 0, \( \frac{\sin \theta}{\theta} \) approaches 1.
+        \end{block}
+        \begin{block}{\(  \cos \theta \)}
+            As \( |\theta| \) is small, \( \cos \theta \) approaches to  \(1 - \frac{\theta^2}{2} \)
+
+        \end{block}
+
 
     \end{frame}
