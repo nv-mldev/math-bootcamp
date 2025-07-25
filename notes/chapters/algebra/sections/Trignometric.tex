@@ -711,8 +711,42 @@
         \end{block}
         \begin{block}{\(  \cos \theta \)}
             As \( |\theta| \) is small, \( \cos \theta \) approaches to  \(1 - \frac{\theta^2}{2} \)
-
         \end{block}
+    \end{frame} 
 
-
+    \begin{frame}
+    \frametitle{Trigonometric Approximation}
+    \begin{displaymath}
+        1 - \cos \theta = 1 - \cos \theta * (\frac{1 + \cos \theta}{1 + \cos \theta}) = \frac{(1 - \cos^2 \theta)}{1 + \cos \theta} = \frac{\sin^2 \theta}{1 + \cos \theta}
+    \end{displaymath}
+    If \( \theta\) is small then :
+    \begin{displaymath}
+      \approx  \frac{\theta ^{2}}{1+ \cos \theta}
+    \end{displaymath}
     \end{frame}
+
+    \begin{frame}
+    \frametitle{The Law of Sines and Cosines} 
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.5]{/unit_circle/32.png}
+                \caption{The Law of Sines}
+            \end{figure}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item \( \frac{1}{2} ab \sin C = \frac{1}{2}bc\sin A = \frac{1}{2}ac\sin B\)
+                \item \( \frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}\)
+            \end{itemize}
+        \end{column}
+    \end{columns}
+    \begin{block}{Law of Sines}
+        The Law of Sines states that in any triangle, the ratio of the sine of the angle to the length of the opposite side is constant:
+        \[
+        \frac{\sin A}{a} = \frac{\sin B}{b} = \frac{\sin C}{c}
+        \]
+    \end{block}
+    \end{frame}
+
