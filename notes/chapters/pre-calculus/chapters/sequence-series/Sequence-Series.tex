@@ -1,0 +1,427 @@
+\section{Sequences and Series}
+\label{sec:sequence-series}
+
+\begin{frame}
+    \frametitle{Sequence}
+    \begin{definition}
+        A \textbf{sequence} is an ordered list of numbers, typically defined by a function \( a_n \) where \( n \) is a natural number.     
+    \end{definition}
+\begin{itemize}
+    \item For example, \(7,\, \sqrt{3},\, \frac{5}{2}\) is a sequence. The first term of this sequence is 7, the second term is \(\sqrt{3}\), and the third term is \(\frac{5}{2}\).
+    \item Sequences differ from sets in that order matters and repetitions are allowed in a sequence.
+    \item For example, \(\{2,\, 3,\, 5\}\) and \(\{5,\, 3,\, 2\}\) are the same set, but the sequences \(2,\, 3,\, 5\) and \(5,\, 3,\, 2\) are not the same.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Finite and Infinite Sequences}
+    \begin{definition}
+        A \textbf{finite sequence} is a sequence that has a specific number of terms, while an \textbf{infinite sequence} continues indefinitely.
+    \end{definition}
+    \begin{itemize}
+        \item For example, the sequence \(1, 2, 3, 4, 5\) is finite because it has 5 terms.
+        \item In contrast, the sequence \(1, 2, 3, \ldots\) is infinite because it goes on forever.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Examples of Sequences} 
+    \begin{enumerate}
+        \item \(a_n = n\) (the sequence of natural numbers) : \(1, 2, 3, 4, \ldots\)
+        \item \(a_n = 2n - 1\) (the sequence of odd numbers) : \(1, 3, 5, 7, \ldots\)
+        \item \(a_n = (-1)^n\) (the alternating sequence) : \(1, -1, 1, -1, \ldots\)
+        \item \(a_n = \frac{1}{n}\) (the sequence of reciprocals) : \(1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \ldots\)
+        \item \(a_n = n^2\) (the sequence of squares) : \(1, 4, 9, 16, \ldots\)
+        \item \(a_n = 2^n\) (the sequence of powers of 2) : \(2, 4, 8, 16, \ldots\)
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Examples of Sequences (continued)}
+    \begin{itemize}
+        \item What is the fifth term of the sequence \(1, 4, 9, 16, \ldots\)?
+    \end{itemize}
+    \pause 
+    \begin{solutionblock}
+        \begin{align*}
+            a_{n} &= \frac{n^{4} - 10n^{3}+ 39n^{2} - 50n + 24}{4} \\
+            a_{5} &= \frac{5^{4} - 10 \cdot 5^{3} + 39 \cdot 5^{2} - 50 \cdot 5 + 24}{4} = 31 \\
+        \end{align*}
+    \end{solutionblock}    
+\end{frame}
+
+\begin{frame}
+    \frametitle{Arithmetic Sequences}
+    \begin{definition}
+        An \textbf{arithmetic sequence} is a sequence of numbers in which the difference between consecutive terms is constant. This difference is called the \textbf{common difference} and is usually denoted by \(d\).
+    \end{definition}
+    \begin{itemize}
+        \item The general form of an arithmetic sequence can be expressed as:
+        \[
+            a_n = a_1 + (n-1)d
+        \]
+        where \(a_1\) is the first term and \(d\) is the common difference.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Examples of Arithmetic Sequences}
+    \begin{itemize}
+        \item \(2, 5, 8, 11, \ldots\) (common difference \(d = 3\))
+        \item \(10, 7, 4, 1, \ldots\) (common difference \(d = -3\))
+        \item \(1, 1.5, 2, 2.5, \ldots\) (common difference \(d = 0.5\))
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Formula for the \(n\)-th Term of an Arithmetic Sequence}
+    The \(n\)-th term of an arithmetic sequence can be found using the formula:
+    \[
+        a_n = a_1 + (n-1)d
+    \]
+    where:
+    \begin{itemize}
+        \item \(a_n\) is the \(n\)-th term,
+        \item \(a_1\) is the first term,
+        \item \(d\) is the common difference, and
+        \item \(n\) is the term number.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Geometric Sequences}
+    \begin{definition}
+        A \textbf{geometric sequence} is a sequence of numbers in which the ratio between consecutive terms is constant. This ratio is called the \textbf{common ratio} and is usually denoted by \(r\).
+    \end{definition}
+    \begin{itemize}
+        \item The general form of a geometric sequence can be expressed as:
+        \[
+            a_n = a_1 \cdot r^{n-1}
+        \]
+        where \(a_1\) is the first term and \(r\) is the common ratio.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Examples of Geometric Sequences}
+    \begin{itemize}
+        \item \(2, 6, 18, 54, \ldots\) (common ratio \(r = 3\))
+        \item \(100, 50, 25, 12.5, \ldots\) (common ratio \(r = 0.5\))
+        \item \(1, -2, 4, -8, \ldots\) (common ratio \(r = -2\))
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Formula for the \(n\)-th Term of a Geometric Sequence}
+    The \(n\)-th term of a geometric sequence can be found using the formula:
+    \[
+        a_n = a_1 \cdot r^{n-1}
+    \]
+    where:
+    \begin{itemize}
+        \item \(a_n\) is the \(n\)-th term,
+        \item \(a_1\) is the first term,
+        \item \(r\) is the common ratio, and
+        \item \(n\) is the term number.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Compound Interest Sequence Example}
+    Suppose at the beginning of the year \$1000 is deposited in a bank account that pays 5\% interest per year, compounded once per year at the end of the year. Consider the sequence whose \(n\)-th term is the amount in the bank account at the beginning of the \(n\)-th year.
+    \pause
+
+    \begin{solutionblock}
+    \begin{enumerate}
+        \item[(a)] \textbf{First four terms:}
+        \begin{itemize}
+            \item The sequence is geometric with first term \(a_1 = 1000\) and common ratio \(r = 1.05\).
+            \item The terms are:
+            \begin{align*}
+                a_1 &= 1000 \\
+                a_2 &= 1000 \times 1.05 = 1050 \\
+                a_3 &= 1000 \times (1.05)^2 = 1102.5 \\
+            \end{align*}
+        \end{itemize}
+        \end{enumerate}
+        \end{solutionblock}
+    \end{frame}
+
+\begin{frame}
+    \frametitle{Compound Interest Sequence Example (continued)}
+    \begin{solutionblock}
+    \begin{enumerate}
+        \item[(b)] \textbf{20th term:}
+        \begin{itemize}
+            \item The formula for the \(n\)-th term is \(a_n = 1000 \times (1.05)^{n-1}\).
+            \item The 20th term is:
+            \[
+                a_{20} = 1000 \times (1.05)^{19} \approx 1000 \times 2.527 \approx 2527
+            \]
+            So, at the beginning of the 20th year, there will be approximately \$2527 in the account.
+        \end{itemize}
+    \end{enumerate}
+\end{solutionblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Recursively Defined Sequences}
+\begin{definition}
+A \textbf{recursively defined sequence} is a sequence in which each term is defined as a function of one or more of the preceding terms.
+\end{definition}
+\begin{itemize}
+    \item A common example is the Fibonacci sequence, defined as follows:
+    \[
+        F_n = F_{n-1} + F_{n-2} \quad \text{for } n \geq 3
+    \]
+    with initial conditions \(F_1 = 1\) and \(F_2 = 1\).
+    \item All arithmetic and geometric sequences can also be defined recursively
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Example of a Recursively Defined Sequence}
+    \begin{itemize}
+        \item \textbf{Fibonacci Sequence:}
+        \begin{align*}
+            F_1 &= 1 \\
+            F_2 &= 1 \\
+            F_3 &= F_2 + F_1 = 1 + 1 = 2 \\
+            F_4 &= F_3 + F_2 = 2 + 1 = 3 \\
+            F_5 &= F_4 + F_3 = 3 + 2 = 5 \\
+            F_6 &= F_5 + F_4 = 5 + 3 = 8 \\
+            F_n &= F_{n-1} + F_{n-2} \quad \text{for } n \geq 3
+        \end{align*}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Example of a Recursively Defined Sequence}
+\begin{block}{Newtons Method}
+    \begin{itemize}
+        \item Newton's method for finding roots of a function can be defined recursively:
+        \[
+            x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
+        \]
+        where \(x_n\) is the current approximation, \(f(x)\) is the function, and \(f'(x)\) is its derivative.
+        \item For estimation \(\sqrt{c}\), we can use the recursive formula:
+        \[
+            a_{n} = \frac{1}{2}(a_{n-1} + \frac{c}{a_{n-1}})
+        \]
+    \end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Newton's Method Example}
+    \begin{itemize}
+        \item To find \(\sqrt{5}\) using Newton's method:
+        \begin{align*}
+            a_{2} &= \frac{1}{2}(a_{1} + \frac{5}{a_{1}}) = \frac{9}{4} \\
+            a_{3} &= \frac{1}{2}(a_{2} + \frac{5}{a_{2}})  = \frac{161}{72} \\
+            a_{4} &= \frac{1}{2}(a_{3} + \frac{5}{a_{3}}) = \frac{51841}{23184} \\
+            &= \frac{51841}{23184} \approx 2.236067977
+        \end{align*}
+    \end{itemize}
+\end{frame}
+
+\subsection{Series}
+\begin{frame}
+    \frametitle{Series}
+    \begin{definition}
+        A \textbf{series} is the sum of the terms of a sequence. If the sequence is \(a_1, a_2, a_3, \ldots\), then the series is denoted as:
+        \[
+            S_n = a_1 + a_2 + a_3 + \ldots + a_n
+        \]
+    \end{definition}
+    \begin{itemize}
+        \item For example, the series corresponding to the sequence \(1, 2, 3, 4\) is:
+        \[
+            S_4 = 1 + 2 + 3 + 4 = 10
+        \]
+        \item The series can be finite or infinite, depending on whether the sequence has a finite or infinite number of terms.
+    \end{itemize}
+\end{frame} 
+
+\begin{frame}
+\frametitle{Arithmetic Series}
+\begin{definition}
+An \textbf{arithmetic series} is the sum of the terms of an arithmetic sequence
+\end{definition}
+\begin{block}{Arithmetic Series Formula}
+\begin{itemize}
+    \item The sum of the first \(n\) terms of an arithmetic series can be calculated using the formula:
+    \[
+        S_n = \frac{n}{2} (a_1 + a_n)
+    \]
+    where \(a_1\) is the first term and \(a_n\) is the \(n\)-th term.
+    \item Alternatively, if the common difference \(d\) is known, the formula can be expressed as:
+    \[
+        S_n = \frac{n}{2} (2a_1 + (n-1)d)
+    \]
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Sum of first \(n\) positive integers}
+    \begin{itemize}
+        \item The sum of the first \(n\) positive integers can be calculated using the formula:
+        \[
+            S_n = \frac{n(n+1)}{2}
+        \]
+        \item This is derived from the arithmetic series formula with \(a_1 = 1\), \(a_n = n\), and \(d = 1\).
+        \item For example, the sum of the first 5 positive integers is:
+        \[
+            S_5 = \frac{5(5+1)}{2} = \frac{5 \cdot 6}{2} = 15
+        \]
+    \end{itemize}       
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Geometric Series}
+    \begin{definition}
+        A \textbf{geometric series} is the sum of the terms of a geometric sequence.
+    \end{definition}
+    \begin{block}{Geometric Series Formula}
+        \begin{itemize}
+            \item The sum of the first \(n\) terms of a geometric series can be calculated using the formula:
+            \[
+                S_n = a_1 \frac{1 - r^n}{1 - r}
+            \]
+            where \(a_1\) is the first term and \(r\) is the common ratio (and \(r \neq 1\)).
+            \item If the series is infinite and \(|r| < 1\), the sum can be calculated using:
+            \[
+                S = \frac{a_1}{1 - r}
+            \]
+        \end{itemize}
+    \end{block} 
+\end{frame}
+
+\begin{frame}
+ \frametitle{Pascals Triangle}
+ \begin{block}{\( {(x+y)}^{n} \)}
+ \begin{align*}
+ {(x+y)}^{0} &= 1 \\
+ {(x+y)}^{1} &= 1x + 1y \\
+ {(x+y)}^{2} &= 1x^{2} + 2xy + 1y^{2} \\
+ {(x+y)}^{3} &= 1x^{3} + 3x^{2}y + 3xy^{2} + 1y^{3}\\
+ {(x+y)}^{4} &= 1x^{4} + 4x^{3}y + 6x^{2}y^{2} + 4xy^{3} + 1y^{4} \\
+ {(x+y)}^{5} &= 1x^{5} + 5x^{4}y + 10x^{3}y^{2} + 10x^{2}y^{3} + 5xy^{4} + 1y^{5} \\
+ \end{align*}
+ \end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Pascals Triangle (continued)} 
+The patterns in the expansions of \((x + y)^n\) can be summarized as follows:
+\begin{itemize}
+    \item Each expansion of \((x + y)^n\) begins with \(x^n\) and ends with \(y^n\).
+    \item The second term in each expansion of \((x + y)^n\) is \(n x^{n-1} y\).
+    \item The second-to-last term in each expansion is \(n x y^{n-1}\).
+    \item Each term in the expansion of \((x + y)^n\) is a coefficient times \(x^j y^k\), where \(j\) and \(k\) are nonnegative integers such that \(j + k = n\).
+    \item In the expansion of \((x + y)^n\), the coefficient of \(x^j y^k\) is the same as the coefficient of \(x^k y^j\).
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Pascal's Triangle}
+\begin{block}{Pascal's Triangle for $(x+y)^n$}
+\centering
+\begin{tabular}{c}
+$n=0$: \quad 1 \\[0.5em]
+$n=1$: \quad 1 \quad 1 \\[0.5em]
+$n=2$: \quad 1 \quad 2 \quad 1 \\[0.5em]
+$n=3$: \quad 1 \quad 3 \quad 3 \quad 1 \\[0.5em]
+$n=4$: \quad 1 \quad 4 \quad 6 \quad 4 \quad 1 \\[0.5em]
+$n=5$: \quad 1 \quad 5 \quad 10 \quad 10 \quad 5 \quad 1 \\[0.5em]
+\end{tabular}
+\end{block}
+\begin{itemize}
+    \item Each row gives the coefficients for $(x+y)^n$
+    \item Each number is the sum of the two numbers above it or diagonally left and right
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Binomial Coefficients}
+A direct way to compute the coefficients in the expansion of \((x + y)^n\) is to use \textbf{binomial coefficients}, which are denoted as \(\binom{n}{k}\) and read as "n choose k".
+\begin{block}{Definition}
+The \textbf{binomial coefficient} \(\binom{n}{k}\) is defined as the number of ways to choose \(k\) elements from a set of \(n\) elements, and is given by the formula:
+\[
+\binom{n}{k} = \frac{n!}{k!(n-k)!}
+\]
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Binomial Coefficients Identity}
+\begin{block}{Identity}
+The following identity holds for binomial coefficients:
+\[
+\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}
+\]
+\end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Binomial Theorem}
+    \begin{block}{Theorem}
+    The \textbf{Binomial Theorem} states that:
+    \[
+    (x + y)^n = \sum_{k=0}^{n} \binom{n}{k} x^{n-k} y^k
+    \]
+    where \(\binom{n}{k}\) are the binomial coefficients.
+    \end{block}
+\end{frame}
+
+\section{Limits of Sequences}
+\begin{frame}
+    \frametitle{Limits of Sequences}
+    \begin{block}{Definition}
+        A sequence has a \textbf{limit} \(L\) if the terms of the sequence get arbitrarily close to \(L\) as \(n\) increases. In other words, for every \(\epsilon > 0\), there exists a number \(N\) such that for all \(n > N\), the absolute difference \(|a_n - L| < \epsilon\).
+
+        \textit{Note:} Typically, \(N\) is taken to be a natural number, since sequence indices are natural numbers
+    \end{block} 
+    \begin{block}{Notation}
+        The limit of a sequence \((a_n)\) as \(n\) approaches infinity is denoted as:
+        \[
+        \lim_{n \to \infty} a_n = L
+        \]
+        if the terms \(a_n\) get arbitrarily close to \(L\) for sufficiently large \(n\).
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Example of a Sequence Limit}
+    Consider the sequence defined by \(a_n = \frac{1}{n}\).
+    \begin{itemize}
+        \item As \(n\) increases, the terms of the sequence get closer and closer to 0.
+        \item Therefore, we can say:
+        \[
+        \lim_{n \to \infty} a_n = 0
+        \]
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Limit of a Geometirc Sequence}
+\begin{definition}
+    Suppose \(r\) is a real number. Then the geometric sequence \(r, r^2, r^3, \ldots\)
+    \begin{itemize}
+        \item has limit 0 if \(|r| < 1\);
+        \item has limit 1 if \(r = 1\);
+        \item does not have a limit if \(r \leq -1\) or \(r > 1\).
+    \end{itemize}
+\end{definition}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Infinite Series}
+    An \textbf{infinite series} is the sum of the terms of an infinite sequence. If \((a_n)\) is a sequence, then the infinite series is denoted by:
+    \[
+    \sum_{n=1}^{\infty} a_n = a_1 + a_2 + a_3 + \ldots
+    \]
+    The series converges if the sequence of partial sums converges to a limit.
+\end{frame}

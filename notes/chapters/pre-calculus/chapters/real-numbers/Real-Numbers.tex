@@ -1,4 +1,40 @@
-\section{Algebra of real numbers}
+\documentclass{beamer}
+\usetheme{AnnArbor}
+\usepackage{graphicx}
+\graphicspath{{pics/}}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{framed}
+\usepackage{tikz}
+\usepackage[]{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{blkarray}
+\setbeamercolor{mycolorbox}{%
+  bg=yellow!20,   % background color (20% yellow)
+  fg=black      % foreground (text) color
+}
+\usefonttheme[onlymath]{serif}
+
+\newtcolorbox{solutionblock}{
+  colback=yellow!5,        % Background color: light yellow
+  colframe=orange!80!black, % Frame color: dark orange
+  title=Solution,
+  fonttitle=\bfseries
+}
+
+\title{Algebra of Real Numbers}
+\author{Nithin}
+\institute{}
+\date{\today}
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+\begin{frame}
+  \tableofcontents
+\end{frame}
 \begin{frame}{Properties of Real Numbers}
   \begin{itemize}
       \item \textbf{Commutative Properties}
@@ -360,3 +396,4 @@ Here \( x > 3\) is inconsistent with our assumption \(x < 1\). So for \(x<1\) th
   
 \end{frame}
 
+\end{document}

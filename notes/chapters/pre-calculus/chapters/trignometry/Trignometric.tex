@@ -1,4 +1,41 @@
-\section{Trigonometric Functions}
+\documentclass{beamer}
+\usetheme{AnnArbor}
+\usepackage{graphicx}
+\graphicspath{{pics/}}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{framed}
+\usepackage{tikz}
+\usepackage[]{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{blkarray}
+\setbeamercolor{mycolorbox}{%
+  bg=yellow!20,   % background color (20% yellow)
+  fg=black      % foreground (text) color
+}
+\usefonttheme[onlymath]{serif}
+
+\newtcolorbox{solutionblock}{
+  colback=yellow!5,        % Background color: light yellow
+  colframe=orange!80!black, % Frame color: dark orange
+  title=Solution,
+  fonttitle=\bfseries
+}
+
+\title{Trignometry}
+\author{Nithin}
+\institute{}
+\date{\today}
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+\begin{frame}
+  \tableofcontents
+\end{frame}
+
 
 \subsection{The Unit Circle}
 \begin{frame}
@@ -14,13 +51,13 @@
 \begin{frame}
     \frametitle{Radius corresponding to a positive angle}
     \centering
-    \includegraphics[scale=0.5]{/unit_circle/1.png}
+    \includegraphics[scale=0.5]{/trigonometry/1.png}
 \end{frame}
 
 \begin{frame}
     \frametitle{Radius corresponding to a negative angle}
     \centering
-    \includegraphics[scale=0.5]{/unit_circle/2.png}
+    \includegraphics[scale=0.5]{/trigonometry/2.png}
 \end{frame}
 
 \begin{frame}
@@ -40,7 +77,7 @@
     \end{block}
     \begin{figure}[h]    
         \centering
-        \includegraphics[scale=0.4]{/unit_circle/3.png}
+        \includegraphics[scale=0.4]{/trigonometry/3.png}
     \end{figure}
 \end{frame}
 
@@ -48,7 +85,7 @@
     \frametitle{Length of a Circular Arc}
     \begin{figure}
         \centering
-        \includegraphics[scale=0.5]{/unit_circle/5.png}
+        \includegraphics[scale=0.5]{/trigonometry/5.png}
     \end{figure}
     \[ 360^{\circ}   \rightarrow  2 \pi r \implies \theta^{\circ}  \rightarrow \frac{\theta}{360}.2\pi r  = \frac{\theta \pi r}{180}\] 
 \end{frame}
@@ -83,7 +120,7 @@
     \end{block}
     \begin{figure}[h]    
         \centering
-        \includegraphics[scale=0.25]{unit_circle/6.png}
+        \includegraphics[scale=0.25]{trigonometry/6.png}
     \end{figure}
 \end{frame}
 
@@ -105,7 +142,7 @@
     \begin{figure}[h]    
         \begin{minipage}[b]{0.8\textwidth}
             \centering
-            \includegraphics[scale=0.22]{unit_circle/7.png}
+            \includegraphics[scale=0.22]{trigonometry/7.png}
             \caption{sine and cosine}
         \end{minipage}
     \end{figure}
@@ -115,7 +152,7 @@
     \frametitle{The Signs of Sine and Cosine} 
     \begin{figure}
         \centering
-        \includegraphics[scale=0.2]{unit_circle/8.png}
+        \includegraphics[scale=0.2]{trigonometry/8.png}
         \caption{Signs of sine and cosine in different quadrants}
     \end{figure}
 \end{frame}
@@ -172,7 +209,7 @@
     \frametitle{Tangent as Slope}
     \begin{figure}
         \centering
-        \includegraphics[scale=0.2]{unit_circle/9.png}
+        \includegraphics[scale=0.2]{trigonometry/9.png}
         \caption{Tangent as slope of the radius}
     \end{figure}
     \centering
@@ -187,7 +224,7 @@
     \frametitle{Sign of Tangent}
     \begin{figure}
         \centering
-        \includegraphics[scale=0.2]{unit_circle/10.png}
+        \includegraphics[scale=0.2]{trigonometry/10.png}
         \caption{Signs of tangent in different quadrants}
     \end{figure}
 \end{frame}
@@ -196,7 +233,7 @@
     \frametitle{Radius of unit circle corresponding to a positive angle}
     \begin{figure}
         \centering
-        \includegraphics[scale=0.25]{unit_circle/11.png}
+        \includegraphics[scale=0.25]{trigonometry/11.png}
         \caption{Radius of unit circle corresponding to angle \(\theta\) such that \(\tan(\theta) = \frac{1}{2}\)}
     \end{figure}
 \end{frame}
@@ -219,7 +256,7 @@
     \frametitle{Graphing Tangent: Tangent near \(\frac{\pi}{2}\)}
     \begin{figure}
         \centering
-        \includegraphics[scale=0.28]{/unit_circle/12.png}
+        \includegraphics[scale=0.28]{/trigonometry/12.png}
     \end{figure}
 \end{frame}
 
@@ -236,7 +273,7 @@
     \frametitle{Right Triangles}
     \begin{figure}
         \centering
-        \includegraphics[scale=0.3]{/unit_circle/13.png}
+        \includegraphics[scale=0.3]{/trigonometry/13.png}
     \end{figure}
 \end{frame}
 
@@ -270,7 +307,7 @@
     \begin{column}{0.5\textwidth}
         \begin{figure}
             \centering
-            \includegraphics[scale=0.4]{/unit_circle/14.png}
+            \includegraphics[scale=0.4]{/trigonometry/14.png}
             \caption{Trigonometric identities in a right triangle}
         \end{figure}
     \end{column}
@@ -298,7 +335,7 @@
     \frametitle{Trigonometric Identities with Right Triangles}
     \begin{figure}
         \centering
-        \includegraphics[scale=0.4]{/unit_circle/15.png}
+        \includegraphics[scale=0.4]{/trigonometry/15.png}
         \caption{Trigonometric identities in a right triangle}
     \end{figure}
 
@@ -313,7 +350,7 @@
     \frametitle{Trigonometric Identities involving multiples of \(\pi\)}
     \begin{figure}
         \centering
-        \includegraphics[scale=0.5]{/unit_circle/16.png}
+        \includegraphics[scale=0.5]{/trigonometry/16.png}
         \caption{Trigonometric identities involving multiples of \(\pi\)}
     \end{figure}
     \begin{itemize}
@@ -340,7 +377,7 @@
     \frametitle{The Arccosine Function}
     \begin{figure}
         \centering
-        \includegraphics[scale=0.3]{/unit_circle/18.png}
+        \includegraphics[scale=0.3]{/trigonometry/18.png}
         \caption{Graph of the cosine function restricted to \([0, \pi]\)}
     \end{figure}
     \begin{block}{The Arccosine Function}
@@ -363,7 +400,7 @@
     \frametitle{The Arcsine Function}
     \begin{figure}
         \centering
-        \includegraphics[scale=0.3]{/unit_circle/19.png}
+        \includegraphics[scale=0.3]{/trigonometry/19.png}
         \caption{Graph of the sine function restricted to \([- \frac{\pi}{2}, \frac{\pi}{2}]\)}
     \end{figure}
     \begin{itemize}
@@ -405,7 +442,7 @@
     \frametitle{The Arctangent Function}
     \begin{figure}
         \centering
-        \includegraphics[scale=0.4]{/unit_circle/20.png}
+        \includegraphics[scale=0.4]{/trigonometry/20.png}
         \caption{Graph of the tangent function restricted to \((- \frac{\pi}{2}, \frac{\pi}{2})\)}
     \end{figure}
 \end{frame}
@@ -463,7 +500,7 @@
     \frametitle{Find the \(\arccos(-t)\)}
     \begin{figure}
         \centering
-        \includegraphics[scale=0.4]{/unit_circle/21.png}
+        \includegraphics[scale=0.4]{/trigonometry/21.png}
         \caption{Graph of the arccosine function}
     \end{figure}
     \textbf{Solution:} 
@@ -474,7 +511,7 @@
 \frametitle{Find the \(\arcsin(t)\)}
 \begin{figure}
     \centering
-    \includegraphics[scale=0.4]{/unit_circle/22.png}
+    \includegraphics[scale=0.4]{/trigonometry/22.png}
     \caption{Graph of the arcsine function}
 \end{figure}
 \textbf{Solution:} 
@@ -494,7 +531,7 @@
     \frametitle{Find the \(\arctan(-t)\)}
     \begin{figure}
         \centering
-        \includegraphics[scale=0.4]{/unit_circle/23.png}
+        \includegraphics[scale=0.4]{/trigonometry/23.png}
         \caption{Graph of the arctangent function}
     \end{figure}
 \end{frame}
@@ -516,7 +553,7 @@
     \frametitle{arcsin + arccosine}
     \begin{figure}
         \centering
-        \includegraphics[scale=0.4]{/unit_circle/24.png}
+        \includegraphics[scale=0.4]{/trigonometry/24.png}
         \caption{right angle triangle involving arcsine and arccosine functions}      
     \end{figure}
 \end{frame}
@@ -534,7 +571,7 @@
     \end{block}
     \begin{figure}
         \centering
-        \includegraphics[scale=0.4]{/unit_circle/25.png}
+        \includegraphics[scale=0.4]{/trigonometry/25.png}
         \caption{Area of a triangle using sine function}
     \end{figure}
 \end{frame}
@@ -543,7 +580,7 @@
     \frametitle{Ambiguous Angles}
     \begin{figure}
         \centering
-        \includegraphics[scale=0.3]{/unit_circle/26.png}
+        \includegraphics[scale=0.3]{/trigonometry/26.png}
         \caption{\(\sin(\pi - \theta) = \sin(\theta)\)}
     \end{figure}
     \begin{itemize}
@@ -569,7 +606,7 @@
         \end{block}
         \begin{figure}
             \centering
-            \includegraphics[scale=0.3]{/unit_circle/27.png}
+            \includegraphics[scale=0.3]{/trigonometry/27.png}
             \caption{Area of a parallelogram using sine function}
         \end{figure}
     \end{frame}
@@ -587,7 +624,7 @@
             \begin{column}{0.5\textwidth}
                 \begin{figure}
                     \centering
-                    \includegraphics[scale=0.3]{/unit_circle/28.png}
+                    \includegraphics[scale=0.3]{/trigonometry/28.png}
                     \caption{Area of a regular polygon using sine function}
                 \end{figure}
             \end{column}
@@ -601,7 +638,7 @@
             Each side of the Pentagon that houses the U.S. Department of Defense has a length of 921 feet.
             \begin{figure}
                 \centering
-                \includegraphics[scale=0.3]{/unit_circle/29.png}
+                \includegraphics[scale=0.3]{/trigonometry/29.png}
                 \caption{Area of a regular pentagon}
             \end{figure}
         \end{column}
@@ -651,7 +688,7 @@
             \begin{column}{0.5\textwidth}
                 \begin{figure}
                     \centering
-                    \includegraphics[scale=0.4]{/unit_circle/30.png}
+                    \includegraphics[scale=0.4]{/trigonometry/30.png}
                     \caption{Graph of \(\sin \theta\) for small angles}
                 \end{figure}
             \end{column}
@@ -671,7 +708,7 @@
             \begin{column}{0.5\textwidth}
                 \begin{figure}
                     \centering
-                    \includegraphics[scale=0.4]{/unit_circle/31.png}
+                    \includegraphics[scale=0.4]{/trigonometry/31.png}
                     \caption{Graph of \(\tan \theta\) for small angles}
                 \end{figure}
             \end{column}
@@ -731,7 +768,7 @@
         \begin{column}{0.5\textwidth}
             \begin{figure}
                 \centering
-                \includegraphics[scale=0.5]{/unit_circle/32.png}
+                \includegraphics[scale=0.5]{/trigonometry/32.png}
                 \caption{The Law of Sines}
             \end{figure}
         \end{column}
@@ -749,4 +786,227 @@
         \]
     \end{block}
     \end{frame}
+
+    \begin{frame}
+        \frametitle{Law of Cosines}
+        \begin{columns}
+            \begin{column}{0.5\textwidth}
+                \begin{figure}
+                    \centering
+                    \includegraphics[scale=0.3]{/trigonometry/33.png}
+                    \includegraphics[scale=0.3]{/trigonometry/34.png}
+                    \caption{The Law of Cosines}
+                \end{figure}
+            \end{column}
+            \begin{column}{0.5\textwidth}
+                \begin{align}
+                    h &= a\sin C\\
+                    t &= a \cos C \\
+                    r &= b - t = b - a \cos C \\
+                    c^2  &= a^2 \sin^2 C + (b - a \cos C)^2 \\
+                    c^2 &= a^2 + b^2 - 2ab \cos C 
+                \end{align}
+                \end{column}
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}
+    \frametitle{Law of Cosines}
+    \begin{block}{Law of Cosines}
+        The Law of Cosines relates the lengths of the sides of a triangle to the cosine of one of its angles:
+        \[
+        c^2 = a^2 + b^2 - 2ab \cos C
+        \]
+        where \(a\), \(b\), and \(c\) are the lengths of the sides opposite to angles \(A\), \(B\), and \(C\) respectively.
+    \end{block}
+    \end{frame}
+
+\begin{frame}
+    \frametitle{Law of Cosines and Law of Sines}
+    \begin{block}{When to use which law?}
+        \begin{itemize}
+            \item Use the Law of Sines when you have two angles and one side (AAS or ASA) or two sides and a non-included angle (SSA).
+            \item Use the Law of Cosines when you have two sides and the included angle (SAS) or all three sides (SSS).
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\subsection{Double Angles and Half Angle Formulas}
+
+\begin{frame}
+    \frametitle{The \(\cos 2\theta\)}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.3]{/trigonometry/35.png}
+                \includegraphics[scale=0.3]{/trigonometry/36.png}
+                \caption{The cosine of double angle}
+            \end{figure}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            % You can add a formula or explanation here, for example:
+            Applying law of cosines:
+            \begin{align}
+                (2\sin \theta)^2 &= 1^2 + 1^2 - 2\cos(2\theta) \\
+                4\sin^2 \theta &= 2 - 2\cos(2\theta) \\
+                2\cos(2\theta) &= 2 - 4\sin^2 \theta 
+            \end{align}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{The \(\cos 2\theta\) Formula}
+    \begin{block}{Double Angle Formula}
+        The double angle formulas for cosine are:
+        \[
+        \cos(2\theta)  = 1 - 2\sin^2(\theta) = 2\cos^2(\theta) - 1= \cos^2(\theta) - \sin^2(\theta)
+        \]
+    \end{block}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{The \(\sin 2\theta\) Formula}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.3]{/trigonometry/36.png}
+                \caption{The sine of double angle}
+            \end{figure}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            Applying law of sines:`'
+            \begin{align}
+                \frac{\sin(2\theta)}{2\sin \theta} &= \sin(\frac{\pi}{2} - \theta) \\
+                \frac{\sin(2\theta)}{2\sin \theta} &= \cos(\theta) \\
+                \sin(2\theta) &= 2\sin \theta \cos(\theta)
+            \end{align}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{The \(\sin 2\theta\) Formula}
+    \begin{block}{Double Angle Formula}
+        The double angle formula for sine is:
+        \[
+        \sin(2\theta) = 2\sin(\theta)\cos(\theta)
+        \]
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{The \(\tan 2\theta\) Formula}
+    \begin{block}{Double Angle Formula}
+        The double angle formula for tangent is:
+        \begin{align}
+            \tan(2\theta) &= \frac{\sin(2\theta)}{\cos(2\theta)} \\
+            &= \frac{2\sin(\theta)\cos(\theta)}{\cos^2(\theta) - \sin^2(\theta)} \\
+            &=\frac{\frac{2\sin(\theta)\cos(\theta)}{\cos^{2}(\theta)}}{\frac{\cos^{2}\theta - \sin^2\theta}{\cos^2 \theta}} \\
+            &= \frac{2\tan(\theta)}{1 - \tan^2(\theta)}
+        \end{align}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{The Half Angle Formulas}
+    \begin{block}{Half Angle Formulas}
+        The half angle formulas are derived from the double angle formulas:
+        \begin{align}
+            \sin\left(\frac{\theta}{2}\right) &= \sqrt{\frac{1 - \cos(\theta)}{2}} \\
+            \cos\left(\frac{\theta}{2}\right) &= \sqrt{\frac{1 + \cos(\theta)}{2}} \\
+            \tan\left(\frac{\theta}{2}\right) &= \frac{\sin(\theta)}{1 + \cos(\theta)} = \frac{1 - \cos(\theta)}{\sin(\theta)}
+        \end{align}
+    \end{block}
+    \begin{itemize}
+        \item These formulas are useful for simplifying trigonometric expressions and solving equations involving half angles.
+        \item The choice of the square root sign depends on the quadrant in which the angle lies.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{The Cosine of a Sum and Difference}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.4]{/trigonometry/37.png}
+        \caption{The cosine of a sum and difference}
+    \end{figure}
+\end{frame} 
+
+\begin{frame}
+    \begin{itemize}
+        \item The idea is to compute \(c^2\) via eucledian distance and then equate the same with the law of cosines.
+        \item The distance between the points \((\cos(\alpha), \sin(\alpha))\) and \((\cos(\beta), \sin(\beta))\) is given by:
+        \[
+        c = \sqrt{(\cos(\alpha) - \cos(\beta))^2 + (\sin(\alpha) - \sin(\beta))^2}
+        \]
+        \item Squaring both sides gives:
+        \[
+        c^2 = (\cos(\alpha) - \cos(\beta))^2 + (\sin(\alpha) - \sin(\beta))^2
+        \]
+        \item Expanding the squares and using the Pythagorean identity \(\sin^2(\theta) + \cos^2(\theta) = 1\), we can derive the cosine of a sum and difference formulas.
+        \item The distance \(d\) can also be expressed in terms of the angle \(\theta = \alpha - \beta\):
+        \[
+        d^2 = 2 - 2\cos(\theta) = 2(1 - \cos(\theta))
+        \]
+        \item Thus, we can relate the cosine of the sum and difference to the distance between the points on the unit circle.               
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{The Cosine of a Sum and Difference}
+    \begin{block}{Sum and Difference Formulas}
+        The cosine of a sum and difference is given by:
+        \[
+        \cos( u \pm v) = \cos(u)\cos(v) \mp \sin(u)\sin(v)
+        \]
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Addtition formula for Tangent}
+    \begin{block}{Addition Formula for Tangent} 
+        The addition formula for tangent is:
+        \[
+        \tan(u \pm v) = \frac{\tan(u) \pm \tan(v)}{1 \mp \tan(u)\tan(v)}
+        \]
+        This formula is derived from the sine and cosine addition formulas.
+    \end{block}
+\end{frame}
+
+\subsection{transformation of Trigonometric Functions}
+\begin{frame}
+    \frametitle{Amplitude}
+    \begin{block}{Amplitude of a Function}
+        The \textbf{amplitude} of a function is one-half the distance between the maximum and minimum values of the function
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Period}
+    \begin{block}{Period of a Function}
+       Suppose \(f(x)\) is a periodic function with period \(T\). This means that for all \(x\):
+        \[
+        f(x + T) = f(x)
+        \]
+        The smallest positive value of \(T\) is called the \textbf{period} of the function.     
+    \end{block}
+\end{frame}
+\begin{frame}
+    \frametitle{Phase Shift}
+    \begin{block}{Phase Shift of a Function}
+        The \textbf{phase shift} of a function is the horizontal shift of the graph of the function. It is determined by the value of \(c\) in the function \(f(x) = a \sin(b(x - c)) + d\) or \(f(x) = a \cos(b(x - c)) + d\).
+    \end{block}
+    \begin{itemize}
+        \item If \(c > 0\), the graph shifts to the right.
+        \item If \(c < 0\), the graph shifts to the left.
+    \end{itemize}
+\end{frame}
+
+\end{document}
+
 
