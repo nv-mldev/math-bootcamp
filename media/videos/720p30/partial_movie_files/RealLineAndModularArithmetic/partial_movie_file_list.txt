@@ -1,7 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:/home/nithin/work/math-bootcamp/media/videos/720p30/partial_movie_files/RealLineAndModularArithmetic/2016333726_661112006_223132457.mp4'
-file 'file:/home/nithin/work/math-bootcamp/media/videos/720p30/partial_movie_files/RealLineAndModularArithmetic/543634251_1839128356_2543310785.mp4'
-file 'file:/home/nithin/work/math-bootcamp/media/videos/720p30/partial_movie_files/RealLineAndModularArithmetic/543634251_2284575923_898323255.mp4'
-file 'file:/home/nithin/work/math-bootcamp/media/videos/720p30/partial_movie_files/RealLineAndModularArithmetic/543634251_2912878810_1666280314.mp4'
-file 'file:/home/nithin/work/math-bootcamp/media/videos/720p30/partial_movie_files/RealLineAndModularArithmetic/543634251_2408024828_2483035607.mp4'
-file 'file:/home/nithin/work/math-bootcamp/media/videos/720p30/partial_movie_files/RealLineAndModularArithmetic/543634251_301483821_367236788.mp4'
