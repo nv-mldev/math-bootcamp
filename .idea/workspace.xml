@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="118e6a8e-52ab-4f0d-b1ae-a146103a7acb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/math-bootcamp.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/algebra.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapters/algebra/algebra.aux" beforeDir="false" afterPath="$PROJECT_DIR$/chapters/algebra/algebra.aux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapters/algebra/algebra.fdb_latexmk" beforeDir="false" afterPath="$PROJECT_DIR$/chapters/algebra/algebra.fdb_latexmk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapters/algebra/algebra.fls" beforeDir="false" afterPath="$PROJECT_DIR$/chapters/algebra/algebra.fls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapters/algebra/algebra.log" beforeDir="false" afterPath="$PROJECT_DIR$/chapters/algebra/algebra.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapters/algebra/algebra.nav" beforeDir="false" afterPath="$PROJECT_DIR$/chapters/algebra/algebra.nav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapters/algebra/algebra.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/chapters/algebra/algebra.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapters/algebra/algebra.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/chapters/algebra/algebra.synctex.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapters/algebra/algebra.tex" beforeDir="false" afterPath="$PROJECT_DIR$/chapters/algebra/algebra.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapters/algebra/sections/Exponentials-Logarithms-e.tex" beforeDir="false" afterPath="$PROJECT_DIR$/chapters/algebra/sections/Exponentials-Logarithms-e.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapters/geometry/geometry.fdb_latexmk" beforeDir="false" afterPath="$PROJECT_DIR$/chapters/geometry/geometry.fdb_latexmk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapters/geometry/geometry.fls" beforeDir="false" afterPath="$PROJECT_DIR$/chapters/geometry/geometry.fls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapters/geometry/geometry.log" beforeDir="false" afterPath="$PROJECT_DIR$/chapters/geometry/geometry.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapters/geometry/geometry.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/chapters/geometry/geometry.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapters/geometry/geometry.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/chapters/geometry/geometry.synctex.gz" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jupyter Notebook" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2wckC1xr1aass0VTQ2Fchjfa2UI" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-PY-251.23774.444" />
+        <option value="bundled-python-sdk-890ed5b35930-d9c5bdb153f4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.23774.444" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="118e6a8e-52ab-4f0d-b1ae-a146103a7acb" name="Changes" comment="" />
+      <created>1746348118619</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1746348118619</updated>
+      <workItem from="1746348119638" duration="2124000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

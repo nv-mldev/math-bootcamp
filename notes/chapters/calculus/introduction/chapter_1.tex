@@ -66,23 +66,34 @@
 \begin{frame}{Graphical Illustration}
   \begin{columns}
     \column{0.6\textwidth}
-      \includegraphics[width=\textwidth]{figures/secant_line_example.pdf}
+      \includegraphics[width=\textwidth]{figures/avg_rate_of_change.png}
     \column{0.4\textwidth}
       \begin{itemize}
-        \item Focus on interval $[a,b]$ on the curve $y=f(x)$.
-        \item Secant line (in blue) joins $(a,f(a))$ and $(b,f(b))$.
+        \item Focus on interval $[1,3]$ on the curve $y=f(x)$.
+        \item Secant line (in orange) joins $(1,f(1))$ and $(3,f(3))$.
         \item Its slope measures the average change in $y$ per unit change in $x$.
       \end{itemize}
   \end{columns}
 \end{frame}
 
-% Slide: Real-World Example (Car Trip)
-\begin{frame}{Example: Average Speed of a Car Trip}
+% Slide: Problem – Trivandrum to Chennai Average Speed
+\begin{frame}{Example: Trivandrum to Chennai Journey}
+  \begin{columns}
+    \column{0.5\textwidth}
+      \includegraphics[width=\textwidth]{figures/trivandrum_chennai_map.png}
+    \column{0.5\textwidth}
+      \includegraphics[width=\textwidth]{figures/trivandrum_chennai_journey.png}
+  \end{columns}
+  \vspace{1ex}
   \begin{itemize}
-    \item Distance from Sydney to Melbourne: 873 km over about 11.5 hours.
-    \item Average speed: $\frac{873}{11.5}\approx75.4$ km/h.
-    \item Even with stops (flat segments), the secant slope gives overall performance.
+    \item Total distance: 762 km
+    \item Total time (including stops): 15 hours
+    \item Average speed: $\dfrac{762}{15}\approx50.8$ km/h
   \end{itemize}
+  \begin{solutionblock}
+    Average speed $=\dfrac{\text{distance}}{\text{time}}=\dfrac{762}{15}\approx50.8\text{ km/h}$.  
+  This illustrates how the secant slope over an interval gives overall performance even with rest periods.
+  \end{solutionblock}
 \end{frame}
 
 % Slide: Sensitivity to Rounding
