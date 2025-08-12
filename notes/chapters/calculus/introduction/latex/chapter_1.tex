@@ -1,7 +1,9 @@
 \documentclass{beamer}
 \usetheme{AnnArbor}
 \usepackage{graphicx}
-\graphicspath{{pics/}}
+% Figures live one level up in ../figures relative to this .tex file
+% Search both ../ (so includegraphics{figures/...} works) and ../figures/ (so includegraphics{...} works)
+\graphicspath{{../}{../figures/}}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{framed}
@@ -85,6 +87,10 @@
       \includegraphics[width=\textwidth]{figures/trivandrum_chennai_journey.png}
   \end{columns}
   \vspace{1ex}
+
+\end{frame}
+
+\begin{frame}
   \begin{itemize}
     \item Total distance: 762 km
     \item Total time (including stops): 15 hours
@@ -96,13 +102,18 @@
   \end{solutionblock}
 \end{frame}
 
-% Slide: Sensitivity to Rounding
-\begin{frame}{Rounding and Accuracy}
-  \begin{itemize}
-    \item Distance measurements rounded to nearest kilometer introduce potential error.
-    \item Small changes in endpoints can shift computed average speed above or below speed limit.
-    \item Highlights importance of data precision in applications.
-  \end{itemize}
+\begin{frame}
+\frametitle{Why Instantaneous Rate of Change?}
+\begin{itemize}
+  \item Average rate of change provides overall performance but lacks detail.
+  \item Instantaneous rate of change captures behavior at a specific moment while average rate is over an interval
+  \item Essential for understanding dynamic systems (e.g., velocity, acceleration).
+  \item Instantaneous rate of change = calculate average rathe of change over smaller and smaller intervals.
+\end{itemize}
+\end{frame}
+\begin{frame}{Graphical Illustration: Instantaneous Rate of Change}
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/instantaneous_rate_change.png}
 \end{frame}
 
 % Slide: Toward Instantaneous Rate of Change
@@ -113,4 +124,63 @@
     \item Next: Formalize tangent lines and derivatives.
   \end{itemize}
 \end{frame}
+
+\begin{frame}
+  \frametitle{The Mean Value Theorem}
+  \begin{figure}
+    \includegraphics[width=0.75\textwidth]{figures/mean_value.png}
+    \caption{Mean Value Theorem: There exists a point $c$ where the tangent equals the secant.}
+  \end{figure}
+\end{frame}
+% Slide: Mean Value Theorem (informal, no derivatives)
+\begin{frame}{The Mean Value Theorem (informal, no derivatives)}
+  \begin{block}{Statement}
+  For a smooth curve $y=f(x)$ on an interval $[a,b]$, the \emph{average rate of change}
+  \[ \dfrac{f(b)-f(a)}{b-a} \]
+  is realized as the slope of a \emph{tangent line} at some point $x=c$ with $a<c<b$.
+  In other words, the secant line joining $(a,f(a))$ and $(b,f(b))$ has the same slope as
+  the tangent line to the curve at some point inside the interval.
+  \end{block}
+  \vspace{0.5em}
+\end{frame}
+\section{Displacement, Velocity, and Acceleration}
+\begin{frame}{Displacement}
+  \begin{block}{Definition}
+    The displacement $x(t)$ at time $t$ measures position on the real line relative to an origin $0$, so positive values indicate one direction and negative values the opposite.
+  \end{block}
+  \begin{itemize}
+    \item Independent variable: time $t$ (typically seconds).
+    \item Dependent variable: displacement $x$.
+    \item Choice of origin and direction provides a signed measure of position.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Velocity}
+  \begin{block}{Definition}
+    The velocity $v(t)$ is the instantaneous rate of change of displacement $x(t)$.
+  \end{block}
+  \begin{itemize}
+    \item $v(t)>0$ (motion in the positive direction), $v(t)<0$ (negative direction), or $v(t)=0$.
+    \item Speed is the magnitude of velocity: $\text{speed}=\lvert v(t)\rvert$.
+    \item A speedometer displays instantaneous speed.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Acceleration}
+  \begin{block}{Definition}
+    The acceleration $a(t)$ is the instantaneous rate of change of velocity $v(t)$.
+  \end{block}
+  \begin{itemize}
+    \item $a(t)$ may be positive, negative, or zero.
+    \item The term “deceleration” is often used when $a(t)$ is negative and quoted as a positive number by convention.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Example: Cannonball Projectile}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/cannonball.png}
+  \end{figure}
+\end{frame}
+
 \end{document}
