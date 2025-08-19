@@ -28,9 +28,7 @@ pip-wheel-metadata/
 .mypy_cache/
 .tox/
 .ipynb_checkpoints/
-*.ipynb
 *.log
-
 # LaTeX
 *.aux
 *.bbl
