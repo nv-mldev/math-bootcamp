@@ -1,0 +1,32 @@
+% Master Beamer file that includes chapter files as sub-documents using docmute
+\documentclass{beamer}
+\usetheme{AnnArbor}
+
+% Allow including files that themselves contain a preamble + \begin{document}
+\usepackage{docmute}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage[]{xcolor}
+\usefonttheme[onlymath]{serif}
+
+\title{Math Bootcamp — Combined Lectures}
+\author{Nithin}
+\date{\today}
+
+% Optional: add some common graphics search paths so included chapters can find images
+\graphicspath{{/home/nithin/work/math-bootcamp/chapters/geometry/pics}}
+
+\begin{document}
+
+\frame{\titlepage}
+% Replace single small TOC frame with an auto-breaking TOC frame so the contents can span multiple slides
+\begin{frame}[allowframebreaks]{Contents}
+  \tableofcontents
+\end{frame}
+
+% Include chapters (these files already contain their own preamble and \begin{document})
+% docmute will ignore their preambles and only insert the document body here.
+\input{sections/introduction.tex}
+\input{sections/scalars_vectors.tex}
+
+\end{document}

@@ -6,7 +6,7 @@
 \graphicspath{{../}{../figures/}}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{framed}
+\usepackage{amsfonts}
 \usepackage{tikz}
 \usepackage[]{xcolor}
 \usepackage[most]{tcolorbox}
@@ -26,7 +26,7 @@
   fonttitle=\bfseries
 }
 
-\title{Introduction to Functions}
+\title{Introduction to Calculus}
 \author{Nithin}
 \institute{}
 \date{\today}
@@ -37,30 +37,63 @@
 \begin{frame}
   \tableofcontents
 \end{frame}
+
+
+\begin{frame}{Chapter Overview}
+\begin{itemize}
+    \item<1-> \textbf{Historical Context:} Mathematicians of the 17th century were keenly interested in studying motion
+    \begin{itemize}
+        \item Objects on or near Earth
+        \item Motion of planets and stars
+    \end{itemize}
+    
+    \item<2-> \textbf{Key Insights:} Motion study involved both speed and direction
+    \begin{itemize}
+        \item Direction at any instant: along the tangent line to the path
+        \item Need for precise mathematical tools
+    \end{itemize}
+    
+    \item<3-> \textbf{The Limit Concept:} Fundamental to finding
+    \begin{itemize}
+        \item Velocity of moving objects
+        \item Tangent lines to curves
+    \end{itemize}
+    
+    \item<4-> \textbf{Function Behavior:} Limits help us distinguish between
+    \begin{itemize}
+        \item Continuous variation (small changes in $x$ → small changes in $f(x)$)
+        \item Discontinuous behavior (jumps, erratic variation)
+        \item Unbounded growth or decay
+    \end{itemize}
+    
+    \item<5-> \textbf{Our Approach:} Develop limits intuitively, then formally
+\end{itemize}
+\end{frame}
 \section{Slopes and Average Rate of Change}
 
 % Slide: Motivation and Overview
 \begin{frame}{Motivation: Why Study Change?}
   \begin{itemize}
-    \item Calculus explores how quantities change and provides tools for modeling these changes.
+    \item Calculus explores how quantities change : how change in one quantity is related to a change in anotherand provides tools for modeling these changes.
     \item Functions link inputs ($x$) to outputs ($y=f(x)$); we investigate how $y$ varies as $x$ moves over an interval.
     \item Real-world example: Predicting economic indicators, modeling speeds, and more.
   \end{itemize}
 \end{frame}
 
 % Slide: Defining Average Rate of Change
-\begin{frame}{Average Rate of Change}
+\begin{frame}{Average Rate of Change and Secant Lines}
   \begin{block}{Definition}
-    For a function $f(x)$ on interval $[a,b]$, the \emph{average rate of change} is
+    For a function $f(x)$ on interval $[x_{1},x_{2}]$, the \emph{average rate of change} over that interval is
     \[ 
-      \frac{f(b)-f(a)}{b-a},
+      = \frac{\Delta y}{\Delta x} = \frac{f(x_{2})-f(x_{1})}{x_{2}-x_{1}} = \frac{f(x_{1}+h) - f(x_{1})}{h}, h \neq 0
     \]
-    which geometrically represents the slope of the secant line between $(a,f(a))$ and $(b,f(b))$.
+    which geometrically represents the slope of the secant line between $(x_{1},f(x_{1}))$ and $(x_{2},f(x_{2}))$.
   \end{block}
   \begin{itemize}
-    \item Rise: $f(b)-f(a)$
-    \item Run: $b-a$
-    \item Secant line smooths out fluctuations; reports overall trend.
+    \item Rise: $f(x_{2})-f(x_{1})$
+    \item Run: $x_{2}-x_{1}$
+    \item The secant line smooths out fluctuations; its slope reports the net change per unit input over the interval.
+    \item Approximating the curve over the interval with a straight line. 
   \end{itemize}
 \end{frame}
 
@@ -112,9 +145,18 @@
         \item Distance measurements rounded to nearest kilometer introduce potential error
         \item For our journey: $\dfrac{762\text{ km}}{15\text{ h}} \approx 50.8$ km/h
         \item A mere 3 km error in measurement can push calculated speed above/below the 50 km/h limit
-        \item Highlights critical importance of data precision in decision-making applications
+        \item Data precision is important.
       \end{itemize}
   \end{columns}
+\end{frame}
+
+% Slide: Toward Instantaneous Rate of Change
+\begin{frame}{Instantaneous Rate of Change}
+  \begin{itemize}
+    \item Instantaneous speed corresponds to slope of tangent line at a point.
+    \item As secant interval shrinks ($b\to a$), average rate approaches derivative $f'(x)$.
+    \item Next: Formalize tangent lines and derivatives.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -126,19 +168,38 @@
   \item Instantaneous rate of change = calculate average rathe of change over smaller and smaller intervals.
 \end{itemize}
 \end{frame}
-\begin{frame}{Graphical Illustration: Instantaneous Rate of Change}
-  \centering
-  \includegraphics[width=0.8\textwidth]{figures/instantaneous_rate_change.png}
-\end{frame}
+\begin{frame}{Secants to Tangents}
+  \begin{block}{Problem}
+    Find the slope of the tangent line to the parabola $y = x^{2}$ at $P(2,4)$ by looking at slopes of secant lines through $P$ and a nearby point $Q(2+h,(2+h)^{2})$ and letting $h \to 0$.
+  \end{block}
 
-% Slide: Toward Instantaneous Rate of Change
-\begin{frame}{Instantaneous Rate of Change}
+  \begin{block}{Average rate of change (secant slope)}
+    Between $x=2$ and $x=2+h$ (with $h \ne 0$):
+    \[
+      \text{slope}(h)=\frac{(2+h)^2 - 4}{h}
+    \]
+  \end{block}
+
   \begin{itemize}
-    \item Instantaneous speed corresponds to slope of tangent line at a point.
-    \item As secant interval shrinks ($b\to a$), average rate approaches derivative $f'(x)$.
-    \item Next: Formalize tangent lines and derivatives.
+    \item<2-> Expand: $(2+h)^2 = 4 + 4h + h^{2}$
+      \[
+        \text{slope}(h)=\frac{4+4h+h^{2}-4}{h}= \frac{4h+h^{2}}{h}
+      \]
+    \item<3-> Simplify (since $h \ne 0$): $\text{slope}(h)=4 + h$
+    \item<4-> Sample values:
+      \[
+        h=1\!\to\!5,\; h=0.5\!\to\!4.5,\; h=0.1\!\to\!4.1,\; h=0.01\!\to\!4.01,\; h=-0.01\!\to\!3.99
+      \]
+    \item<5-> The secant slopes get closer to $4$ as $h$ gets closer to $0$.
+    \item<6-> Limit viewpoint:
+      \[
+        \lim_{h\to 0} \frac{(2+h)^2 - 4}{h} = \lim_{h\to 0} (4 + h)=4
+      \]
+      So the instantaneous rate of change (slope of the tangent line) at $x=2$ is $4$.
   \end{itemize}
 \end{frame}
+
+
 
 \begin{frame}
   \frametitle{The Mean Value Theorem}
@@ -197,5 +258,7 @@
     \includegraphics[width=0.5\textwidth]{figures/cannonball.png}
   \end{figure}
 \end{frame}
+
+
 
 \end{document}
