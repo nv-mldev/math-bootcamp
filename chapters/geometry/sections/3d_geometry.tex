@@ -67,11 +67,11 @@ Let \(OP = x \hat{\imath} + y \hat{\jmath} + z \hat{k}\)  and \(OQ = x' \hat{\im
 \begin{frame}
     \frametitle{Proof of Section Formula}
     \begin{block}{Given}
-    Point \(R\) divides line segment \(PQ\) internally in the ratio \(m:n\), where \(P\) and \(Q\) have position vectors \(\vec{\mathbf{r}_1}\) and \(\vec{\mathbf{r}_2}\) respectively.
+    Point \(R\) divides line segment \(PQ\) internally in the ratio \(m:n\), where \(P\) and \(Q\) have position vectors \(\vec{\mathbf{a}}\) and \(\vec{\mathbf{b}}\) respectively.
     \end{block}
     
     \begin{block}{To Prove}
-    The position vector of \(R\) is \(\vec{\mathbf{r}} = \frac{m\vec{\mathbf{r}_2} + n\vec{\mathbf{r}_1}}{m+n}\)
+    The position vector of \(R\) is \(\vec{\mathbf{r}} = \frac{m\vec{\mathbf{b}} + n\vec{\mathbf{a}}}{m+n}\)
     \end{block}
     
     \begin{block}{Proof}
@@ -85,7 +85,7 @@ Let \(OP = x \hat{\imath} + y \hat{\jmath} + z \hat{k}\)  and \(OQ = x' \hat{\im
 
 \begin{frame}
     \frametitle{Proof of Section Formula (continued)}
-    \begin{block}{Proof (continued)}
+    
     From vector addition: \(\vec{PR} + \vec{RQ} = \vec{PQ}\)
     
     Substituting \(\vec{PR} = \frac{m}{n}\vec{RQ}\):
@@ -94,15 +94,56 @@ Let \(OP = x \hat{\imath} + y \hat{\jmath} + z \hat{k}\)  and \(OQ = x' \hat{\im
         \vec{RQ}\left(\frac{m}{n} + 1\right) &= \vec{PQ} \\
         \vec{RQ} &= \frac{n}{m+n}\vec{PQ}
     \end{align}
-    
-    Since \(\vec{PQ} = \vec{\mathbf{r}_2} - \vec{\mathbf{r}_1}\) and \(\vec{RQ} = \vec{\mathbf{r}_2} - \vec{\mathbf{r}}\):
-    \begin{align}
-        \vec{\mathbf{r}_2} - \vec{\mathbf{r}} &= \frac{n}{m+n}(\vec{\mathbf{r}_2} - \vec{\mathbf{r}_1}) \\
-        \vec{\mathbf{r}} &= \vec{\mathbf{r}_2} - \frac{n}{m+n}(\vec{\mathbf{r}_2} - \vec{\mathbf{r}_1}) \\
-        \vec{\mathbf{r}} &= \frac{m\vec{\mathbf{r}_2} + n\vec{\mathbf{r}_1}}{m+n}
-    \end{align}
-    \end{block}
+
 \end{frame}
+
+
+\begin{frame}
+ 
+    Since \(\vec{PQ} = \vec{\mathbf{b}} - \vec{\mathbf{a}}\) and \(\vec{RQ} = \vec{\mathbf{b}} - \vec{\mathbf{r}}\):
+    \begin{align}
+        \vec{\mathbf{b}} - \vec{\mathbf{r}} &= \frac{n}{m+n}(\vec{\mathbf{b}} - \vec{\mathbf{a}}) \\
+        \vec{\mathbf{r}} &= \vec{\mathbf{b}} - \frac{n}{m+n}(\vec{\mathbf{b}} - \vec{\mathbf{a}}) \\
+        \vec{\mathbf{r}} &= \frac{m\vec{\mathbf{b}} + n\vec{\mathbf{a}}}{m+n}
+    \end{align}
+  
+\end{frame}
+
+\begin{frame}
+\frametitle{Direction Ratios}
+\begin{block}{Direction Ratios}
+    The direction ratios of a line are any three numbers that are proportional to the direction cosines of the line. If a line has direction cosines \(l, m, n\), then its direction ratios can be represented as \(a, b, c\) such that:
+    \begin{align*}
+        l = \frac{a}{\sqrt{a^2 + b^2 + c^2}}, \quad m = \frac{b}{\sqrt{a^2 + b^2 + c^2}}, \quad n = \frac{c}{\sqrt{a^2 + b^2 + c^2}} 
+        l &= k a \\
+        m &= k b \\
+        n &= k c
+    \end{align*}
+\end{block} 
+\begin{itemize}
+    \item It is evident that the direction ratios are not unique, as they can be scaled by any non-zero constant \(k\).
+    \item However, the ratios \(a:b:c\) remain constant regardless of the scaling
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Equation of a Line passing through a given point and parallel to a given vector}
+    \begin{figure}
+        \includegraphics[scale=0.4]{3d_geometry/line_parallel_vector.png}
+        \caption{Line in 3D space}
+    \end{figure}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Equation of a Line passing through a given point and parallel to a given vector}
+    Let \(P_{0}(x_0, y_0, z_0)\) be a point on the line and \(P_{1}(x_1, y_1, z_1)\) be another point on the line. The direction vector of the line can be defined as \(\vec{P_{0}P_{1}} = \vec{r}_1 - \vec{r}_0\), where \(\vec{r}_0\) and \(\vec{r}_1\) are the position vectors of \(P_0\) and \(P_1\) respectively. The vector equation of the line can be expressed as:
+    \[
+    \vec{r} - \vec{r_0} = t\vec{v}
+    \]
+    where \(t\) is a scalar parameter. 
+\end{frame}
+
 
 
 
