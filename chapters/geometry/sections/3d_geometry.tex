@@ -144,6 +144,53 @@ Let \(OP = x \hat{\imath} + y \hat{\jmath} + z \hat{k}\)  and \(OQ = x' \hat{\im
     where \(t\) is a scalar parameter. 
 \end{frame}
 
+\begin{frame}
+    \frametitle{Direction Cosines vs. Direction Ratios: The Intuition}
+    \begin{itemize}
+        \item \textbf{Direction Cosines (DCs):} A unique, standardized recipe. They tell you how much to travel along each axis to move exactly one unit along the line. The sum of their squares is always 1: \(l^2 + m^2 + n^2 = 1\).
+        \item \textbf{Direction Ratios (DRs):} A flexible, proportional recipe. They tell you the ratio of movement along the axes. For every 'a' units in x, you move 'b' units in y and 'c' units in z. They are not unique; any scalar multiple represents the same direction.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Direction Cosines (DCs): Mathematical Definition}
+    Let a vector \(\vec{v}\) make angles \(\alpha, \beta, \gamma\) with the positive X, Y, and Z axes.
+    \begin{itemize}
+        \item \(l = \cos(\alpha)\)
+        \item \(m = \cos(\beta)\)
+        \item \(n = \cos(\gamma)\)
+    \end{itemize}
+    \begin{figure}
+        \includegraphics[width=0.6\textwidth]{direction_cosine_angles.png}
+        \caption{Angles for Direction Cosines}
+    \end{figure}
+    For a vector \(\vec{v} = (x, y, z)\) with magnitude \(|\vec{v}| = \sqrt{x^2 + y^2 + z^2}\):
+    \[ l = \frac{x}{|\vec{v}|}, \quad m = \frac{y}{|\vec{v}|}, \quad n = \frac{z}{|\vec{v}|} \]
+    A key property is that \(l^2 + m^2 + n^2 = 1\).
+\end{frame}
+
+\begin{frame}
+    \frametitle{Converting Direction Ratios to Direction Cosines}
+    If you have direction ratios \((a, b, c)\), you can find the direction cosines \((l, m, n)\) by normalizing them:
+    \[ l = \frac{a}{\sqrt{a^2 + b^2 + c^2}} \]
+    \[ m = \frac{b}{\sqrt{a^2 + b^2 + c^2}} \]
+    \[ n = \frac{c}{\sqrt{a^2 + b^2 + c^2}} \]
+    This process creates a unit vector, which is what the direction cosines represent.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Equation of a Line: Two-Point Form}
+    Given two points on the line, \(A(x_1, y_1, z_1)\) and \(B(x_2, y_2, z_2)\).
+    \begin{block}{Vector Form}
+        Let the position vectors of A and B be \(\vec{a}\) and \(\vec{b}\). The direction vector is \(\vec{d} = \vec{b} - \vec{a}\). The equation of the line is:
+        \[ \vec{r} = \vec{a} + \lambda(\vec{b} - \vec{a}) \]
+    \end{block}
+    \begin{block}{Cartesian Form}
+        The direction ratios are \((x_2 - x_1, y_2 - y_1, z_2 - z_1)\). The equation is:
+        \[ \frac{x - x_1}{x_2 - x_1} = \frac{y - y_1}{y_2 - y_1} = \frac{z - z_1}{z_2 - z_1} \]
+    \end{block}
+\end{frame}
+
 
 
 
