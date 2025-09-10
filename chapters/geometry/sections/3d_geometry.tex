@@ -111,37 +111,16 @@ Let \(OP = x \hat{\imath} + y \hat{\jmath} + z \hat{k}\)  and \(OQ = x' \hat{\im
 
 \begin{frame}
 \frametitle{Direction Ratios}
-\begin{block}{Direction Ratios}
     The direction ratios of a line are any three numbers that are proportional to the direction cosines of the line. If a line has direction cosines \(l, m, n\), then its direction ratios can be represented as \(a, b, c\) such that:
     \begin{align*}
-        l = \frac{a}{\sqrt{a^2 + b^2 + c^2}}, \quad m = \frac{b}{\sqrt{a^2 + b^2 + c^2}}, \quad n = \frac{c}{\sqrt{a^2 + b^2 + c^2}} 
-        l &= k a \\
-        m &= k b \\
-        n &= k c
+        l &= \frac{a}{\sqrt{a^2 + b^2 + c^2}} =  k a \\
+        m &= \frac{b}{\sqrt{a^2 + b^2 + c^2}}  = k b \\
+        n &= \frac{c}{\sqrt{a^2 + b^2 + c^2}} = k c
     \end{align*}
-\end{block} 
 \begin{itemize}
     \item It is evident that the direction ratios are not unique, as they can be scaled by any non-zero constant \(k\).
     \item However, the ratios \(a:b:c\) remain constant regardless of the scaling
 \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Equation of a Line passing through a given point and parallel to a given vector}
-    \begin{figure}
-        \includegraphics[scale=0.4]{3d_geometry/line_parallel_vector.png}
-        \caption{Line in 3D space}
-    \end{figure}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Equation of a Line passing through a given point and parallel to a given vector}
-    Let \(P_{0}(x_0, y_0, z_0)\) be a point on the line and \(P_{1}(x_1, y_1, z_1)\) be another point on the line. The direction vector of the line can be defined as \(\vec{P_{0}P_{1}} = \vec{r}_1 - \vec{r}_0\), where \(\vec{r}_0\) and \(\vec{r}_1\) are the position vectors of \(P_0\) and \(P_1\) respectively. The vector equation of the line can be expressed as:
-    \[
-    \vec{r} - \vec{r_0} = t\vec{v}
-    \]
-    where \(t\) is a scalar parameter. 
 \end{frame}
 
 \begin{frame}
@@ -160,10 +139,7 @@ Let \(OP = x \hat{\imath} + y \hat{\jmath} + z \hat{k}\)  and \(OQ = x' \hat{\im
         \item \(m = \cos(\beta)\)
         \item \(n = \cos(\gamma)\)
     \end{itemize}
-    \begin{figure}
-        \includegraphics[width=0.6\textwidth]{direction_cosine_angles.png}
-        \caption{Angles for Direction Cosines}
-    \end{figure}
+
     For a vector \(\vec{v} = (x, y, z)\) with magnitude \(|\vec{v}| = \sqrt{x^2 + y^2 + z^2}\):
     \[ l = \frac{x}{|\vec{v}|}, \quad m = \frac{y}{|\vec{v}|}, \quad n = \frac{z}{|\vec{v}|} \]
     A key property is that \(l^2 + m^2 + n^2 = 1\).
@@ -178,6 +154,24 @@ Let \(OP = x \hat{\imath} + y \hat{\jmath} + z \hat{k}\)  and \(OQ = x' \hat{\im
     This process creates a unit vector, which is what the direction cosines represent.
 \end{frame}
 
+
+\begin{frame}
+    \frametitle{Equation of a Line passing through a given point and parallel to a given vector}
+    \begin{figure}
+        \includegraphics[scale=0.4]{3d_geometry/line_parallel_vector.png}
+        \caption{Line in 3D space}
+    \end{figure}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Equation of a Line passing through a given point and parallel to a given vector}
+    Let \(P_{0}(x_0, y_0, z_0)\) be a point on the line and \(P_{1}(x_1, y_1, z_1)\) be another point on the line. The direction vector of the line can be defined as \(\vec{P_{0}P_{1}} = \vec{r}_1 - \vec{r}_0\), where \(\vec{r}_0\) and \(\vec{r}_1\) are the position vectors of \(P_0\) and \(P_1\) respectively. The vector equation of the line can be expressed as:
+    \[
+    \vec{r} - \vec{r_0} = t\vec{v}
+    \]
+    where \(t\) is a scalar parameter. 
+\end{frame}
 \begin{frame}
     \frametitle{Equation of a Line: Two-Point Form}
     Given two points on the line, \(A(x_1, y_1, z_1)\) and \(B(x_2, y_2, z_2)\).
@@ -191,6 +185,51 @@ Let \(OP = x \hat{\imath} + y \hat{\jmath} + z \hat{k}\)  and \(OQ = x' \hat{\im
     \end{block}
 \end{frame}
 
+\begin{frame}
+    \frametitle{Equation of a Line: Symmetric Form}
+    If the direction ratios of the line are \(a, b, c\) and it passes through point \(P_0(x_0, y_0, z_0)\), the symmetric form of the line's equation is:
+    \[
+    \frac{x - x_0}{a} = \frac{y - y_0}{b} = \frac{z - z_0}{c}
+    \]
+    This form is particularly useful when the direction ratios are known.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Angle between Two Lines}
+    To find the angle \(\theta\) between two lines with direction ratios \((a_1, b_1, c_1)\) and \((a_2, b_2, c_2)\), we use the formula:
+    \[
+    \cos(\theta) = \frac{a_1 a_2 + b_1 b_2 + c_1 c_2}{\sqrt{a_1^2 + b_1^2 + c_1^2} \sqrt{a_2^2 + b_2^2 + c_2^2}}
+    \]
+    This formula is derived from the dot product of the direction vectors.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Angle between Two Lines}
+    Let \(\vec{r} = \vec{a+ \lambda b}\) and \(\vec{r'} = vec{a'} + \alpha b'\) be two straight line in 3D space. The angle \(\theta\) between the two lines is given by:
+    \[
+    \cos(\theta) = \frac{\vec{b} \cdot \vec{b'}}{|\vec{b}| |\vec{b'}|}
+    \]
+    where \(\vec{b}\) and \(\vec{b'}\) are the direction vectors of the lines.
+
+    This is because the angle between the two lines is equal to the angle between their direction vectors.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Perpendicular Distance from a Point to a Line in 3D}
+    To find the perpendicular distance \(d\) from a point \(P_0(x_0, y_0, z_0)\) to a line defined by a point \(P_1(x_1, y_1, z_1)\) and direction vector \(\vec{v} = (a, b, c)\), we use the formula:
+    \[
+    d = \frac{|\vec{P_0P_1} \times \vec{v}|}{|\vec{v}|}
+    \]
+    where \(\vec{P_0P_1} = (x_1 - x_0, y_1 - y_0, z_1 - z_0)\) is the vector from the point to the line.        
+\end{frame}
+
+\begin{frame}
+    \frametitle{Perpendicular Distance from a Point to a Line in 3D}
+    To find the perpendicular distance \(d\) from a point \(P_0(x_0, y_0, z_0)\) to a line defined by a point \(P_1(x_1, y_1, z_1)\) and direction vector \(\vec{v} = (a, b, c)\), we use the formula:
+    \[
+    d = \frac{|\vec{P_0P_1} \times \vec{v}|}{|\vec{v}|}
+    \]
+\end{frame}
 
 
 
