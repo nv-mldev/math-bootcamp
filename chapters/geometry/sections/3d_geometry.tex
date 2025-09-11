@@ -1,6 +1,7 @@
 \section{3D Geometry}
 \label{sec:3d_geometry}
 
+\subsection{Lines in 3D}
 \begin{frame}
     \frametitle{3D coordinates}
     \begin{figure}
@@ -223,13 +224,52 @@ Let \(OP = x \hat{\imath} + y \hat{\jmath} + z \hat{k}\)  and \(OQ = x' \hat{\im
     where \(\vec{P_0P_1} = (x_1 - x_0, y_1 - y_0, z_1 - z_0)\) is the vector from the point to the line.        
 \end{frame}
 
+
+\begin{frame}
+\begin{figure}
+    \includegraphics[scale=0.9]{3d_geometry/perpendicular_line.png}
+    \caption{Perpendicular Distance from a Point to a Line in 3D}
+\end{figure}
+\end{frame}
 \begin{frame}
     \frametitle{Perpendicular Distance from a Point to a Line in 3D}
-    To find the perpendicular distance \(d\) from a point \(P_0(x_0, y_0, z_0)\) to a line defined by a point \(P_1(x_1, y_1, z_1)\) and direction vector \(\vec{v} = (a, b, c)\), we use the formula:
-    \[
-    d = \frac{|\vec{P_0P_1} \times \vec{v}|}{|\vec{v}|}
-    \]
+    Let the line AB is defined by 
+    \[\frac{x-x_{1}}{a} = \frac{y-y_{1}}{b} = \frac{z-z_{1}}{c}\]
+    and \(P(\alpha, \beta, \gamma)\) be the point. The perpendicular distance \(d\) from point \(P\) . The co-ordinates of the point \(L\) can be identified as:
+    \[L(x_{1}+at, y_{1}+bt, z_{1}+ct)\]  
+    where \(t\) is a scalar.. The vector \(\vec(AL)\) is given by 
+    \[\vec(AL) = (x_{1}+at - x_{1}, y_{1}+bt - y_{1}, z_{1}+ct - z_{1}) = (at, bt, ct)\] 
+\end{frame} 
+
+\begin{frame}
+    
+    vector \(\vec{PL} \) is given by 
+    \[\vec{PL} = (x_{1}+at - \alpha, y_{1}+bt - \beta, z_{1}+ct - \gamma)\]  
+    
+    Since \(AL \perp PL\), we can equate following
+
+    \[(x_{1}+at-\alpha)(a) + (y_{1}+bt-\beta)(b) + (z_{1}+ct-\gamma)(c) = 0\]
+
+    This can be solved for \(t\) to find the point \(L\) on the line.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Shortest Distance between two skew straight lines in 3D}
+
+    Let the two lines are given by :
+    \begin{align*}
+    l_{1} = a_{1} + \lambda b_{1} \\
+    l_{2} = a_{2} + \mu b_{2}   
+    \end{align*}
+    where \(a_{1}\) and \(a_{2}\) are position vectors of points on the lines, and \(b_{1}\) and \(b_{2}\) are direction vectors of the lines. Let \(\vec{AB}\) be the line through points \(a_{1}\) and \(a_{2}\). The perpendicular to both the lines can be found by taking the cross product of their direction vectors, i.e., \(\vec{b_{1}} \times \vec{b_{2}}\). The shortest distance \(d\) between the two skew lines is given by the projection of the line segment \(\vec{AB}\) onto the direction of the unit perpendicular, which can be calculated using the formula:
+
+    \begin{align*}
+    d = \frac{|\vec{AB} \cdot (\vec{b_{1}} \times \vec{b_{2}})|}{|\vec{b_{1}} \times \vec{b_{2}}|}
+    \end{align*}
+
 \end{frame}
 
 
 
+\subsection{Planes in 3D}
