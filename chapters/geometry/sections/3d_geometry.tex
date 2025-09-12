@@ -273,3 +273,137 @@ Let \(OP = x \hat{\imath} + y \hat{\jmath} + z \hat{k}\)  and \(OQ = x' \hat{\im
 
 
 \subsection{Planes in 3D}
+
+\begin{frame}
+    \frametitle{What is a Plane?}
+    A plane is a surface such that if any two points on it are joined by a straight line, then every point on that line lies on the surface.
+    \begin{block}{General Form}
+        The general equation of a plane in 3D space is given by:
+        \[
+        Ax + By + Cz + D = 0
+        \]
+        where \(A\), \(B\), \(C\), and \(D\) are constants, and \(A\), \(B\), and \(C\) are not all zero.
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof of the Plane Equation}
+    Let \(P(x_{1},x_{2},x_{3}) \) and \(Q(x_{2},y_{2},z_{2})\) be two points on the plane. Then we can write 
+    \[
+    ax_{1} + by_{1} + cz_{1} + d = 0
+    \]
+    and
+    \[
+    ax_{2} + by_{2} + cz_{2} + d = 0
+    \]
+
+    Let \(R\) be any point on the line joining \(P\) and \(Q\) with a ratio \(\lambda : 1\). Then the coordinates of \(R\) can be expressed as: 
+
+    \[R\left(\frac{x_{1} + \lambda x_{2}}{1+\lambda}, \frac{y_{1} + \lambda y_{2}}{1+\lambda}, \frac{z_{1} + \lambda z_{2}}{1+\lambda}\right)\]
+\end{frame} 
+
+\begin{frame}
+   Since \(R\) lies on the plane, it must satisfy the plane equation:
+
+   \[
+   a\left(\frac{x_{1} + \lambda x_{2}}{1+\lambda}\right) + b\left(\frac{y_{1} + \lambda y_{2}}{1+\lambda}\right) + c\left(\frac{z_{1} + \lambda z_{2}}{1+\lambda}\right) + d = 0
+   \]
+
+   Multiplying through by \(1+\lambda\) gives:
+
+   \[
+   a(x_{1} + \lambda x_{2}) + b(y_{1} + \lambda y_{2}) + c(z_{1} + \lambda z_{2}) + d(1+\lambda) = 0
+   \]
+\end{frame} 
+
+\begin{frame}
+   Rearranging terms leads to:
+
+   \[
+   (ax_{1} + by_{1} + cz_{1} + d) + \lambda (ax_{2} + by_{2} + cz_{2} + d) = 0
+   \]
+
+   Since both terms must equal zero, we have:
+
+   \[
+   ax_{1} + by_{1} + cz_{1} + d = 0
+   \]
+   and
+   \[
+   ax_{2} + by_{2} + cz_{2} + d = 0
+   \]
+
+   Thus, the line joining \(P\) and \(Q\) lies entirely within the plane.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Equation of a Plane in Normal Form}
+    \begin{figure}
+        \includegraphics[scale=0.4]{3d_geometry/normal_form.png}
+        \caption{Plane in 3D space}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Equation of Plane in Normal Form}
+    Let \(O\) be the origin and \(ON\) be the perpendicular from the origin \(O\) to the given plane \(\pi\) such that \(ON = d \hat{n}\), where \(\hat{n}\) is the unit normal vector to the plane where \( d\) is the perpendicular distance from the origin to the plane. 
+    \begin{align*} 
+        OP &= \vec{r} \\ 
+        NP &\perp ON \\ 
+        NP \cdot ON &= 0 \\ 
+        (OP - ON) \cdot ON &= 0 \\
+        ( \vec{r} - d \hat{n}) \cdot d\hat{n} &= 0 \\
+        \vec{r} \cdot d \hat{n} - d^2 \hat{n} \cdot \hat{n} &= 0 \\
+        \vec{r} \cdot \hat{n} &= d
+    \end{align*}
+\end{frame}
+
+\begin{frame}
+\frametitle{Normal form Cartesian Form}
+ Let \(P(x,y,z)\) be a point on the plane and \( l,m,n\) be the direction cosines of the normal to the plane. The equation of the plane in Cartesian form is given by: 
+ \begin{align*}
+ r \cdot \hat{n} &= d \\
+ x \hat{\imath} + y \hat{\jmath} + z \hat{k} \cdot l \hat{\imath} + m \hat{\jmath} + n \hat{k} &= d \\
+ lx + my + nz &= d
+ \end{align*}
+where \(d\) is the perpendicular distance from the origin to the plane. 
+\end{frame} 
+
+\begin{frame}
+\frametitle{Normal form vs General form of Plane Equation}
+\begin{itemize}
+\item The normal form  of the plane given by \( \vec{r} \cdot \hat{n} = d\) . In the cartesian form  
+\[ lx + my + nz = d \] 
+where \(l,m,n\) are the direction cosines of the normal to the plane as the normal is a unit vector.
+
+\item The general form of the plane is given by \(Ax + By + Cz + D = 0\) where \(A,B,C\) are the direction ratios of the normal to the plane. The coefficents of \(A,B,C\) in the general form are the direction ratios of the normal to the plane.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Vector Equation of a Plane Passing Through
+a Given Point and Normal to a Given Vector}
+
+Let \( \vec{r} \) be the position vector of a point \( P(x,y,z) \) on the plane, and let \( \vec{a} \) be the position vector of a given point \( A(x_0,y_0,z_0) \) on the plane. The vector equation of the plane can be expressed as:
+
+\[
+(\vec{r} - \vec{a}) \cdot \hat{n} = 0
+\]
+
+where \( \hat{n} \) is the unit normal vector to the plane.
+
+\end{frame} 
+
+\begin{frame}
+\frametitle{Equation of a Plane Passing Through
+a Given Point and Parallel to Two
+Given Vectors}
+We can infer following observations :
+\begin{enumerate}
+    \item A vector on the plane is given by \( \vec{r} - \vec{a} \) where \(\vec{r},\vec{a}\) are the position vectors of points \(P\) and \(A\) respectively.
+    \item As two vectors \( \vec{b} \) and \( \vec{c} \) are parallel to the plane, the vector \( \vec{r} - \vec{a} \) is coplanar with vectors \( \vec{b} \) and \( \vec{c} \). 
+    \item This means \((\vec{r} - \vec{a}) = \lambda_1 \vec{b} + \lambda_2 \vec{c}\) for some scalars \(\lambda_1\) and \(\lambda_2\).
+    \item That is \(\vec{r} = \vec{a} + \lambda_1 \vec{b} + \lambda_2 \vec{c}\)
+\end{enumerate}     
+\end{frame}
