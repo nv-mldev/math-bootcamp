@@ -1,0 +1,77 @@
+\documentclass{book}
+
+% Required for \includegraphics and \graphicspath
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{hyperref}
+
+% Mathematical packages for symbols and equations
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+% For colored boxes and enhanced environments
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+
+% Set up page geometry
+\geometry{
+    a4paper,
+    left=2.5cm,
+    right=2.5cm,
+    top=3cm,
+    bottom=3cm
+}
+
+% All figures are consolidated in figures/ directory as per the plan
+\graphicspath{{figures/}}
+
+% Custom theorem environments
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{example}{Example}[chapter]
+
+\title{Mathematics Bootcamp\\
+       \large A Comprehensive Guide to Pre-Calculus, Geometry, and Calculus}
+\author{Mathematics Learning Team}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+% Part I: Pre-Calculus Foundations
+\part{Pre-Calculus Foundations}
+
+\include{chapters/chapter_introduction}
+\include{chapters/chapter_real_numbers}
+\include{chapters/chapter_functions}
+\include{chapters/chapter_polynomials}
+\include{chapters/chapter_exponentials_logarithms}
+\include{chapters/chapter_trigonometry}
+\include{chapters/chapter_polar_complex}
+\include{chapters/chapter_sequences_series}
+
+% Part II: Geometry  
+\part{Geometry}
+
+\include{chapters/chapter_geometry_introduction}
+\include{chapters/chapter_scalars_vectors}
+\include{chapters/chapter_3d_geometry}
+
+% Part III: Calculus
+\part{Calculus}
+
+\include{chapters/chapter_calculus_introduction}
+
+
+% Part IV: Probability and Statistics
+\part{Probability and Statistics}
+
+% \include{chapters/chapter_probability_statistics_introduction}
+\include{chapters/combinatorial_analysis}
+% \include{chapters/chapter_probability}
+% \include{chapters/chapter_statistics}
+
+\end{document}

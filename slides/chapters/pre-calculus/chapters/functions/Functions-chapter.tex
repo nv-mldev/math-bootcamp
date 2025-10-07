@@ -1,0 +1,409 @@
+\chapter{Introduction to Functions}
+\author{Nithin}
+
+\section{Domain,Range and Equality}
+
+\subsection{What is a Function ?}
+A function associates every number in some set of real numbers, called the domain of the function, with exactly one real number.
+
+\subsection{Domain}
+If a function is defined by a formula, with no domain specified, then the domain is assumed to be the set of all real numbers for which the formula makes sense and produces a real number.
+
+\subsubsection{Example 3}
+Find the domain of the function \(f\)  defined by \[f (x) = (3x-1)^2 \]
+
+\subsubsection{Example 4}
+Find the domain of the function \(f\) defined by \[h (t) = \frac{t^2 + 3t + 7}{t-4} \]
+
+\subsubsection{Example 6}
+Find the domain of the function g defined by \[g(x) = \sqrt{|x|-5}\]
+
+\subsection{Range}
+The range of a function \(f\) is the set of all numbers \(y\) such that \(f (x) = y\) for at least one \(x\) in the domain of \(f\).
+
+\subsubsection{Example 4}
+The domain of \(f\) is the interval \( [2, 5] \), with \(f\) defined on this interval by the equation \(f (x) = 3x + 1\).
+Solution:
+\[ y = f(x) = 3x+1 \]
+\[ 2 \leq \frac{y-1}{3} \leq 5. \]
+\[ 7 \leq y \leq 16. \]
+
+\subsubsection{Example 5}
+The domain of \(g\) is the interval \([1,20]\), with \(g\) defined on this interval by the equation
+\[ g(x) = |x - 5|. \]
+Is \(2\) in the range of \(g\)?
+Solution:
+\[ y =  |x-5| \]
+for \(x-5>0 \),\(y = x-5 \implies x = y+5 \)
+\[ 5 < y+5 \leq 20  \implies  0 < y \leq 15 \]
+for \(x-5<0 \), \(y = -(x-5) \implies y = -x+5 \implies 5-y = x \)
+\[ 1 \leq 5-y \leq 5  \implies -4 \leq -y \leq 0 \implies  4 \geq y \geq 0 \]
+
+\subsection{Equality of Functions}
+Two functions are equal if and only if they have the same domain and the same value at every number in that domain.
+
+\subsubsection{Example}
+Suppose \(f\) is the function whose domain is the set of real numbers, with \(f\) defined on this domain by
+\[f (x) = x^2\]
+Suppose \(g\) is the function whose domain is the set of positive numbers, with \(g\) defined on this domain by
+\[g(x) = x^2\]
+Are \(f\) and \(g\) equal functions?
+
+\subsubsection{Example 2}
+Suppose \(f\) and \(g\) are functions whose domain is the set consisting of the two numbers \(\{1, 2\}\) with \(f\) and \(g\) defined on this domain by the formulas
+\[f (x) = x^2\] and \(g(x) = 3x-2\).
+Are \(f\) and \(g\) equal functions?
+
+\section{Analytical Geometry}
+\subsection{What is Analytic Geometry?}
+\begin{itemize}
+    \item \textbf{Analytic Geometry} (also called \textit{coordinate geometry} or \textit{Cartesian geometry}) bridges algebra and geometry.
+    \item It uses a coordinate system to study geometric shapes and properties.
+    \item Geometric objects are represented as algebraic equations.
+\end{itemize}
+
+\subsection{Co-ordinate Plane}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.23]{cartesian.png}
+\end{figure}
+The plane with this system of labeling is often called the \textbf{Cartesian plane} in honor of the French mathematician Rene Descartes(1596-1650), who described this technique in his 1637 book Discourse on Method.
+
+\subsection{Graph Functions}
+The graph of a function \(f\) is the set of points of the form \(x, f (x)\) as x varies over the domain of \(f\).
+
+\subsubsection{Graphs}
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.3]{graph.png}
+\end{figure}
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.3]{graph2.png}
+\end{figure}
+
+\subsection{Checking for a function: Vertical line test}
+The line \(x=1\) intersects the curve at two points. That is that for each \(x\) value there are multiple \(y\) values which is contradicting to definition of a function.
+\subsubsection{Vertical Line Test}
+A set of points in the coordinate plane is the graph of some function if and only if every vertical line intersects the set in at most one point.
+
+\section{Average Rate of change}
+The rate of change describes how an output quantity changes relative to the change in the input quantity. The unit on a rate of change.
+The \textbf{average rate of change} of a function \(f\) over an interval \([x_{1}, x_{2}]\) is given by
+\[ =\frac{\Delta y}{\Delta x} =\frac{f(x_{2}) - f(x_{1})}{x_{2} - x_{1}} \]
+
+\subsection{Increasing, Decreasing and Constant Functions}
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.3]{inc-dec.png}
+\end{figure}
+
+\subsubsection{Increasing Function}
+A function \(f\) is said to be increasing on an interval \((a, b)\) if for any \(x_{1}, x_{2}\) in \((a, b)\) with \(x_{1} < x_{2}\), we have \(f(x_{1}) < f(x_{2})\) or it has a positive rate of change over the interval.
+
+\subsubsection{Decreasing Function}
+A function \(f\) is said to be decreasing on an interval \((a, b)\) if for any \(x_{1}, x_{2}\) in \((a, b)\) with \(x_{1} < x_{2}\), we have \(f(x_{1}) > f(x_{2})\) or it has a negative rate of change over the interval.
+
+\subsubsection{Constant Function}
+A function \(f\) is said to be constant on an interval \((a, b)\) if for any \(x_{1}, x_{2}\) in \((a, b)\) with \(x_{1} < x_{2}\), we have \(f(x_{1}) = f(x_{2})\) or it has a zero rate of change over the interval.
+
+\subsection{Local Maxima and Local Minima}
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.5]{max-min.png}
+\end{figure}
+
+\subsubsection{Local Maximum}
+A function \(f\) has a \textbf{local maximum} at \(x = c\) if there exists an interval \((a, b)\) containing \(c\) such that
+\[ f(c) \geq f(x) \quad \text{for all } x \in (a, b) \]
+
+\subsubsection{Local Minimum}
+A function \(f\) has a \textbf{local minimum} at \(x = c\) if there exists an interval \((a, b)\) containing \(c\) such that
+\[ f(c) \leq f(x) \quad \text{for all } x \in (a, b) \]
+
+\section{Function Transformation}
+\subsection{Vertical Transformations}
+\subsubsection{Shifting a graph up or down}
+Suppose \(f \) is a function and \(a > 0\). Upshift \(g\) and  Downshift \(h\) by
+\[g(x) = f (x) + a \;\; h(x) = f (x) - a \]
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.4]{vertical_shift.png}
+\end{figure}
+
+\subsubsection{Vertical Stretch}
+Suppose \(f\) is a function and \(c > 0\). Define a function \(g\) by
+\[g(x) = c f (x)\]
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.5]{vertical_stretch.png}
+\end{figure}
+
+\subsubsection{Flipping along the Vertical Axis}
+Vertical fliiping of \(f(x) \) is
+\[g(x) = - f (x) \]
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.5]{vertical_flip.png}
+\end{figure}
+
+\subsection{Horizontal Transformation}
+\subsubsection{Horizontal Shift}
+\[g(x) = f(x+a), h(x) = f(x-a)\]
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.5]{horizontal-shift.png}
+\end{figure}
+
+\subsubsection{Horizontal Stretching}
+\[g(x) = f(cx)\]
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.55]{horizontal-stretch.png}
+\end{figure}
+
+\subsection{Flipping ac the Vertical Axis}
+\subsubsection{Horizontal Stretching}
+\[g(x) = f(-x)\]
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.55]{vertical-axis-flip.png}
+\end{figure}
+
+\subsection{Combinations of vertical Transformation}
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.55]{vertical_combination.png}
+\end{figure}
+
+\subsection{Even Functions}
+\[ f(-x) = f(x) \quad \text{for all } x \text{ in the domain} \]
+Example: \( f(x) = x^2, \quad f(x) = \cos x \)
+The graph of an even function is symmetric across the vertical axis.
+\begin{figure}
+\centering
+\includegraphics[width=0.45\linewidth]{even.png}
+\includegraphics[width=0.45\linewidth]{even2.png}
+\end{figure}
+
+\subsection{Odd Function}
+\[ f(-x) = -f(x) \quad \text{for all } x \text{ in the domain} \]
+Example: \( f(x) = x^3, \quad f(x) = \sin x \)
+The graph of an even function is symmetric if flipped or rotated 18 across the origin.
+\begin{figure}
+\centering
+\includegraphics[width=0.45\linewidth]{odd.png}
+\includegraphics[width=0.45\linewidth]{odd2.png}
+\end{figure}
+
+\section{Function Composition}
+\subsection{Algebra of Functions}
+Suppose \(f\) and \(g\) are functions. We can define new functions from \(f\) and \(g\) as follows: \\
+\textbf{Sum:}
+\[ (f+g)(x) = f(x) + g(x) \]
+\textbf{Difference:}
+\[ (f-g)(x) = f(x) - g(x) \]
+\textbf{Product:}
+\[ (f\cdot g)(x) = f(x) \cdot g(x) \]
+\textbf{Quotient:}
+\[ \left(\frac{f}{g}\right)(x) = \frac{f(x)}{g(x)} \quad \text{provided } g(x) \neq 0. \]
+\textbf{Note:} If \(f\) and \(g\) have domains \(D_f\) and \(D_g\), then these operations are defined on the intersection \(D_f \cap D_g\). In the case of the quotient, it is defined on
+\[ \{x \in D_f \cap D_g : g(x) \neq 0\}. \]
+
+\subsection{Exercise}
+\( f(x)  = \sqrt{x-3}\) and \(g(x) = \sqrt{8 - x } \)
+Evaluate
+\begin{enumerate}
+  \item[a.] \((f+g)(x)\)
+  \item[b.]  \((fg)(x)\)
+  \item[c.] Find the domain of above
+\end{enumerate}
+Sol:
+\begin{enumerate}
+  \item[a.] \(\sqrt{x-3} + \sqrt{8-x} \)
+  \item[b.] \(\sqrt{(x-3)(8-x)} \)
+  \item[c.]  Domian of \begin{enumerate}
+    \item[a.] \(x\geq 3 \)
+    \item[b.] \(x \leq 8 \)
+    \item[c.] \( 3 \leq x \leq 8 \)
+  \end{enumerate}
+\end{enumerate}
+
+\subsection{Function Composition}
+\subsubsection{Definition:}
+If \( f(x) \) and \( g(x) \) are functions, then the composition of \( f \) and \( g \), denoted by \( f \circ g \), is defined by
+\[ (f \circ g)(x) = f(g(x)). \]
+\textbf{Example:}
+Consider the function
+\[ h(x) = \sqrt{x+3}. \]
+We can express \( h(x) \) as a composition of two functions \( f \) and \( g \) where:
+\[ f(x) = \sqrt{x} \quad \text{and} \quad g(x) = x+3. \]
+Then,
+\[ h(x) = f(g(x)) = f(x+3) = \sqrt{x+3}. \]
+
+\subsection{Exercise}
+\( f(x) = \frac{1}{x-4} \) and \( g(x) = x^{2} \)
+\begin{enumerate}
+  \item \(f \circ g \)
+  \item \( g \circ f \)
+  \item domian of \(f \circ g \)
+  \item domain of \( g \circ f \)
+\end{enumerate}
+Sol:
+\begin{enumerate}
+  \item  \(f(g(x)) = \frac{1}{x^{2} - 4}\)
+  \item \(g(f(x)) = (\frac{1}{x-4})^{2}\)
+  \item \(R - \{-2,2\} \)
+  \item \(R - \{4\} \)
+\end{enumerate}
+
+\subsection{Composition Machine}
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.3]{composition.png}
+\end{figure}
+
+\subsection{Excersise}
+\textbf{Problem:} Suppose your cell phone company charges \(\$0.05\) per minute plus \(\$0.47\) for each call to China.
+\begin{enumerate}
+  \item[(a)] Find a function \(p\) that gives the amount charged by your cell phone company for a call to China as a function of the number of minutes \(m\).
+  \item[(b)] Suppose the tax on cell phone bills is 6\% plus \(\$0.01\) for each call. Find a function \(t\) that gives your total cost, including tax, for a call to China as a function of the amount charged by your cell phone company.
+  \item[(c)] Explain why the composition \(t \circ p\) gives your total cost, including tax, of making a cell phone call to China as a function of the number of minutes.
+  \item[(d)] Compute a formula for \(t \circ p\).
+  \item[(e)] What is your total cost for a ten-minute call to China?
+\end{enumerate}
+
+\subsection{Solution}
+\textbf{(a)} The company charges \(\$0.05\) per minute plus a fixed charge of \(\$0.47\) per call. Hence, the pre-tax charge function is
+\[ p(m)=0.05m+0.47. \]
+\textbf{(b)} The tax on the cell phone bill is 6\% of the pre-tax amount plus an additional \(\$0.01\) per call. Thus, if the pre-tax charge is \(x\), the total cost function (including tax) is
+\[ t(x)=1.06x+0.01. \]
+\textbf{(c)} The composition \(t \circ p\) means we first compute the pre-tax charge \(p(m)\) for a call of \(m\) minutes, and then we apply the tax function \(t\) to this amount. In other words, \(t(p(m))\) gives the total cost, including tax, as a function of the number of minutes.
+\textbf{(d)} To compute the composition, substitute \(p(m)\) into \(t\):
+\[ (t \circ p)(m)=t(p(m))=1.06\bigl(0.05m+0.47\bigr)+0.01. \]
+Distribute \(1.06\):
+\[ 1.06(0.05m)=0.053m \quad \text{and} \quad 1.06(0.47)=0.4982. \]
+Thus,
+\[ (t \circ p)(m)=0.053m+0.4982+0.01=0.053m+0.5082. \]
+\textbf{(e)} For a ten-minute call (\(m=10\)):
+\[ (t \circ p)(10)=0.053(10)+0.5082=0.53+0.5082=1.0382. \]
+Rounded to the nearest cent, the total cost is approximately \(\$1.04\).
+
+\subsection{Identity Function}
+The identity function is defined by
+\[ I(x) = x \quad \text{for every number } x. \]
+The function \(I\) is the identity for composition. If \(f\) is any function, then
+\[ f \circ I = I \circ f = f. \]
+
+\subsection{Decomposing the Functions}
+\subsubsection{Function Decomposition}
+\[ T(y) = \frac{|y^{2} -3|}{|y^{2} - 7|} \]
+Sol:
+\[f(y) = |y|, g(y) = \frac{y^{2}-3}{y^{2}-7} \]
+\[ f(y) = \frac{|y-3|}{|y-7|}, g(y) = y^{2}\]
+Composition is associative if \(f,g, h\) are functions then
+\[(f \circ g) \circ h  = f \circ (g \circ h) \]
+
+\subsection{Example}
+\subsubsection{Composition of three functions}
+\[T(x) = \left| \frac{x^{2}-3}{x^{2} - 7}  \right| \]
+Sol:
+\[f(x) = |x|, g(x) = \frac{x-3}{x-7}, h(x) = x^{2}\]
+
+\subsection{Linear Functions}
+A linear function is a function \(h\) of the form
+\[h(x) = mx + b\]
+where \(m\) and \(b\) are numbers.
+
+\subsection{Linear Functions as Composition}
+\subsubsection{Vertical Transformations as Compositions}
+A funtion \(g(x)\) is defined by
+\[g(x)= -2f(x)+1\]
+Write \(g(x)\) as a the composition of a linear function with \(f(x)\)
+\[h(x) = -2x + 1 \]
+\[\implies g(x) = h(f(x)) \implies g = h \circ f \]
+
+\subsubsection{Horizontal Transformations as Compositions}
+A funtion \(g(x)\) is defined by
+\[g(x)= f(2x)+1\]
+Write \(g(x)\) as a the composition of a linear function,  \(f(x)\) and other linear function
+\[h(x) = x + 1, p(x) = 2x \]
+\[\implies g(x) = h(f(p(x))) \implies g = h \circ f \circ p \]
+
+\section{Inverse Functions}
+\subsection{Inverse Function: Example}
+Consider the function \( f: \mathbb{R} \to \mathbb{R} \) defined by
+\[ y = \frac{9}{5}x + 32, \]
+which converts a temperature \( x \) in Celsius to Fahrenheit \( y \). 
+The inverse function \( f^{-1} \) converts Fahrenheit back to Celsius:
+\[ f^{-1}(y) = \frac{5}{9}(y - 32). \]
+Verifying that these functions are inverses:
+\[ f^{-1}(f(x)) = \frac{5}{9}\Bigl(\frac{9}{5}x + 32 - 32\Bigr) = x, \]
+\[ f(f^{-1}(f)) = \frac{9}{5}\Bigl(\frac{5}{9}(y - 32)\Bigr) + 32 = y. \]
+
+\subsection{One-to-One Function}
+A function \(f\) is called one-to-one if for each number \(y\) in the range of \(f\) there is
+exactly one number \(x\) in the domain of \(f\) such that \(f (x) = y\).
+
+\subsection{Inverse Function}
+\subsubsection{Definition}
+Suppose \( f \) is a one-to-one function.
+\begin{itemize}
+  \item If \( y \) is in the range of \( f \), then \( f^{-1}(y) \) is defined to be the number \( x \) such that \( f(x) = y \).
+  \item The function \( f^{-1} \) is called the \emph{inverse function} of \( f \).
+\end{itemize}
+\textbf{Short version:}
+\begin{itemize}
+  \item \( f^{-1}(y) = x \) means \( f(x) = y \).
+\end{itemize}
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.4]{inverse.jpeg}
+\end{figure}
+
+\subsection{Domain and Range of an Inverse Function}
+If \( f \) is a one-to-one function, then:
+\begin{itemize}
+  \item The domain of \( f^{-1} \) equals the range of \( f \).
+  \item The range of \( f^{-1} \) equals the domain of \( f \).
+\end{itemize}
+
+\subsection{Increasing and Decreasing Function}
+\subsubsection{Increasing}
+A function \(f\) is called increasing if \(f (a) < f (b)\) whenever \(a < b\) and \(a, b \) are in
+the domain of \(f\).
+
+\subsubsection{Decreasing}
+A function \(f\) is called decreasing if \(f (a) >  f (b)\) whenever \(a < b\) and \(a, b \) are in
+the domain of \(f\).
+
+\subsubsection{Increasing and decreasing functions are one-to-one}
+\begin{itemize}
+  \item Every increasing function is one-to-one
+  \item Every decreasing function is one-to-one.
+\end{itemize}
+
+\subsection{Exercise}
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.2]{increase.jpeg}
+\end{figure}
+\begin{enumerate}
+  \item[a.] Decreasing
+  \item[b.] Increasing
+  \item[c.] Neither
+\end{enumerate}
+
+\subsection{Do all one-to-one maps are increasing or decreasing ?}
+% \begin{figure}
+%   \centering
+%   \includegraphics[scale=0.6]{pics/non-increse-decrese.png}
+% \end{figure}
+
+\subsection{Increasing and Decreasing Functions}
+\subsubsection{Inverses of increasing and decreasing functions}
+\begin{itemize}
+  \item The inverse of an increasing function is increasing.
+  \item The inverse of a decreasing function is decreasing.
+\end{itemize}

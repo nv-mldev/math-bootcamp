@@ -1,0 +1,654 @@
+\section{3D Geometry}
+\label{sec:3d_geometry}
+
+\subsection{Lines in 3D}
+\begin{frame}
+    \frametitle{3D coordinates}
+    \begin{figure}
+        \includegraphics[scale=0.1]{co_ordinate_plane.png}
+        \caption{3D Coordinate Plane}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{3D Coordinate System}
+    \begin{itemize}
+        \item The 3D coordinate system is defined by three mutually perpendicular axes: the x-axis, y-axis, and z-axis.
+        \item A point in 3D space is represented by its coordinates \(P(x, y, z)\).
+        \item The position vector of a point \(P\) in 3D space is given by:
+        \[
+        \vec{OP} = x\hat{\imath} + y\hat{\jmath} + z\hat{k}
+        \]
+    \end{itemize}       
+\end{frame}
+
+\begin{frame}
+    \frametitle{Shifting the Origin}
+    \begin{block}{Translation of Axes}
+        Shifting the origin  to another point without changing the direction of axes is called \textbf{translation}.
+    \end{block}
+   Let the origin \(O\) be shifted to a new point \(O'\) with coordinates \(O'(x_0, y_0, z_0)\). The position vector of a point \(P(x,y,z)\) with respect to the new origin \(O'\) given by :
+    \[
+        \vec{O'P} = (x - x_0)\hat{\imath} + (y - y_0)\hat{\jmath} + (z - z_0)\hat{k}
+    \]
+\end{frame}
+
+\begin{frame}
+\frametitle{Distance Formula in 3D}
+\begin{figure}
+    \includegraphics[scale=0.1]{distance.png}
+    \caption{Distance Formula in 3D}
+\end{figure}
+Let \(OP = x \hat{\imath} + y \hat{\jmath} + z \hat{k}\)  and \(OQ = x' \hat{\imath} + y' \hat{\jmath} + z' \hat{k}\) be two points in 3D space. The distance \(d\) between points \(P\) and \(Q\) is given by the formula:
+\begin{align*}
+    \vec{OQ} &= \vec{OP} + \vec{PQ} \\
+    \vec{PQ} &= \vec{OQ} - \vec{OP} \\
+    d &= |\vec{PQ}| = \sqrt{(x' - x)^2 + (y' - y)^2 + (z' - z)^2}
+\end{align*}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Section Formula}
+    \begin{figure}
+        \includegraphics[scale=0.3]{section.png}
+        \caption{Section Formula in 2D}
+    \end{figure} 
+\end{frame}
+
+
+\begin{frame}
+    \begin{block}{Section Formula in 3D}
+    Let \(P(x_1, y_1, z_1)\) and \(Q(x_2, y_2, z_2)\) be two points in 3D space with position vectors \( \vec{\mathbf{r}_1} \), \( \vec{\mathbf{r}_2} \) respectively. If a point \(R\) divides the line segment \(PQ\) in the ratio \(m:n\), then the position vector of point \(R\) is given by:
+    \[
+    \vec{\mathbf{r}} = \frac{m\vec{\mathbf{r}_2} + n\vec{\mathbf{r}_1}}{m+n}
+    \]
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof of Section Formula}
+    \begin{block}{Given}
+    Point \(R\) divides line segment \(PQ\) internally in the ratio \(m:n\), where \(P\) and \(Q\) have position vectors \(\vec{\mathbf{a}}\) and \(\vec{\mathbf{b}}\) respectively.
+    \end{block}
+    
+    \begin{block}{To Prove}
+    The position vector of \(R\) is \(\vec{\mathbf{r}} = \frac{m\vec{\mathbf{b}} + n\vec{\mathbf{a}}}{m+n}\)
+    \end{block}
+    
+    \begin{block}{Proof}
+    Since \(R\) divides \(PQ\) in ratio \(m:n\):
+    \begin{align}
+        \frac{|\vec{PR}|}{|\vec{RQ}|} &= \frac{m}{n} \\
+        \text{Since } \vec{PR} \text{ and } \vec{RQ} \text{ are collinear:} \quad \vec{PR} &= \frac{m}{n}\vec{RQ}
+    \end{align}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof of Section Formula (continued)}
+    
+    From vector addition: \(\vec{PR} + \vec{RQ} = \vec{PQ}\)
+    
+    Substituting \(\vec{PR} = \frac{m}{n}\vec{RQ}\):
+    \begin{align}
+        \frac{m}{n}\vec{RQ} + \vec{RQ} &= \vec{PQ} \\
+        \vec{RQ}\left(\frac{m}{n} + 1\right) &= \vec{PQ} \\
+        \vec{RQ} &= \frac{n}{m+n}\vec{PQ}
+    \end{align}
+
+\end{frame}
+
+
+\begin{frame}
+ 
+    Since \(\vec{PQ} = \vec{\mathbf{b}} - \vec{\mathbf{a}}\) and \(\vec{RQ} = \vec{\mathbf{b}} - \vec{\mathbf{r}}\):
+    \begin{align}
+        \vec{\mathbf{b}} - \vec{\mathbf{r}} &= \frac{n}{m+n}(\vec{\mathbf{b}} - \vec{\mathbf{a}}) \\
+        \vec{\mathbf{r}} &= \vec{\mathbf{b}} - \frac{n}{m+n}(\vec{\mathbf{b}} - \vec{\mathbf{a}}) \\
+        \vec{\mathbf{r}} &= \frac{m\vec{\mathbf{b}} + n\vec{\mathbf{a}}}{m+n}
+    \end{align}
+  
+\end{frame}
+
+\begin{frame}
+\frametitle{Direction Ratios}
+    The direction ratios of a line are any three numbers that are proportional to the direction cosines of the line. If a line has direction cosines \(l, m, n\), then its direction ratios can be represented as \(a, b, c\) such that:
+    \begin{align*}
+        l &= \frac{a}{\sqrt{a^2 + b^2 + c^2}} =  k a \\
+        m &= \frac{b}{\sqrt{a^2 + b^2 + c^2}}  = k b \\
+        n &= \frac{c}{\sqrt{a^2 + b^2 + c^2}} = k c
+    \end{align*}
+\begin{itemize}
+    \item It is evident that the direction ratios are not unique, as they can be scaled by any non-zero constant \(k\).
+    \item However, the ratios \(a:b:c\) remain constant regardless of the scaling
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Direction Cosines vs. Direction Ratios: The Intuition}
+    \begin{itemize}
+        \item \textbf{Direction Cosines (DCs):} A unique, standardized recipe. They tell you how much to travel along each axis to move exactly one unit along the line. The sum of their squares is always 1: \(l^2 + m^2 + n^2 = 1\).
+        \item \textbf{Direction Ratios (DRs):} A flexible, proportional recipe. They tell you the ratio of movement along the axes. For every 'a' units in x, you move 'b' units in y and 'c' units in z. They are not unique; any scalar multiple represents the same direction.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Direction Cosines (DCs): Mathematical Definition}
+    Let a vector \(\vec{v}\) make angles \(\alpha, \beta, \gamma\) with the positive X, Y, and Z axes.
+    \begin{itemize}
+        \item \(l = \cos(\alpha)\)
+        \item \(m = \cos(\beta)\)
+        \item \(n = \cos(\gamma)\)
+    \end{itemize}
+
+    For a vector \(\vec{v} = (x, y, z)\) with magnitude \(|\vec{v}| = \sqrt{x^2 + y^2 + z^2}\):
+    \[ l = \frac{x}{|\vec{v}|}, \quad m = \frac{y}{|\vec{v}|}, \quad n = \frac{z}{|\vec{v}|} \]
+    A key property is that \(l^2 + m^2 + n^2 = 1\).
+\end{frame}
+
+\begin{frame}
+    \frametitle{Converting Direction Ratios to Direction Cosines}
+    If you have direction ratios \((a, b, c)\), you can find the direction cosines \((l, m, n)\) by normalizing them:
+    \[ l = \frac{a}{\sqrt{a^2 + b^2 + c^2}} \]
+    \[ m = \frac{b}{\sqrt{a^2 + b^2 + c^2}} \]
+    \[ n = \frac{c}{\sqrt{a^2 + b^2 + c^2}} \]
+    This process creates a unit vector, which is what the direction cosines represent.
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Equation of a Line passing through a given point and parallel to a given vector}
+    \begin{figure}
+        \includegraphics[scale=0.4]{line_parallel_vector.png}
+        \caption{Line in 3D space}
+    \end{figure}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Equation of a Line passing through a given point and parallel to a given vector}
+    Let \(P_{0}(x_0, y_0, z_0)\) be a point on the line and \(P_{1}(x_1, y_1, z_1)\) be another point on the line. The direction vector of the line can be defined as \(\vec{P_{0}P_{1}} = \vec{r}_1 - \vec{r}_0\), where \(\vec{r}_0\) and \(\vec{r}_1\) are the position vectors of \(P_0\) and \(P_1\) respectively. The vector equation of the line can be expressed as:
+    \[
+    \vec{r} - \vec{r_0} = t\vec{v}
+    \]
+    where \(t\) is a scalar parameter. 
+\end{frame}
+\begin{frame}
+    \frametitle{Equation of a Line: Two-Point Form}
+    Given two points on the line, \(A(x_1, y_1, z_1)\) and \(B(x_2, y_2, z_2)\).
+    \begin{block}{Vector Form}
+        Let the position vectors of A and B be \(\vec{a}\) and \(\vec{b}\). The direction vector is \(\vec{d} = \vec{b} - \vec{a}\). The equation of the line is:
+        \[ \vec{r} = \vec{a} + \lambda(\vec{b} - \vec{a}) \]
+    \end{block}
+    \begin{block}{Cartesian Form}
+        The direction ratios are \((x_2 - x_1, y_2 - y_1, z_2 - z_1)\). The equation is:
+        \[ \frac{x - x_1}{x_2 - x_1} = \frac{y - y_1}{y_2 - y_1} = \frac{z - z_1}{z_2 - z_1} \]
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Equation of a Line: Symmetric Form}
+    If the direction ratios of the line are \(a, b, c\) and it passes through point \(P_0(x_0, y_0, z_0)\), the symmetric form of the line's equation is:
+    \[
+    \frac{x - x_0}{a} = \frac{y - y_0}{b} = \frac{z - z_0}{c}
+    \]
+    This form is particularly useful when the direction ratios are known.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Angle between Two Lines}
+    To find the angle \(\theta\) between two lines with direction ratios \((a_1, b_1, c_1)\) and \((a_2, b_2, c_2)\), we use the formula:
+    \[
+    \cos(\theta) = \frac{a_1 a_2 + b_1 b_2 + c_1 c_2}{\sqrt{a_1^2 + b_1^2 + c_1^2} \sqrt{a_2^2 + b_2^2 + c_2^2}}
+    \]
+    This formula is derived from the dot product of the direction vectors.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Angle between Two Lines}
+    Let \(\vec{r} = \vec{a+ \lambda b}\) and \(\vec{r'} = vec{a'} + \alpha b'\) be two straight line in 3D space. The angle \(\theta\) between the two lines is given by:
+    \[
+    \cos(\theta) = \frac{\vec{b} \cdot \vec{b'}}{|\vec{b}| |\vec{b'}|}
+    \]
+    where \(\vec{b}\) and \(\vec{b'}\) are the direction vectors of the lines.
+
+    This is because the angle between the two lines is equal to the angle between their direction vectors.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Perpendicular Distance from a Point to a Line in 3D}
+    To find the perpendicular distance \(d\) from a point \(P_0(x_0, y_0, z_0)\) to a line defined by a point \(P_1(x_1, y_1, z_1)\) and direction vector \(\vec{v} = (a, b, c)\), we use the formula:
+    \[
+    d = \frac{|\vec{P_0P_1} \times \vec{v}|}{|\vec{v}|}
+    \]
+    where \(\vec{P_0P_1} = (x_1 - x_0, y_1 - y_0, z_1 - z_0)\) is the vector from the point to the line.        
+\end{frame}
+
+
+\begin{frame}
+\begin{figure}
+    \includegraphics[scale=0.9]{perpendicular_line.png}
+    \caption{Perpendicular Distance from a Point to a Line in 3D}
+\end{figure}
+\end{frame}
+\begin{frame}
+    \frametitle{Perpendicular Distance from a Point to a Line in 3D}
+    Let the line AB is defined by 
+    \[\frac{x-x_{1}}{a} = \frac{y-y_{1}}{b} = \frac{z-z_{1}}{c}\]
+    and \(P(\alpha, \beta, \gamma)\) be the point. The perpendicular distance \(d\) from point \(P\) . The co-ordinates of the point \(L\) can be identified as:
+    \[L(x_{1}+at, y_{1}+bt, z_{1}+ct)\]  
+    where \(t\) is a scalar.. The vector \(\vec(AL)\) is given by 
+    \[\vec(AL) = (x_{1}+at - x_{1}, y_{1}+bt - y_{1}, z_{1}+ct - z_{1}) = (at, bt, ct)\] 
+\end{frame} 
+
+\begin{frame}
+    
+    vector \(\vec{PL} \) is given by 
+    \[\vec{PL} = (x_{1}+at - \alpha, y_{1}+bt - \beta, z_{1}+ct - \gamma)\]  
+    
+    Since \(AL \perp PL\), we can equate following
+
+    \[(x_{1}+at-\alpha)(a) + (y_{1}+bt-\beta)(b) + (z_{1}+ct-\gamma)(c) = 0\]
+
+    This can be solved for \(t\) to find the point \(L\) on the line.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Shortest Distance between two skew straight lines in 3D}
+
+    Let the two lines are given by :
+    \begin{align*}
+    l_{1} = a_{1} + \lambda b_{1} \\
+    l_{2} = a_{2} + \mu b_{2}   
+    \end{align*}
+    where \(a_{1}\) and \(a_{2}\) are position vectors of points on the lines, and \(b_{1}\) and \(b_{2}\) are direction vectors of the lines. Let \(\vec{AB}\) be the line through points \(a_{1}\) and \(a_{2}\). The perpendicular to both the lines can be found by taking the cross product of their direction vectors, i.e., \(\vec{b_{1}} \times \vec{b_{2}}\). The shortest distance \(d\) between the two skew lines is given by the projection of the line segment \(\vec{AB}\) onto the direction of the unit perpendicular, which can be calculated using the formula:
+
+    \begin{align*}
+    d = \frac{|\vec{AB} \cdot (\vec{b_{1}} \times \vec{b_{2}})|}{|\vec{b_{1}} \times \vec{b_{2}}|}
+    \end{align*}
+
+\end{frame}
+
+
+
+\subsection{Planes in 3D}
+
+\begin{frame}
+    \frametitle{What is a Plane?}
+    A plane is a surface such that if any two points on it are joined by a straight line, then every point on that line lies on the surface.
+    \begin{block}{General Form}
+        The general equation of a plane in 3D space is given by:
+        \[
+        Ax + By + Cz + D = 0
+        \]
+        where \(A\), \(B\), \(C\), and \(D\) are constants, and \(A\), \(B\), and \(C\) are not all zero.
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof of the Plane Equation}
+    Let \(P(x_{1},x_{2},x_{3}) \) and \(Q(x_{2},y_{2},z_{2})\) be two points on the plane. Then we can write 
+    \[
+    ax_{1} + by_{1} + cz_{1} + d = 0
+    \]
+    and
+    \[
+    ax_{2} + by_{2} + cz_{2} + d = 0
+    \]
+
+    Let \(R\) be any point on the line joining \(P\) and \(Q\) with a ratio \(\lambda : 1\). Then the coordinates of \(R\) can be expressed as: 
+
+    \[R\left(\frac{x_{1} + \lambda x_{2}}{1+\lambda}, \frac{y_{1} + \lambda y_{2}}{1+\lambda}, \frac{z_{1} + \lambda z_{2}}{1+\lambda}\right)\]
+\end{frame} 
+
+\begin{frame}
+   Since \(R\) lies on the plane, it must satisfy the plane equation:
+
+   \[
+   a\left(\frac{x_{1} + \lambda x_{2}}{1+\lambda}\right) + b\left(\frac{y_{1} + \lambda y_{2}}{1+\lambda}\right) + c\left(\frac{z_{1} + \lambda z_{2}}{1+\lambda}\right) + d = 0
+   \]
+
+   Multiplying through by \(1+\lambda\) gives:
+
+   \[
+   a(x_{1} + \lambda x_{2}) + b(y_{1} + \lambda y_{2}) + c(z_{1} + \lambda z_{2}) + d(1+\lambda) = 0
+   \]
+\end{frame} 
+
+\begin{frame}
+   Rearranging terms leads to:
+
+   \[
+   (ax_{1} + by_{1} + cz_{1} + d) + \lambda (ax_{2} + by_{2} + cz_{2} + d) = 0
+   \]
+
+   Since both terms must equal zero, we have:
+
+   \[
+   ax_{1} + by_{1} + cz_{1} + d = 0
+   \]
+   and
+   \[
+   ax_{2} + by_{2} + cz_{2} + d = 0
+   \]
+
+   Thus, the line joining \(P\) and \(Q\) lies entirely within the plane.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Equation of a Plane in Normal Form}
+    \begin{figure}
+        \includegraphics[scale=0.4]{normal_form.png}
+        \caption{Plane in 3D space}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Equation of Plane in Normal Form}
+    Let \(O\) be the origin and \(ON\) be the perpendicular from the origin \(O\) to the given plane \(\pi\) such that \(ON = d \hat{n}\), where \(\hat{n}\) is the unit normal vector to the plane where \( d\) is the perpendicular distance from the origin to the plane. 
+    \begin{align*} 
+        OP &= \vec{r} \\ 
+        NP &\perp ON \\ 
+        NP \cdot ON &= 0 \\ 
+        (OP - ON) \cdot ON &= 0 \\
+        ( \vec{r} - d \hat{n}) \cdot d\hat{n} &= 0 \\
+        \vec{r} \cdot d \hat{n} - d^2 \hat{n} \cdot \hat{n} &= 0 \\
+        \vec{r} \cdot \hat{n} &= d
+    \end{align*}
+\end{frame}
+
+\begin{frame}
+\frametitle{Normal form Cartesian Form}
+ Let \(P(x,y,z)\) be a point on the plane and \( l,m,n\) be the direction cosines of the normal to the plane. The equation of the plane in Cartesian form is given by: 
+ \begin{align*}
+ r \cdot \hat{n} &= d \\
+ x \hat{\imath} + y \hat{\jmath} + z \hat{k} \cdot l \hat{\imath} + m \hat{\jmath} + n \hat{k} &= d \\
+ lx + my + nz &= d
+ \end{align*}
+where \(d\) is the perpendicular distance from the origin to the plane. 
+\end{frame} 
+
+\begin{frame}
+\frametitle{Normal form vs General form of Plane Equation}
+\begin{itemize}
+\item The normal form  of the plane given by \( \vec{r} \cdot \hat{n} = d\) . In the cartesian form  
+\[ lx + my + nz = d \] 
+where \(l,m,n\) are the direction cosines of the normal to the plane as the normal is a unit vector.
+
+\item The general form of the plane is given by \(Ax + By + Cz + D = 0\) where \(A,B,C\) are the direction ratios of the normal to the plane. The coefficents of \(A,B,C\) in the general form are the direction ratios of the normal to the plane.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Vector Equation of a Plane Passing Through
+a Given Point and Normal to a Given Vector}
+
+Let \( \vec{r} \) be the position vector of a point \( P(x,y,z) \) on the plane, and let \( \vec{a} \) be the position vector of a given point \( A(x_0,y_0,z_0) \) on the plane. The vector equation of the plane can be expressed as:
+
+\[
+(\vec{r} - \vec{a}) \cdot \hat{n} = 0
+\]
+
+where \( \hat{n} \) is the unit normal vector to the plane.
+
+\end{frame} 
+
+\begin{frame}
+\frametitle{Equation of a Plane Passing Through
+a Given Point and Parallel to Two
+Given Vectors}
+We can infer following observations :
+\begin{enumerate}
+    \item A vector on the plane is given by \( \vec{r} - \vec{a} \) where \(\vec{r},\vec{a}\) are the position vectors of points \(P\) and \(A\) respectively.
+    \item As two vectors \( \vec{b} \) and \( \vec{c} \) are parallel to the plane, the vector \( \vec{r} - \vec{a} \) is coplanar with vectors \( \vec{b} \) and \( \vec{c} \). 
+    \item This means \((\vec{r} - \vec{a}) = \lambda_1 \vec{b} + \lambda_2 \vec{c}\) for some scalars \(\lambda_1\) and \(\lambda_2\).
+    \item That is \(\vec{r} = \vec{a} + \lambda_1 \vec{b} + \lambda_2 \vec{c}\)
+\end{enumerate}     
+\end{frame}
+
+\begin{frame}
+    \frametitle{Angle between Two Planes}
+    The angle bwtween two planes is defined as the angle between their normal vectors. 
+    \begin{align*}
+        \vec{r} \cdot \hat{n_1} &= d_1 \\
+        \vec{r} \cdot \hat{n_2} &= d_2 \\
+        \cos(\theta) &= \frac{\hat{n_1} \cdot \hat{n_2}}{|\hat{n_1}| |\hat{n_2}|} \\
+    \end{align*}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Plane parallel to a given Plane}
+    Let the equation of the given plane be \( \vec{r} \cdot \hat{n} = d_{1}\). 
+    A plane parallel to this plane will have the same normal vector, so its equation can be written as:
+    \begin{align*}
+    \vec{r} \cdot \hat{n} &= d_{2} \\
+    \end{align*}
+    
+\end{frame}
+
+\begin{frame}
+    \frametitle{Equation of a Plane Passing Through the Intersection of Two Given Planes}
+    Let the equations of the two given planes be:
+    \begin{align*}
+    \vec{r} \cdot \hat{n_1} &= d_{1} \\
+    \vec{r} \cdot \hat{n_2} &= d_{2} \\
+    \end{align*}
+    where \(\vec{r}\) is the position vector that lies on the line
+    we can take the sum of the equations of the two planes and introduce a parameter (\(\lambda\)) to account for all possible points of Intersection
+    \[ \vec{r} \cdot \hat{n_1} + \lambda (\vec{r} \cdot \hat{n_2}) = d_{1} + \lambda d_{2} \]
+    represents a family of planes passing through the intersection line of the two given planes, where \(\lambda\) is a scalar parameter.
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{The Distance of a point from a Plane}
+    The distance $d$ of a point $P_1(x_1, y_1, z_1)$ from a plane with the equation $Ax + By + Cz + D = 0$ is given by the formula:
+    
+    \[d = \frac{|Ax_1 + By_1 + Cz_1 + D|}{\sqrt{A^2 + B^2 + C^2}}\]
+\end{frame}
+
+\begin{frame}
+    \frametitle{Key Concepts}
+    \begin{itemize}
+        \item To find the shortest distance from a point to a plane, we use \textbf{vector projection}.
+        \item The shortest distance is always along the line segment that is \textbf{perpendicular} to the plane.
+        \item The direction of this line segment is parallel to the plane's \textbf{normal vector}, $\vec{n} = \langle A, B, C \rangle$.
+        \item We can find the distance by projecting a vector connecting the point and the plane onto the normal vector.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Defining the Vectors}
+    \begin{itemize}
+        \item \textbf{The Normal Vector}: The vector perpendicular to the plane is $\vec{n} = \langle A, B, C \rangle$. The corresponding unit normal vector is $\hat{n} = \frac{\vec{n}}{|\vec{n}|}$.
+        \item \textbf{The Point and the Plane}:
+        \begin{itemize}
+            \item Let $P_1(x_1, y_1, z_1)$ be the given point.
+            \item Let $P_0(x_0, y_0, z_0)$ be any arbitrary point on the plane.
+        \end{itemize}
+        \item \textbf{The Connecting Vector}: The vector from the point on the plane to the given point is $\vec{P_0P_1} = \langle x_1 - x_0, y_1 - y_0, z_1 - z_0 \rangle$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{The Proof (Part 1)}
+    The shortest distance $d$ is the magnitude of the scalar projection of the connecting vector $\vec{P_0P_1}$ onto the normal vector $\vec{n}$.
+    
+    \[d = |\text{proj}_{\vec{n}} \vec{P_0P_1}| = \left|\vec{P_0P_1} \cdot \frac{\vec{n}}{|\vec{n}|}\right|\]
+    
+    Substitute the components of the vectors:
+    
+    \[d = \frac{|\langle x_1 - x_0, y_1 - y_0, z_1 - z_0 \rangle \cdot \langle A, B, C \rangle|}{\sqrt{A^2 + B^2 + C^2}}\]
+    
+    \[d = \frac{|A(x_1 - x_0) + B(y_1 - y_0) + C(z_1 - z_0)|}{\sqrt{A^2 + B^2 + C^2}}\]
+\end{frame}
+
+\begin{frame}
+    \frametitle{Distace between two parallel planes}
+    Let the equations of the two parallel planes be:
+    \begin{align*}
+    \vec{r} \cdot \hat{n} &= d_{1} \\
+    \vec{r} \cdot \hat{n} &= d_{2} \\
+    \end{align*}
+    where \(\vec{r}\) is the position vector that lies on the line.
+    for normal unit vector \(\hat{n}\) the distance is 
+    \[d = |d_{1} - d_{2}|\]
+
+    The distance \(D\) between the two parallel planes is given by:
+    \[D = \frac{|d_{1} - d_{2}|}{|{n}|}\]
+    where \(|{n}|\) is the magnitude of the normal vector.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Line of Intersection of Two Planes}
+    The line of intersection is formed by the set of points that satisfy the equations of both planes simultaneously.
+    
+    Let two planes be given by:
+    \begin{itemize}
+        \item Plane 1: $A_1x + B_1y + C_1z + D_1 = 0$
+        \item Plane 2: $A_2x + B_2y + C_2z + D_2 = 0$
+    \end{itemize}
+    The line of intersection is defined by this system of two equations.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof: Finding the Direction Vector}
+    \begin{itemize}
+        \item The line of intersection is perpendicular to the normal vector of each plane.
+        \item The normal vector of Plane 1 is $\vec{n_1} = \langle A_1, B_1, C_1 \rangle$.
+        \item The normal vector of Plane 2 is $\vec{n_2} = \langle A_2, B_2, C_2 \rangle$.
+        \item Therefore, the direction vector of the line of intersection, $\vec{v}$, is given by the cross product of the two normal vectors.
+    \end{itemize}
+    
+    $$\vec{v} = \vec{n_1} \times \vec{n_2} = \begin{vmatrix} \hat{i} & \hat{j} & \hat{k} \\ A_1 & B_1 & C_1 \\ A_2 & B_2 & C_2 \end{vmatrix}$$
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof: Finding a Point on the Line}
+    \begin{itemize}
+        \item To define a line, we also need a specific point that lies on it.
+        \item We can find a point by setting one of the variables ($x, y,$ or $z$) to a constant value, such as $z = 0$.
+        \item This creates a system of two linear equations with two unknowns, which can be solved easily.
+        \item For example, setting $z=0$ gives:
+        \begin{itemize}
+            \item $A_1x + B_1y + D_1 = 0$
+            \item $A_2x + B_2y + D_2 = 0$
+        \end{itemize}
+        \item Solving this system for $x$ and $y$ gives us a point $(x, y, 0)$ on the line of intersection.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Final Equation of the Line}
+    Once we have the direction vector $\vec{v}$ and a point $P_0(x_0, y_0, z_0)$, we can write the equation of the line of intersection in a parametric form.
+    
+    $$\vec{r} = \vec{r_0} + t\vec{v}$$
+    
+    Where $\vec{r_0} = \langle x_0, y_0, z_0 \rangle$ and $t$ is a scalar parameter.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Equation of a Plane Through the Intersection of Two Planes}
+    \textbf{The Concept:} Any plane that passes through the line of intersection of two given planes can be represented by a linear combination of their equations.
+    
+    Let the two given planes be:
+    \begin{itemize}
+        \item Plane 1: $P_1 \equiv A_1x + B_1y + C_1z + D_1 = 0$
+        \item Plane 2: $P_2 \equiv A_2x + B_2y + C_2z + D_2 = 0$
+    \end{itemize}
+    The equation of a plane passing through their intersection is given by:
+    $$P_1 + \lambda P_2 = 0$$
+    $$(A_1x + B_1y + C_1z + D_1) + \lambda(A_2x + B_2y + C_2z + D_2) = 0$$
+    Where $\lambda$ is a scalar constant.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof}
+    \textbf{Step 1: The Locus of Points}
+    \begin{itemize}
+        \item The equation $P_1 + \lambda P_2 = 0$ is a linear equation in $x, y, z$.
+        \item A linear equation in three variables always represents a plane.
+        \item Therefore, $P_1 + \lambda P_2 = 0$ represents a family of planes for different values of $\lambda$.
+    \end{itemize}
+
+    \textbf{Step 2: Proving the Intersection Property}
+    \begin{itemize}
+        \item We need to prove that any point on the line of intersection of $P_1$ and $P_2$ will also lie on the plane $P_1 + \lambda P_2 = 0$.
+        \item Let $P(x_0, y_0, z_0)$ be any point on the line of intersection of Plane 1 and Plane 2.
+        \item Since $P$ lies on Plane 1, it satisfies the equation $P_1 = 0$. So, $A_1x_0 + B_1y_0 + C_1z_0 + D_1 = 0$.
+        \item Since $P$ lies on Plane 2, it satisfies the equation $P_2 = 0$. So, $A_2x_0 + B_2y_0 + C_2z_0 + D_2 = 0$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof (Continued)}
+    \textbf{Step 3: Verifying the Equation}
+    \begin{itemize}
+        \item Now, let's substitute the coordinates of point $P$ into the equation of the new plane, $P_1 + \lambda P_2 = 0$:
+        \begin{align*} (A_1x_0 + B_1y_0 + C_1z_0 + D_1) &+ \lambda(A_2x_0 + B_2y_0 + C_2z_0 + D_2) = 0 \\ (0) &+ \lambda(0) = 0 \\ 0 &= 0 \end{align*}
+        \item The equation holds true for any point on the line of intersection and for any value of $\lambda$.
+        \item This proves that every plane represented by the equation $P_1 + \lambda P_2 = 0$ contains the line of intersection of the planes $P_1$ and $P_2$.
+    \end{itemize}
+\end{frame}
+\begin{frame}
+    \frametitle{Proof (Vector Form)}
+    \textbf{The Concept:}
+    \begin{itemize}
+        \item Let the two given planes be in vector form:
+        \begin{itemize}
+            \item Plane 1: $\vec{r} \cdot \vec{n_1} = d_1$
+            \item Plane 2: $\vec{r} \cdot \vec{n_2} = d_2$
+        \end{itemize}
+        \item The equation of a plane passing through their intersection is given by the linear combination:
+        \[(\vec{r} \cdot \vec{n_1} - d_1) + \lambda(\vec{r} \cdot \vec{n_2} - d_2) = 0\]
+    \end{itemize}
+
+    \textbf{Step 1: The Locus of Points}
+    \begin{itemize}
+        \item Rearranging the equation:
+        \[\vec{r} \cdot (\vec{n_1} + \lambda\vec{n_2}) = d_1 + \lambda d_2\]
+        \item This is of the form $\vec{r} \cdot \vec{N} = D$, which is the equation of a plane, with $\vec{N} = \vec{n_1} + \lambda\vec{n_2}$ and $D = d_1 + \lambda d_2$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proof (Vector Form - Continued)}
+    \textbf{Step 2: Proving the Intersection Property}
+    \begin{itemize}
+        \item Let $\vec{r_0}$ be the position vector of any point on the line of intersection.
+        \item By definition, $\vec{r_0}$ satisfies both original plane equations.
+        \begin{itemize}
+            \item $\vec{r_0} \cdot \vec{n_1} - d_1 = 0$
+            \item $\vec{r_0} \cdot \vec{n_2} - d_2 = 0$
+        \end{itemize}
+        \item Substitute $\vec{r_0}$ into the equation of the new plane:
+        \[(\vec{r_0} \cdot \vec{n_1} - d_1) + \lambda(\vec{r_0} \cdot \vec{n_2} - d_2) = 0\]
+        \[(0) + \lambda(0) = 0\]
+        \[0 = 0\]
+        \item Since the equation is satisfied for any point on the line of intersection, the new plane contains this line. This completes the proof in vector form.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Angle between a Line and a Plane}
+    \begin{figure}
+        \includegraphics[scale=0.7]{angle_line_plane.png}
+        \caption{Angle between a Line and a Plane}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Angle between a Line and a Plane}
+\begin{itemize}
+    \item Let the line be represented in vector form as:
+    \[\vec{r} = \vec{a} + \mu \vec{b}\]
+    where $\vec{a}$ is a point on the line, $\vec{b}$ is the direction vector of the line, and $\mu$ is a scalar parameter.
+    \item Let the plane be represented as:
+    \[\vec{r} \cdot \vec{n} = d\]
+    where $\vec{n}$ is the normal vector of the plane and $d$ is the distance from the origin to the plane.
+    \item To find the angle $\theta$ between the line and the plane, we can use the fact that the angle between the line and the normal to the plane is complementary to the angle between the line and the plane itself.
+\end{itemize}                       
+\end{frame}

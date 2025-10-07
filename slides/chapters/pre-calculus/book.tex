@@ -1,0 +1,46 @@
+\documentclass{book}
+
+% Required for \includegraphics and \graphicspath
+\usepackage{graphicx}
+
+% Mathematical packages for symbols and equations
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+% For colored boxes and enhanced environments
+\usepackage{tcolorbox}
+
+% Add all possible image directories here
+% The paths are relative to this file (book.tex)
+\graphicspath{ 
+    {chapters/exponentials-logarithms/pics/},
+    {chapters/functions/pics/},
+    {chapters/introduction/pics/},
+    {chapters/polar-complex/pics/},
+    {chapters/polynomials/pics/},
+    {chapters/real-numbers/pics/},
+    {chapters/trignometry/pics/}
+}
+
+\title{Math Bootcamp}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+% \include is often better for chapters as it starts a new page
+\include{chapters/introduction/Introduction}
+\include{chapters/real-numbers/Real-Numbers-chapter}
+\include{chapters/functions/Functions-chapter}
+\include{chapters/polynomials/Polynomials-chapter}
+\include{chapters/exponentials-logarithms/Exponentials-Logarithms-e-chapter}
+\include{chapters/trignometry/Trignometric-chapter}
+\include{chapters/polar-complex/Polar-Coordinates-Vectors-Complex-chapter}
+\include{chapters/sequence-series/Sequence-Series-chapter}
+
+
+\end{document}

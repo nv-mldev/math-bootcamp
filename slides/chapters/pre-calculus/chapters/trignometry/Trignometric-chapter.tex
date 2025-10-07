@@ -1,0 +1,600 @@
+\chapter{Trignometry}
+\author{Nithin}
+
+\section{The Unit Circle}
+The \textbf{unit circle} is the circle in the Cartesian plane with center at the origin and radius 1, defined by the equation:
+\[ x^2 + y^2 = 1 \]
+
+\subsection{Radius corresponding to a positive angle}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{pics/1.png}
+\end{figure}
+
+\subsection{Radius corresponding to a negative angle}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{pics/2.png}
+\end{figure}
+
+\subsection{Positive and Negative Angles}
+\begin{itemize}
+    \item Angle measurements for a radius on the unit circle are made from the positive horizontal axis.
+    \item Positive angles correspond to moving counterclockwise from the positive horizontal axis.
+    \item Negative angles correspond to moving clockwise from the positive horizontal axis.
+\end{itemize}
+
+\subsection{Angles more than 360 degrees}
+A radius of the unit circle corresponding to $\theta$ degrees also corresponds to $\theta + 360n$ degrees for every integer n.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{pics/3.png}
+\end{figure}
+
+\subsection{Length of a Circular Arc}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{pics/5.png}
+\end{figure}
+\[ 360^{\circ}   \rightarrow  2 \pi r \implies \theta^{\circ}  \rightarrow \frac{\theta}{360}.2\pi r  = \frac{\theta \pi r}{180}\]
+
+\subsection{Radians}
+For example an ant moving around a unit circle would travel a distance of $2\pi$ radians when it completes one full rotation.
+Radians are a unit of measurement for angles such that $2\pi$ radians correspond to a rotation through an entire circle.
+\[ 360^{\circ} = 2 \pi \text{ radians} \]
+\[ \theta ^{\circ}  = \frac{\theta \pi}{180} \text{ radians} \]
+
+\subsection{Arc Length}
+If $0 < \theta \leq 2\pi$ , then a circular arc on the unit circle corresponding to $\theta$ radians has length $\theta$.
+
+\subsection{Area of a Sector}
+A sector/slice with angle $\theta$ radians inside a circle with radius $r$ has area $\frac{1}{2} \theta r^{2}$.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.25]{pics/6.png}
+\end{figure}
+If no unit is specified, angles are assumed to be in radians.
+
+\section{Cosine and Sine}
+\begin{itemize}
+    \item The \textbf{cosine} of an angle $\theta$ is the x-coordinate of the point on the unit circle corresponding to that angle.
+    \item The \textbf{sine} of an angle $\theta$ is the y-coordinate of the point on the unit circle corresponding to that angle.
+\end{itemize}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.22]{pics/7.png}
+    \caption{sine and cosine}
+\end{figure}
+
+\subsection{The Signs of Sine and Cosine}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.2]{pics/8.png}
+    \caption{Signs of sine and cosine in different quadrants}
+\end{figure}
+
+\subsection{Key Equation Connecting Sine and Cosine}
+\begin{itemize}
+    \item By definition cosine and sine are the x and y coordinates of a point on the unit circle.
+    \item The equation of the unit circle is $x^2 + y^2 = 1$.
+    \item Therefore, for any angle $\theta$,
+\end{itemize}
+\[\cos^2(\theta) + \sin^2(\theta) = 1\]
+
+\subsection{The limits of Sine and Cosine}
+\begin{itemize}
+    \item For each real number $\theta$, there is a radius of the unit circle corresponding to that angle.
+    \item The co-ordinates of the end point of the radius are $(\cos(\theta), \sin(\theta))$.
+    \item That is this function is defined for all real numbers because theta can take any real value.
+    \item The domain of sine and cosine is all real numbers. $\(\mathbb{R}\)$
+    \item For unit circle $ \cos \theta^{2} + \sin \theta^{2} = 1 $
+    \item Because $ \cos \theta^{2} + \sin \theta^{2} = 1 $ for all $\theta$, the range of both sine and cosine is limited to $[-1, 1]$.
+\end{itemize}
+
+\subsection{Domain and Range of Sine and Cosine}
+\[ -1 \leq \cos(\theta) \leq 1 \quad \text{and} \quad -1 \leq \sin(\theta) \leq 1 \] for all $\theta \in \mathbb{R}$
+\begin{itemize}
+    \item Domain of sine and cosine: $\(\mathbb{R}\)$
+    \item Range of sine and cosine: $[-1, 1]$
+\end{itemize}
+
+\section{Tangent}
+The \textbf{tangent} of an angle $\theta$ is defined as the ratio of the sine to the cosine of that angle:
+\[\tan(\theta) = \frac{\sin(\theta)}{\cos(\theta)}\]
+provided that $\(\cos(\theta) \neq 0\)$.
+
+\subsection{Tangent as Slope}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.2]{pics/9.png}
+    \caption{Tangent as slope of the radius}
+\end{figure}
+\[ \text{Slope} = \frac{y_{2} - y_{1}}{x_{2} - x_{1}} = \frac{\sin(\theta) - 0}{\cos(\theta) - 0} = \tan(\theta) \]
+$\tan \theta$ is the slope of the radius corresponding to angle $\theta$ in the \textbf{unit circle}.
+\textbf{Note:} The slope of the radius applies to any circle, not just the unit circle.
+
+\subsection{Sign of Tangent}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.2]{pics/10.png}
+    \caption{Signs of tangent in different quadrants}
+\end{figure}
+
+\subsection{Radius of unit circle corresponding to a positive angle}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.25]{pics/11.png}
+    \caption{Radius of unit circle corresponding to angle $\theta$ such that $\tan(\theta) = \frac{1}{2}$}
+\end{figure}
+
+\subsection{Domain and Range of Tangent}
+\begin{itemize}
+    \item Tangent is defined for all angles except those where $\(\cos(\theta) = 0\)$, which occurs at odd multiples of $\frac{\pi}{2}$.
+    \item The tangent of an angle is the slope of the corresponding radius in the unit circle.
+    \item Every real number is the slope of some radius in the unit circle. So range of tangent is all real numbers.
+    \item The domain of tangent is all real numbers except odd multiples of $\frac{\pi}{2}$:
+    \[\text{Domain of } \tan(\theta) = \mathbb{R} \setminus \left\{ \theta \mid \theta = \frac{\pi}{2} + n\pi, n \in \mathbb{Z} \right\}\]
+    \item The range of tangent is all real numbers:
+    \[\text{Range of } \tan(\theta) = \mathbb{R}\]
+\end{itemize}
+
+\subsection{Graphing Tangent: Tangent near $\frac{\pi}{2}$}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.28]{pics/12.png}
+\end{figure}
+
+\section{Trigonometry in Right Triangles}
+\subsection{Right Triangle Definitions}
+For $0<\theta<\frac{\pi}{2}$ in a right triangle:
+\begin{itemize}
+    \item In a right triangle, the side opposite the right angle is the \textbf{hypotenuse}.
+    \item The other two sides are referred to as the \textbf{adjacent} and \textbf{opposite} sides, depending on the angle of interest.
+\end{itemize}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{pics/13.png}
+\end{figure}
+
+\subsection{SOH-CAH-TOA}
+\begin{itemize}
+    \item \textbf{SOH}: $\sin(\theta) = \frac{\text{opposite}}{\text{hypotenuse}}$
+    \item \textbf{CAH}: $\cos(\theta) = \frac{\text{adjacent}}{\text{hypotenuse}}$
+    \item \textbf{TOA}: $\tan(\theta) = \frac{\text{opposite}}{\text{adjacent}}$
+\end{itemize}
+
+\subsection{Trigonometric Identities}
+\begin{itemize}
+    \item $\sin^2(\theta) + \cos^2(\theta) = 1$
+    \item $\tan(\theta) = \frac{\sin(\theta)}{\cos(\theta)}$
+    \item $\cot(\theta) = \frac{1}{\tan(\theta)} = \frac{\cos(\theta)}{\sin(\theta)}$
+    \item $\sec(\theta) = \frac{1}{\cos(\theta)}$
+    \item $\csc(\theta) = \frac{1}{\sin(\theta)}$
+\end{itemize}
+
+\subsection{Trigonometric Identities For Negative Angles}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{pics/14.png}
+    \caption{Trigonometric identities in a right triangle}
+\end{figure}
+\begin{itemize}
+    \item $\sin(-\theta) = -\sin(\theta)$
+    \item $\cos(-\theta) = \cos(\theta)$
+    \item $\tan(-\theta) = -\tan(\theta)$
+\end{itemize}
+
+\subsection{Even and Odd Trigonometric Functions}
+\begin{itemize}
+    \item \textbf{Even Functions:} $\cos(-\theta) = \cos(\theta)$
+    \item \textbf{Odd Functions:} $\sin(-\theta) = -\sin(\theta)$, $\tan(-\theta) = -\tan(\theta) $
+\end{itemize}
+
+\subsection{Trigonometric Identities with Right Triangles}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{pics/15.png}
+    \caption{Trigonometric identities in a right triangle}
+\end{figure}
+\begin{itemize}
+    \item  $\sin(\pi/2 - \theta) = \cos(\theta)$
+    \item $\cos(\pi/2 - \theta) = \sin(\theta)$
+    \item $\tan(\pi/2 - \theta) = \frac{1}{\tan(\theta)} = \cot(\theta)$
+\end{itemize}
+
+\subsection{Trigonometric Identities involving multiples of $\pi$}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{pics/16.png}
+    \caption{Trigonometric identities involving multiples of $\pi$}
+\end{figure}
+\begin{itemize}
+    \item $\sin(n\pi + \theta) = (-1)^n \sin(\theta)$
+    \item $\cos(n\pi + \theta) = (-1)^n \cos(\theta)$
+    \item $\tan(n\pi + \theta) = \tan(\theta)$
+\end{itemize}
+For example, if $n$ is even, $\sin(n\pi + \theta) = \sin(\theta)$ and if $n$ is odd, $\sin(n\pi + \theta) = -\sin(\theta)$.
+
+\section{Trigonometric Algebra and Geometry}
+\subsection{Inverse Trigonometric Functions}
+\subsubsection{The Arccosine Function}
+\begin{itemize}
+    \item A function is called one-to-one if it maps distinct inputs to distinct outputs.
+    \item The \textbf{cosine function} whose domain is entire real line $\(\mathbb{R}\)$ is not one-to-one because it takes the same value for different angles. For example, $\cos(0) = \cos(2\pi) = 1$.
+    \item Thus the cosine function is not invertible. It fails in horixontal line test
+    \item To make it invertible, we restrict the domain to $[0, \pi]$ where it is one-to-one.
+\end{itemize}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{pics/18.png}
+    \caption{Graph of the cosine function restricted to $[0, \pi]$}
+\end{figure}
+The \textbf{arccosine function} is the inverse of the cosine function restricted to the interval $[0, \pi]$:
+\[ \arccos(x) = \theta \quad \text{if and only if} \quad x = \cos(\theta) \text{ for } 0 \leq \theta \leq \pi \]
+\begin{itemize}
+    \item \textbf{Domain:} The domain of the arccosine function is $[-1, 1]$ because the cosine function takes values in this interval.
+    \item \textbf{Range:} The range of the arccosine function is $[0, \pi]$ because it outputs angles in this interval.
+\end{itemize}
+
+\subsubsection{The Arcsine Function}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{pics/19.png}
+    \caption{Graph of the sine function restricted to $[- \frac{\pi}{2}, \frac{\pi}{2}]$}
+\end{figure}
+\begin{itemize}
+    \item The \textbf{sine function} is also not one-to-one over the entire real line because it takes the same value for different angles. For example, $\sin(0) = \sin(\pi) = 0$.
+    \item To make it invertible, we restrict the domain to $[- \frac{\pi}{2}, \frac{\pi}{2}]$ where it is one-to-one.
+\end{itemize}
+The \textbf{arcsine function} is the inverse of the sine function restricted to the interval $[- \frac{\pi}{2}, \frac{\pi}{2}] $:
+\[ \arcsin(x) = \theta \quad \text{if and only if} \quad x = \sin(\theta) \text{ for } -\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2} \]
+\begin{itemize}
+    \item \textbf{Domain:} The domain of the arcsine function is $[-1, 1]$ because the sine function takes values in this interval.
+    \item \textbf{Range:} The range of the arcsine function is $[- \frac{\pi}{2}, \frac{\pi}{2}]$ because it outputs angles in this interval.
+\end{itemize}
+
+\subsubsection{The Arctangent Function}
+\begin{itemize}
+    \item The \textbf{tangent function} is not one-to-one over the entire real line because it takes the same value for different angles. For example, $\tan(0) = \tan(\pi) = 0$.
+    \item To make it invertible, we restrict the domain to $(- \frac{\pi}{2}, \frac{\pi}{2})$ where it is one-to-one.
+\end{itemize}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{pics/20.png}
+    \caption{Graph of the tangent function restricted to $(- \frac{\pi}{2}, \frac{\pi}{2})$}
+\end{figure}
+The \textbf{arctangent function} is the inverse of the tangent function restricted to the interval $(- \frac{\pi}{2}, \frac{\pi}{2})$:
+\[ \arctan(x) = \theta \quad \text{if and only if} \quad x = \tan(\theta) \text{ for } -\frac{\pi}{2} < \theta < \frac{\pi}{2} \]
+
+\subsection{Inverse Trigonometric Identities}
+\begin{itemize}
+    \item $\arccos(\cos(x)) = x$ for $0 \leq x \leq \pi$
+    \item $\arcsin(\sin(x)) = x$ for $-\frac{\pi}{2} \leq x \leq \frac{\pi}{2}$
+    \item $\arctan(\tan(x)) = x$ for $-\frac{\pi}{2} < x < \frac{\pi}{2}$
+\end{itemize}
+\textbf{Note:}
+\begin{itemize}
+    \item The inverse trigonometric functions return angles in their respective ranges.
+    \item For example, $\arccos(0.5) = \frac{\pi}{3}$ because $\cos(\frac{\pi}{3}) = 0.5$ and $\frac{\pi}{3}$ is in the range of the arccosine function.
+    \item Similarly, $\arcsin(0.5) = \frac{\pi}{6}$ because $\sin(\frac{\pi}{6}) = 0.5$ and $\frac{\pi}{6}$ is in the range of the arcsine function.
+    \item $\arctan(1) = \frac{\pi}{4}$ because $\tan(\frac{\pi}{4}) = 1$ and $\frac{\pi}{4}$ is in the range of the arctangent function.
+\end{itemize}
+
+\subsection{Inverse of $f(x)=3+4\cos x$}
+Suppose $f(x)=3+4\cos x$, where the domain of $f$ is $[0,\pi]$.
+\begin{enumerate}[]
+  \item Find a formula for $f^{-1}(y)$.
+  \item What is the domain of $f^{-1}$?
+  \item What is the range of $f^{-1}$?
+\end{enumerate}
+Solution:
+\begin{itemize}
+  \item $f^{-1}(y)=\arccos\left(\frac{y-3}{4}\right)$.
+  \item $\operatorname{dom}(f^{-1})=[-1,7]$.
+  \item $\operatorname{range}(f^{-1})=[0,\pi]$.
+\end{itemize}
+
+\subsection{Find the $\arccos(-t)$}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{pics/21.png}
+    \caption{Graph of the arccosine function}
+\end{figure}
+\textbf{Solution:}
+\[ x = -t \implies \arccos(-t) = \pi - \arccos(t) \]
+
+\subsection{Find the $\arcsin(t)$}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{pics/22.png}
+    \caption{Graph of the arcsine function}
+\end{figure}
+\textbf{Solution:}
+\[ y = -t \implies \arcsin(-t) = -\sin(\theta) \]
+
+\subsection{Inverse trigonometric identities for $-t$}
+\begin{itemize}
+    \item $ \cos^{-1}(-t) = \pi - \cos^{-1}(t) $
+    \item $ \sin^{-1}(-t) = - \sin^{-1}(t) $
+    \item $ \tan^{-1}(-t) = -\tan^{-1}(t) $
+\end{itemize}
+
+\subsection{Find the $\arctan(-t)$}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{pics/23.png}
+    \caption{Graph of the arctangent function}
+\end{figure}
+
+\subsection{arcsin plus arccosine}
+\[ \arcsin(t) + \arccos(t) = \frac{\pi}{2} \]
+\begin{itemize}
+    \item This identity holds for all $t$ in the domain of both functions, which is $[-1, 1]$.
+    \item The identity reflects the complementary nature of the sine and cosine functions.
+    \item Geometrically, it represents the relationship between the angles in a right triangle where one angle is $\arcsin(t)$ and the other is $\arccos(t)$.
+\end{itemize}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{pics/24.png}
+    \caption{right angle triangle involving arcsine and arccosine functions}
+\end{figure}
+
+\section{Trignometry to Compute Area}
+\subsection{Area of a Triangle}
+The area $A$ of a triangle with base $b$ and height $h$ is given by:
+\[ A = \frac{1}{2} b h = \frac{1}{2} b c \sin(\theta) \]
+where $\theta$ is the angle between the two sides of length $b$ and $c$.
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{pics/25.png}
+    \caption{Area of a triangle using sine function}
+\end{figure}
+
+\subsection{Ambiguous Angles}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{pics/26.png}
+    \caption{$\sin(\pi - \theta) = \sin(\theta)$}
+\end{figure}
+\begin{itemize}
+    \item  $A = \frac{1}{2} b c \sin(\theta) \implies \theta = \arcsin\left(\frac{2A}{bc}\right) $
+    \item Assume $ \frac{2A}{bc} = \frac{1}{2} $
+    \item Then $ \theta = \arcsin\left(\frac{1}{2}\right) = \frac{\pi}{6} $ or $ \frac{5\pi}{6} $
+    \item That is given any number $t \in [-1,1]$ there are two possible angles $\theta$ that satisfy the equation.
+    \item $\sin (\pi - \theta) = \sin(-(\theta - \pi )) = - \sin(\theta - \pi) = -(-\sin \theta) = \sin \theta $
+\end{itemize}
+
+\subsection{Area of a parallelogram}
+The area $A$ of a parallelogram with base $b$ and height $h$ is given by:
+\[ A = b h \]
+Alternatively, if we know the lengths of two sides $a$ and $b$ and the angle $\theta$ between them, we can use:
+\[ A =  bc \sin(\theta) \]
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{pics/27.png}
+    \caption{Area of a parallelogram using sine function}
+\end{figure}
+
+\subsection{Area of Polygon}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{pics/28.png}
+    \caption{Area of a regular polygon using sine function}
+\end{figure}
+\begin{itemize}
+    \item Area of one triangle = $\frac{1}{2} \cdot 1 \cdot 1 \sin(\frac{2\pi}{8})$
+    \item Total Area of polygon = $8 \cdot \frac{1}{2} \cdot 1 \cdot 1 \sin(\frac{2\pi}{8})$
+    \item Total area of regular polygon with $n$ sides = $\frac{n}{2} \cdot 1 \cdot 1 \sin(\frac{2\pi}{n})$
+\end{itemize}
+
+\subsection{Example: Area of a Regular Pentagon}
+Each side of the Pentagon that houses the U.S. Department of Defense has a length of 921 feet.
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{pics/29.png}
+    \caption{Area of a regular pentagon}
+\end{figure}
+Solution:
+\begin{itemize}
+    \item $h = \frac{460.5}{\tan (\frac{\pi}{5})}$
+    \item $\frac{1}{2} \cdot 921 \cdot h$
+    \item $5 \cdot \frac{1}{2} \cdot 921 \cdot h$
+\end{itemize}
+
+\subsection{Trignometric Approximation}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        $q$ & $\sin q$ & $\tan q$ \\
+        \hline
+        0.5 & 0.47943 & 0.54630 \\
+        0.05 & 0.04998 & 0.05004 \\
+        0.005 & 0.00499998 & 0.00500004 \\
+        0.0005 & 0.00049999998 & 0.00050000004 \\
+        0.00005 & 0.00004999999998 & 0.00005000000004 \\
+        \hline
+    \end{tabular}
+    \caption{Values of $\sin q$ and $\tan q$ for small $q$}
+\end{table}
+If $| \theta | << 1$, then $\sin \theta \approx \theta$ and $\tan \theta \approx \theta$.
+This approximation is applicable only for radians. For small angles in degrees, the approximation is not valid.
+
+\subsection{\(\\sin \theta\) for small angles}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{pics/30.png}
+    \caption{Graph of $\sin \theta$ for small angles}
+\end{figure}
+\begin{itemize}
+    \item The blue vertical line and the blue circular arc have nearly the same length if $|\theta| << 1$.
+    \item The blue vertical line represents $\sin \theta$, and the blue circular arc represents $\theta$.
+    \item From the figure, we see that $\sin \theta < \theta$ for small angles.
+\end{itemize}
+
+\subsection{\(\\tan \theta\) for small angles}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{pics/31.png}
+    \caption{Graph of $\tan \theta$ for small angles}
+\end{figure}
+\begin{itemize}
+    \item The yellow region has the area = $\frac{1}{2} \cdot \theta$
+    \item The blue vertical line has the length $\tan \theta$
+    \item The right triangle which has the base 1 and height $\tan \theta$ has area = $\frac{1}{2} \cdot 1 \cdot \tan \theta$
+    \item As the yellow region lies inside the triangle, we have $\frac{1}{2} \cdot \theta < \frac{1}{2} \cdot 1 \cdot \tan \theta$
+    \item Thus $\theta < \tan \theta$
+\end{itemize}
+
+\subsection{Trignometric Inequality}
+If $ 0 < \theta < \frac{\pi}{2} $, then $\sin \theta < \theta < \tan \theta $.
+\begin{displaymath}
+    \theta < \tan \theta \implies \theta < \frac{\sin \theta}{\cos \theta} \implies \theta \cos \theta < \sin \theta \implies \cos \theta < \frac{\sin \theta}{\theta}
+\end{displaymath}
+\begin{displaymath}
+    \sin \theta < \theta \implies \frac{\sin \theta}{\theta} < 1
+\end{displaymath}
+If $ 0 < |\theta| < \frac{\pi}{2} $, then
+\[ \cos \theta <  \frac{\sin \theta}{\theta} < 1 \]
+
+\subsection{Approximations}
+As $ \theta $ approaches 0, $ \frac{\sin \theta}{\theta} $ approaches 1.
+As $ |\theta| $ is small, $ \cos \theta $ approaches to  $1 - \frac{\theta^2}{2} $.
+\begin{displaymath}
+    1 - \cos \theta = 1 - \cos \theta * (\frac{1 + \cos \theta}{1 + \cos \theta}) = \frac{(1 - \cos^2 \theta)}{1 + \cos \theta} = \frac{\sin^2 \theta}{1 + \cos \theta}
+\end{displaymath}
+If $ \theta$ is small then :
+\begin{displaymath}
+  \approx  \frac{\theta ^{2}}{1+ \cos \theta}
+\end{displaymath}
+
+\subsection{The Law of Sines and Cosines}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{pics/32.png}
+    \caption{The Law of Sines}
+\end{figure}
+\begin{itemize}
+    \item $ \frac{1}{2} ab \sin C = \frac{1}{2}bc\sin A = \frac{1}{2}ac\sin B$
+    \item $ \frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}$
+\end{itemize}
+The Law of Sines states that in any triangle, the ratio of the sine of the angle to the length of the opposite side is constant:
+\[ \frac{\sin A}{a} = \frac{\sin B}{b} = \frac{\sin C}{c} \]
+
+\subsection{Law of Cosines}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{pics/33.png}
+    \includegraphics[scale=0.3]{pics/34.png}
+    \caption{The Law of Cosines}
+\end{figure}
+\begin{align}
+    h &= a\sin C\
+    t &= a \cos C \
+    r &= b - t = b - a \cos C \
+    c^2  &= a^2 \sin^2 C + (b - a \cos C)^2 \
+    c^2 &= a^2 + b^2 - 2ab \cos C
+\end{align}
+The Law of Cosines relates the lengths of the sides of a triangle to the cosine of one of its angles:
+\[ c^2 = a^2 + b^2 - 2ab \cos C \]
+where $a$, $b$, and $c$ are the lengths of the sides opposite to angles $A$, $B$, and $C$ respectively.
+
+\subsection{When to use which law?}
+\begin{itemize}
+    \item Use the Law of Sines when you have two angles and one side (AAS or ASA) or two sides and a non-included angle (SSA).
+    \item Use the Law of Cosines when you have two sides and the included angle (SAS) or all three sides (SSS).
+\end{itemize}
+
+\section{Double Angles and Half Angle Formulas}
+\subsection{The $\cos 2\theta$}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{pics/35.png}
+    \includegraphics[scale=0.3]{pics/36.png}
+    \caption{The cosine of double angle}
+\end{figure}
+Applying law of cosines:
+\begin{align}
+    (2\sin \theta)^2 &= 1^2 + 1^2 - 2\cos(2\theta) \\
+    4\sin^2 \theta &= 2 - 2\cos(2\theta) \\
+    2\cos(2\theta) &= 2 - 4\sin^2 \theta
+\end{align}
+The double angle formulas for cosine are:
+\[ \cos(2\theta)  = 1 - 2\sin^2(\theta) = 2\cos^2(\theta) - 1= \cos^2(\theta) - \sin^2(\theta) \]
+
+\subsection{The $\sin 2\theta$ Formula}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{pics/36.png}
+    \caption{The sine of double angle}
+\end{figure}
+Applying law of sines:
+\begin{align}
+    \frac{\sin(2\theta)}{2\sin \theta} &= \sin(\frac{\pi}{2} - \theta) \\
+    \frac{\sin(2\theta)}{2\sin \theta} &= \cos(\theta) \\
+    \sin(2\theta) &= 2\sin \theta \cos(\theta)
+\end{align}
+The double angle formula for sine is:
+\[ \sin(2\theta) = 2\sin(\theta)\cos(\theta) \]
+
+\subsection{The $\tan 2\theta$ Formula}
+The double angle formula for tangent is:
+\begin{align}
+    \tan(2\theta) &= \frac{\sin(2\theta)}{\cos(2\theta)} \\
+    &= \frac{2\sin(\theta)\cos(\theta)}{\cos^2(\theta) - \sin^2(\theta)} \\
+    &=\frac{\frac{2\sin(\theta)\cos(\theta)}{\cos^{2}(\theta)}}{\frac{\cos^{2}\theta - \sin^2\theta}{\cos^2 \theta}} \\
+    &= \frac{2\tan(\theta)}{1 - \tan^2(\theta)}
+\end{align}
+
+\subsection{The Half Angle Formulas}
+The half angle formulas are derived from the double angle formulas:
+\begin{align}
+    \sin\left(\frac{\theta}{2}\right) &= \sqrt{\frac{1 - \cos(\theta)}{2}} \\
+    \cos\left(\frac{\theta}{2}\right) &= \sqrt{\frac{1 + \cos(\theta)}{2}} \\
+    \tan\left(\frac{\theta}{2}\right) &= \frac{\sin(\theta)}{1 + \cos(\theta)} = \frac{1 - \cos(\theta)}{\sin(\theta)}
+\end{align}
+\begin{itemize}
+    \item These formulas are useful for simplifying trigonometric expressions and solving equations involving half angles.
+    \item The choice of the square root sign depends on the quadrant in which the angle lies.
+\end{itemize}
+
+\subsection{The Cosine of a Sum and Difference}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{pics/37.png}
+    \caption{The cosine of a sum and difference}
+\end{figure}
+\begin{itemize}
+    \item The idea is to compute $c^2$ via eucledian distance and then equate the same with the law of cosines.
+    \item The distance between the points $(\cos(\alpha), \sin(\alpha))$ and $(\cos(\beta), \sin(\beta))$ is given by:
+    \[ c = \sqrt{(\cos(\alpha) - \cos(\beta))^2 + (\sin(\alpha) - \sin(\beta))^2} \]
+    \item Squaring both sides gives:
+    \[ c^2 = (\cos(\alpha) - \cos(\beta))^2 + (\sin(\alpha) - \sin(\beta))^2 \]
+    \item Expanding the squares and using the Pythagorean identity $\sin^2(\theta) + \cos^2(\theta) = 1$, we can derive the cosine of a sum and difference formulas.
+    \item The distance $d$ can also be expressed in terms of the angle $\theta = \alpha - \beta$:
+    \[ d^2 = 2 - 2\cos(\theta) = 2(1 - \cos(\theta)) \]
+    \item Thus, we can relate the cosine of the sum and difference to the distance between the points on the unit circle.
+\end{itemize}
+The cosine of a sum and difference is given by:
+\[ \cos( u \pm v) = \cos(u)\cos(v) \mp \sin(u)\sin(v) \]
+
+\subsection{Addtition formula for Tangent}
+The addition formula for tangent is:
+\[ \tan(u \pm v) = \frac{\tan(u) \pm \tan(v)}{1 \mp \tan(u)\tan(v)} \]
+This formula is derived from the sine and cosine addition formulas.
+
+\section{transformation of Trigonometric Functions}
+\subsection{Amplitude}
+The \textbf{amplitude} of a function is one-half the distance between the maximum and minimum values of the function.
+
+\subsection{Period}
+Suppose $f(x)$ is a periodic function with period $T$. This means that for all $x$:
+\[ f(x + T) = f(x) \]
+The smallest positive value of $T$ is called the \textbf{period} of the function.
+
+\subsection{Phase Shift}
+The \textbf{phase shift} of a function is the horizontal shift of the graph of the function. It is determined by the value of $c$ in the function $f(x) = a \sin(b(x - c)) + d$ or $f(x) = a \cos(b(x - c)) + d$.
+\begin{itemize}
+    \item If $c > 0$, the graph shifts to the right.
+    \item If $c < 0$, the graph shifts to the left.
+\end{itemize}
