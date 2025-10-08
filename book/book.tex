@@ -31,6 +31,103 @@
 \newtheorem{definition}{Definition}[chapter]
 \newtheorem{example}{Example}[chapter]
 
+% Define beautiful colored block environments
+\tcbset{
+    base/.style={
+        arc=3mm,
+        outer arc=3mm,
+        boxrule=0.5pt,
+        left=5mm,
+        right=5mm,
+        top=3mm,
+        bottom=3mm,
+        fonttitle=\bfseries\sffamily,
+        coltitle=white,
+        enhanced,
+        drop shadow
+    }
+}
+
+% Definition block (Blue theme)
+\newtcolorbox{definitionbox}[1][]{
+    base,
+    colback=blue!8,
+    colframe=blue!50!black,
+    colbacktitle=blue!70!black,
+    title=Definition,
+    #1
+}
+
+% Theorem block (Green theme)
+\newtcolorbox{theorembox}[1][]{
+    base,
+    colback=green!8,
+    colframe=green!50!black,
+    colbacktitle=green!70!black,
+    title=Theorem,
+    #1
+}
+
+% Example block (Orange theme)
+\newtcolorbox{examplebox}[1][]{
+    base,
+    colback=orange!8,
+    colframe=orange!50!black,
+    colbacktitle=orange!70!black,
+    title=Example,
+    #1
+}
+
+% Important note block (Red theme)
+\newtcolorbox{importantbox}[1][]{
+    base,
+    colback=red!8,
+    colframe=red!50!black,
+    colbacktitle=red!70!black,
+    title=Important,
+    #1
+}
+
+% Solution block (Purple theme)
+\newtcolorbox{solutionbox}[1][]{
+    base,
+    colback=purple!8,
+    colframe=purple!50!black,
+    colbacktitle=purple!70!black,
+    title=Solution,
+    #1
+}
+
+% Exercise block (Teal theme)
+\newtcolorbox{exercisebox}[1][]{
+    base,
+    colback=teal!8,
+    colframe=teal!50!black,
+    colbacktitle=teal!70!black,
+    title=Exercise,
+    #1
+}
+
+% Proof block (Gray theme)
+\newtcolorbox{proofbox}[1][]{
+    base,
+    colback=gray!8,
+    colframe=gray!50!black,
+    colbacktitle=gray!70!black,
+    title=Proof,
+    #1
+}
+
+% Key concept block (Cyan theme)
+\newtcolorbox{keyconceptbox}[1][]{
+    base,
+    colback=cyan!8,
+    colframe=cyan!50!black,
+    colbacktitle=cyan!70!black,
+    title=Key Concept,
+    #1
+}
+
 \title{Mathematics Bootcamp\\
        \large A Comprehensive Guide to Pre-Calculus, Geometry, and Calculus}
 \author{Mathematics Learning Team}
@@ -44,33 +141,33 @@
 % Part I: Pre-Calculus Foundations
 \part{Pre-Calculus Foundations}
 
-\include{chapters/chapter_introduction}
-\include{chapters/chapter_real_numbers}
-\include{chapters/chapter_functions}
-\include{chapters/chapter_polynomials}
-\include{chapters/chapter_exponentials_logarithms}
-\include{chapters/chapter_trigonometry}
-\include{chapters/chapter_polar_complex}
-\include{chapters/chapter_sequences_series}
+% \include{chapters/chapter_introduction}
+% \include{chapters/chapter_real_numbers}
+% \include{chapters/chapter_functions}
+% \include{chapters/chapter_polynomials}
+% \include{chapters/chapter_exponentials_logarithms}
+% \include{chapters/chapter_trigonometry}
+% \include{chapters/chapter_polar_complex}
+% \include{chapters/chapter_sequences_series}
 
-% Part II: Geometry  
-\part{Geometry}
+% % Part II: Geometry  
+% \part{Geometry}
 
-\include{chapters/chapter_geometry_introduction}
-\include{chapters/chapter_scalars_vectors}
-\include{chapters/chapter_3d_geometry}
+% \include{chapters/chapter_geometry_introduction}
+% \include{chapters/chapter_scalars_vectors}
+% \include{chapters/chapter_3d_geometry}
 
-% Part III: Calculus
-\part{Calculus}
+% % Part III: Calculus
+% \part{Calculus}
 
-\include{chapters/chapter_calculus_introduction}
+% \include{chapters/chapter_calculus_introduction}
 
 
 % Part IV: Probability and Statistics
 \part{Probability and Statistics}
 
 % \include{chapters/chapter_probability_statistics_introduction}
-\include{chapters/combinatorial_analysis}
+\include{chapters/chapter_combinatorial_analysis}
 % \include{chapters/chapter_probability}
 % \include{chapters/chapter_statistics}
 

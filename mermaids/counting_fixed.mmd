@@ -1,0 +1,36 @@
+graph TD
+    subgraph Total Possible Outcomes
+        direction LR
+        Z["Total = n1 * n2 * n3 * ..."]
+    end
+
+    A(Start) --> E1{Experiment 1};
+    E1 -- n1 outcomes --> O1_1(Outcome 1.1);
+    E1 --> O1_2(...);
+    E1 --> O1_n(Outcome 1.n1);
+
+    subgraph For each outcome of Exp 1
+        O1_1 --> E2_1{Experiment 2};
+        O1_n --> E2_2{Experiment 2};
+    end
+
+    E2_1 -- n2 outcomes --> O2_1(Outcome 2.1);
+    E2_1 --> O2_2(...);
+    E2_1 --> O2_n(Outcome 2.n2);
+
+    E2_2 -- n2 outcomes --> O2_1b(Outcome 2.1);
+    E2_2 --> O2_nb(Outcome 2.n2);
+
+    subgraph For each outcome of Exp 2
+        O2_1 --> E3{Experiment 3};
+        O2_n --> E3b{Experiment 3};
+    end
+    
+    E3 -- n3 outcomes --> O3_1(Outcome 3.1);
+    E3 --> O3_2(...);
+    E3 --> O3_n(Outcome 3.n3);
+
+    classDef exp fill:#87CEEB,stroke:#333,stroke-width:2px;
+    classDef outcome fill:#98FB98,stroke:#333,stroke-width:1px;
+    class E1,E2_1,E2_2,E3,E3b exp;
+    class O1_1,O1_2,O1_n,O2_1,O2_2,O2_n,O2_1b,O2_nb,O3_1,O3_2,O3_n outcome;
