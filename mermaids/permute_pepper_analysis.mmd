@@ -1,0 +1,43 @@
+graph TD
+
+%% PEPPER - Permutations with Repetition
+%% Letters: P(3), E(2), R(1) = 6 letters total
+%% Formula: 6!/(3!×2!×1!) = 720/12 = 60 distinct permutations
+
+subgraph Legend["PEPPER Analysis"]
+    L1["Total Letters: 6"]
+    L2["P appears 3 times"]
+    L3["E appears 2 times"] 
+    L4["R appears 1 time"]
+    L5["Formula: 6!/(3!×2!×1!)"]
+    L6["Result: 60 distinct permutations"]
+end
+
+subgraph Examples["Sample Permutations"]
+    Start["PEPPER"] --> Group1["Starting with P"]
+    Start --> Group2["Starting with E"]
+    Start --> Group3["Starting with R"]
+    
+    Group1 --> P1["PEPPER"]
+    Group1 --> P2["PERPEP"]
+    Group1 --> P3["PPERER"]
+    Group1 --> P4["PPEEER"]
+    
+    Group2 --> E1["EPPER"]
+    Group2 --> E2["EPPRER"]
+    
+    Group3 --> R1["RPPEPE"]
+    Group3 --> R2["REPPEP"]
+end
+
+subgraph Count["Counting Method"]
+    C1["Fix first letter"]
+    C2["Count arrangements of remaining"]
+    C3["Account for repetitions"]
+    C4["Sum all possibilities"]
+end
+
+style Legend fill:#e1f5fe
+style Examples fill:#f3e5f5
+style Count fill:#e8f5e8
+style Start fill:#ff9800,color:#fff

@@ -1,0 +1,58 @@
+graph LR
+
+%% PEPPER - One Complete Bundle Example
+%% P appears 3 times, E appears 2 times, R appears 1 time
+%% Each bundle has 3! × 2! = 12 arrangements leading to same result
+%% Total distinct permutations = 6!/(3!×2!×1!) = 60
+
+subgraph Bundle["🎯 All arrangements"]
+    direction TB
+    A1["P₁ E₁ P₂ P₃ E₂ R"]
+    A2["P₁ E₂ P₂ P₃ E₁ R"]
+    A3["P₂ E₁ P₁ P₃ E₂ R"]
+    A4["P₂ E₂ P₁ P₃ E₁ R"]
+    A5["P₃ E₁ P₁ P₂ E₂ R"]
+    A6["P₃ E₂ P₁ P₂ E₁ R"]
+    A7["P₁ E₁ P₃ P₂ E₂ R"]
+    A8["P₁ E₂ P₃ P₂ E₁ R"]
+    A9["P₂ E₁ P₃ P₁ E₂ R"]
+    A10["P₂ E₂ P₃ P₁ E₁ R"]
+    A11["P₃ E₁ P₂ P₁ E₂ R"]
+    A12["P₃ E₂ P₂ P₁ E₁ R"]
+    
+    A1 --> A2 --> A3 --> A4 --> A5 --> A6 --> A7 --> A8 --> A9 --> A10 --> A11 --> A12
+end
+
+subgraph Result["🎯 Result"]
+    direction TB
+    R1["PEPPER"]
+end
+
+subgraph Formula["🧮 Why 12 = 1?"]
+    direction TB
+    F1["3 P's → 3! = 6 ways"]
+    F2["2 E's → 2! = 2 ways"]
+    F3["Total: 6 × 2 = 12"]
+    F4["All → same word"]
+    
+    F1 --> F2 --> F3 --> F4
+end
+
+subgraph Total["📊 Total Count"]
+    direction TB
+    T1["6! = 720 total"]
+    T2["÷ (3! × 2!) = ÷12"]
+    T3["= 60 distinct"]
+    T4["Each has 12 bundles"]
+    
+    T1 --> T2 --> T3 --> T4
+end
+
+Bundle --> Result
+Result --> Formula
+Formula --> Total
+
+style R1 fill:#ff6b6b,color:#fff
+style Bundle fill:#e8f4fd
+style Formula fill:#fff2cc
+style Total fill:#d5e8d4
