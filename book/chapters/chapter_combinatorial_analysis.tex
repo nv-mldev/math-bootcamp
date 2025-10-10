@@ -104,7 +104,7 @@ Each arrangement is called a \textbf{permutation} of the letters \(a,b,c\). Ther
 \end{figure}
 
 
-\begin{keyconceptbox}
+\begin{keyconceptbox}{Permutations of k Objects from n Objects}
 Let us start with \(n\) different objects and \(k\) be a positive integer such that \(k \leq n\). We want to determine the number of ways in which we can pick \(k\) objects from the total of \(n\) objects and arrange them in a sequence. i.e. the number of distinct \(k\) object sequence. We can do it in the following way 
 
 \begin{itemize}
@@ -321,17 +321,270 @@ We can extend our combinatorial principles to solve more complex problems, such 
     \]
 \end{examplebox}
 
+\begin{examplebox}[title=Example: Division of Teams into Different Leagues]
+        \textbf{Problem:} Ten children are to be divided into an A team and a B team of 5 each. The A team will play in one league and the B team in another. How many different divisions are possible?
+        
+        \textbf{Solution:} Since the teams are labeled (one specifically as "A team" for one league, the other as "B team" for another league), this is a case where we need to select which 5 children out of the 10 will be on the A team. The remaining 5 will automatically form the B team.
+        
+        The number of ways to select 5 children from 10 for the A team is given by:
+        \[
+        \binom{10}{5} = \frac{10!}{5!(10-5)!} = \frac{10!}{5!5!} = \frac{10 \times 9 \times 8 \times 7 \times 6}{5 \times 4 \times 3 \times 2 \times 1} = 252
+        \]
+        
+        Therefore, there are 252 different possible divisions of the 10 children into the A and B teams.
+\end{examplebox}
 
-
-
-
-\subsection{Multinomial Theorem}
-\begin{theorembox}[title=Multinomial Theorem]
-    For any positive integer \(n\) and any integer \(k \geq 2\),
+\begin{examplebox}[title=Example: Basketball Team Division]
+    \textbf{Problem:} In order to play a game of basketball, 10 children at a playground divide themselves into two teams of 5 each. How many different divisions are possible?
+    
+    \textbf{Solution:} This problem requires us to determine whether the teams are considered distinguishable (labeled) or indistinguishable (unlabeled).
+    
+    Since we're forming teams for a basketball game with no specific designation (like "Team A" vs "Team B"), the teams are essentially unlabeled - swapping the two teams doesn't create a new division.
+    
+    If we were to choose which 5 children go into the first team, there would be $\binom{10}{5} = 252$ ways to do this. However, each division would be counted twice: once when a particular group of 5 is selected as the first team, and again when the complementary group of 5 is selected.
+    
+    Therefore, the number of different possible divisions is:
     \[
-    (x_1 + x_2 + \ldots + x_k)^n = \sum_{n_1+n_2+\ldots+n_k=n} \frac{n!}{n_1! n_2! \ldots n_k!} x_1^{n_1} x_2^{n_2} \ldots x_k^{n_k}
+    \frac{1}{2}\binom{10}{5} = \frac{1}{2} \cdot 252 = 126
     \]
-\end{theorembox}
+    
+    There are 126 different ways to divide the 10 children into two teams of 5 each for the basketball game.
+\end{examplebox}
+
+\begin{keyconceptbox}{Labelled vs Unlabeled Teams}
+The above problem illustrates the distinction between whether teams are considered \emph{labeled} or \emph{unlabeled}. Suppose we have $10$ children to be divided into two groups of $5$ each.
+
+A fundamental problem in combinatorics involves partitioning a set into subsets, where the outcome depends critically on whether the subsets are considered \textbf{labeled} (distinguishable) or \textbf{unlabeled} (indistinguishable). Consider two scenarios: dividing ten children into a designated ``Team A'' and ``Team B'' of five each, or simply dividing them into two unnamed teams of five for a basketball game.
+
+\medskip
+\textbf{Case 1: Labeled teams (A team and B team).}  
+Here the two groups are distinguished: one group is called the ``A team'' and the other is called the ``B team''. To form such a division, we only need to choose which $5$ children go into Team A, since the remaining automatically form Team B. The number of ways is
+\begin{equation}
+\binom{10}{5} \;=\; \frac{10!}{5!\,5!} \;=\; 252.
+\end{equation}
+
+\medskip
+\textbf{Case 2: Unlabeled teams (pickup basketball game).}  
+Here the two groups are indistinguishable: swapping the teams does not produce a new division. If we select any $5$ children as one side, we again obtain $\binom{10}{5} = 252$ possible choices. However, each division has been counted twice: once when a set of $5$ was chosen as ``Team 1,'' and again when its complement was chosen as ``Team 1.'' Therefore, the correct number of distinct (unordered) divisions is
+\begin{equation}
+\frac{1}{2}\binom{10}{5} \;=\; \frac{1}{2}\cdot 252 \;=\; 126.
+\end{equation}
+
+\medskip
+\textbf{Small example check.}  
+With $n=4$ children split into two groups of $2$, we have
+\begin{align}
+\text{Labeled teams: } & \binom{4}{2} = \frac{4!}{2!\,2!} = 6, \\
+\text{Unlabeled teams: } & \frac{1}{2}\binom{4}{2} = \frac{6}{2} = 3.
+\end{align}
+Indeed, the three unique partitions are
+\begin{equation}
+\{AB \mid CD\}, \quad \{AC \mid BD\}, \quad \{AD \mid BC\}.
+\end{equation}
+
+\medskip
+\textbf{Conclusion.}  
+Hence, when dividing $10$ children into two teams of $5$:
+\[
+\text{Labeled teams (A vs. B)} \;\;\Rightarrow\;\; 252 \quad \text{divisions},
+\]
+\[
+\text{Unlabeled teams (pickup game)} \;\;\Rightarrow\;\; 126 \quad \text{divisions}.
+\]
+The key insight is whether the symmetry of swapping teams is taken into account.
+
+\end{keyconceptbox}
+
+
+\begin{examplebox}
+    In the first round of a knockout tournament involving $n = 2^m$ players, the $n$ players are divided into $n/2$ pairs, with each of these pairs then playing a game. The losers of the games are eliminated while the winners go on to the next round, where the process is repeated until only a single player remains. Suppose we have a knockout tournament of 8 players.
+
+\begin{enumerate}[label=(\alph*)]
+    \item How many possible outcomes are there for the initial round? (For instance, one outcome is that 1 beats 2, 3 beats 4, 5 beats 6, and 7 beats 8.)
+    \item How many outcomes of the tournament are possible, where an outcome gives complete information for all rounds?
+\end{enumerate}
+
+
+\end{examplebox}
+
+\begin{solutionbox}
+    \textbf{(a) Possible Outcomes for the Initial Round}
+To find the total number of outcomes for the first round, we must find the number of ways to pair the players and then multiply that by the number of possible results for those games.
+
+\textbf{Step 1: Calculating the Number of Pairings}
+We need to find the number of ways to divide 8 players into 4 unordered pairs.
+\begin{itemize}
+    \item The number of ways to choose the first pair is $\binom{8}{2}$.
+    \item The number of ways to choose the second pair is $\binom{6}{2}$.
+    \item The number of ways to choose the third pair is $\binom{4}{2}$.
+    \item The number of ways to choose the final pair is $\binom{2}{2}$.
+\end{itemize}
+Since the order of the pairs does not matter that is (AB,CD,EF,GH) is same as (CD,AB,EF,GH), we must divide by $4!$, the number of ways to order the 4 pairs.
+\begin{align*}
+    \text{Number of Pairings} &= \frac{\binom{8}{2} \binom{6}{2} \binom{4}{2} \binom{2}{2}}{4!} \\
+    &= \frac{\left(\frac{8 \times 7}{2}\right) \left(\frac{6 \times 5}{2}\right) \left(\frac{4 \times 3}{2}\right) \left(1\right)}{4 \times 3 \times 2 \times 1} \\
+    &= \frac{28 \times 15 \times 6 \times 1}{24} \\
+    &= \frac{2520}{24} = \mathbf{105}
+\end{align*}
+There are 105 unique ways to pair the 8 players.
+
+\textbf{Step 2: Calculating the Game Results for Each Pairing}
+For any given set of 4 pairs, there are 4 games. Each game has 2 possible outcomes (one player wins, the other loses).
+\[
+\text{Results per Pairing} = 2 \times 2 \times 2 \times 2 = 2^4 = \mathbf{16}
+\]
+
+\textbf{Step 3: Combining the Steps}
+The total number of outcomes for the initial round is the product of the number of pairings and the number of results per pairing.
+\[
+\text{Total Outcomes (Round 1)} = 105 \times 16 = \mathbf{1680}
+\]
+
+\textbf{(b) Possible Outcomes for the Entire Tournament}
+
+\textbf{The Elegant Method: A Permutation Approach}
+A complete tournament outcome is uniquely determined by the sequence of eliminations. There is a one-to-one correspondence between every possible tournament outcome and every permutation of the $n$ players. For any given permutation of the 8 players, a unique tournament winner and history can be derived.
+
+Therefore, the total number of possible outcomes is the number of permutations of 8 players, which is $8!$.
+\begin{align*}
+    \text{Total Outcomes} &= 8! \\
+    &= 8 \times 7 \times 6 \times 5 \times 4 \times 3 \times 2 \times 1 \\
+    &= \mathbf{40,320}
+\end{align*}
+
+\textbf{The Verification: A Round-by-Round Calculation}
+We can verify this by multiplying the number of possible outcomes from each round.
+\begin{itemize}
+    \item \textbf{Round 1 (8 players $\to$ 4 winners):} From part (a), there are $\mathbf{1680}$ outcomes.
+    
+    \item \textbf{Round 2 (4 players $\to$ 2 winners):} 
+    First, pair the 4 winners: $\frac{\binom{4}{2}\binom{2}{2}}{2!} = \frac{6 \times 1}{2} = 3$ ways.
+    Next, for the 2 games, there are $2^2=4$ possible results.
+    Total outcomes for this round: $3 \times 4 = \mathbf{12}$.
+    
+    \item \textbf{Round 3 (2 players $\to$ 1 winner):} 
+    There is only 1 way to pair the final two players, and there are $2^1 = 2$ possible results.
+    Total outcomes for this round: $1 \times 2 = \mathbf{2}$.
+\end{itemize}
+The total number of outcomes for the tournament is the product of the outcomes of each round:
+\[
+\text{Total Outcomes} = 1680 \times 12 \times 2 = \mathbf{40,320}
+\]
+Both methods yield the same result.
+\end{solutionbox}
+
+\begin{examplebox}
+    Finding the number of integer solutions to an equation of the form
+\[
+x_1 + x_2 + \dots + x_k = n
+\]
+is a classic problem in combinatorics. The ``Stars and Bars'' method transforms this algebraic problem into a simple one of arranging objects.
+\end{examplebox}
+
+\begin{solutionbox}
+    The analogy is as follows:
+\begin{itemize}
+    \item \textbf{Stars ($\star$):} The sum $n$ is treated as $n$ identical, indistinguishable items (stars).
+    \item \textbf{Bins:} The $k$ variables ($x_1, \dots, x_k$) are treated as $k$ distinct bins. The value of a variable $x_i$ represents the number of stars in bin $i$.
+    \item \textbf{Bars (|):} To separate the $k$ bins, we need exactly $k-1$ dividers (bars).
+\end{itemize}
+The problem then becomes: in how many ways can we arrange $n$ stars and $k-1$ bars?
+
+
+\textbf{Case 1: Non-Negative Integer Solutions ($x_i \ge 0$)}
+This is the most fundamental case where variables are allowed to be zero.
+
+\textbf{Problem}
+Find the number of integer solutions to $x_1 + x_2 + x_3 = 5$, where $x_1, x_2, x_3 \ge 0$.
+
+\textbf{Solution Steps}
+\begin{enumerate}
+    \item \textbf{Identify $n$ and $k$:} We have $n=5$ (stars) and $k=3$ (bins).
+    
+    \item \textbf{Determine the number of bars:} To separate 3 bins, we need $k-1 = 2$ bars.
+    
+    \item \textbf{Frame the problem:} We need to find the number of unique arrangements of 5 stars and 2 bars. For example:
+    \begin{itemize}
+        \item \texttt{\star\star|\star|\star\star} corresponds to the solution $x_1=2, x_2=1, x_3=2$.
+        \item \texttt{\star\star\star\star\star||} corresponds to the solution $x_1=5, x_2=0, x_3=0$.
+        \item \texttt{|\star\star|\star\star\star} corresponds to the solution $x_1=0, x_2=2, x_3=3$.
+    \end{itemize}
+    
+    \item \textbf{Calculate the arrangements:} We have a total of $n+k-1 = 5+3-1=7$ positions. We need to choose $k-1=2$ of these positions for the bars. This is a combination problem.
+    \[
+    \binom{n+k-1}{k-1} = \binom{7}{2} = \frac{7!}{2!(7-2)!} = \frac{7 \times 6}{2 \times 1} = \mathbf{21}
+    \]
+    There are 21 non-negative integer solutions.
+\end{enumerate}
+
+\textbf{General Formula ($x_i \ge 0$)}
+The number of non-negative integer solutions to $x_1 + x_2 + \dots + x_k = n$ is:
+\[
+\binom{n+k-1}{k-1} \quad \text{or equivalently} \quad \binom{n+k-1}{n}
+\]
+
+\textbf{Case 2: Positive Integer Solutions ($x_i \ge 1$)}
+A common variation where variables must be at least 1.
+\textbf{Problem}
+Find the number of integer solutions to $x_1 + x_2 + x_3 = 5$, where $x_1, x_2, x_3 \ge 1$.
+
+\subsubsection*{Solution Steps}
+\begin{enumerate}
+    \item \textbf{The Strategy (Pre-distribution):} Since each variable must be at least 1, we first place one star in each of the $k=3$ bins. This uses up 3 stars. The number of stars remaining to be distributed is $n' = 5 - 3 = 2$.
+    
+    \item \textbf{Form a new equation:} The problem is now reduced to finding the number of non-negative solutions ($y_i \ge 0$) to a new equation with the remaining stars:
+    \[
+    y_1 + y_2 + y_3 = 2
+    \]
+    
+    \item \textbf{Solve the new problem:} Using the formula from Case 1 with $n'=2$ and $k=3$:
+    \[
+    \binom{n'+k-1}{k-1} = \binom{2+3-1}{3-1} = \binom{4}{2} = \frac{4!}{2!2!} = \frac{4 \times 3}{2 \times 1} = \mathbf{6}
+    \]
+    There are 6 positive integer solutions.
+\end{enumerate}
+
+\textbf{General Formula ($x_i \ge 1$)}
+The number of positive integer solutions is:
+\[
+\binom{n-1}{k-1}
+\]
+
+\textbf{Case 3: More Complex Constraints}
+The method can be extended to any set of lower bounds by using a change of variables.
+
+\textbf{Problem}
+Find solutions for $x_1 + x_2 + x_3 = 12$, where $x_1 \ge 1, x_2 \ge 2, x_3 \ge 3$.
+
+\textbf{Solution Steps}
+\begin{enumerate}
+    \item \textbf{The Strategy (Change of Variables):} Define new variables that are non-negative.
+    \begin{align*}
+        y_1 &= x_1 - 1 \ge 0 \\
+        y_2 &= x_2 - 2 \ge 0 \\
+        y_3 &= x_3 - 3 \ge 0
+    \end{align*}
+    This is equivalent to pre-distributing 1 star to bin 1, 2 to bin 2, and 3 to bin 3.
+    
+    \item \textbf{Substitute into the equation:} Rewrite the original equation in terms of the new variables.
+    \begin{align*}
+        (y_1+1) + (y_2+2) + (y_3+3) &= 12 \\
+        y_1 + y_2 + y_3 + 6 &= 12 \\
+        y_1 + y_2 + y_3 &= 6
+    \end{align*}
+    
+    \item \textbf{Solve the standard problem:} We now find the non-negative solutions for this new equation, with $n=6$ and $k=3$.
+    \[
+    \binom{n+k-1}{k-1} = \binom{6+3-1}{3-1} = \binom{8}{2} = \frac{8 \times 7}{2 \times 1} = \mathbf{28}
+    \]
+    There are 28 solutions that meet the specified conditions.
+\end{enumerate}
+\end{solutionbox}
+
+
+
+
+
 
 
 
