@@ -1,0 +1,43 @@
+\chapter{Probability}
+
+\section{Inspiration and Overview}
+\begin{examplebox}
+\begin{dialogue}
+\speak{RELATIVE} Nurse, what is the probability that the drug will work? \\
+\speak{NURSE} I hope it works, we'll know tomorrow. \\
+\speak{RELATIVE} Yes, but what is the probability that it will? \\ 
+\speak{NURSE} Each case is different, we have to wait. \\
+\speak{RELATIVE} But let's see, out of a hundred patients that are treated under similar conditions, how many times would you expect it to work? \\
+\speak{NURSE} \emph{(somewhat annoyed)} I told you, every person is different, for some it works, for some it doesn't. \\
+\speak{RELATIVE} \emph{(insisting)} Then tell me, if you had to bet whether it will work or not, which side of the bet would you take? \\
+\speak{NURSE} \emph{(cheering up for a moment)} I'd bet it will work. \\
+\speak{RELATIVE} \emph{(somewhat relieved)} OK, now, would you be willing to lose two dollars if it doesn't work, and gain one dollar if it does? \\
+\speak{NURSE} \emph{(exasperated)} What a sick thought! You are wasting my time!
+\end{dialogue}
+\end{examplebox}
+
+
+In this conversation, the relative attempts to use the concept of probability to discuss an uncertain situation --- whether the drug will work for their loved one. The nurse's initial responses suggest that the meaning of ``probability'' is not uniformly understood, as they focus on individual differences rather than likelihood. The relative tries multiple approaches to make the concept more concrete, first requesting a frequency interpretation (``out of a hundred patients\ldots''), But the nurse
+may not be entirely wrong in refusing to discuss in such terms. What if this was an experimental drug that was administered for the very first time in this hospital or in the nurse's experience? Then asking for a binary prediction.  This exemplifies how probability can be viewed through different lenses: as statistical frequencies based on past events, or as subjective beliefs about unique circumstances. The relative's final attempt to establish a bet based on these probabilities reveals an important application of probability theory --- decision-making under uncertainty and risk assessment. The nurse's discomfort with this proposition highlights how probability concepts, while mathematically sound, can create social friction when applied to medical contexts where uncertainty is typically managed through standardized protocols rather than explicit probability assessments.
+
+While there are many situations involving uncertainty in which the frequency interpretation is appropriate, there are other situations in which it is not. Consider, for example, a scholar who asserts that the Iliad and the Odyssey were composed by the same person, with probability 90\%. Such an assertion conveys some information, but not in terms of frequencies, since the subject is a one-time event. Rather, it is an expression of the scholar's subjective belief.
+
+One might think that subjective beliefs are not interesting, at least from a mathematical or scientific point of view. On the other hand, people often have to make choices in the presence of uncertainty, and a systematic way of making use of their beliefs is a prerequisite for successful, or at least consistent, decision making.
+
+This distinction between frequency-based and subjective interpretations of probability highlights the versatility of probability theory. In the opening dialogue, we see both interpretations at work: the relative first seeks a frequency-based answer (``out of a hundred patients''), then pivots to eliciting the nurse's subjective belief about this particular treatment's effectiveness. Had the nurse been
+willing to accept a one-for-one bet that the drug would work, we may infer that the probability of success was judged to be at least \(50\%\). Had the nurse accepted the last proposed bet (two-for-one), this would have indicated a success probability of at least \(2/3\).
+
+\section{Set Theory Review}
+
+\begin{definitionbox}{Set}
+A set is a collection of distinct objects, considered as an object in its own right. 
+\begin{itemize}
+    \item Sets are typically denoted by curly braces, e.g., \( S = \{1, 2, 3\} \). 
+    \item The objects within a set are called elements or members. For example, in the set \( S \), the number \( 1 \) is an element of \( S \), denoted as \( 1 \in S \) and if \( 4 \) is not in \( S \), we write \( 4 \notin S \).
+    \item A set can have any number of elements, including none (the empty set, denoted \( \emptyset \)). 
+    \item If \(S\) contains a finite number of elements, we say \(S = \{1,2,3\}\) is a finite set.
+    \item If \(S\) contains infinite elements, such as the set of all natural numbers \( \mathbb{N} = \{1, 2, 3, \ldots\} \), we say \(S\) is countably infinite.
+\end{itemize}
+
+\end{definitionbox}
+
