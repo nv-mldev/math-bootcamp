@@ -104,7 +104,7 @@ Each arrangement is called a \textbf{permutation} of the letters \(a,b,c\). Ther
 \end{figure}
 
 
-\begin{keyconceptboxbreak}{Permutations of k Objects from n Objects}
+\begin{keyconceptbox}{Permutations of k Objects from n Objects}
 Let us start with \(n\) different objects and \(k\) be a positive integer such that \(k \leq n\). We want to determine the number of ways in which we can pick \(k\) objects from the total of \(n\) objects and arrange them in a sequence. i.e. the number of distinct \(k\) object sequence. We can do it in the following way 
 
 \begin{itemize}
@@ -131,16 +131,16 @@ Therefore, by the generalized basic principle of counting, the total number of w
 In a special case when \(k=n\), we have
 \[ \frac{n!}{(n-n)!} = \frac{n!}{0!} = n! \]
 which is the number of ways in which we can arrange \(n\) distinct objects in a sequence.
-\end{keyconceptboxbreak}
+\end{keyconceptbox}
 \begin{exercisebox}
     \textbf{Exercise:} A chess tournament is to be held among \(10\) players. \(4\) are Russian, \(3\) are American, \(2\) are French and \(1\) is a German. How many different ways can the players be ranked from first to tenth place if the tournament just list the nationality of the players?
 \end{exercisebox}
 
 
-\begin{solutionboxbreak}[title=Solution: Chess Tournament]
+\begin{solutionbox}
     \textbf{Solution:} We have \(10\) players in total where \(4\) players are Russian, \(3\) players are American, \(2\) players are French and \(1\) player is German. Therefore the number of different ways the players can be ranked from first to tenth place is given by:
     \[ \frac{10!}{4! \times 3! \times 2! \times 1!} = 12600 \]
-\end{solutionboxbreak}
+\end{solutionbox}
 
 \section{Combinations}
 \subsection{Inspiration}
@@ -351,7 +351,7 @@ We can extend our combinatorial principles to solve more complex problems, such 
     There are 126 different ways to divide the 10 children into two teams of 5 each for the basketball game.
 \end{examplebox}
 
-\begin{keyconceptboxbreak}{Labelled vs Unlabeled Teams}
+\begin{keyconceptbox}{Labelled vs Unlabeled Teams}
 The above problem illustrates the distinction between whether teams are considered \emph{labeled} or \emph{unlabeled}. Suppose we have $10$ children to be divided into two groups of $5$ each.
 
 A fundamental problem in combinatorics involves partitioning a set into subsets, where the outcome depends critically on whether the subsets are considered \textbf{labeled} (distinguishable) or \textbf{unlabeled} (indistinguishable). Consider two scenarios: dividing ten children into a designated ``Team A'' and ``Team B'' of five each, or simply dividing them into two unnamed teams of five for a basketball game.
@@ -393,7 +393,7 @@ Hence, when dividing $10$ children into two teams of $5$:
 \]
 The key insight is whether the symmetry of swapping teams is taken into account.
 
-\end{keyconceptboxbreak}
+\end{keyconceptbox}
 
 
 \begin{examplebox}
@@ -407,7 +407,7 @@ The key insight is whether the symmetry of swapping teams is taken into account.
 
 \end{examplebox}
 
-\begin{solutionboxbreak}[title=Solution: Knockout Tournament]
+\begin{solutionbox}
     \textbf{(a) Possible Outcomes for the Initial Round}
 To find the total number of outcomes for the first round, we must find the number of ways to pair the players and then multiply that by the number of possible results for those games.
 
@@ -481,7 +481,7 @@ x_1 + x_2 + \dots + x_k = n
 is a classic problem in combinatorics. The ``Stars and Bars'' method transforms this algebraic problem into a simple one of arranging objects.
 \end{examplebox}
 
-\begin{solutionboxbreak}[title=Solution: Stars and Bars Method]
+\begin{solutionbox}
     The analogy is as follows:
 \begin{itemize}
     \item \textbf{Stars ($\star$):} The sum $n$ is treated as $n$ identical, indistinguishable items (stars).
@@ -505,9 +505,9 @@ Find the number of integer solutions to $x_1 + x_2 + x_3 = 5$, where $x_1, x_2, 
     
     \item \textbf{Frame the problem:} We need to find the number of unique arrangements of 5 stars and 2 bars. For example:
     \begin{itemize}
-        \item \texttt{$\star$$\star$|$\star$|$\star$$\star$} corresponds to the solution $x_1=2, x_2=1, x_3=2$.
-        \item \texttt{$\star$$\star$$\star$$\star$$\star$||} corresponds to the solution $x_1=5, x_2=0, x_3=0$.
-        \item \texttt{|$\star$$\star$|$\star$$\star$$\star$} corresponds to the solution $x_1=0, x_2=2, x_3=3$.
+        \item \texttt{\star\star|\star|\star\star} corresponds to the solution $x_1=2, x_2=1, x_3=2$.
+        \item \texttt{\star\star\star\star\star||} corresponds to the solution $x_1=5, x_2=0, x_3=0$.
+        \item \texttt{|\star\star|\star\star\star} corresponds to the solution $x_1=0, x_2=2, x_3=3$.
     \end{itemize}
     
     \item \textbf{Calculate the arrangements:} We have a total of $n+k-1 = 5+3-1=7$ positions. We need to choose $k-1=2$ of these positions for the bars. This is a combination problem.

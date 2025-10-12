@@ -15,8 +15,8 @@
 \usepackage{enumitem}
 
 % For colored boxes and enhanced environments
-\usepackage{tcolorbox}
 \usepackage{xcolor}
+\usepackage[skins,breakable]{tcolorbox}
 
 % Set up page geometry
 \geometry{
@@ -48,13 +48,29 @@
         fonttitle=\bfseries\sffamily,
         coltitle=white,
         enhanced,
-        drop shadow
+        drop shadow,
+        before skip=10pt,
+        after skip=10pt
+    },
+    breakable-base/.style={
+        base,
+        breakable
     }
 }
 
 % Definition block (Blue theme)
 \newtcolorbox{definitionbox}[1][]{
     base,
+    colback=blue!8,
+    colframe=blue!50!black,
+    colbacktitle=blue!70!black,
+    title=Definition,
+    #1
+}
+
+% Breakable Definition block (Blue theme)
+\newtcolorbox{definitionboxbreak}[1][]{
+    breakable-base,
     colback=blue!8,
     colframe=blue!50!black,
     colbacktitle=blue!70!black,
@@ -82,6 +98,16 @@
     #1
 }
 
+% Breakable Example block (Orange theme)
+\newtcolorbox{exampleboxbreak}[1][]{
+    breakable-base,
+    colback=orange!8,
+    colframe=orange!50!black,
+    colbacktitle=orange!70!black,
+    title=Example,
+    #1
+}
+
 % Important note block (Red theme)
 \newtcolorbox{importantbox}[1][]{
     base,
@@ -95,6 +121,16 @@
 % Solution block (Purple theme)
 \newtcolorbox{solutionbox}[1][]{
     base,
+    colback=purple!8,
+    colframe=purple!50!black,
+    colbacktitle=purple!70!black,
+    title=Solution,
+    #1
+}
+
+% Breakable Solution block (Purple theme)
+\newtcolorbox{solutionboxbreak}[1][]{
+    breakable-base,
     colback=purple!8,
     colframe=purple!50!black,
     colbacktitle=purple!70!black,
@@ -125,6 +161,16 @@
 % Key concept block (Cyan theme)
 \newtcolorbox{keyconceptbox}[2][]{
     base,
+    colback=cyan!8,
+    colframe=cyan!50!black,
+    colbacktitle=cyan!70!black,
+    title={Key Concept: #2},
+    #1
+}
+
+% Breakable Key concept block (Cyan theme)
+\newtcolorbox{keyconceptboxbreak}[2][]{
+    breakable-base,
     colback=cyan!8,
     colframe=cyan!50!black,
     colbacktitle=cyan!70!black,
