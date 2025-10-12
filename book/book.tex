@@ -89,12 +89,12 @@
 }
 
 % Example block (Orange theme)
-\newtcolorbox{examplebox}[1][]{
+\newtcolorbox{examplebox}[2][]{
     base,
     colback=orange!8,
     colframe=orange!50!black,
     colbacktitle=orange!70!black,
-    title=Example,
+    title={Example: #2},
     #1
 }
 
@@ -218,7 +218,7 @@
 
 % \include{chapters/chapter_probability_statistics_introduction}
 \include{chapters/chapter_combinatorial_analysis}
-% \include{chapters/chapter_probability}
+\include{chapters/chapter_probability}
 % \include{chapters/chapter_statistics}
 
 \end{document}
