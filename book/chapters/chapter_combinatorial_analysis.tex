@@ -25,19 +25,19 @@ In \(6\) of these \(3\) of them are functional.
 
 \section{The basic principle of counting}
 
-\begin{definitionbox}[title=The Basic Principle of Counting]
+\begin{definitionboxbreak}{The Basic Principle of Counting}
     Suppose that two experiments are to be performed. The first experiment has \(m\) possible outcomes and for each of these outcomes the second experiment has \(n\) possible outcomes. Then the two experiments together have \(m \times n\) possible outcomes.
-\end{definitionbox}
-\begin{examplebox}[title=Example: Coin and Die]
+\end{definitionboxbreak}
+\begin{exampleboxbreak}{Example: Coin and Die}
     A coin is tossed and a die is rolled. How many possible outcomes are there?
-    
+
     \textbf{Solution:} The coin has \(2\) possible outcomes and the die has \(6\) possible outcomes. Therefore the two experiments together have \(2 \times 6 = 12\) possible outcomes.
-\end{examplebox}
+\end{exampleboxbreak}
 
 
-\begin{definitionbox}[title=The Generalized Basic Principle of Counting]
+\begin{definitionboxbreak}{The Generalized Basic Principle of Counting}
     If \(r\) experiments are to be performed are to be such that the first one may result in any of \(n_1\) possible outcomes, and for each of these \(n_{1}\) possible outcomes there are \(n_2\) possible outcomes for the second experiment, and so on up to the \(r\)-th experiment which may result in any of \(n_r\) possible outcomes, then the \(r\) experiments together have \(n_1 \times n_2 \times \ldots \times n_r\) possible outcomes.
-\end{definitionbox}
+\end{definitionboxbreak}
 
 
 \begin{figure}[H]
@@ -49,25 +49,25 @@ In \(6\) of these \(3\) of them are functional.
 
 
 
-\begin{examplebox}[title=Example: License Plates with Repetition]
+\begin{exampleboxbreak}{Example: License Plates with Repetition}
     How many different \(7\) place license plates are possible if the first two places are to be occupied by letters and the remaining five by digits?
-    
+
     \textbf{Solution:} The first two places can be filled with any of the \(26\) letters of the alphabet. Assuming letter can be repeated, the first place has \(26\) options and the second place has \(26\) options. The remaining five places can be filled with any of the \(10\) digits (from \(0\) to \(9\)), repeatedly. Therefore, the total number of different license plates is:
 
     \[
     26 \times 26 \times 10^5
     \]
-\end{examplebox}
+\end{exampleboxbreak}
 
-\begin{examplebox}[title=Example: License Plates without Repetition]
+\begin{exampleboxbreak}{Example: License Plates without Repetition}
     If the letters and numbers in the previous example cannot be repeated, how many different license plates are possible?
-    
+
     \textbf{Solution:} The first place has \(26\) options and the second place has \(25\) options (since letters cannot be repeated). The remaining five places can be filled with any of the \(10\) digits (from \(0\) to \(9\)). Therefore, the total number of different license plates is:
 
     \[
     26 \times 25 \times 10 \times 9 \times 8 \times 7 \times 6
     \]
-\end{examplebox}
+\end{exampleboxbreak}
 
 \section{Permutations}
 
@@ -80,21 +80,21 @@ abc, acb, bac, bca, cab, cba
 \]
 Each arrangement is called a \textbf{permutation} of the letters \(a,b,c\). There are \(6\) possible permutations for \(3\) distinct letters or a set of \(3\) distinct objects.
 
-\begin{definitionbox}
+\begin{definitionboxbreak}{}
     A permutation of \(n\) distinct objects is an arrangement of the objects in a specific order. The number of permutations of \(n\) distinct objects is given by \(n!\) (n factorial), which is the product of all positive integers up to \(n\):
     
     \[
     n! = n \times (n-1) \times (n-2) \times \ldots \times 2 \times 1
     \]
-\end{definitionbox} 
+\end{definitionboxbreak} 
 
 
-\begin{examplebox}
+\begin{exampleboxbreak}{}
     \textbf{Example 3:} How many different letter arrangments can be made from the letters PEPPER?
         \textbf{solution:} We have \(6\) letters in total where \(3\) letters are \(P\), \(2\) letters are \(E\) and \(1\) letter is \(R\). Therefore the number of different letter arrangements is given by:
         \[ \frac{6!}{3! \times 2! \times 1!} = 60 \]
         The idea is illustrated in Figure~\ref{fig:permute_pepper}.
-\end{examplebox}
+\end{exampleboxbreak}
 
 \begin{figure}[H!]
     \centering
@@ -132,12 +132,12 @@ In a special case when \(k=n\), we have
 \[ \frac{n!}{(n-n)!} = \frac{n!}{0!} = n! \]
 which is the number of ways in which we can arrange \(n\) distinct objects in a sequence.
 \end{keyconceptboxbreak}
-\begin{exercisebox}
+\begin{exerciseboxbreak}{}
     \textbf{Exercise:} A chess tournament is to be held among \(10\) players. \(4\) are Russian, \(3\) are American, \(2\) are French and \(1\) is a German. How many different ways can the players be ranked from first to tenth place if the tournament just list the nationality of the players?
-\end{exercisebox}
+\end{exerciseboxbreak}
 
 
-\begin{solutionboxbreak}[title=Solution: Chess Tournament]
+\begin{solutionboxbreak}{Solution: Chess Tournament}
     \textbf{Solution:} We have \(10\) players in total where \(4\) players are Russian, \(3\) players are American, \(2\) players are French and \(1\) player is German. Therefore the number of different ways the players can be ranked from first to tenth place is given by:
     \[ \frac{10!}{4! \times 3! \times 2! \times 1!} = 12600 \]
 \end{solutionboxbreak}
@@ -163,47 +163,47 @@ Since each group of 3 objects can be arranged in $3! = 6$ ways, the actual numbe
 
 This illustrates the fundamental relationship between permutations and combinations: when we don't care about order, we divide the number of permutations by the number of ways to arrange the selected items.
 \subsection{Definition}
-\begin{definitionbox}
+\begin{definitionboxbreak}{}
     A combination of \(n\) distinct objects taken \(r\) at a time is a selection of \(r\) objects from the total of \(n\) objects without regard to the order of selection. The number of combinations of \(n\) distinct objects taken \(r\) at a time is denoted by \(C(n,r)\) or \(\binom{n}{r}\) and is given by:
     
     \[
     C(n,r) = \binom{n}{r} = \frac{n!}{r!(n-r)!}
     \]
-\end{definitionbox}
+\end{definitionboxbreak}
 
-\begin{examplebox}[title=Example: Antennas with No Consecutive Defectives]
+\begin{exampleboxbreak}{Example: Antennas with No Consecutive Defectives}
     \textbf{Problem:} Consider a set of $n$ antennas of which $m$ are defective and $n-m$ are functional. Assume that all defective antennas are indistinguishable from each other, and all functional antennas are indistinguishable from each other. How many linear orderings are there in which no two defective antennas are consecutive?
-    
+
     \textbf{Solution:} This is a problem about combinations rather than permutations since we consider all defective antennas as identical, and likewise for functional antennas.
-    
+
     To ensure no two defective antennas are consecutive, we need to place the $m$ defective antennas such that they are always separated by at least one functional antenna.
-    
+
     Let's approach this by first placing the $n-m$ functional antennas in a row, creating $n-m+1$ potential positions for defective antennas (including before the first functional antenna, between functional antennas, and after the last functional antenna):
-    
+
     \[
     \_ \circ \_ \circ \_ \circ \_ \cdots \circ \_
     \]
-    
+
     where $\circ$ represents a functional antenna and $\_$ represents a potential position for defective antennas.
-    
+
     Now, we need to choose $m$ positions out of these $n-m+1$ potential positions to place our defective antennas. This is a combination problem:
-    
+
     \[
     \binom{n-m+1}{m} = \frac{(n-m+1)!}{m!(n-m+1-m)!} = \frac{(n-m+1)!}{m!(n-2m+1)!}
     \]
-    
+
     Therefore, the number of linear orderings with no consecutive defective antennas is $\binom{n-m+1}{m}$.
-    
+
     For example, if $n=7$ and $m=3$, then we have $\binom{7-3+1}{3} = \binom{5}{3} = 10$ possible arrangements with no consecutive defective antennas.
-\end{examplebox}
+\end{exampleboxbreak}
 
 \subsection{Pascal's Identity}
-\begin{theorembox}[title=Pascal's Identity]
+\begin{theoremboxbreak}{Pascal's Identity}
     For any integers \(n \geq 1\) and \(1 \leq k \leq n\),
     \[
     \binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}
     \]
-\end{theorembox}
+\end{theoremboxbreak}
 \paragraph{Proof:}
 We can prove Pascal's Identity using a combinatorial argument. Consider a set of \(n\) elements. We want to choose a subset of \(k\) elements from this set. We can do this in two ways:
 
@@ -248,21 +248,21 @@ Looking at the triangle, we can verify this: $3 + 3 = 6$, which is exactly the m
 
 
 \subsection{Binomial Theorm}
-\begin{theorembox}[title=Binomial Theorem]
+\begin{theoremboxbreak}{Binomial Theorem}
     For any integer \(n \geq 0\),
     \[
     (x + y)^n = \sum_{k=0}^{n} \binom{n}{k} x^{n-k} y^k
     \]
-\end{theorembox}
+\end{theoremboxbreak}
 \paragraph{Proof:}
 
 \subsection{Binomial Theorem}
-\begin{theorembox}[title=Binomial Theorem]
+\begin{theoremboxbreak}{Binomial Theorem}
     For any positive integer \(n\),
     \[
     (x+y)^n = \sum_{k=0}^{n} \binom{n}{k} x^{n-k} y^k
     \]
-\end{theorembox}
+\end{theoremboxbreak}
 \paragraph{Proof:} Consider the product $(x+y)^n = \underbrace{(x+y)\,(x+y)\,\cdots\,(x+y)}_{\text{$n$ factors}}$.
 
 When expanding this product, we must choose either $x$ or $y$ from each factor. To generate a term $x^{n-k}y^k$, we must select $y$ from exactly $k$ of the $n$ factors, and $x$ from the remaining $n-k$ factors.
@@ -290,18 +290,18 @@ Thus $(x+y)^3 = x^3 + 3x^2y + 3xy^2 + y^3$, confirming the theorem.
 We can extend our combinatorial principles to solve more complex problems, such as dividing a set into multiple groups. This directly connects to the concept of multinomial coefficients, which we'll explore next.
 
 \subsection{Multinomial Coefficients}
-\begin{definitionbox}[title=Multinomial Coefficient]
+\begin{definitionboxbreak}{Multinomial Coefficient}
     Let $n$ and $r$ be positive integers, and let $n_1, n_2, \ldots, n_r$ be non-negative integers such that $n_1 + n_2 + \ldots + n_r = n$. The multinomial coefficient is defined as:
     \[
     \binom{n}{n_1, n_2, \ldots, n_r} = \frac{n!}{n_1! n_2! \cdots n_r!}
     \]
-    
-    This represents the number of ways to partition $n$ distinct objects into $r$ distinct groups, where group $i$ contains exactly $n_i$ objects.
-\end{definitionbox}
 
-\begin{examplebox}[title=Example: Committee Formation]
+    This represents the number of ways to partition $n$ distinct objects into $r$ distinct groups, where group $i$ contains exactly $n_i$ objects.
+\end{definitionboxbreak}
+
+\begin{exampleboxbreak}{Example: Committee Formation}
     A class of 20 students needs to form an executive committee with a president, vice president, secretary, and treasurer, and also needs to select 5 students for a planning committee and 6 students for a social committee. The remaining 5 students will not be on any committee. How many different ways can the committees be formed?
-    
+
     \textbf{Solution:} This is a problem of partitioning 20 distinct students into 4 groups:
     \begin{itemize}
         \item 4 students for the executive committee
@@ -309,47 +309,47 @@ We can extend our combinatorial principles to solve more complex problems, such 
         \item 6 students for the social committee
         \item 5 students not on any committee
     \end{itemize}
-    
+
     The number of ways to partition the students is:
     \[
     \binom{20}{4, 5, 6, 5} = \frac{20!}{4!5!6!5!} = 1,646,492,110,720
     \]
-    
+
     However, within the executive committee, we must also assign specific roles. The 4 students can be arranged in $4! = 24$ ways. Therefore, the total number of different committee formations is:
     \[
     \frac{20!}{4!5!6!5!} \times 4! = \frac{20!}{5!6!5!} = 39,515,810,657,280
     \]
-\end{examplebox}
+\end{exampleboxbreak}
 
-\begin{examplebox}[title=Example: Division of Teams into Different Leagues]
+\begin{exampleboxbreak}{Example: Division of Teams into Different Leagues}
         \textbf{Problem:} Ten children are to be divided into an A team and a B team of 5 each. The A team will play in one league and the B team in another. How many different divisions are possible?
-        
+
         \textbf{Solution:} Since the teams are labeled (one specifically as "A team" for one league, the other as "B team" for another league), this is a case where we need to select which 5 children out of the 10 will be on the A team. The remaining 5 will automatically form the B team.
-        
+
         The number of ways to select 5 children from 10 for the A team is given by:
         \[
         \binom{10}{5} = \frac{10!}{5!(10-5)!} = \frac{10!}{5!5!} = \frac{10 \times 9 \times 8 \times 7 \times 6}{5 \times 4 \times 3 \times 2 \times 1} = 252
         \]
-        
-        Therefore, there are 252 different possible divisions of the 10 children into the A and B teams.
-\end{examplebox}
 
-\begin{examplebox}[title=Example: Basketball Team Division]
+        Therefore, there are 252 different possible divisions of the 10 children into the A and B teams.
+\end{exampleboxbreak}
+
+\begin{exampleboxbreak}{Example: Basketball Team Division}
     \textbf{Problem:} In order to play a game of basketball, 10 children at a playground divide themselves into two teams of 5 each. How many different divisions are possible?
-    
+
     \textbf{Solution:} This problem requires us to determine whether the teams are considered distinguishable (labeled) or indistinguishable (unlabeled).
-    
+
     Since we're forming teams for a basketball game with no specific designation (like "Team A" vs "Team B"), the teams are essentially unlabeled - swapping the two teams doesn't create a new division.
-    
+
     If we were to choose which 5 children go into the first team, there would be $\binom{10}{5} = 252$ ways to do this. However, each division would be counted twice: once when a particular group of 5 is selected as the first team, and again when the complementary group of 5 is selected.
-    
+
     Therefore, the number of different possible divisions is:
     \[
     \frac{1}{2}\binom{10}{5} = \frac{1}{2} \cdot 252 = 126
     \]
-    
+
     There are 126 different ways to divide the 10 children into two teams of 5 each for the basketball game.
-\end{examplebox}
+\end{exampleboxbreak}
 
 \begin{keyconceptboxbreak}{Labelled vs Unlabeled Teams}
 The above problem illustrates the distinction between whether teams are considered \emph{labeled} or \emph{unlabeled}. Suppose we have $10$ children to be divided into two groups of $5$ each.
@@ -396,7 +396,7 @@ The key insight is whether the symmetry of swapping teams is taken into account.
 \end{keyconceptboxbreak}
 
 
-\begin{examplebox}
+\begin{exampleboxbreak}{}
     In the first round of a knockout tournament involving $n = 2^m$ players, the $n$ players are divided into $n/2$ pairs, with each of these pairs then playing a game. The losers of the games are eliminated while the winners go on to the next round, where the process is repeated until only a single player remains. Suppose we have a knockout tournament of 8 players.
 
 \begin{enumerate}[label=(\alph*)]
@@ -405,9 +405,9 @@ The key insight is whether the symmetry of swapping teams is taken into account.
 \end{enumerate}
 
 
-\end{examplebox}
+\end{exampleboxbreak}
 
-\begin{solutionboxbreak}[title=Solution: Knockout Tournament]
+\begin{solutionboxbreak}{Solution: Knockout Tournament}
     \textbf{(a) Possible Outcomes for the Initial Round}
 To find the total number of outcomes for the first round, we must find the number of ways to pair the players and then multiply that by the number of possible results for those games.
 
@@ -471,17 +471,17 @@ The total number of outcomes for the tournament is the product of the outcomes o
 \text{Total Outcomes} = 1680 \times 12 \times 2 = \mathbf{40,320}
 \]
 Both methods yield the same result.
-\end{solutionbox}
+\end{solutionboxbreak}
 
-\begin{examplebox}
+\begin{exampleboxbreak}{}
     Finding the number of integer solutions to an equation of the form
 \[
 x_1 + x_2 + \dots + x_k = n
 \]
 is a classic problem in combinatorics. The ``Stars and Bars'' method transforms this algebraic problem into a simple one of arranging objects.
-\end{examplebox}
+\end{exampleboxbreak}
 
-\begin{solutionboxbreak}[title=Solution: Stars and Bars Method]
+\begin{solutionboxbreak}{Solution: Stars and Bars Method}
     The analogy is as follows:
 \begin{itemize}
     \item \textbf{Stars ($\star$):} The sum $n$ is treated as $n$ identical, indistinguishable items (stars).
@@ -579,7 +579,7 @@ Find solutions for $x_1 + x_2 + x_3 = 12$, where $x_1 \ge 1, x_2 \ge 2, x_3 \ge 
     \]
     There are 28 solutions that meet the specified conditions.
 \end{enumerate}
-\end{solutionbox}
+\end{solutionboxbreak}
 
 
 
