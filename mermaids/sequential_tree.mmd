@@ -1,0 +1,33 @@
+flowchart TB
+    Start(("Start"))
+    
+    Start --> T1H["Toss 1: H"]
+    Start --> T1T["Toss 1: T"]
+    
+    T1H --> T2H_H["Toss 2: H"]
+    T1H --> T2H_T["Toss 2: T"]
+    
+    T1T --> T2T_H["Toss 2: H"]
+    T1T --> T2T_T["Toss 2: T"]
+    
+    T2H_H --> T3HH_H["Toss 3: H<br/><b>HHH</b>"]
+    T2H_H --> T3HH_T["Toss 3: T<br/><b>HHT</b>"]
+    
+    T2H_T --> T3HT_H["Toss 3: H<br/><b>HTH</b>"]
+    T2H_T --> T3HT_T["Toss 3: T<br/><b>HTT</b>"]
+    
+    T2T_H --> T3TH_H["Toss 3: H<br/><b>THH</b>"]
+    T2T_H --> T3TH_T["Toss 3: T<br/><b>THT</b>"]
+    
+    T2T_T --> T3TT_H["Toss 3: H<br/><b>TTH</b>"]
+    T2T_T --> T3TT_T["Toss 3: T<br/><b>TTT</b>"]
+    
+    classDef startStyle fill:#90EE90,stroke:#333,stroke-width:3px
+    classDef headStyle fill:#FFB6C1,stroke:#333,stroke-width:2px
+    classDef tailStyle fill:#ADD8E6,stroke:#333,stroke-width:2px
+    classDef outcomeStyle fill:#FFD700,stroke:#333,stroke-width:2px,font-weight:bold
+    
+    class Start startStyle
+    class T1H,T2H_H,T2T_H,T3HH_H,T3HT_H,T3TH_H,T3TT_H headStyle
+    class T1T,T2H_T,T2T_T,T3HH_T,T3HT_T,T3TH_T,T3TT_T tailStyle
+    class T3HH_H,T3HH_T,T3HT_H,T3HT_T,T3TH_H,T3TH_T,T3TT_H,T3TT_T outcomeStyle

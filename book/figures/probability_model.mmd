@@ -1,0 +1,54 @@
+
+flowchart LR
+    Experiment["Experiment\n(Random Trial)"] -->|"outcomes"| SampleSpace
+
+    %% Create a circular sample space with elliptical events
+    subgraph SampleSpace["Sample Space (Ω)"]
+        direction TB
+        EventA["Event A"]
+        EventB["Event B"] 
+        EventC["Event C"]
+    end
+    
+    %% Map from events to probability law
+    SampleSpace --> EventA
+    SampleSpace --> EventB
+    SampleSpace --> EventC
+    
+    EventA --> ProbLaw["Probability Law\n(P: Events → [0,1])"]
+    EventB --> ProbLaw
+    EventC --> ProbLaw
+    
+    %% Show bar graph representation
+    ProbLaw --> BarChart
+
+    subgraph BarChart["Probability Distribution"]
+        direction TB
+        BarTitle["P(Event)"]
+        BarGraph[" 
+        1.0 |                                 
+        0.9 |                                 
+        0.8 |                                 
+        0.7 |    ███████                  
+        0.6 |    ███████                  
+        0.5 |    ███████    ███████        
+        0.4 |    ███████    ███████        
+        0.3 |    ███████    ███████    ███████
+        0.2 |    ███████    ███████    ███████
+        0.1 |    ███████    ███████    ███████
+        0.0 +----███████----███████----███████----
+              P(Event A)  P(Event B)  P(Event C)
+              P = 0.7     P = 0.5     P = 0.3
+        "]
+    end
+    
+    %% Styling
+    style Experiment fill:#f9f,stroke:#333,stroke-width:2px,color:#000
+    style SampleSpace fill:#e8f4ff,stroke:#333,stroke-width:4px,rx:60,ry:60,color:#000
+    style EventA fill:#dfd,stroke:#333,stroke-width:2px,rx:30,ry:20,color:#000
+    style EventB fill:#ddf,stroke:#333,stroke-width:2px,rx:30,ry:20,color:#000
+    style EventC fill:#fdd,stroke:#333,stroke-width:2px,rx:30,ry:20,color:#000
+    style ProbLaw fill:#fbf,stroke:#333,stroke-width:2px,color:#000
+    style BarChart fill:#ffe,stroke:#333,stroke-width:2px,stroke-dasharray:5 5,color:#000
+    style BarTitle fill:none,stroke:none,color:#000
+    style BarGraph fill:none,stroke:none,font-family:monospace,color:#000

@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{geometry}
 \usepackage{hyperref}
+\usepackage{subcaption} % For subfigure environments
 
 % Mathematical packages for symbols and equations
 \usepackage{amsmath}
@@ -14,9 +15,35 @@
 \usepackage{microtype}
 \usepackage{enumitem}
 
+% For dialogue environment - using the proper package
+\usepackage{dialogue}
+
 % For colored boxes and enhanced environments
 \usepackage{xcolor}
 \usepackage[skins,breakable]{tcolorbox}
+\usepackage{tikz}
+\usepackage{titlesec} % For custom heading styles
+% Utility for checking empty arguments when supplying optional titles
+\usepackage{etoolbox}
+% xparse for defining wrapper environments that forward to breakable boxes
+\usepackage{xparse}
+% Provide the H float specifier used in some chapter figures
+\usepackage{float}
+
+% Custom heading levels
+\newcommand{\headingA}[1]{%
+  \vspace{0.7em}\noindent{\fontsize{13}{15}\selectfont\bfseries #1}\vspace{0.4em}\par\noindent
+}
+
+% Level 5 heading (smaller than headingA but still distinctive)
+\newcommand{\headingB}[1]{%
+  \vspace{0.5em}\noindent{\fontsize{12}{14}\selectfont\bfseries #1}\vspace{0.3em}\par\noindent
+}
+
+% Informal heading (for less important divisions)
+\newcommand{\infoheading}[1]{%
+  \vspace{0.4em}\noindent\textit{\textbf{#1}}\vspace{0.2em}\par\noindent
+}
 
 % Set up page geometry
 \geometry{
@@ -54,127 +81,156 @@
     },
     breakable-base/.style={
         base,
-        breakable
+        breakable,
+        pad at break=3mm
     }
 }
 
-% Definition block (Blue theme)
-\newtcolorbox{definitionbox}[1][]{
-    base,
-    colback=blue!8,
-    colframe=blue!50!black,
-    colbacktitle=blue!70!black,
-    title=Definition,
-    #1
-}
-
-% Breakable Definition block (Blue theme)
-\newtcolorbox{definitionboxbreak}[1][]{
+% Breakable Definition block (Blue theme) — accepts optional title as a second argument
+\newtcolorbox{definitionboxbreak}[2][]{
     breakable-base,
     colback=blue!8,
     colframe=blue!50!black,
     colbacktitle=blue!70!black,
-    title=Definition,
+    title={\ifstrempty{#2}{Definition}{#2}},
     #1
 }
 
-% Theorem block (Green theme)
-\newtcolorbox{theorembox}[1][]{
-    base,
+% Breakable Theorem block (Green theme) — accepts optional title as a second argument
+\newtcolorbox{theoremboxbreak}[2][]{
+    breakable-base,
     colback=green!8,
     colframe=green!50!black,
     colbacktitle=green!70!black,
-    title=Theorem,
+    title={\ifstrempty{#2}{Theorem}{#2}},
     #1
 }
 
-% Example block (Orange theme)
-\newtcolorbox{examplebox}[2][]{
-    base,
-    colback=orange!8,
-    colframe=orange!50!black,
-    colbacktitle=orange!70!black,
-    title={Example: #2},
-    #1
-}
-
-% Breakable Example block (Orange theme)
-\newtcolorbox{exampleboxbreak}[1][]{
+% Breakable Example block (Orange theme) — accepts optional title as a second argument
+\newtcolorbox{exampleboxbreak}[2][]{
     breakable-base,
     colback=orange!8,
     colframe=orange!50!black,
     colbacktitle=orange!70!black,
-    title=Example,
+    title={\ifstrempty{#2}{Example}{#2}},
+    halign title=left,
     #1
 }
 
-% Important note block (Red theme)
-\newtcolorbox{importantbox}[1][]{
-    base,
+% Breakable Important block (Red theme)
+\newtcolorbox{importantboxbreak}[2][]{
+    breakable-base,
     colback=red!8,
     colframe=red!50!black,
     colbacktitle=red!70!black,
-    title=Important,
+    title={\ifstrempty{#2}{Important}{#2}},
     #1
 }
 
-% Solution block (Purple theme)
-\newtcolorbox{solutionbox}[1][]{
-    base,
-    colback=purple!8,
-    colframe=purple!50!black,
-    colbacktitle=purple!70!black,
-    title=Solution,
+% Breakable Exercise block (Teal theme)
+\newtcolorbox{exerciseboxbreak}[2][]{
+    breakable-base,
+    colback=teal!8,
+    colframe=teal!50!black,
+    colbacktitle=teal!70!black,
+    title={\ifstrempty{#2}{Exercise}{#2}},
     #1
 }
 
-% Breakable Solution block (Purple theme)
-\newtcolorbox{solutionboxbreak}[1][]{
+% Breakable Proof block (Gray theme)
+\newtcolorbox{proofboxbreak}[2][]{
+    breakable-base,
+    colback=gray!8,
+    colframe=gray!50!black,
+    colbacktitle=gray!70!black,
+    title={\ifstrempty{#2}{Proof}{#2}},
+    #1
+}
+
+% Breakable Solution block (Purple theme) — accepts optional title as a second argument
+\newtcolorbox{solutionboxbreak}[2][]{
     breakable-base,
     colback=purple!8,
     colframe=purple!50!black,
     colbacktitle=purple!70!black,
-    title=Solution,
+    title={\ifstrempty{#2}{Solution}{#2}},
     #1
 }
 
-% Exercise block (Teal theme)
-\newtcolorbox{exercisebox}[1][]{
-    base,
-    colback=teal!8,
-    colframe=teal!50!black,
-    colbacktitle=teal!70!black,
-    title=Exercise,
-    #1
-}
-
-% Proof block (Gray theme)
-\newtcolorbox{proofbox}[1][]{
-    base,
-    colback=gray!8,
-    colframe=gray!50!black,
-    colbacktitle=gray!70!black,
-    title=Proof,
-    #1
-}
-
-% Key concept block (Cyan theme)
-\newtcolorbox{keyconceptbox}[2][]{
-    base,
-    colback=cyan!8,
-    colframe=cyan!50!black,
-    colbacktitle=cyan!70!black,
-    title={Key Concept: #2},
-    #1
-}
-
-% Breakable Key concept block (Cyan theme)
+% Breakable Key concept block (Cyan theme) — accepts optional title as a second argument
 \newtcolorbox{keyconceptboxbreak}[2][]{
     breakable-base,
     colback=cyan!8,
     colframe=cyan!50!black,
     colbacktitle=cyan!70!black,
-    title={Key Concept: #2},
+    title={\ifstrempty{#2}{Key Concept}{Key Concept: #2}},
+    #1
+}
+
+% Breakable Fun Facts block (Magenta theme) — accepts optional title as a second argument
+\newtcolorbox{funfactsbreak}[2][]{
+    breakable-base,
+    colback=magenta!8,
+    colframe=magenta!50!black,
+    colbacktitle=magenta!70!black,
+    title={\ifstrempty{#2}{Fun Facts}{Fun Facts: #2}},
+    #1
+}
+
+% Breakable Identities block (Gold theme) — accepts optional title as a second argument
+\newtcolorbox{identitiesboxbreak}[2][]{
+    breakable-base,
+    colback=yellow!15,
+    colframe=yellow!50!orange,
+    colbacktitle=yellow!50!orange!80!black,
+    title={\ifstrempty{#2}{Mathematical Identities}{Mathematical Identities: #2}},
+    #1
+}
+
+% Code block environment for Python/programming examples
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Define colors for syntax highlighting
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% Configure listings style
+\lstdefinestyle{pythonstyle}{
+    language=Python,
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\small,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4,
+    frame=single,
+    rulecolor=\color{black!30}
+}
+
+\lstset{style=pythonstyle}
+
+% Breakable code block environment (Light gray theme with syntax highlighting)
+\newtcolorbox{codeblock}[2][]{
+    breakable-base,
+    colback=backcolour,
+    colframe=black!50,
+    colbacktitle=black!70,
+    fonttitle=\ttfamily\bfseries,
+    title={\ifstrempty{#2}{Code}{#2}},
+    before upper={\lstset{style=pythonstyle}},
     #1
 }
 

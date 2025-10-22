@@ -1,0 +1,22 @@
+\documentclass{article}
+\usepackage{xcolor}
+\usepackage[skins,breakable]{tcolorbox}
+\usepackage{etoolbox}
+\tcbset{base/.style={arc=3mm,outer arc=3mm,boxrule=0.5pt,left=5mm,right=5mm,top=3mm,bottom=3mm,fonttitle=\bfseries\sffamily,coltitle=white,enhanced,drop shadow,before skip=10pt,after skip=10pt},breakable-base/.style={base,breakable,pad at break=3mm}}
+\newtcolorbox{examplebox}[2][]{base,colback=orange!8,colframe=orange!50!black,colbacktitle=orange!70!black,title={\ifdefempty{#2}{Example}{#2}},before=\par\smallskip\noindent,after=\par\smallskip,parbox=false,boxsep=5pt,left=8pt,right=8pt,top=8pt,bottom=8pt,arc=2mm,oversize,halign=left,halign title=center,fonttitle=\bfseries,width=\textwidth-2mm,enlarge left by=-1mm,enlarge right by=-1mm,#1}
+\begin{document}
+Positional title:
+\begin{examplebox}{Dice}
+This is the content.
+\end{examplebox}
+
+Optional title:
+\begin{examplebox}[title={Dice}]
+This is the content.
+\end{examplebox}
+
+No title:
+\begin{examplebox}
+This is the content.
+\end{examplebox}
+\end{document}
