@@ -187,6 +187,16 @@
     #1
 }
 
+% Breakable Axioms block (Lime/Olive theme) — accepts optional title as a second argument
+\newtcolorbox{axiomsboxbreak}[2][]{
+    breakable-base,
+    colback=lime!8,
+    colframe=olive!50!black,
+    colbacktitle=lime!50!olive!80!black,
+    title={\ifstrempty{#2}{Axioms}{Axioms: #2}},
+    #1
+}
+
 % Code block environment for Python/programming examples
 \usepackage{listings}
 \usepackage{xcolor}

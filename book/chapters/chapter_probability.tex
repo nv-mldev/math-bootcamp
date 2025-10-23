@@ -294,17 +294,7 @@ Probability is a mathematical descrption of an unknown phenomenon. It is used to
 \begin{itemize}
     \item A \textbf{sample space} \( \Omega \), which is the set of all possible outcomes.
     \item A set of \textbf{events}, which are subsets of the sample space.
-    \item A \textbf{probability measure/probability law} \( P \), which assigns to a set \(A\) of possible outcomes called an event , a non negative number \( P(A) \) called the probability of \(A\) that encodes our knowledge or belief about the collective likelihood of the elements of \(A\). The probability law must satisfy the following axioms:
-    \begin{itemize}
-        \item Non-negativity: \( P(A) \geq 0 \) for all events \( A \subseteq \Omega \).
-        \item Normalization: \( P(\Omega) = 1 \).
-        \item Additivity: For any countable sequence of disjoint events \( A_1, A_2, \ldots \subseteq \Omega \),
-        \[  
-        P\left(\bigcup_{i=1}^{\infty} A_i\right) = \sum_{i=1}^{\infty} P(A_i)
-        \]
-        for any countable sequence of disjoint events \( A_1, A_2, \ldots \subseteq \Omega \).
-    \end{itemize}
-\end{itemize}
+    \item A \textbf{probability measure/probability law} \( P \), which assigns to a set \(A\) of possible outcomes called an event , a non negative number \( P(A) \) called the probability of \(A\) that encodes our knowledge or belief about the collective likelihood of the elements of \(A\). 
 
 \subsection{Sample Space and Events}
 \begin{itemize}
@@ -436,15 +426,20 @@ Consider two alternative games, both involving ten successive coin tosses:
 
 \headingB{Game 2:} We receive \$1 for every coin toss, up to and including the first time a head comes up. Then, we receive \$2 for every coin toss, up to the second time a head comes up. More generally, the dollar amount per toss is doubled each time a head comes up.
 
-These games illustrate how different questions require different sample space designs:
+These games illustrate how the same experiment can be modeled with different levels of detail depending on what information we need:
+
+\headingB{The Underlying Sample Space}
+Both games involve the same physical experiment: ten successive coin tosses. The complete sample space for this experiment is:
+\[ \Omega = \{\text{all possible sequences of H and T of length 10}\} \]
+This sample space has $2^{10} = 1024$ possible outcomes.
 
 \headingB{Sample Space for Game 1}
-In Game 1, only the total number of heads matters, not their positions in the sequence. The appropriate sample space is:
+In Game 1, only the total number of heads matters, not their positions in the sequence. We can use a \textbf{simplified sample space}:
 \[ \Omega_1 = \{0, 1, 2, \ldots, 10\} \]
-where each outcome represents the number of heads obtained in the ten tosses.
+where each outcome represents the number of heads obtained in the ten tosses. This simplified space has only 11 outcomes and is sufficient for calculating payouts in Game 1, since all sequences with the same number of heads yield the same payout.
 
 \headingB{Sample Space for Game 2}
-For Game 2, the order of heads and tails is crucial because payouts depend on when heads appear. The appropriate sample space is:
+For Game 2, the order of heads and tails is crucial because payouts depend on when heads appear. We must use the complete sample space:
 \[ \Omega_2 = \{\text{all possible sequences of H and T of length 10}\} \]
 
 For example, the sequences HHTTTHTHTT and HTHTTTTHTH would yield different payouts in Game 2, even though both contain exactly 4 heads. According to the rules, we receive a payment for every coin toss, and the amount per toss doubles each time a head appears. 
@@ -481,13 +476,26 @@ Total: \$1 + \$2 + \$2 + \$4 + \$4 + \$4 + \$4 + \$4 + \$8 + \$8 = \$41.
 
 Even though both sequences have the same number of heads, they yield different payouts (\$67 vs \$41) because the positions of the heads differ.
 
-\headingB{Consequences for Probability Calculation}
+\headingB{Key Insight: Choosing the Right Level of Detail}
+
+Both games share the same underlying sample space (all 1024 possible sequences), but we model them differently:
 \begin{itemize}
-    \item Game 1's sample space has only 11 possible outcomes (0 through 10 heads)
-    \item Game 2's sample space has $2^{10} = 1024$ possible outcomes (all possible 10-toss sequences)
+    \item \textbf{Game 1:} We can use the simplified sample space $\Omega_1$ with only 11 outcomes because multiple sequences (those with the same number of heads) produce identical payouts. This simplification makes calculations much easier.
+
+    \item \textbf{Game 2:} We must use the complete sample space $\Omega_2$ with all 1024 sequences because each distinct sequence may produce a different payout.
 \end{itemize}
 
-This example demonstrates how the question we're trying to answer determines the appropriate level of detail needed in our sample space. A simpler sample space makes calculations easier but must still capture all information relevant to the problem.
+\headingB{General Principle}
+
+This example demonstrates an important principle in probability modeling: \textbf{The sample space should contain enough detail to distinguish between outcomes that matter for your problem, but no more.}
+
+\begin{itemize}
+    \item Too little detail $\rightarrow$ Cannot answer your questions correctly
+    \item Too much detail $\rightarrow$ Makes calculations unnecessarily complex
+    \item Just right $\rightarrow$ Simplifies work while preserving all relevant information
+\end{itemize}
+
+For Game 1, the simplified space $\Omega_1$ is "just right" because all sequences with the same head count are equivalent for our purposes. For Game 2, we need the full detail of $\Omega_2$ to distinguish between different sequences.
 \end{exampleboxbreak}
 
 
