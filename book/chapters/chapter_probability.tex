@@ -484,20 +484,26 @@ Both games share the same underlying sample space (all 1024 possible sequences),
 
     \item \textbf{Game 2:} We must use the complete sample space $\Omega_2$ with all 1024 sequences because each distinct sequence may produce a different payout.
 \end{itemize}
-
-\headingB{General Principle}
-
-This example demonstrates an important principle in probability modeling: \textbf{The sample space should contain enough detail to distinguish between outcomes that matter for your problem, but no more.}
-
-\begin{itemize}
-    \item Too little detail $\rightarrow$ Cannot answer your questions correctly
-    \item Too much detail $\rightarrow$ Makes calculations unnecessarily complex
-    \item Just right $\rightarrow$ Simplifies work while preserving all relevant information
-\end{itemize}
-
-For Game 1, the simplified space $\Omega_1$ is "just right" because all sequences with the same head count are equivalent for our purposes. For Game 2, we need the full detail of $\Omega_2$ to distinguish between different sequences.
 \end{exampleboxbreak}
+\section{Probability Laws}
+The probability law assigns to every event \(A\), a number \(P(A)\), called the \textbf{probability} of \(A\), satisfying the following axioms 
 
+\begin{axiomboxbreak}{Probability Axioms}
+    \begin{itemize}
+        \item \textbf{Non-negativity:} For any event \(A\), \(P(A) \geq 0\).
+        \item \textbf{Normalization:} \(P(\Omega) = 1\), where \(\Omega\) is the sample space.
+        \item \textbf{Additivity:} If \(A\) and \(B\) are disjoint events (i.e., \(A \cap B = \emptyset\)), then 
+        \[ P(A \cup B) = P(A) + P(B)\]
+        If the sample space has an infinite number of elements
+and \(A_1, A_2, \ldots\) is a sequence of disjoint events, then the probability of
+their union satisfies
+\[ P(A_1 \cup A_2 \cup \cdots) = P(A_1) + P(A_2) + \cdots \]
+    \end{itemize}
+\end{axiomboxbreak}
+
+\begin{proof}
+    
+\end{proof}
 
 \section{Sequential Models}
 
@@ -543,21 +549,7 @@ This gives us $2^3 = 8$ possible outcomes, where each path through the tree repr
     \item \textbf{Probability calculation:} Facilitates computation of probabilities by multiplying along branches
 \end{itemize}
 
-\section{Probability Laws}
-To complete the probabilistic model, we must introduce a \textbf{probability law}. Intuitively, this specifies the “likelihood” of any outcome, or of any set of possible outcomes . More precisely, the probability law assigns to every event \(A\), a number \(P(A)\), called the \textbf{probability} of \(A\), satisfying the following axioms 
 
-\begin{definitionboxbreak}{Probability Axioms}
-    \begin{itemize}
-        \item \textbf{Non-negativity:} For any event \(A\), \(P(A) \geq 0\).
-        \item \textbf{Normalization:} \(P(\Omega) = 1\), where \(\Omega\) is the sample space.
-        \item \textbf{Additivity:} If \(A\) and \(B\) are disjoint events (i.e., \(A \cap B = \emptyset\)), then 
-        \[ P(A \cup B) = P(A) + P(B)\]
-        If the sample space has an infinite number of elements
-and \(A_1, A_2, \ldots\) is a sequence of disjoint events, then the probability of
-their union satisfies
-\[ P(A_1 \cup A_2 \cup \cdots) = P(A_1) + P(A_2) + \cdots \]
-    \end{itemize}
-\end{definitionboxbreak}
 
 
 
