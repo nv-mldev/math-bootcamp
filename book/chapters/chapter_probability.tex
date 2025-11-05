@@ -500,10 +500,63 @@ their union satisfies
 \[ P(A_1 \cup A_2 \cup \cdots) = P(A_1) + P(A_2) + \cdots \]
     \end{itemize}
 \end{axiomboxbreak}
+\subsubsection{Consequences of the Axioms}
 
-\begin{proof}
-    
-\end{proof}
+\begin{itemize}
+    \item \textbf{Upper Bound:} For any event \(A\), \(P(A) \leq 1\).
+\end{itemize}
+\begin{proofboxbreak}{}
+    \begin{align}
+        A \cup A^{c} &= \Omega \\
+        P(A \cup A^{c}) &= P(\Omega) = 1 \\ 
+        P(A) + P(A^{c}) &= 1 \implies \text{from additivity axiom} \\
+        P(A) &= 1 - P(A^{c}) \\
+        \text{Since } P(A^{c}) \geq 0 \text{ (non-negativity axiom),} \\
+        1 - P(A^{c}) \leq 1 \implies P(A) \leq 1
+    \end{align} 
+\end{proofboxbreak}
+\begin{itemize}
+    \item \textbf{Probability of the Empty Set:} \(P(\emptyset) = 0\).
+\end{itemize}
+\begin{proofboxbreak}{}
+    \begin{align}
+        1 &= P(\Omega)  + P(\Omega^{c}) \\
+        &= P(\Omega) + P(\emptyset) \\
+        &\implies P(\emptyset) = 0 
+    \end{align}   
+\end{proofboxbreak}
+
+\begin{itemize}
+    \item \textbf{Monotonicity:} If \(A \subset B\), then \(P(A) \leq P(B)\).
+\end{itemize}
+\begin{proofboxbreak}{}
+    Since \(A \subset B\), we can write \(B\) as the union of two disjoint sets:
+    \[ B = A \cup (B \cap A^{c}) \]
+    By the additivity axiom, we have:
+    \[ P(B) = P(A) + P(B \cap A^{c}) \]
+    Since probabilities are non-negative, we have \(P(B \cap A^{c}) \geq 0\), which implies:
+    \[ P(B) \geq P(A) \]
+\end{proofboxbreak}
+
+\begin{itemize}
+    \item \textbf{Inclusion-Exclusion Principle:}   \(P(A \cup B) = P(A) + P(B) - P(A \cap B)\) 
+\end{itemize}
+\begin{proofboxbreak}{}
+    \begin{align}
+     P(A \cup B) &= P(A \cap B^{c}) + P(B \cap A^{c}) + P(A \cap B) \\ 
+      &= a + b + c \\
+        P(A) &= P(A \cap B^{c}) + P(A \cap B) = a + c \\
+        P(B) &= P(B \cap A^{c}) + P(A \cap B) = b + c \\
+        \implies P(A) + P(B) &= a + b + 2c \\
+        \implies P(A \cup B) &= P(A) + P(B) - P(A \cap B) \\
+        \implies P(A \cup B) &= (a + c) + (b + c) - c \\
+        \implies P(A \cup B) &= a + b + c = P(A \cap B^{c}) + P(B \cap A^{c}) + P(A \cap B)
+    \end{align}
+\end{proofboxbreak}
+
+\begin{itemize}
+    \item \textbf{Union Bound:} For any events \(A\) and \(B\), \(P(A \cup B) \leq P(A) + P(B)\).
+\end{itemize}
 
 \section{Sequential Models}
 
@@ -548,9 +601,6 @@ This gives us $2^3 = 8$ possible outcomes, where each path through the tree repr
     \item \textbf{Natural structure:} Matches the temporal order of events in the experiment
     \item \textbf{Probability calculation:} Facilitates computation of probabilities by multiplying along branches
 \end{itemize}
-
-
-
 
 
 \section{Discrete Models}
