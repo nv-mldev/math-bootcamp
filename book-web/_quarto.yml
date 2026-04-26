@@ -16,6 +16,10 @@ book:
   chapters:
     - index.qmd
     - chapters/introduction.qmd
+    - part: "Probability"
+      chapters:
+        - chapters/probability/what_is_probability.qmd
+        - chapters/probability/conditional.qmd
 
 bibliography: references.bib
 

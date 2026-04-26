@@ -1,0 +1,278 @@
+---
+title: "Conditional Probability"
+jupyter: python3
+execute:
+  echo: true
+  cache: true
+---
+
+## The question
+
+A rapid test for some disease is described as **95% accurate**.
+
+You take the test. It comes back **positive**.
+
+How worried should you be?
+
+If you said "95% chance I have it", you're wrong. The right answer might
+surprise you. To get there, we need *conditional probability* — the math of
+**updating what you believe in light of new information**.
+
+We'll build the answer in three steps:
+
+1. Write a tiny simulation that mirrors the real situation.
+2. Look at the numbers it produces and notice the pattern.
+3. *Then* introduce the formula — at which point it'll feel like the
+   simulation is just executing the formula, not the other way around.
+
+::: {.callout-note collapse="true"}
+## ▶ Show the math — Why this section matters
+
+Conditional probability is the door to **everything important** in
+probability that comes after: Bayes' rule, independence, Markov chains,
+likelihood, Bayesian inference, every probabilistic ML model. If you only
+deeply learn one section in this chapter, this is the one.
+:::
+
+---
+
+## Step 1 — Simulate the test
+
+Imagine a population of 100,000 people. We need three numbers to define
+the world:
+
+| What                                   | Value | Meaning                                     |
+|----------------------------------------|-------|---------------------------------------------|
+| **Disease prevalence**                 | 1%    | Out of 100,000 people, 1,000 actually sick. |
+| **True-positive rate** (sensitivity)   | 95%   | Sick people test positive 95% of the time.  |
+| **True-negative rate** (specificity)   | 95%   | Healthy people test negative 95% of the time. |
+
+That second + third number is what "95% accurate" usually means in
+advertising. The first number — prevalence — is the one nobody mentions,
+and it's the one that matters most.
+
+Let's run it:
+
+```{python}
+import numpy as np
+
+rng = np.random.default_rng(seed=42)
+
+population = 100_000
+prevalence = 0.01            # 1% of people are actually sick
+sensitivity = 0.95           # P(test+ | sick)
+specificity = 0.95           # P(test- | healthy)
+
+# Simulate who is actually sick
+is_sick = rng.random(population) < prevalence
+
+# Simulate test results — different probabilities depending on truth
+test_positive = np.where(
+    is_sick,
+    rng.random(population) < sensitivity,    # sick: 95% chance of +
+    rng.random(population) < (1 - specificity)  # healthy: 5% chance of +
+)
+
+print(f"Total people simulated:        {population:,}")
+print(f"Actually sick:                 {is_sick.sum():,}")
+print(f"Tested positive:               {test_positive.sum():,}")
+print(f"Tested positive AND sick:      {(test_positive & is_sick).sum():,}")
+```
+
+Look at those last two lines. **Most people who tested positive are not
+actually sick.** Let's compute the answer to our original question:
+
+```{python}
+n_positive = test_positive.sum()
+n_positive_and_sick = (test_positive & is_sick).sum()
+
+p_sick_given_positive = n_positive_and_sick / n_positive
+
+print(f"P(sick | tested positive) = {p_sick_given_positive:.1%}")
+```
+
+About **16%** — not 95%. If you tested positive on this 95%-accurate test
+for a 1%-prevalence disease, your odds of actually being sick are roughly
+*one in six*.
+
+That should feel deeply wrong on first read. Let's see why it's right.
+
+---
+
+## Step 2 — Stare at the table
+
+The simulation gave us four kinds of people. Let's count each:
+
+```{python}
+import pandas as pd
+
+table = pd.crosstab(
+    pd.Series(is_sick, name="actually sick").map({True: "sick", False: "healthy"}),
+    pd.Series(test_positive, name="test result").map({True: "positive", False: "negative"}),
+    margins=True, margins_name="total"
+)
+print(table)
+```
+
+The **positive** column has two kinds of people in it:
+
+- **True positives** — actually sick, correctly flagged. (~950 people)
+- **False positives** — actually healthy, but the test misfired. (~5,000 people)
+
+Even though the false-positive *rate* is small (5%), it's applied to the
+*huge* healthy population (99,000). Five percent of a huge group dwarfs
+ninety-five percent of a tiny group. So the positive column is dominated
+by healthy people.
+
+Conditional probability is just **restricting attention to one
+column** (or one row) of this table:
+
+> "What fraction of the *positive column* is actually sick?"
+>
+> $\;\;\;\;= \dfrac{\text{true positives}}{\text{all positives}}$
+>
+> $\;\;\;\;\approx \dfrac{950}{950 + 5000} \approx 16\%.$
+
+That's it. That's the whole idea. Nothing to memorise yet — we just
+counted.
+
+---
+
+## Step 3 — Now the formula
+
+Let $S$ = "actually sick" and $T$ = "tested positive". The phrase "given
+that the test was positive" is conditional probability, written
+$P(S \mid T)$. It's defined as:
+
+$$
+P(S \mid T) \;=\; \frac{P(S \cap T)}{P(T)}
+$$
+
+Look at the simulation again:
+
+- $P(S \cap T)$ — fraction of the *whole table* that is both sick and
+  positive: $950 / 100{,}000$
+- $P(T)$ — fraction of the whole table that is positive:
+  $5950 / 100{,}000$
+- Their ratio: $950 / 5950 \approx 16\%$ ✓
+
+The 100,000 cancels. **Restricting to a column is exactly what dividing
+by $P(T)$ does.** The formula is just bookkeeping for the table you've
+already seen.
+
+::: {.callout-note collapse="true"}
+## ▶ Show the math — Formal definition and where it comes from
+
+**Definition.** For events $A$ and $B$ with $P(B) > 0$:
+
+$$
+P(A \mid B) \;\triangleq\; \frac{P(A \cap B)}{P(B)}.
+$$
+
+**Why this is well-defined.** The function $Q(A) = P(A \mid B)$, viewed
+as a function of $A$ on the same sample space $\Omega$, is itself a
+probability measure:
+
+1. $Q(A) \ge 0$ for every event $A$, because $P(A \cap B) \ge 0$ and
+   $P(B) > 0$.
+2. $Q(\Omega) = P(\Omega \cap B)/P(B) = P(B)/P(B) = 1$.
+3. **Countable additivity.** For disjoint events $A_1, A_2, \ldots$:
+
+$$
+Q\!\left(\bigcup_i A_i\right) \;=\; \frac{P\!\left(\bigcup_i A_i \cap B\right)}{P(B)}
+\;=\; \frac{\sum_i P(A_i \cap B)}{P(B)} \;=\; \sum_i Q(A_i),
+$$
+
+using countable additivity of $P$ on the disjoint sets $A_i \cap B$.
+
+So all three Kolmogorov axioms hold for $Q$. Conditioning on $B$ produces
+a new probability measure that lives on the *same* sample space but
+treats $B$ as the new "universe" — events outside $B$ get probability
+zero, and events inside $B$ are rescaled so they sum to one.
+
+**Why $P(B) > 0$.** If $P(B) = 0$, the ratio is undefined. Conditioning
+on probability-zero events is possible in measure theory (via regular
+conditional distributions) but requires more machinery. For everything
+in this book, $P(B) > 0$ is enforced.
+:::
+
+---
+
+## Why the result was so counterintuitive
+
+Most people, asked "what's the probability you're sick given a positive
+test?", silently substitute the *reverse* question: **"what's the
+probability of testing positive given that you're sick?"** That second
+quantity is the sensitivity — 95%.
+
+These two probabilities, $P(S \mid T)$ and $P(T \mid S)$, are very
+different in general. Confusing them is so common it has a name —
+**the prosecutor's fallacy** — and it shows up in courtrooms, medical
+decision-making, and basically every bad statistics-in-the-news story
+you'll ever read.
+
+The trick that converts one to the other is **Bayes' rule**, which is
+what the next section is about. But you've already seen its essence: it's
+the formula that re-weights your belief by the prevalence (the *prior*).
+
+---
+
+## Three things you should take away
+
+1. **Conditional probability is restriction.** "Given $B$" means
+   "restrict the universe to $B$, then re-normalise." The table makes this
+   visible; the formula encodes it.
+
+2. **The denominator matters more than the numerator.** Small false-positive
+   rates against large healthy populations can swamp small true-positive
+   counts against tiny sick populations. Always ask: "what's the base rate?"
+
+3. **You can simulate first and derive second.** This is going to be the
+   pattern for the rest of the chapter. When a probability question feels
+   slippery, write down a population, simulate it, count what's in each
+   bucket. The formulas are descriptions of those counts.
+
+::: {.callout-tip collapse="true"}
+## ▶ Show the math — Bayes' rule, briefly
+
+Once you have $P(A \mid B) = P(A \cap B)/P(B)$, swap $A$ and $B$:
+
+$$
+P(B \mid A) = \frac{P(A \cap B)}{P(A)}.
+$$
+
+Solving the first equation for $P(A \cap B)$ and substituting:
+
+$$
+P(A \mid B) \;=\; \frac{P(B \mid A)\, P(A)}{P(B)}.
+$$
+
+That's Bayes' rule. In our example: $A = S$ (sick), $B = T$ (positive
+test):
+
+$$
+P(S \mid T) \;=\; \frac{P(T \mid S)\, P(S)}{P(T)}
+\;=\; \frac{0.95 \times 0.01}{0.0595} \;\approx\; 0.16.
+$$
+
+The $0.0595$ in the denominator comes from the **law of total
+probability**:
+$P(T) = P(T \mid S)\,P(S) + P(T \mid S^c)\,P(S^c) = 0.95 \cdot 0.01 + 0.05 \cdot 0.99$.
+:::
+
+---
+
+## Exercises
+
+1. **Vary the prevalence.** Re-run the simulation with prevalence
+   $= 50\%$ (a coin-flip baseline). What's $P(\text{sick} \mid +)$ now?
+   Why does the answer change so dramatically?
+
+2. **Improve the test.** Keep prevalence at 1%, but raise specificity to
+   99.9%. What does $P(\text{sick} \mid +)$ become? Which knob moves the
+   answer faster — sensitivity or specificity? Why?
+
+3. **The reverse question.** From the simulation output, compute
+   $P(\text{tested positive} \mid \text{sick})$ directly. Confirm it's
+   close to 0.95. Notice that this is *not* the same as the answer in
+   step 3.

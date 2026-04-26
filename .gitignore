@@ -70,3 +70,7 @@ Thumbs.db
 # Quarto build output
 book-web/_book/
 book-web/.quarto/
+
+# Quarto / Jupyter cache
+.jupyter_cache/
+**/.jupyter_cache/
