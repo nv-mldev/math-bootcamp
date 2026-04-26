@@ -420,9 +420,10 @@ window.Quarto = {
   <li><a href="#events" id="toc-events" class="nav-link" data-scroll-target="#events"><span class="header-section-number">2.5.3</span> Events</a></li>
   <li><a href="#probability-law-the-three-axioms" id="toc-probability-law-the-three-axioms" class="nav-link" data-scroll-target="#probability-law-the-three-axioms"><span class="header-section-number">2.5.4</span> Probability law: the three axioms</a></li>
   </ul></li>
-  <li><a href="#tying-it-together-simulating-the-dice" id="toc-tying-it-together-simulating-the-dice" class="nav-link" data-scroll-target="#tying-it-together-simulating-the-dice"><span class="header-section-number">2.6</span> Tying it together: simulating the dice</a></li>
-  <li><a href="#three-things-you-should-take-away" id="toc-three-things-you-should-take-away" class="nav-link" data-scroll-target="#three-things-you-should-take-away"><span class="header-section-number">2.7</span> Three things you should take away</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">2.8</span> Exercises</a></li>
+  <li><a href="#sequential-experiments-and-tree-diagrams" id="toc-sequential-experiments-and-tree-diagrams" class="nav-link" data-scroll-target="#sequential-experiments-and-tree-diagrams"><span class="header-section-number">2.6</span> Sequential experiments and tree diagrams</a></li>
+  <li><a href="#tying-it-together-simulating-the-dice" id="toc-tying-it-together-simulating-the-dice" class="nav-link" data-scroll-target="#tying-it-together-simulating-the-dice"><span class="header-section-number">2.7</span> Tying it together: simulating the dice</a></li>
+  <li><a href="#three-things-you-should-take-away" id="toc-three-things-you-should-take-away" class="nav-link" data-scroll-target="#three-things-you-should-take-away"><span class="header-section-number">2.8</span> Three things you should take away</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">2.9</span> Exercises</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Nithin/math-bootcamp/edit/main/chapters/probability/what_is_probability.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Nithin/math-bootcamp/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -731,7 +732,7 @@ window.Quarto = {
 </blockquote>
 <p>This is intuitive for things you can repeat. <em>“This coin lands heads with probability 0.5”</em> means: if you flip it enough times, the fraction landing heads will get arbitrarily close to 0.5.</p>
 <p>Let’s actually watch that happen.</p>
-<div id="ac10ca23" class="cell" data-execution_count="1">
+<div id="b0f1247b" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -816,7 +817,7 @@ window.Quarto = {
 0.5</span>. Push the price further until she’s indifferent, and you’ve measured her subjective probability to whatever precision you care for.</p>
 <p>This view doesn’t need repetition. It works for one-shot events, for historical claims, for personal beliefs about the future.</p>
 <p>Let’s see one in action. Suppose two people — call them Alice and Bob — have different prior beliefs about whether a particular coin is fair. We’ll see how their beliefs <strong>update</strong> as evidence comes in.</p>
-<div id="b932ad0d" class="cell" data-execution_count="2">
+<div id="a3809ae9" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A coin we'll flip. Pretend we don't know its true bias (it's actually 0.7).</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>true_p <span class="op">=</span> <span class="fl">0.7</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>n_flips <span class="op">=</span> <span class="dv">200</span></span>
@@ -887,7 +888,7 @@ window.Quarto = {
 <section id="concrete-problem-rolling-two-dice" class="level3" data-number="2.5.1">
 <h3 data-number="2.5.1" class="anchored" data-anchor-id="concrete-problem-rolling-two-dice"><span class="header-section-number">2.5.1</span> Concrete problem: rolling two dice</h3>
 <p>Throughout the rest of this chapter, we’ll use a single running example. You roll two ordinary six-sided dice. We’ll define everything against this.</p>
-<div id="65aa8626" class="cell" data-execution_count="3">
+<div id="da035221" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Enumerate all 36 outcomes</span></span>
@@ -912,8 +913,27 @@ First few: [(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6)]</code></pre>
 <li><strong>Collectively exhaustive.</strong> Every possible result of the experiment is in the list. You can’t roll something not in <span class="math inline">\Omega</span>.</li>
 <li><strong>Right level of detail.</strong> Detailed enough to answer the questions you care about, but no more.</li>
 </ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Why mutual exclusivity matters
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Compare these two attempted sample spaces for a single die roll:</p>
+<ul>
+<li><span class="math inline">\Omega_{\text{good}} = \{1, 2, 3, 4, 5, 6\}</span> ✓</li>
+<li><span class="math inline">\Omega_{\text{bad}} = \{\text{"1 or 3"}, \text{"1 or 4"}, 2, 3, 5, 6\}</span> ✗</li>
+</ul>
+<p>The second one is <strong>broken</strong>. If you roll a 1, <em>which</em> outcome occurred — “1 or 3” or “1 or 4”? The outcomes overlap (both contain a 1), so the result of the experiment isn’t uniquely defined. Probability calculations break immediately: the axioms assume disjointness when adding.</p>
+<p>A working sample space must let you point at exactly one outcome after the experiment runs. No ambiguity.</p>
+</div>
+</div>
 <p>The third point is subtle. Watch:</p>
-<div id="33c7e0fd" class="cell" data-execution_count="4">
+<div id="6f038dd4" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Three different sample spaces for the SAME experiment of rolling two dice.</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># (A) Too coarse: just the sum</span></span>
@@ -953,7 +973,7 @@ C) Ordered pairs + colour + rotation angle: |Ω| ≈ infinite, useless</code></p
 <section id="events" class="level3" data-number="2.5.3">
 <h3 data-number="2.5.3" class="anchored" data-anchor-id="events"><span class="header-section-number">2.5.3</span> Events</h3>
 <p>An <strong>event</strong> is just a subset of <span class="math inline">\Omega</span>. Some examples for our two dice:</p>
-<div id="34980eae" class="cell" data-execution_count="5">
+<div id="dce896cc" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>omega <span class="op">=</span> <span class="bu">set</span>(outcomes)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {(d1, d2) <span class="cf">for</span> d1, d2 <span class="kw">in</span> omega <span class="cf">if</span> d1 <span class="op">+</span> d2 <span class="op">==</span> <span class="dv">7</span>}        <span class="co"># sum is 7</span></span>
@@ -973,7 +993,7 @@ D = sum ≥ 10        (6 outcomes): [(4, 6), (5, 5), (5, 6), (6, 4), (6, 5), (6,
 </div>
 </div>
 <p>Because events are sets, you can combine them with set operations. Combining events gives you new events:</p>
-<div id="7c610ecd" class="cell" data-execution_count="6">
+<div id="f94fe995" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum is 7 OR doubles</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>A_or_B <span class="op">=</span> A <span class="op">|</span> B          <span class="co"># set union → "A or B"</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum is 7 AND first die is 6  (impossible — empty set)</span></span>
@@ -992,7 +1012,7 @@ A \ B   ('sum is 7 but not doubles'):  6 outcomes</code></pre>
 </div>
 <p>That’s the entire grammar. Set union for “or”, set intersection for “and”, set complement for “not”. Probability theory inherits its grammar from set theory.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1001,7 +1021,7 @@ A \ B   ('sum is 7 but not doubles'):  6 outcomes</code></pre>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>For any events <span class="math inline">A</span>, <span class="math inline">B</span>, <span class="math inline">C \subseteq \Omega</span>, the following identities hold and are used constantly:</p>
 <p><strong>Commutative.</strong> <span class="math inline">A \cup B = B \cup A</span>, <span class="math inline">\;\; A \cap B = B \cap A</span>.</p>
@@ -1013,6 +1033,29 @@ A \ B   ('sum is 7 but not doubles'):  6 outcomes</code></pre>
 </span></p>
 <p>In words: “not (A or B)” = “(not A) and (not B)”, and the dual.</p>
 <p><strong>Why we sometimes need a <span class="math inline">\sigma</span>-algebra.</strong> When <span class="math inline">\Omega</span> is finite or countable, <em>every</em> subset can be an event, and we don’t worry about it. But when <span class="math inline">\Omega</span> is uncountable (e.g.&nbsp;the real line), it turns out you can’t consistently assign probabilities to <em>every</em> subset — pathological sets break additivity. So we restrict events to a special collection called a <strong><span class="math inline">\sigma</span>-algebra</strong> (closed under complements and countable unions). For the purposes of this book, you can treat “event” and “subset of <span class="math inline">\Omega</span>” as synonymous, and trust that the measure-theoretic fine print works out.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>▶ Show the math — Different sizes of infinity (Hilbert’s Hotel)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If “countable vs uncountable” sounds vague, here’s the picture that makes it concrete.</p>
+<p><strong>Hilbert’s Hotel</strong> has infinitely many rooms — one for each natural number — and they’re all full. A new guest arrives. Can the manager fit them in?</p>
+<p>Yes! Move the guest in room 1 to room 2. Move room 2 to room 3. In general, move room <span class="math inline">n</span> to room <span class="math inline">n+1</span>. Room 1 is now free. The new guest checks in.</p>
+<p>What if <strong>infinitely many</strong> new guests arrive? Still fine. Move every current guest from room <span class="math inline">n</span> to room <span class="math inline">2n</span>. All odd-numbered rooms are now empty. Room any number of new guests in them.</p>
+<p>This is what mathematicians mean by <strong>countably infinite</strong>: a set is countable if you can put its elements in 1-to-1 correspondence with the natural numbers <span class="math inline">\{1, 2, 3, \ldots\}</span>. The integers <span class="math inline">\mathbb{Z}</span> are countable. The rationals <span class="math inline">\mathbb{Q}</span> are countable (Cantor’s zigzag argument lists them all). Even the algebraic numbers are countable.</p>
+<p>But here’s the punchline. Hilbert’s Hotel <strong>cannot</strong> fit the <strong>real numbers</strong> <span class="math inline">\mathbb{R}</span>. Cantor proved this in 1891 with his famous <strong>diagonal argument</strong>: assume you have a list of all reals between 0 and 1; construct a new real that differs from the <span class="math inline">n</span>-th entry in its <span class="math inline">n</span>-th decimal digit; this new real is on the list (we said the list was complete) but cannot be on the list (it differs from every entry). Contradiction. So no list exists.</p>
+<p>This means there are <strong>at least two genuinely different sizes of infinity</strong>: the countable (the rooms in Hilbert’s Hotel) and the uncountable (the real line). It also means probability theory on <span class="math inline">\mathbb{R}</span> is fundamentally different from probability on a finite set — which is why we’ll need calculus, integration, and measure theory once we get to continuous distributions.</p>
+<p>That’s all the measure theory we need for now. Welcome to the deep end.</p>
 </div>
 </div>
 </div>
@@ -1042,7 +1085,7 @@ A \ B   ('sum is 7 but not doubles'):  6 outcomes</code></pre>
 </div>
 <p>Three axioms. That’s the whole foundation. Everything else in probability theory — every formula, every theorem, every proof — follows from these three.</p>
 <p>Let’s verify them on our dice.</p>
-<div id="e0e4af2f" class="cell" data-execution_count="7">
+<div id="5504da6b" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For fair dice, each of the 36 outcomes has probability 1/36.</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># We define the probability law as: for any event E, P(E) = |E| / 36.</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1074,7 +1117,7 @@ A \ B   ('sum is 7 but not doubles'):  6 outcomes</code></pre>
 </div>
 <p>That’s it. The rest of probability theory is just consequences of these three rules.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1083,7 +1126,7 @@ A \ B   ('sum is 7 but not doubles'):  6 outcomes</code></pre>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>From the three axioms alone, we can derive a long list of useful facts. Here are the most-used ones, with proofs.</p>
 <p><strong>1. <span class="math inline">P(\emptyset) = 0</span>.</strong></p>
@@ -1116,67 +1159,223 @@ P\!\left(\bigcup_i A_i\right) \le \sum_i P(A_i).
 <hr>
 </section>
 </section>
-<section id="tying-it-together-simulating-the-dice" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="tying-it-together-simulating-the-dice"><span class="header-section-number">2.6</span> Tying it together: simulating the dice</h2>
+<section id="sequential-experiments-and-tree-diagrams" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="sequential-experiments-and-tree-diagrams"><span class="header-section-number">2.6</span> Sequential experiments and tree diagrams</h2>
+<p>Many real experiments unfold <strong>in stages</strong>. You don’t roll all your dice at once — you roll the first, see what happens, then roll the second. You don’t measure all your sensor outputs at once — readings come in over time. You don’t read an email and decide it’s spam in a single glance — you check the sender, then the subject line, then the body.</p>
+<p>For these step-by-step experiments, the cleanest representation is a <strong>tree diagram</strong>. Each branch from a node represents a possible outcome at that stage; each path from root to leaf is one complete sequence of outcomes. The set of all leaves is the sample space.</p>
+<p>Let’s draw one. We’ll use the simplest sequential experiment that’s still interesting: <strong>flipping a fair coin three times</strong>.</p>
+<div id="bc21fec4" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.patches <span class="im">import</span> FancyArrowPatch</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">11</span>, <span class="dv">6</span>))</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Each level's x positions and labels</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_tree(ax):</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Layout: stage in y, paths in x</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Stage 0 (root) at y=3, then stage 1 at y=2, stage 2 at y=1, stage 3 at y=0</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    nodes <span class="op">=</span> {</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"root"</span>: (<span class="dv">4</span>, <span class="dv">3</span>),</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"H"</span>:   (<span class="dv">2</span>, <span class="dv">2</span>),  <span class="st">"T"</span>:   (<span class="dv">6</span>, <span class="dv">2</span>),</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">"HH"</span>:  (<span class="dv">1</span>, <span class="dv">1</span>),  <span class="st">"HT"</span>:  (<span class="dv">3</span>, <span class="dv">1</span>),  <span class="st">"TH"</span>:  (<span class="dv">5</span>, <span class="dv">1</span>),  <span class="st">"TT"</span>:  (<span class="dv">7</span>, <span class="dv">1</span>),</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">"HHH"</span>: (<span class="fl">0.5</span>, <span class="dv">0</span>), <span class="st">"HHT"</span>: (<span class="fl">1.5</span>, <span class="dv">0</span>),</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">"HTH"</span>: (<span class="fl">2.5</span>, <span class="dv">0</span>), <span class="st">"HTT"</span>: (<span class="fl">3.5</span>, <span class="dv">0</span>),</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">"THH"</span>: (<span class="fl">4.5</span>, <span class="dv">0</span>), <span class="st">"THT"</span>: (<span class="fl">5.5</span>, <span class="dv">0</span>),</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">"TTH"</span>: (<span class="fl">6.5</span>, <span class="dv">0</span>), <span class="st">"TTT"</span>: (<span class="fl">7.5</span>, <span class="dv">0</span>),</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    edges <span class="op">=</span> [</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>        (<span class="st">"root"</span>, <span class="st">"H"</span>), (<span class="st">"root"</span>, <span class="st">"T"</span>),</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>        (<span class="st">"H"</span>, <span class="st">"HH"</span>), (<span class="st">"H"</span>, <span class="st">"HT"</span>), (<span class="st">"T"</span>, <span class="st">"TH"</span>), (<span class="st">"T"</span>, <span class="st">"TT"</span>),</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>        (<span class="st">"HH"</span>, <span class="st">"HHH"</span>), (<span class="st">"HH"</span>, <span class="st">"HHT"</span>), (<span class="st">"HT"</span>, <span class="st">"HTH"</span>), (<span class="st">"HT"</span>, <span class="st">"HTT"</span>),</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>        (<span class="st">"TH"</span>, <span class="st">"THH"</span>), (<span class="st">"TH"</span>, <span class="st">"THT"</span>), (<span class="st">"TT"</span>, <span class="st">"TTH"</span>), (<span class="st">"TT"</span>, <span class="st">"TTT"</span>),</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Draw edges first (under nodes)</span></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> a, b <span class="kw">in</span> edges:</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>        ax.plot([nodes[a][<span class="dv">0</span>], nodes[b][<span class="dv">0</span>]], [nodes[a][<span class="dv">1</span>], nodes[b][<span class="dv">1</span>]],</span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>                color<span class="op">=</span><span class="st">"#94a3b8"</span>, lw<span class="op">=</span><span class="fl">1.5</span>, zorder<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Draw nodes</span></span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> name, (x, y) <span class="kw">in</span> nodes.items():</span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> name <span class="op">==</span> <span class="st">"root"</span>:</span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>            ax.scatter(x, y, s<span class="op">=</span><span class="dv">600</span>, c<span class="op">=</span><span class="st">"#1f2937"</span>, zorder<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>            ax.annotate(<span class="st">"start"</span>, xy<span class="op">=</span>(x, y<span class="op">+</span><span class="fl">0.18</span>), ha<span class="op">=</span><span class="st">"center"</span>, fontsize<span class="op">=</span><span class="dv">10</span>, color<span class="op">=</span><span class="st">"#1f2937"</span>)</span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> <span class="bu">len</span>(name) <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Leaf — colour by number of heads</span></span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>            n_heads <span class="op">=</span> name.count(<span class="st">"H"</span>)</span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a>            shades <span class="op">=</span> [<span class="st">"#fef3c7"</span>, <span class="st">"#fde68a"</span>, <span class="st">"#fcd34d"</span>, <span class="st">"#f59e0b"</span>]</span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a>            ax.scatter(x, y, s<span class="op">=</span><span class="dv">900</span>, c<span class="op">=</span>shades[n_heads],</span>
+<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a>                       edgecolor<span class="op">=</span><span class="st">"#92400e"</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, zorder<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a>            ax.annotate(name, xy<span class="op">=</span>(x, y), ha<span class="op">=</span><span class="st">"center"</span>, va<span class="op">=</span><span class="st">"center"</span>,</span>
+<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a>                        fontsize<span class="op">=</span><span class="dv">10</span>, fontweight<span class="op">=</span><span class="st">"bold"</span>, color<span class="op">=</span><span class="st">"#78350f"</span>, zorder<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a>            ax.scatter(x, y, s<span class="op">=</span><span class="dv">600</span>, c<span class="op">=</span><span class="st">"white"</span>, edgecolor<span class="op">=</span><span class="st">"#475569"</span>,</span>
+<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a>                       linewidth<span class="op">=</span><span class="fl">1.5</span>, zorder<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a>            ax.annotate(name, xy<span class="op">=</span>(x, y), ha<span class="op">=</span><span class="st">"center"</span>, va<span class="op">=</span><span class="st">"center"</span>,</span>
+<span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a>                        fontsize<span class="op">=</span><span class="dv">9</span>, color<span class="op">=</span><span class="st">"#1f2937"</span>, zorder<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Stage labels on the left</span></span>
+<span id="cb13-51"><a href="#cb13-51" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> stage_y, label <span class="kw">in</span> [(<span class="dv">3</span>, <span class="st">"Start"</span>), (<span class="dv">2</span>, <span class="st">"Toss 1"</span>), (<span class="dv">1</span>, <span class="st">"Toss 2"</span>), (<span class="dv">0</span>, <span class="st">"Toss 3"</span>)]:</span>
+<span id="cb13-52"><a href="#cb13-52" aria-hidden="true" tabindex="-1"></a>        ax.annotate(label, xy<span class="op">=</span>(<span class="op">-</span><span class="fl">0.4</span>, stage_y), ha<span class="op">=</span><span class="st">"right"</span>, va<span class="op">=</span><span class="st">"center"</span>,</span>
+<span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a>                    fontsize<span class="op">=</span><span class="dv">10</span>, color<span class="op">=</span><span class="st">"#475569"</span>, style<span class="op">=</span><span class="st">"italic"</span>)</span>
+<span id="cb13-54"><a href="#cb13-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-55"><a href="#cb13-55" aria-hidden="true" tabindex="-1"></a>    ax.set_xlim(<span class="op">-</span><span class="dv">1</span>, <span class="fl">8.5</span>)</span>
+<span id="cb13-56"><a href="#cb13-56" aria-hidden="true" tabindex="-1"></a>    ax.set_ylim(<span class="op">-</span><span class="fl">0.5</span>, <span class="fl">3.5</span>)</span>
+<span id="cb13-57"><a href="#cb13-57" aria-hidden="true" tabindex="-1"></a>    ax.axis(<span class="st">"off"</span>)</span>
+<span id="cb13-58"><a href="#cb13-58" aria-hidden="true" tabindex="-1"></a>    ax.set_title(<span class="st">"Tree diagram: three coin tosses → 8 leaf outcomes"</span>,</span>
+<span id="cb13-59"><a href="#cb13-59" aria-hidden="true" tabindex="-1"></a>                 fontsize<span class="op">=</span><span class="dv">12</span>, pad<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb13-60"><a href="#cb13-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-61"><a href="#cb13-61" aria-hidden="true" tabindex="-1"></a>draw_tree(ax)</span>
+<span id="cb13-62"><a href="#cb13-62" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb13-63"><a href="#cb13-63" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="what_is_probability_files/figure-html/cell-9-output-1.png" width="1046" height="566" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A few things this picture makes obvious:</p>
+<ul>
+<li><p><strong>Sample space is the leaves.</strong> <span class="math inline">\Omega = \{\text{HHH, HHT, HTH, HTT, THH, THT, TTH, TTT}\}</span>, so <span class="math inline">|\Omega| = 2^3 = 8</span>. (More generally: <span class="math inline">2^n</span> leaves for <span class="math inline">n</span> tosses.)</p></li>
+<li><p><strong>Events are sets of leaves.</strong> “Exactly 2 heads” = <span class="math inline">\{\text{HHT, HTH, THH}\}</span> (the medium-shaded leaves above). “At least 1 head” = all leaves except <span class="math inline">\{\text{TTT}\}</span>.</p></li>
+<li><p><strong>Probabilities follow paths.</strong> Each branch in a fair coin tree is taken with probability <span class="math inline">1/2</span>, and the probability of reaching a specific leaf is the product along the path: <span class="math inline">(1/2)(1/2)(1/2) = 1/8</span>. Multiply along branches; add across branches.</p></li>
+</ul>
+<p>Let’s verify by computing some probabilities directly from the tree:</p>
+<div id="9cc1cf3f" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> product</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate all leaves</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>leaves <span class="op">=</span> <span class="bu">list</span>(product(<span class="st">"HT"</span>, repeat<span class="op">=</span><span class="dv">3</span>))</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Sample space size: </span><span class="sc">{</span><span class="bu">len</span>(leaves)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"All leaves: </span><span class="sc">{</span>[<span class="st">''</span>.join(l) <span class="cf">for</span> l <span class="kw">in</span> leaves]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Each leaf has probability (1/2)^3 = 1/8 since each toss is independent</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># (we'll formalise 'independence' next chapter; for now treat the tree</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co"># as visual evidence)</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>p_leaf <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> <span class="dv">8</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Event A: exactly 2 heads</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>event_A <span class="op">=</span> [l <span class="cf">for</span> l <span class="kw">in</span> leaves <span class="cf">if</span> l.count(<span class="st">"H"</span>) <span class="op">==</span> <span class="dv">2</span>]</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">P(exactly 2 heads) = </span><span class="sc">{</span><span class="bu">len</span>(event_A)<span class="sc">}</span><span class="ss">/8 = </span><span class="sc">{</span><span class="bu">len</span>(event_A)<span class="op">/</span><span class="dv">8</span><span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  leaves: </span><span class="sc">{</span>[<span class="st">''</span>.join(l) <span class="cf">for</span> l <span class="kw">in</span> event_A]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Event B: at least 1 head</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>event_B <span class="op">=</span> [l <span class="cf">for</span> l <span class="kw">in</span> leaves <span class="cf">if</span> l.count(<span class="st">"H"</span>) <span class="op">&gt;=</span> <span class="dv">1</span>]</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">P(at least 1 head) = </span><span class="sc">{</span><span class="bu">len</span>(event_B)<span class="sc">}</span><span class="ss">/8 = </span><span class="sc">{</span><span class="bu">len</span>(event_B)<span class="op">/</span><span class="dv">8</span><span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Event C: all three are the same</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>event_C <span class="op">=</span> [l <span class="cf">for</span> l <span class="kw">in</span> leaves <span class="cf">if</span> l.count(<span class="st">"H"</span>) <span class="kw">in</span> (<span class="dv">0</span>, <span class="dv">3</span>)]</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">P(all same) = </span><span class="sc">{</span><span class="bu">len</span>(event_C)<span class="sc">}</span><span class="ss">/8 = </span><span class="sc">{</span><span class="bu">len</span>(event_C)<span class="op">/</span><span class="dv">8</span><span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Sample space size: 8
+All leaves: ['HHH', 'HHT', 'HTH', 'HTT', 'THH', 'THT', 'TTH', 'TTT']
+
+P(exactly 2 heads) = 3/8 = 0.375
+  leaves: ['HHT', 'HTH', 'THH']
+
+P(at least 1 head) = 7/8 = 0.875
+
+P(all same) = 2/8 = 0.25</code></pre>
+</div>
+</div>
+<p>Trees aren’t just pictures — they’re a <strong>systematic way to enumerate</strong> sequential outcomes without missing any or double-counting. Whenever a problem can be described as “first this happens, then that, then…”, draw the tree first. The math becomes obvious.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Why we’ll keep coming back to trees
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Trees are the natural picture for <strong>conditional probability</strong> (the next chapter). The branches into a node from above are the conditioning; the branches out are the conditional probabilities given that you’ve arrived. Bayes’ rule is just “go up the tree and re-weight”. We’ll build up to that — but the tree you just drew is the seed.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="tying-it-together-simulating-the-dice" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="tying-it-together-simulating-the-dice"><span class="header-section-number">2.7</span> Tying it together: simulating the dice</h2>
 <p>We’ve defined a model: <span class="math inline">\Omega</span>, events, probability law. <strong>Stage 1 done.</strong> Now we do <strong>Stage 2</strong> (analysis) and check it against simulation.</p>
 <blockquote class="blockquote">
 <p><em>Question.</em> What’s the probability that the sum of two dice is 7?</p>
 </blockquote>
 <p>Let’s compute it three ways and watch them agree.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>The classical probability formula
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When all outcomes in a finite sample space are <strong>equally likely</strong>, the probability of any event <span class="math inline">A</span> is simply</p>
+<p><span class="math display">
+P(A) \;=\; \frac{|A|}{|\Omega|} \;=\; \frac{\text{number of outcomes in } A}{\text{total number of outcomes}}.
+</span></p>
+<p>This is sometimes called the <strong>discrete uniform probability law</strong>, and it’s the workhorse formula behind half the probability problems you’ll ever solve. It reduces probability to a counting problem — which is why combinatorics (Part II of the book) gets so useful, so quickly.</p>
+<p>For our two dice, every outcome has probability <span class="math inline">1/36</span>, so <span class="math inline">P(\text{sum}=7)
+= |A|/36</span>. We just need to count the cells.</p>
+</div>
+</div>
 <p><strong>Way 1 — Counting (analytical).</strong></p>
-<div id="46958509" class="cell" data-execution_count="8">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># By the equally-likely-outcomes formula</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>event_sum_7 <span class="op">=</span> {(d1, d2) <span class="cf">for</span> d1, d2 <span class="kw">in</span> omega <span class="cf">if</span> d1 <span class="op">+</span> d2 <span class="op">==</span> <span class="dv">7</span>}</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>p_analytical <span class="op">=</span> <span class="bu">len</span>(event_sum_7) <span class="op">/</span> <span class="dv">36</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Analytical P(sum=7) = </span><span class="sc">{</span><span class="bu">len</span>(event_sum_7)<span class="sc">}</span><span class="ss">/36 = </span><span class="sc">{</span>p_analytical<span class="sc">:.6f}</span><span class="ss">"</span>)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"                    = </span><span class="sc">{</span>p_analytical<span class="sc">:.4%}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="4868e885" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># By the equally-likely-outcomes formula</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>event_sum_7 <span class="op">=</span> {(d1, d2) <span class="cf">for</span> d1, d2 <span class="kw">in</span> omega <span class="cf">if</span> d1 <span class="op">+</span> d2 <span class="op">==</span> <span class="dv">7</span>}</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>p_analytical <span class="op">=</span> <span class="bu">len</span>(event_sum_7) <span class="op">/</span> <span class="dv">36</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Analytical P(sum=7) = </span><span class="sc">{</span><span class="bu">len</span>(event_sum_7)<span class="sc">}</span><span class="ss">/36 = </span><span class="sc">{</span>p_analytical<span class="sc">:.6f}</span><span class="ss">"</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"                    = </span><span class="sc">{</span>p_analytical<span class="sc">:.4%}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analytical P(sum=7) = 6/36 = 0.166667
                     = 16.6667%</code></pre>
 </div>
 </div>
 <p><strong>Way 2 — Simulation (frequentist).</strong></p>
-<div id="a11b571e" class="cell" data-execution_count="9">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Roll a million pairs of dice and count the fraction with sum = 7.</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>n_rolls <span class="op">=</span> <span class="dv">1_000_000</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>d1 <span class="op">=</span> rng.integers(<span class="dv">1</span>, <span class="dv">7</span>, size<span class="op">=</span>n_rolls)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>d2 <span class="op">=</span> rng.integers(<span class="dv">1</span>, <span class="dv">7</span>, size<span class="op">=</span>n_rolls)</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>sums <span class="op">=</span> d1 <span class="op">+</span> d2</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>p_empirical <span class="op">=</span> (sums <span class="op">==</span> <span class="dv">7</span>).mean()</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Empirical P(sum=7)  = </span><span class="sc">{</span>p_empirical<span class="sc">:.6f}</span><span class="ss">  (from </span><span class="sc">{</span>n_rolls<span class="sc">:,}</span><span class="ss"> rolls)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="cb739884" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Roll a million pairs of dice and count the fraction with sum = 7.</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>n_rolls <span class="op">=</span> <span class="dv">1_000_000</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>d1 <span class="op">=</span> rng.integers(<span class="dv">1</span>, <span class="dv">7</span>, size<span class="op">=</span>n_rolls)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>d2 <span class="op">=</span> rng.integers(<span class="dv">1</span>, <span class="dv">7</span>, size<span class="op">=</span>n_rolls)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>sums <span class="op">=</span> d1 <span class="op">+</span> d2</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>p_empirical <span class="op">=</span> (sums <span class="op">==</span> <span class="dv">7</span>).mean()</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Empirical P(sum=7)  = </span><span class="sc">{</span>p_empirical<span class="sc">:.6f}</span><span class="ss">  (from </span><span class="sc">{</span>n_rolls<span class="sc">:,}</span><span class="ss"> rolls)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Empirical P(sum=7)  = 0.167003  (from 1,000,000 rolls)</code></pre>
 </div>
 </div>
 <p><strong>Way 3 — Picture (where you can just <em>see</em> the answer).</strong></p>
-<div id="31445efb" class="cell" data-execution_count="10">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the 6×6 grid. Highlight outcomes whose sum is 7.</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="fl">5.5</span>, <span class="fl">5.5</span>))</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> d1 <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">7</span>):</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> d2 <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">7</span>):</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        is_7 <span class="op">=</span> (d1 <span class="op">+</span> d2 <span class="op">==</span> <span class="dv">7</span>)</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        color <span class="op">=</span> <span class="st">"#3b82f6"</span> <span class="cf">if</span> is_7 <span class="cf">else</span> <span class="st">"#e5e7eb"</span></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>        ax.scatter(d1, d2, s<span class="op">=</span><span class="dv">900</span>, c<span class="op">=</span>color, edgecolor<span class="op">=</span><span class="st">"white"</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>        ax.annotate(<span class="ss">f"</span><span class="sc">{</span>d1<span class="op">+</span>d2<span class="sc">}</span><span class="ss">"</span>, xy<span class="op">=</span>(d1, d2), ha<span class="op">=</span><span class="st">"center"</span>, va<span class="op">=</span><span class="st">"center"</span>,</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>                    fontsize<span class="op">=</span><span class="dv">11</span>, color<span class="op">=</span><span class="st">"white"</span> <span class="cf">if</span> is_7 <span class="cf">else</span> <span class="st">"#374151"</span>,</span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>                    fontweight<span class="op">=</span><span class="st">"bold"</span>)</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">7</span>))</span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>ax.set_yticks(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">7</span>))</span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Die 1"</span>)</span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Die 2"</span>)</span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Each cell shows the sum.  Blue = sum is 7.</span><span class="ch">\n</span><span class="st">6/36 cells highlighted."</span>)</span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="fl">0.5</span>, <span class="fl">6.5</span>)</span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="fl">0.5</span>, <span class="fl">6.5</span>)</span>
-<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>ax.set_aspect(<span class="st">"equal"</span>)</span>
-<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">False</span>)</span>
-<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="dad8a4dd" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the 6×6 grid. Highlight outcomes whose sum is 7.</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="fl">5.5</span>, <span class="fl">5.5</span>))</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> d1 <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">7</span>):</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> d2 <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">7</span>):</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>        is_7 <span class="op">=</span> (d1 <span class="op">+</span> d2 <span class="op">==</span> <span class="dv">7</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>        color <span class="op">=</span> <span class="st">"#3b82f6"</span> <span class="cf">if</span> is_7 <span class="cf">else</span> <span class="st">"#e5e7eb"</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>        ax.scatter(d1, d2, s<span class="op">=</span><span class="dv">900</span>, c<span class="op">=</span>color, edgecolor<span class="op">=</span><span class="st">"white"</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>        ax.annotate(<span class="ss">f"</span><span class="sc">{</span>d1<span class="op">+</span>d2<span class="sc">}</span><span class="ss">"</span>, xy<span class="op">=</span>(d1, d2), ha<span class="op">=</span><span class="st">"center"</span>, va<span class="op">=</span><span class="st">"center"</span>,</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>                    fontsize<span class="op">=</span><span class="dv">11</span>, color<span class="op">=</span><span class="st">"white"</span> <span class="cf">if</span> is_7 <span class="cf">else</span> <span class="st">"#374151"</span>,</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>                    fontweight<span class="op">=</span><span class="st">"bold"</span>)</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">7</span>))</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>ax.set_yticks(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">7</span>))</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Die 1"</span>)</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Die 2"</span>)</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Each cell shows the sum.  Blue = sum is 7.</span><span class="ch">\n</span><span class="st">6/36 cells highlighted."</span>)</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="fl">0.5</span>, <span class="fl">6.5</span>)</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="fl">0.5</span>, <span class="fl">6.5</span>)</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>ax.set_aspect(<span class="st">"equal"</span>)</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">False</span>)</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="what_is_probability_files/figure-html/cell-11-output-1.png" width="476" height="519" class="figure-img"></p>
+<p><img src="what_is_probability_files/figure-html/cell-13-output-1.png" width="476" height="519" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1185,8 +1384,8 @@ P\!\left(\bigcup_i A_i\right) \le \sum_i P(A_i).
 <p>That triangulation — formula, simulation, picture — is the working style we’ll use for the entire book. Whenever you’re unsure of an answer: <strong>simulate it. Picture it. Then prove it.</strong></p>
 <hr>
 </section>
-<section id="three-things-you-should-take-away" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="three-things-you-should-take-away"><span class="header-section-number">2.7</span> Three things you should take away</h2>
+<section id="three-things-you-should-take-away" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="three-things-you-should-take-away"><span class="header-section-number">2.8</span> Three things you should take away</h2>
 <ol type="1">
 <li><p><strong>Probability has two interpretations and one math.</strong> Frequentist probability is a long-run frequency; subjective probability is a degree of belief. They argue about Stage 1 (modelling). They agree on Stage 2 (the math).</p></li>
 <li><p><strong>Every probability calculation rests on three things</strong> — sample space, events, axioms. Specify the first two carefully; the third is non-negotiable. Most “paradoxes” come from being sloppy about <span class="math inline">\Omega</span>.</p></li>
@@ -1194,8 +1393,8 @@ P\!\left(\bigcup_i A_i\right) \le \sum_i P(A_i).
 </ol>
 <hr>
 </section>
-<section id="exercises" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="exercises"><span class="header-section-number">2.8</span> Exercises</h2>
+<section id="exercises" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="exercises"><span class="header-section-number">2.9</span> Exercises</h2>
 <ol type="1">
 <li><p><strong>Build a sample space.</strong> Define <span class="math inline">\Omega</span> for the experiment “draw one card from a standard 52-card deck”. Then describe the following events as subsets:</p>
 <ol type="a">
