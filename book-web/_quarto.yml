@@ -1,0 +1,30 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "Math Bootcamp"
+  subtitle: "From Algebra to Probability — A practical guide for ML"
+  author: "Nithin Vadekkapat"
+  date: today
+  search: true
+  repo-url: https://github.com/Nithin/math-bootcamp
+  repo-actions: [edit, issue]
+  sidebar:
+    style: docked
+    background: light
+  chapters:
+    - index.qmd
+    - chapters/introduction.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    toc: true
+    code-copy: true
+    code-overflow: wrap
+    html-math-method: katex

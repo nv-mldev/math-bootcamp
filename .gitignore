@@ -66,3 +66,7 @@ Thumbs.db
 *.synctex.gz
 *.toc
 .venv/
+
+# Quarto build output
+book-web/_book/
+book-web/.quarto/

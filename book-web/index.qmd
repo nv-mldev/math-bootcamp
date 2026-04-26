@@ -1,0 +1,21 @@
+# Preface {.unnumbered}
+
+Welcome to **Math Bootcamp** — a practical guide to the mathematics behind
+machine learning, written as a self-contained book.
+
+The book is structured around the following flow for each topic:
+
+1. **Intuition** — what is the idea, and why does it matter?
+2. **Math** — the formal definitions and derivations.
+3. **Code** — Python implementations you can run yourself.
+4. **Visualization** — diagrams and plots that make the math concrete.
+
+This is a living document. New chapters are added as they are written. If
+you spot an error or have a suggestion, the **Edit this page** link in the
+top-right of each chapter goes straight to the source on GitHub.
+
+::: {.callout-note}
+This is a proof-of-concept build. Only the introductory chapter is
+currently available on the web; the remaining chapters are being migrated
+from the LaTeX source.
+:::
