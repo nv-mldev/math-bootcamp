@@ -1,0 +1,122 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Math Bootcamp",
+    "section": "",
+    "text": "Preface\nWelcome to Math Bootcamp — a practical guide to the mathematics behind machine learning, written as a self-contained book.\nThe book is structured around the following flow for each topic:\n\nIntuition — what is the idea, and why does it matter?\nMath — the formal definitions and derivations.\nCode — Python implementations you can run yourself.\nVisualization — diagrams and plots that make the math concrete.\n\nThis is a living document. New chapters are added as they are written. If you spot an error or have a suggestion, the Edit this page link in the top-right of each chapter goes straight to the source on GitHub.\n\n\n\n\n\n\nNote\n\n\n\nThis is a proof-of-concept build. Only the introductory chapter is currently available on the web; the remaining chapters are being migrated from the LaTeX source.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "chapters/introduction.html",
+    "href": "chapters/introduction.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "1.1 Origins of Algebra",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/introduction.html#origins-of-algebra",
+    "href": "chapters/introduction.html#origins-of-algebra",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "Mesopotamia and Egypt (c. 2000–1600 BCE)\n\nEarly problem-solving (linear/quadratic equations) in word problems\nNo formal symbols, but systematic procedures\n\nGreek Era (c. 600 BCE–300 CE)\n\nGeometric methods for solving equations (Euclid, Apollonius)\nDiophantus introduced proto-symbolic notation\n\nIslamic Golden Age (8th–12th Century)\n\nAl-Khwarizmi’s work Al-jabr \\rightarrow term “Algebra”\nSystematic solutions for linear and quadratic equations\n\nTransmission to Europe (12th–17th Century)\n\nLatin translations influenced Fibonacci, others\nViète, Descartes established modern symbolic notation and analytic geometry\n\nModern Algebra (19th–20th Century)\n\nEmergence of abstract algebra (groups, rings, fields)\nGalois, Abel, and others formalized algebraic structures",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/introduction.html#what-is-algebra",
+    "href": "chapters/introduction.html#what-is-algebra",
+    "title": "1  Introduction",
+    "section": "1.2 What is Algebra?",
+    "text": "1.2 What is Algebra?\nAlgebra is a branch of mathematics that deals with numbers, variables, and their relationships. Key concepts include:\n\nVariables — symbols (like x, y) representing unknown or changing values.\nExpressions — combinations of variables, numbers, and operations. E.g., 2x + 3.\nEquations — mathematical statements that express equality, e.g., 2x + 3 = 7.\nSolving equations — finding values for variables that make an equation true.\nPolynomials — expressions like 3x^2 + 2x - 5 involving variables raised to powers.\nFunctions — describes a relationship between variables, e.g., y = 2x + 1.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/introduction.html#why-algebra-is-important-in-machine-learning",
+    "href": "chapters/introduction.html#why-algebra-is-important-in-machine-learning",
+    "title": "1  Introduction",
+    "section": "1.3 Why Algebra is Important in Machine Learning",
+    "text": "1.3 Why Algebra is Important in Machine Learning\n\nData representation. Data is often represented as vectors, matrices, and tensors. Algebra provides the tools for efficiently handling these structures.\nModel building. Many machine learning models (e.g., linear regression, neural networks) rely on algebraic operations like matrix multiplication and linear transformations.\nOptimization. Training models involves solving systems of equations, computing gradients, and performing matrix decompositions, all of which require algebra.\nTheoretical insights. Concepts such as feature spaces, eigenvalues, eigenvectors, and dimensionality reduction (e.g., PCA) are based on algebraic principles.\nComputational efficiency. Algebraic methods enable the development of efficient algorithms that can be optimized for modern hardware.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/introduction.html#integers",
+    "href": "chapters/introduction.html#integers",
+    "title": "1  Introduction",
+    "section": "1.4 Integers",
+    "text": "1.4 Integers\nThe set of integers is denoted by \\mathbb{Z}, and includes:\n\n\\ldots, -3, -2, -1, 0, 1, 2, 3, \\ldots\n\nFormally, \\mathbb{Z} = \\{\\dots, -2, -1, 0, 1, 2, \\dots\\}.\nCommon properties.\n\n\\mathbb{Z} is infinite and unbounded in both the negative and positive directions.\nClosed under addition, subtraction, and multiplication:\n\n\n\\forall a, b \\in \\mathbb{Z}, \\quad\na \\pm b \\in \\mathbb{Z}, \\quad\na \\cdot b \\in \\mathbb{Z}.\n\nThe quotient of two integers is not necessarily an integer, so we extend arithmetic to rational numbers.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/introduction.html#rational-numbers",
+    "href": "chapters/introduction.html#rational-numbers",
+    "title": "1  Introduction",
+    "section": "1.5 Rational Numbers",
+    "text": "1.5 Rational Numbers\nThe set of rational numbers is denoted by \\mathbb{Q}, defined as:\n\n\\mathbb{Q} = \\left\\{ \\frac{p}{q} \\,\\middle|\\,\np \\in \\mathbb{Z}, \\; q \\in \\mathbb{Z}, \\; q \\neq 0\n\\right\\}.\n\nEvery integer is also a rational number (e.g., 5 = \\tfrac{5}{1}).\nExamples.\n\n\\frac{1}{2}, \\quad -\\frac{3}{4}, \\quad 0, \\quad 7, \\quad \\frac{11}{5}, \\ldots\n\nProperties.\n\nClosed under addition, subtraction, multiplication, and division (except division by zero).\nDensely packed on the number line — between any two rationals, there is another rational.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/introduction.html#interesting-facts",
+    "href": "chapters/introduction.html#interesting-facts",
+    "title": "1  Introduction",
+    "section": "1.6 Interesting Facts",
+    "text": "1.6 Interesting Facts\n\n\n\n\n\n\nTipWhy is division by zero prohibited?\n\n\n\nDivision is the inverse of multiplication in the sense\n\n\\frac{m}{n} \\cdot n = m.\n\nIf n = 0 and m = 1, we get \\frac{1}{0} \\cdot 0 = 1, which is nonsensical because any number multiplied by zero is zero.\n\n\n\nRational numbers suffice for all actual physical measurements like weight, height, and length.\nBut geometry, algebra, and calculus force us to consider real numbers.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/introduction.html#a-real-number-line",
+    "href": "chapters/introduction.html#a-real-number-line",
+    "title": "1  Introduction",
+    "section": "1.7 A Real Number Line",
+    "text": "1.7 A Real Number Line\n\n\n\n\n\nIf n is a positive integer, then \\tfrac{1}{n} is to the right of 0 by the length obtained by dividing the segment from 0 to 1 into n segments of equal length.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/introduction.html#is-every-real-number-a-rational",
+    "href": "chapters/introduction.html#is-every-real-number-a-rational",
+    "title": "1  Introduction",
+    "section": "1.8 Is Every Real Number a Rational?",
+    "text": "1.8 Is Every Real Number a Rational?\n\n\n\n\n\nBy the Pythagorean theorem, c^{2} = a^{2} + b^{2}. If a = 1 and b = 1, then c^{2} = 2. So which rational number is c?\nBy trial and error,\n\n\\left( \\frac{99}{70} \\right)^{2}  = \\frac{9801}{4900}\n\nwhere the numerator just misses twice the denominator by 1 — close to 2, but not 2. Another attempt:\n\n\\left( \\frac{9369319}{6625109} \\right)^{2} = 1.999999999999977,\n\nstill not 2. The Greeks proved that it is impossible to find any rational number whose square is 2.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/introduction.html#proof-no-rational-number-has-a-square-equal-to-2",
+    "href": "chapters/introduction.html#proof-no-rational-number-has-a-square-equal-to-2",
+    "title": "1  Introduction",
+    "section": "1.9 Proof: No Rational Number Has a Square Equal to 2",
+    "text": "1.9 Proof: No Rational Number Has a Square Equal to 2\nSuppose m and n are integers and\n\n\\left( \\frac{m}{n} \\right)^{2} = 2,\n\nwith \\tfrac{m}{n} already reduced to lowest terms (no common factors). Then:\n\nm^{2} = 2n^{2},\n\nso m^{2} is even, and therefore m is even (the square of an even integer is even; the square of an odd integer is odd). Write m = 2k for some integer k. Substituting:\n\n4k^{2} = 2n^{2} \\;\\Longrightarrow\\; 2k^{2} = n^{2},\n\nso n^{2} is even, and therefore n is even. But then m and n share a common factor of 2, which contradicts our assumption that \\tfrac{m}{n} was in lowest terms. \\blacksquare",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/introduction.html#irrational-numbers",
+    "href": "chapters/introduction.html#irrational-numbers",
+    "title": "1  Introduction",
+    "section": "1.10 Irrational Numbers",
+    "text": "1.10 Irrational Numbers\n\n\n\n\n\n\nImportantDefinition — Irrational Number\n\n\n\nA real number that is not rational is an irrational number.\n\n\nExamples:\n\n\\sqrt{2}\n3 + \\sqrt{2}\n8\\sqrt{2}",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  }
+]
