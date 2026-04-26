@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; Introduction – Math Bootcamp</title>
+<title>3&nbsp; Conditional Probability – Math Bootcamp</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,32 +23,66 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../chapters/probability/what_is_probability.html" rel="next">
-<link href="../index.html" rel="prev">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-837715a9b051786859ba5690928b907c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-d238813cdd6b312b1a55b5f3c43c7949.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-837715a9b051786859ba5690928b907c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../chapters/probability/what_is_probability.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-837715a9b051786859ba5690928b907c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-d238813cdd6b312b1a55b5f3c43c7949.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-837715a9b051786859ba5690928b907c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -294,7 +328,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/introduction.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/probability/what_is_probability.html">Probability</a></li><li class="breadcrumb-item"><a href="../../chapters/probability/conditional.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Conditional Probability</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -309,7 +343,7 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">Math Bootcamp</a> 
+      <a href="../../">Math Bootcamp</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/Nithin/math-bootcamp" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
@@ -325,13 +359,13 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/introduction.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../chapters/introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
@@ -346,13 +380,13 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/probability/what_is_probability.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/probability/what_is_probability.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What is Probability?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/probability/conditional.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/probability/conditional.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Conditional Probability</span></span></a>
   </div>
 </li>
@@ -368,26 +402,23 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#origins-of-algebra" id="toc-origins-of-algebra" class="nav-link active" data-scroll-target="#origins-of-algebra"><span class="header-section-number">1.1</span> Origins of Algebra</a></li>
-  <li><a href="#what-is-algebra" id="toc-what-is-algebra" class="nav-link" data-scroll-target="#what-is-algebra"><span class="header-section-number">1.2</span> What is Algebra?</a></li>
-  <li><a href="#why-algebra-is-important-in-machine-learning" id="toc-why-algebra-is-important-in-machine-learning" class="nav-link" data-scroll-target="#why-algebra-is-important-in-machine-learning"><span class="header-section-number">1.3</span> Why Algebra is Important in Machine Learning</a></li>
-  <li><a href="#integers" id="toc-integers" class="nav-link" data-scroll-target="#integers"><span class="header-section-number">1.4</span> Integers</a></li>
-  <li><a href="#rational-numbers" id="toc-rational-numbers" class="nav-link" data-scroll-target="#rational-numbers"><span class="header-section-number">1.5</span> Rational Numbers</a></li>
-  <li><a href="#interesting-facts" id="toc-interesting-facts" class="nav-link" data-scroll-target="#interesting-facts"><span class="header-section-number">1.6</span> Interesting Facts</a></li>
-  <li><a href="#a-real-number-line" id="toc-a-real-number-line" class="nav-link" data-scroll-target="#a-real-number-line"><span class="header-section-number">1.7</span> A Real Number Line</a></li>
-  <li><a href="#is-every-real-number-a-rational" id="toc-is-every-real-number-a-rational" class="nav-link" data-scroll-target="#is-every-real-number-a-rational"><span class="header-section-number">1.8</span> Is Every Real Number a Rational?</a></li>
-  <li><a href="#proof-no-rational-number-has-a-square-equal-to-2" id="toc-proof-no-rational-number-has-a-square-equal-to-2" class="nav-link" data-scroll-target="#proof-no-rational-number-has-a-square-equal-to-2"><span class="header-section-number">1.9</span> Proof: No Rational Number Has a Square Equal to 2</a></li>
-  <li><a href="#irrational-numbers" id="toc-irrational-numbers" class="nav-link" data-scroll-target="#irrational-numbers"><span class="header-section-number">1.10</span> Irrational Numbers</a></li>
+  <li><a href="#the-question" id="toc-the-question" class="nav-link active" data-scroll-target="#the-question"><span class="header-section-number">3.1</span> The question</a></li>
+  <li><a href="#step-1-simulate-the-test" id="toc-step-1-simulate-the-test" class="nav-link" data-scroll-target="#step-1-simulate-the-test"><span class="header-section-number">3.2</span> Step 1 — Simulate the test</a></li>
+  <li><a href="#step-2-stare-at-the-table" id="toc-step-2-stare-at-the-table" class="nav-link" data-scroll-target="#step-2-stare-at-the-table"><span class="header-section-number">3.3</span> Step 2 — Stare at the table</a></li>
+  <li><a href="#step-3-now-the-formula" id="toc-step-3-now-the-formula" class="nav-link" data-scroll-target="#step-3-now-the-formula"><span class="header-section-number">3.4</span> Step 3 — Now the formula</a></li>
+  <li><a href="#why-the-result-was-so-counterintuitive" id="toc-why-the-result-was-so-counterintuitive" class="nav-link" data-scroll-target="#why-the-result-was-so-counterintuitive"><span class="header-section-number">3.5</span> Why the result was so counterintuitive</a></li>
+  <li><a href="#three-things-you-should-take-away" id="toc-three-things-you-should-take-away" class="nav-link" data-scroll-target="#three-things-you-should-take-away"><span class="header-section-number">3.6</span> Three things you should take away</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">3.7</span> Exercises</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/Nithin/math-bootcamp/edit/main/chapters/introduction.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Nithin/math-bootcamp/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/Nithin/math-bootcamp/edit/main/chapters/probability/conditional.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Nithin/math-bootcamp/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/probability/what_is_probability.html">Probability</a></li><li class="breadcrumb-item"><a href="../../chapters/probability/conditional.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Conditional Probability</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Conditional Probability</span></h1>
 </div>
 
 
@@ -404,184 +435,253 @@ window.Quarto = {
 </header>
 
 
-<section id="origins-of-algebra" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="origins-of-algebra"><span class="header-section-number">1.1</span> Origins of Algebra</h2>
-<ul>
-<li><strong>Mesopotamia and Egypt (c.&nbsp;2000–1600 BCE)</strong>
-<ul>
-<li>Early problem-solving (linear/quadratic equations) in word problems</li>
-<li>No formal symbols, but systematic procedures</li>
-</ul></li>
-<li><strong>Greek Era (c.&nbsp;600 BCE–300 CE)</strong>
-<ul>
-<li>Geometric methods for solving equations (Euclid, Apollonius)</li>
-<li>Diophantus introduced proto-symbolic notation</li>
-</ul></li>
-<li><strong>Islamic Golden Age (8th–12th Century)</strong>
-<ul>
-<li>Al-Khwarizmi’s work <em>Al-jabr</em> <span class="math inline">\rightarrow</span> term “Algebra”</li>
-<li>Systematic solutions for linear and quadratic equations</li>
-</ul></li>
-<li><strong>Transmission to Europe (12th–17th Century)</strong>
-<ul>
-<li>Latin translations influenced Fibonacci, others</li>
-<li>Viète, Descartes established modern symbolic notation and analytic geometry</li>
-</ul></li>
-<li><strong>Modern Algebra (19th–20th Century)</strong>
-<ul>
-<li>Emergence of abstract algebra (groups, rings, fields)</li>
-<li>Galois, Abel, and others formalized algebraic structures</li>
-</ul></li>
-</ul>
-</section>
-<section id="what-is-algebra" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="what-is-algebra"><span class="header-section-number">1.2</span> What is Algebra?</h2>
-<p>Algebra is a branch of mathematics that deals with numbers, variables, and their relationships. Key concepts include:</p>
-<ul>
-<li><strong>Variables</strong> — symbols (like <span class="math inline">x</span>, <span class="math inline">y</span>) representing unknown or changing values.</li>
-<li><strong>Expressions</strong> — combinations of variables, numbers, and operations. E.g., <span class="math inline">2x + 3</span>.</li>
-<li><strong>Equations</strong> — mathematical statements that express equality, e.g., <span class="math inline">2x + 3 = 7</span>.</li>
-<li><strong>Solving equations</strong> — finding values for variables that make an equation true.</li>
-<li><strong>Polynomials</strong> — expressions like <span class="math inline">3x^2 + 2x - 5</span> involving variables raised to powers.</li>
-<li><strong>Functions</strong> — describes a relationship between variables, e.g., <span class="math inline">y = 2x + 1</span>.</li>
-</ul>
-</section>
-<section id="why-algebra-is-important-in-machine-learning" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="why-algebra-is-important-in-machine-learning"><span class="header-section-number">1.3</span> Why Algebra is Important in Machine Learning</h2>
-<ul>
-<li><strong>Data representation.</strong> Data is often represented as vectors, matrices, and tensors. Algebra provides the tools for efficiently handling these structures.</li>
-<li><strong>Model building.</strong> Many machine learning models (e.g., linear regression, neural networks) rely on algebraic operations like matrix multiplication and linear transformations.</li>
-<li><strong>Optimization.</strong> Training models involves solving systems of equations, computing gradients, and performing matrix decompositions, all of which require algebra.</li>
-<li><strong>Theoretical insights.</strong> Concepts such as feature spaces, eigenvalues, eigenvectors, and dimensionality reduction (e.g., PCA) are based on algebraic principles.</li>
-<li><strong>Computational efficiency.</strong> Algebraic methods enable the development of efficient algorithms that can be optimized for modern hardware.</li>
-</ul>
-</section>
-<section id="integers" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="integers"><span class="header-section-number">1.4</span> Integers</h2>
-<p>The set of integers is denoted by <span class="math inline">\mathbb{Z}</span>, and includes:</p>
-<p><span class="math display">
-\ldots, -3, -2, -1, 0, 1, 2, 3, \ldots
-</span></p>
-<p>Formally, <span class="math inline">\mathbb{Z} = \{\dots, -2, -1, 0, 1, 2, \dots\}</span>.</p>
-<p><strong>Common properties.</strong></p>
-<ul>
-<li><span class="math inline">\mathbb{Z}</span> is infinite and unbounded in both the negative and positive directions.</li>
-<li>Closed under addition, subtraction, and multiplication:</li>
-</ul>
-<p><span class="math display">
-\forall a, b \in \mathbb{Z}, \quad
-a \pm b \in \mathbb{Z}, \quad
-a \cdot b \in \mathbb{Z}.
-</span></p>
-<p>The quotient of two integers is not necessarily an integer, so we extend arithmetic to <strong>rational numbers</strong>.</p>
-</section>
-<section id="rational-numbers" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="rational-numbers"><span class="header-section-number">1.5</span> Rational Numbers</h2>
-<p>The set of rational numbers is denoted by <span class="math inline">\mathbb{Q}</span>, defined as:</p>
-<p><span class="math display">
-\mathbb{Q} = \left\{ \frac{p}{q} \,\middle|\,
-p \in \mathbb{Z}, \; q \in \mathbb{Z}, \; q \neq 0
-\right\}.
-</span></p>
-<p>Every integer is also a rational number (e.g., <span class="math inline">5 = \tfrac{5}{1}</span>).</p>
-<p><strong>Examples.</strong></p>
-<p><span class="math display">
-\frac{1}{2}, \quad -\frac{3}{4}, \quad 0, \quad 7, \quad \frac{11}{5}, \ldots
-</span></p>
-<p><strong>Properties.</strong></p>
-<ul>
-<li>Closed under addition, subtraction, multiplication, and division (except division by zero).</li>
-<li>Densely packed on the number line — between any two rationals, there is another rational.</li>
-</ul>
-</section>
-<section id="interesting-facts" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="interesting-facts"><span class="header-section-number">1.6</span> Interesting Facts</h2>
-<div class="callout callout-style-default callout-tip callout-titled" title="Why is division by zero prohibited?">
-<div class="callout-header d-flex align-content-center">
+<section id="the-question" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="the-question"><span class="header-section-number">3.1</span> The question</h2>
+<p>A rapid test for some disease is described as <strong>95% accurate</strong>.</p>
+<p>You take the test. It comes back <strong>positive</strong>.</p>
+<p>How worried should you be?</p>
+<p>If you said “95% chance I have it”, you’re wrong. The right answer might surprise you. To get there, we need <em>conditional probability</em> — the math of <strong>updating what you believe in light of new information</strong>.</p>
+<p>We’ll build the answer in three steps:</p>
+<ol type="1">
+<li>Write a tiny simulation that mirrors the real situation.</li>
+<li>Look at the numbers it produces and notice the pattern.</li>
+<li><em>Then</em> introduce the formula — at which point it’ll feel like the simulation is just executing the formula, not the other way around.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Why is division by zero prohibited?
+<span class="screen-reader-only">Note</span>▶ Show the math — Why this section matters
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Division is the inverse of multiplication in the sense</p>
-<p><span class="math display">
-\frac{m}{n} \cdot n = m.
-</span></p>
-<p>If <span class="math inline">n = 0</span> and <span class="math inline">m = 1</span>, we get <span class="math inline">\frac{1}{0} \cdot 0 = 1</span>, which is nonsensical because any number multiplied by zero is zero.</p>
+<p>Conditional probability is the door to <strong>everything important</strong> in probability that comes after: Bayes’ rule, independence, Markov chains, likelihood, Bayesian inference, every probabilistic ML model. If you only deeply learn one section in this chapter, this is the one.</p>
 </div>
 </div>
+</div>
+<hr>
+</section>
+<section id="step-1-simulate-the-test" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="step-1-simulate-the-test"><span class="header-section-number">3.2</span> Step 1 — Simulate the test</h2>
+<p>Imagine a population of 100,000 people. We need three numbers to define the world:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 43%">
+<col style="width: 7%">
+<col style="width: 48%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>What</th>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Disease prevalence</strong></td>
+<td>1%</td>
+<td>Out of 100,000 people, 1,000 actually sick.</td>
+</tr>
+<tr class="even">
+<td><strong>True-positive rate</strong> (sensitivity)</td>
+<td>95%</td>
+<td>Sick people test positive 95% of the time.</td>
+</tr>
+<tr class="odd">
+<td><strong>True-negative rate</strong> (specificity)</td>
+<td>95%</td>
+<td>Healthy people test negative 95% of the time.</td>
+</tr>
+</tbody>
+</table>
+<p>That second + third number is what “95% accurate” usually means in advertising. The first number — prevalence — is the one nobody mentions, and it’s the one that matters most.</p>
+<p>Let’s run it:</p>
+<div id="6aca4bc5" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(seed<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>population <span class="op">=</span> <span class="dv">100_000</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>prevalence <span class="op">=</span> <span class="fl">0.01</span>            <span class="co"># 1% of people are actually sick</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>sensitivity <span class="op">=</span> <span class="fl">0.95</span>           <span class="co"># P(test+ | sick)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>specificity <span class="op">=</span> <span class="fl">0.95</span>           <span class="co"># P(test- | healthy)</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate who is actually sick</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>is_sick <span class="op">=</span> rng.random(population) <span class="op">&lt;</span> prevalence</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate test results — different probabilities depending on truth</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>test_positive <span class="op">=</span> np.where(</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    is_sick,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    rng.random(population) <span class="op">&lt;</span> sensitivity,    <span class="co"># sick: 95% chance of +</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    rng.random(population) <span class="op">&lt;</span> (<span class="dv">1</span> <span class="op">-</span> specificity)  <span class="co"># healthy: 5% chance of +</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Total people simulated:        </span><span class="sc">{</span>population<span class="sc">:,}</span><span class="ss">"</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Actually sick:                 </span><span class="sc">{</span>is_sick<span class="sc">.</span><span class="bu">sum</span>()<span class="sc">:,}</span><span class="ss">"</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Tested positive:               </span><span class="sc">{</span>test_positive<span class="sc">.</span><span class="bu">sum</span>()<span class="sc">:,}</span><span class="ss">"</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Tested positive AND sick:      </span><span class="sc">{</span>(test_positive <span class="op">&amp;</span> is_sick)<span class="sc">.</span><span class="bu">sum</span>()<span class="sc">:,}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Total people simulated:        100,000
+Actually sick:                 1,047
+Tested positive:               5,846
+Tested positive AND sick:      982</code></pre>
+</div>
+</div>
+<p>Look at those last two lines. <strong>Most people who tested positive are not actually sick.</strong> Let’s compute the answer to our original question:</p>
+<div id="b090c0d3" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>n_positive <span class="op">=</span> test_positive.<span class="bu">sum</span>()</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>n_positive_and_sick <span class="op">=</span> (test_positive <span class="op">&amp;</span> is_sick).<span class="bu">sum</span>()</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>p_sick_given_positive <span class="op">=</span> n_positive_and_sick <span class="op">/</span> n_positive</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P(sick | tested positive) = </span><span class="sc">{</span>p_sick_given_positive<span class="sc">:.1%}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>P(sick | tested positive) = 16.8%</code></pre>
+</div>
+</div>
+<p>About <strong>16%</strong> — not 95%. If you tested positive on this 95%-accurate test for a 1%-prevalence disease, your odds of actually being sick are roughly <em>one in six</em>.</p>
+<p>That should feel deeply wrong on first read. Let’s see why it’s right.</p>
+<hr>
+</section>
+<section id="step-2-stare-at-the-table" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="step-2-stare-at-the-table"><span class="header-section-number">3.3</span> Step 2 — Stare at the table</h2>
+<p>The simulation gave us four kinds of people. Let’s count each:</p>
+<div id="18d494d9" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> pd.crosstab(</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    pd.Series(is_sick, name<span class="op">=</span><span class="st">"actually sick"</span>).<span class="bu">map</span>({<span class="va">True</span>: <span class="st">"sick"</span>, <span class="va">False</span>: <span class="st">"healthy"</span>}),</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    pd.Series(test_positive, name<span class="op">=</span><span class="st">"test result"</span>).<span class="bu">map</span>({<span class="va">True</span>: <span class="st">"positive"</span>, <span class="va">False</span>: <span class="st">"negative"</span>}),</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    margins<span class="op">=</span><span class="va">True</span>, margins_name<span class="op">=</span><span class="st">"total"</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(table)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>test result    negative  positive   total
+actually sick                            
+healthy           94089      4864   98953
+sick                 65       982    1047
+total             94154      5846  100000</code></pre>
+</div>
+</div>
+<p>The <strong>positive</strong> column has two kinds of people in it:</p>
 <ul>
-<li>Rational numbers suffice for all actual physical measurements like weight, height, and length.</li>
-<li>But geometry, algebra, and calculus force us to consider <strong>real numbers</strong>.</li>
+<li><strong>True positives</strong> — actually sick, correctly flagged. (~950 people)</li>
+<li><strong>False positives</strong> — actually healthy, but the test misfired. (~5,000 people)</li>
 </ul>
+<p>Even though the false-positive <em>rate</em> is small (5%), it’s applied to the <em>huge</em> healthy population (99,000). Five percent of a huge group dwarfs ninety-five percent of a tiny group. So the positive column is dominated by healthy people.</p>
+<p>Conditional probability is just <strong>restricting attention to one column</strong> (or one row) of this table:</p>
+<blockquote class="blockquote">
+<p>“What fraction of the <em>positive column</em> is actually sick?”</p>
+<p><span class="math inline">\;\;\;\;= \dfrac{\text{true positives}}{\text{all positives}}</span></p>
+<p><span class="math inline">\;\;\;\;\approx \dfrac{950}{950 + 5000} \approx 16\%.</span></p>
+</blockquote>
+<p>That’s it. That’s the whole idea. Nothing to memorise yet — we just counted.</p>
+<hr>
 </section>
-<section id="a-real-number-line" class="level2" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="a-real-number-line"><span class="header-section-number">1.7</span> A Real Number Line</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../figures/real-line.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
-</figure>
-</div>
-<p>If <span class="math inline">n</span> is a positive integer, then <span class="math inline">\tfrac{1}{n}</span> is to the right of 0 by the length obtained by dividing the segment from 0 to 1 into <span class="math inline">n</span> segments of equal length.</p>
-</section>
-<section id="is-every-real-number-a-rational" class="level2" data-number="1.8">
-<h2 data-number="1.8" class="anchored" data-anchor-id="is-every-real-number-a-rational"><span class="header-section-number">1.8</span> Is Every Real Number a Rational?</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../figures/irrational-geometry.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
-</figure>
-</div>
-<p>By the Pythagorean theorem, <span class="math inline">c^{2} = a^{2} + b^{2}</span>. If <span class="math inline">a = 1</span> and <span class="math inline">b = 1</span>, then <span class="math inline">c^{2} = 2</span>. So which rational number is <span class="math inline">c</span>?</p>
-<p>By trial and error,</p>
+<section id="step-3-now-the-formula" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="step-3-now-the-formula"><span class="header-section-number">3.4</span> Step 3 — Now the formula</h2>
+<p>Let <span class="math inline">S</span> = “actually sick” and <span class="math inline">T</span> = “tested positive”. The phrase “given that the test was positive” is conditional probability, written <span class="math inline">P(S \mid T)</span>. It’s defined as:</p>
 <p><span class="math display">
-\left( \frac{99}{70} \right)^{2}  = \frac{9801}{4900}
+P(S \mid T) \;=\; \frac{P(S \cap T)}{P(T)}
 </span></p>
-<p>where the numerator just misses twice the denominator by 1 — close to 2, but not 2. Another attempt:</p>
-<p><span class="math display">
-\left( \frac{9369319}{6625109} \right)^{2} = 1.999999999999977,
-</span></p>
-<p>still not 2. The Greeks proved that it is impossible to find <em>any</em> rational number whose square is 2.</p>
-</section>
-<section id="proof-no-rational-number-has-a-square-equal-to-2" class="level2" data-number="1.9">
-<h2 data-number="1.9" class="anchored" data-anchor-id="proof-no-rational-number-has-a-square-equal-to-2"><span class="header-section-number">1.9</span> Proof: No Rational Number Has a Square Equal to 2</h2>
-<p>Suppose <span class="math inline">m</span> and <span class="math inline">n</span> are integers and</p>
-<p><span class="math display">
-\left( \frac{m}{n} \right)^{2} = 2,
-</span></p>
-<p>with <span class="math inline">\tfrac{m}{n}</span> already reduced to lowest terms (no common factors). Then:</p>
-<p><span class="math display">
-m^{2} = 2n^{2},
-</span></p>
-<p>so <span class="math inline">m^{2}</span> is even, and therefore <span class="math inline">m</span> is even (the square of an even integer is even; the square of an odd integer is odd). Write <span class="math inline">m = 2k</span> for some integer <span class="math inline">k</span>. Substituting:</p>
-<p><span class="math display">
-4k^{2} = 2n^{2} \;\Longrightarrow\; 2k^{2} = n^{2},
-</span></p>
-<p>so <span class="math inline">n^{2}</span> is even, and therefore <span class="math inline">n</span> is even. But then <span class="math inline">m</span> and <span class="math inline">n</span> share a common factor of 2, which contradicts our assumption that <span class="math inline">\tfrac{m}{n}</span> was in lowest terms. <span class="math inline">\blacksquare</span></p>
-</section>
-<section id="irrational-numbers" class="level2" data-number="1.10">
-<h2 data-number="1.10" class="anchored" data-anchor-id="irrational-numbers"><span class="header-section-number">1.10</span> Irrational Numbers</h2>
-<div class="callout callout-style-default callout-important callout-titled" title="Definition — Irrational Number">
-<div class="callout-header d-flex align-content-center">
+<p>Look at the simulation again:</p>
+<ul>
+<li><span class="math inline">P(S \cap T)</span> — fraction of the <em>whole table</em> that is both sick and positive: <span class="math inline">950 / 100{,}000</span></li>
+<li><span class="math inline">P(T)</span> — fraction of the whole table that is positive: <span class="math inline">5950 / 100{,}000</span></li>
+<li>Their ratio: <span class="math inline">950 / 5950 \approx 16\%</span> ✓</li>
+</ul>
+<p>The 100,000 cancels. <strong>Restricting to a column is exactly what dividing by <span class="math inline">P(T)</span> does.</strong> The formula is just bookkeeping for the table you’ve already seen.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Definition — Irrational Number
+<span class="screen-reader-only">Note</span>▶ Show the math — Formal definition and where it comes from
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>A real number that is not rational is an <strong>irrational number</strong>.</p>
+<p><strong>Definition.</strong> For events <span class="math inline">A</span> and <span class="math inline">B</span> with <span class="math inline">P(B) &gt; 0</span>:</p>
+<p><span class="math display">
+P(A \mid B) \;\triangleq\; \frac{P(A \cap B)}{P(B)}.
+</span></p>
+<p><strong>Why this is well-defined.</strong> The function <span class="math inline">Q(A) = P(A \mid B)</span>, viewed as a function of <span class="math inline">A</span> on the same sample space <span class="math inline">\Omega</span>, is itself a probability measure:</p>
+<ol type="1">
+<li><span class="math inline">Q(A) \ge 0</span> for every event <span class="math inline">A</span>, because <span class="math inline">P(A \cap B) \ge 0</span> and <span class="math inline">P(B) &gt; 0</span>.</li>
+<li><span class="math inline">Q(\Omega) = P(\Omega \cap B)/P(B) = P(B)/P(B) = 1</span>.</li>
+<li><strong>Countable additivity.</strong> For disjoint events <span class="math inline">A_1, A_2, \ldots</span>:</li>
+</ol>
+<p><span class="math display">
+Q\!\left(\bigcup_i A_i\right) \;=\; \frac{P\!\left(\bigcup_i A_i \cap B\right)}{P(B)}
+\;=\; \frac{\sum_i P(A_i \cap B)}{P(B)} \;=\; \sum_i Q(A_i),
+</span></p>
+<p>using countable additivity of <span class="math inline">P</span> on the disjoint sets <span class="math inline">A_i \cap B</span>.</p>
+<p>So all three Kolmogorov axioms hold for <span class="math inline">Q</span>. Conditioning on <span class="math inline">B</span> produces a new probability measure that lives on the <em>same</em> sample space but treats <span class="math inline">B</span> as the new “universe” — events outside <span class="math inline">B</span> get probability zero, and events inside <span class="math inline">B</span> are rescaled so they sum to one.</p>
+<p><strong>Why <span class="math inline">P(B) &gt; 0</span>.</strong> If <span class="math inline">P(B) = 0</span>, the ratio is undefined. Conditioning on probability-zero events is possible in measure theory (via regular conditional distributions) but requires more machinery. For everything in this book, <span class="math inline">P(B) &gt; 0</span> is enforced.</p>
 </div>
 </div>
-<p>Examples:</p>
-<ul>
-<li><span class="math inline">\sqrt{2}</span></li>
-<li><span class="math inline">3 + \sqrt{2}</span></li>
-<li><span class="math inline">8\sqrt{2}</span></li>
-</ul>
+</div>
+<hr>
+</section>
+<section id="why-the-result-was-so-counterintuitive" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="why-the-result-was-so-counterintuitive"><span class="header-section-number">3.5</span> Why the result was so counterintuitive</h2>
+<p>Most people, asked “what’s the probability you’re sick given a positive test?”, silently substitute the <em>reverse</em> question: <strong>“what’s the probability of testing positive given that you’re sick?”</strong> That second quantity is the sensitivity — 95%.</p>
+<p>These two probabilities, <span class="math inline">P(S \mid T)</span> and <span class="math inline">P(T \mid S)</span>, are very different in general. Confusing them is so common it has a name — <strong>the prosecutor’s fallacy</strong> — and it shows up in courtrooms, medical decision-making, and basically every bad statistics-in-the-news story you’ll ever read.</p>
+<p>The trick that converts one to the other is <strong>Bayes’ rule</strong>, which is what the next section is about. But you’ve already seen its essence: it’s the formula that re-weights your belief by the prevalence (the <em>prior</em>).</p>
+<hr>
+</section>
+<section id="three-things-you-should-take-away" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="three-things-you-should-take-away"><span class="header-section-number">3.6</span> Three things you should take away</h2>
+<ol type="1">
+<li><p><strong>Conditional probability is restriction.</strong> “Given <span class="math inline">B</span>” means “restrict the universe to <span class="math inline">B</span>, then re-normalise.” The table makes this visible; the formula encodes it.</p></li>
+<li><p><strong>The denominator matters more than the numerator.</strong> Small false-positive rates against large healthy populations can swamp small true-positive counts against tiny sick populations. Always ask: “what’s the base rate?”</p></li>
+<li><p><strong>You can simulate first and derive second.</strong> This is going to be the pattern for the rest of the chapter. When a probability question feels slippery, write down a population, simulate it, count what’s in each bucket. The formulas are descriptions of those counts.</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>▶ Show the math — Bayes’ rule, briefly
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Once you have <span class="math inline">P(A \mid B) = P(A \cap B)/P(B)</span>, swap <span class="math inline">A</span> and <span class="math inline">B</span>:</p>
+<p><span class="math display">
+P(B \mid A) = \frac{P(A \cap B)}{P(A)}.
+</span></p>
+<p>Solving the first equation for <span class="math inline">P(A \cap B)</span> and substituting:</p>
+<p><span class="math display">
+P(A \mid B) \;=\; \frac{P(B \mid A)\, P(A)}{P(B)}.
+</span></p>
+<p>That’s Bayes’ rule. In our example: <span class="math inline">A = S</span> (sick), <span class="math inline">B = T</span> (positive test):</p>
+<p><span class="math display">
+P(S \mid T) \;=\; \frac{P(T \mid S)\, P(S)}{P(T)}
+\;=\; \frac{0.95 \times 0.01}{0.0595} \;\approx\; 0.16.
+</span></p>
+<p>The <span class="math inline">0.0595</span> in the denominator comes from the <strong>law of total probability</strong>: <span class="math inline">P(T) = P(T \mid S)\,P(S) + P(T \mid S^c)\,P(S^c) = 0.95 \cdot 0.01 + 0.05 \cdot 0.99</span>.</p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="exercises" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="exercises"><span class="header-section-number">3.7</span> Exercises</h2>
+<ol type="1">
+<li><p><strong>Vary the prevalence.</strong> Re-run the simulation with prevalence <span class="math inline">= 50\%</span> (a coin-flip baseline). What’s <span class="math inline">P(\text{sick} \mid +)</span> now? Why does the answer change so dramatically?</p></li>
+<li><p><strong>Improve the test.</strong> Keep prevalence at 1%, but raise specificity to 99.9%. What does <span class="math inline">P(\text{sick} \mid +)</span> become? Which knob moves the answer faster — sensitivity or specificity? Why?</p></li>
+<li><p><strong>The reverse question.</strong> From the simulation output, compute <span class="math inline">P(\text{tested positive} \mid \text{sick})</span> directly. Confirm it’s close to 0.95. Notice that this is <em>not</em> the same as the answer in step 3.</p></li>
+</ol>
 
 
 </section>
@@ -1002,14 +1102,11 @@ m^{2} = 2n^{2},
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link" aria-label="Preface">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      <a href="../../chapters/probability/what_is_probability.html" class="pagination-link" aria-label="What is Probability?">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What is Probability?</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/probability/what_is_probability.html" class="pagination-link" aria-label="What is Probability?">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What is Probability?</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -1017,4 +1114,4 @@ m^{2} = 2n^{2},
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Nithin/math-bootcamp/edit/main/chapters/introduction.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Nithin/math-bootcamp/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Nithin/math-bootcamp/edit/main/chapters/probability/conditional.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Nithin/math-bootcamp/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
