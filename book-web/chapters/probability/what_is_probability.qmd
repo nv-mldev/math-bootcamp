@@ -542,6 +542,23 @@ Three things to insist on, and they're not optional:
 3. **Right level of detail.** Detailed enough to answer the questions
    you care about, but no more.
 
+::: {.callout-warning}
+## Why mutual exclusivity matters
+
+Compare these two attempted sample spaces for a single die roll:
+
+- $\Omega_{\text{good}} = \{1, 2, 3, 4, 5, 6\}$ ✓
+- $\Omega_{\text{bad}} = \{\text{"1 or 3"}, \text{"1 or 4"}, 2, 3, 5, 6\}$ ✗
+
+The second one is **broken**. If you roll a 1, *which* outcome occurred —
+"1 or 3" or "1 or 4"? The outcomes overlap (both contain a 1), so the
+result of the experiment isn't uniquely defined. Probability calculations
+break immediately: the axioms assume disjointness when adding.
+
+A working sample space must let you point at exactly one outcome after
+the experiment runs. No ambiguity.
+:::
+
 The third point is subtle. Watch:
 
 ```{python}
@@ -650,6 +667,49 @@ called a **$\sigma$-algebra** (closed under complements and countable
 unions). For the purposes of this book, you can treat "event" and
 "subset of $\Omega$" as synonymous, and trust that the measure-theoretic
 fine print works out.
+:::
+
+::: {.callout-tip collapse="true"}
+## ▶ Show the math — Different sizes of infinity (Hilbert's Hotel)
+
+If "countable vs uncountable" sounds vague, here's the picture that
+makes it concrete.
+
+**Hilbert's Hotel** has infinitely many rooms — one for each natural
+number — and they're all full. A new guest arrives. Can the manager fit
+them in?
+
+Yes! Move the guest in room 1 to room 2. Move room 2 to room 3. In
+general, move room $n$ to room $n+1$. Room 1 is now free. The new
+guest checks in.
+
+What if **infinitely many** new guests arrive? Still fine. Move every
+current guest from room $n$ to room $2n$. All odd-numbered rooms are
+now empty. Room any number of new guests in them.
+
+This is what mathematicians mean by **countably infinite**: a set is
+countable if you can put its elements in 1-to-1 correspondence with
+the natural numbers $\{1, 2, 3, \ldots\}$. The integers $\mathbb{Z}$
+are countable. The rationals $\mathbb{Q}$ are countable (Cantor's
+zigzag argument lists them all). Even the algebraic numbers are
+countable.
+
+But here's the punchline. Hilbert's Hotel **cannot** fit the **real
+numbers** $\mathbb{R}$. Cantor proved this in 1891 with his famous
+**diagonal argument**: assume you have a list of all reals between 0
+and 1; construct a new real that differs from the $n$-th entry in its
+$n$-th decimal digit; this new real is on the list (we said the list
+was complete) but cannot be on the list (it differs from every entry).
+Contradiction. So no list exists.
+
+This means there are **at least two genuinely different sizes of
+infinity**: the countable (the rooms in Hilbert's Hotel) and the
+uncountable (the real line). It also means probability theory on
+$\mathbb{R}$ is fundamentally different from probability on a
+finite set — which is why we'll need calculus, integration, and
+measure theory once we get to continuous distributions.
+
+That's all the measure theory we need for now. Welcome to the deep end.
 :::
 
 ### Probability law: the three axioms
@@ -765,6 +825,149 @@ assumptions about how the events relate to each other.
 
 ---
 
+## Sequential experiments and tree diagrams
+
+Many real experiments unfold **in stages**. You don't roll all your dice
+at once — you roll the first, see what happens, then roll the second.
+You don't measure all your sensor outputs at once — readings come in
+over time. You don't read an email and decide it's spam in a single
+glance — you check the sender, then the subject line, then the body.
+
+For these step-by-step experiments, the cleanest representation is a
+**tree diagram**. Each branch from a node represents a possible outcome
+at that stage; each path from root to leaf is one complete sequence of
+outcomes. The set of all leaves is the sample space.
+
+Let's draw one. We'll use the simplest sequential experiment that's
+still interesting: **flipping a fair coin three times**.
+
+```{python}
+import matplotlib.pyplot as plt
+from matplotlib.patches import FancyArrowPatch
+
+fig, ax = plt.subplots(figsize=(11, 6))
+
+# Each level's x positions and labels
+def draw_tree(ax):
+    # Layout: stage in y, paths in x
+    # Stage 0 (root) at y=3, then stage 1 at y=2, stage 2 at y=1, stage 3 at y=0
+    nodes = {
+        "root": (4, 3),
+        "H":   (2, 2),  "T":   (6, 2),
+        "HH":  (1, 1),  "HT":  (3, 1),  "TH":  (5, 1),  "TT":  (7, 1),
+        "HHH": (0.5, 0), "HHT": (1.5, 0),
+        "HTH": (2.5, 0), "HTT": (3.5, 0),
+        "THH": (4.5, 0), "THT": (5.5, 0),
+        "TTH": (6.5, 0), "TTT": (7.5, 0),
+    }
+    edges = [
+        ("root", "H"), ("root", "T"),
+        ("H", "HH"), ("H", "HT"), ("T", "TH"), ("T", "TT"),
+        ("HH", "HHH"), ("HH", "HHT"), ("HT", "HTH"), ("HT", "HTT"),
+        ("TH", "THH"), ("TH", "THT"), ("TT", "TTH"), ("TT", "TTT"),
+    ]
+
+    # Draw edges first (under nodes)
+    for a, b in edges:
+        ax.plot([nodes[a][0], nodes[b][0]], [nodes[a][1], nodes[b][1]],
+                color="#94a3b8", lw=1.5, zorder=1)
+
+    # Draw nodes
+    for name, (x, y) in nodes.items():
+        if name == "root":
+            ax.scatter(x, y, s=600, c="#1f2937", zorder=3)
+            ax.annotate("start", xy=(x, y+0.18), ha="center", fontsize=10, color="#1f2937")
+        elif len(name) == 3:
+            # Leaf — colour by number of heads
+            n_heads = name.count("H")
+            shades = ["#fef3c7", "#fde68a", "#fcd34d", "#f59e0b"]
+            ax.scatter(x, y, s=900, c=shades[n_heads],
+                       edgecolor="#92400e", linewidth=1.5, zorder=3)
+            ax.annotate(name, xy=(x, y), ha="center", va="center",
+                        fontsize=10, fontweight="bold", color="#78350f", zorder=4)
+        else:
+            ax.scatter(x, y, s=600, c="white", edgecolor="#475569",
+                       linewidth=1.5, zorder=3)
+            ax.annotate(name, xy=(x, y), ha="center", va="center",
+                        fontsize=9, color="#1f2937", zorder=4)
+
+    # Stage labels on the left
+    for stage_y, label in [(3, "Start"), (2, "Toss 1"), (1, "Toss 2"), (0, "Toss 3")]:
+        ax.annotate(label, xy=(-0.4, stage_y), ha="right", va="center",
+                    fontsize=10, color="#475569", style="italic")
+
+    ax.set_xlim(-1, 8.5)
+    ax.set_ylim(-0.5, 3.5)
+    ax.axis("off")
+    ax.set_title("Tree diagram: three coin tosses → 8 leaf outcomes",
+                 fontsize=12, pad=10)
+
+draw_tree(ax)
+plt.tight_layout()
+plt.show()
+```
+
+A few things this picture makes obvious:
+
+- **Sample space is the leaves.**
+  $\Omega = \{\text{HHH, HHT, HTH, HTT, THH, THT, TTH, TTT}\}$, so
+  $|\Omega| = 2^3 = 8$. (More generally: $2^n$ leaves for $n$ tosses.)
+
+- **Events are sets of leaves.** "Exactly 2 heads" =
+  $\{\text{HHT, HTH, THH}\}$ (the medium-shaded leaves above).
+  "At least 1 head" = all leaves except $\{\text{TTT}\}$.
+
+- **Probabilities follow paths.** Each branch in a fair coin tree is
+  taken with probability $1/2$, and the probability of reaching a
+  specific leaf is the product along the path: $(1/2)(1/2)(1/2) = 1/8$.
+  Multiply along branches; add across branches.
+
+Let's verify by computing some probabilities directly from the tree:
+
+```{python}
+from itertools import product
+
+# Generate all leaves
+leaves = list(product("HT", repeat=3))
+print(f"Sample space size: {len(leaves)}")
+print(f"All leaves: {[''.join(l) for l in leaves]}")
+
+# Each leaf has probability (1/2)^3 = 1/8 since each toss is independent
+# (we'll formalise 'independence' next chapter; for now treat the tree
+# as visual evidence)
+p_leaf = 1 / 8
+
+# Event A: exactly 2 heads
+event_A = [l for l in leaves if l.count("H") == 2]
+print(f"\nP(exactly 2 heads) = {len(event_A)}/8 = {len(event_A)/8}")
+print(f"  leaves: {[''.join(l) for l in event_A]}")
+
+# Event B: at least 1 head
+event_B = [l for l in leaves if l.count("H") >= 1]
+print(f"\nP(at least 1 head) = {len(event_B)}/8 = {len(event_B)/8}")
+
+# Event C: all three are the same
+event_C = [l for l in leaves if l.count("H") in (0, 3)]
+print(f"\nP(all same) = {len(event_C)}/8 = {len(event_C)/8}")
+```
+
+Trees aren't just pictures — they're a **systematic way to enumerate**
+sequential outcomes without missing any or double-counting. Whenever a
+problem can be described as "first this happens, then that, then…",
+draw the tree first. The math becomes obvious.
+
+::: {.callout-tip}
+## Why we'll keep coming back to trees
+
+Trees are the natural picture for **conditional probability** (the next
+chapter). The branches into a node from above are the conditioning;
+the branches out are the conditional probabilities given that you've
+arrived. Bayes' rule is just "go up the tree and re-weight". We'll
+build up to that — but the tree you just drew is the seed.
+:::
+
+---
+
 ## Tying it together: simulating the dice
 
 We've defined a model: $\Omega$, events, probability law. **Stage 1
@@ -774,6 +977,25 @@ simulation.
 > *Question.* What's the probability that the sum of two dice is 7?
 
 Let's compute it three ways and watch them agree.
+
+::: {.callout-important}
+## The classical probability formula
+
+When all outcomes in a finite sample space are **equally likely**, the
+probability of any event $A$ is simply
+
+$$
+P(A) \;=\; \frac{|A|}{|\Omega|} \;=\; \frac{\text{number of outcomes in } A}{\text{total number of outcomes}}.
+$$
+
+This is sometimes called the **discrete uniform probability law**, and
+it's the workhorse formula behind half the probability problems you'll
+ever solve. It reduces probability to a counting problem — which is why
+combinatorics (Part II of the book) gets so useful, so quickly.
+
+For our two dice, every outcome has probability $1/36$, so $P(\text{sum}=7)
+= |A|/36$. We just need to count the cells.
+:::
 
 **Way 1 — Counting (analytical).**
 
