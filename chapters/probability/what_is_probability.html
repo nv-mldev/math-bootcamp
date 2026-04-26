@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; What is Probability? – Math for Machine Learning</title>
+<title>3&nbsp; What is Probability? – Math for Machine Learning</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -330,7 +330,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/probability/what_is_probability.html">Probability</a></li><li class="breadcrumb-item"><a href="../../chapters/probability/what_is_probability.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What is Probability?</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/probability/what_is_probability.html">Probability</a></li><li class="breadcrumb-item"><a href="../../chapters/probability/what_is_probability.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">What is Probability?</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -361,6 +361,12 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../cover.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Cover</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
@@ -368,7 +374,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -383,13 +389,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/probability/what_is_probability.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What is Probability?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">What is Probability?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/probability/conditional.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Conditional Probability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Conditional Probability</span></span></a>
   </div>
 </li>
       </ul>
@@ -404,27 +410,27 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#a-short-history" id="toc-a-short-history" class="nav-link active" data-scroll-target="#a-short-history"><span class="header-section-number">2.1</span> A short history</a></li>
-  <li><a href="#a-dialogue" id="toc-a-dialogue" class="nav-link" data-scroll-target="#a-dialogue"><span class="header-section-number">2.2</span> A dialogue</a></li>
-  <li><a href="#the-frequentist-view-probability-is-what-frequencies-converge-to" id="toc-the-frequentist-view-probability-is-what-frequencies-converge-to" class="nav-link" data-scroll-target="#the-frequentist-view-probability-is-what-frequencies-converge-to"><span class="header-section-number">2.3</span> The frequentist view: probability is what frequencies converge to</a>
+  <li><a href="#a-short-history" id="toc-a-short-history" class="nav-link active" data-scroll-target="#a-short-history"><span class="header-section-number">3.1</span> A short history</a></li>
+  <li><a href="#a-dialogue" id="toc-a-dialogue" class="nav-link" data-scroll-target="#a-dialogue"><span class="header-section-number">3.2</span> A dialogue</a></li>
+  <li><a href="#the-frequentist-view-probability-is-what-frequencies-converge-to" id="toc-the-frequentist-view-probability-is-what-frequencies-converge-to" class="nav-link" data-scroll-target="#the-frequentist-view-probability-is-what-frequencies-converge-to"><span class="header-section-number">3.3</span> The frequentist view: probability is what frequencies converge to</a>
   <ul class="collapse">
-  <li><a href="#where-the-frequentist-view-runs-out-of-road" id="toc-where-the-frequentist-view-runs-out-of-road" class="nav-link" data-scroll-target="#where-the-frequentist-view-runs-out-of-road"><span class="header-section-number">2.3.1</span> Where the frequentist view runs out of road</a></li>
+  <li><a href="#where-the-frequentist-view-runs-out-of-road" id="toc-where-the-frequentist-view-runs-out-of-road" class="nav-link" data-scroll-target="#where-the-frequentist-view-runs-out-of-road"><span class="header-section-number">3.3.1</span> Where the frequentist view runs out of road</a></li>
   </ul></li>
-  <li><a href="#the-subjective-view-probability-is-a-degree-of-belief" id="toc-the-subjective-view-probability-is-a-degree-of-belief" class="nav-link" data-scroll-target="#the-subjective-view-probability-is-a-degree-of-belief"><span class="header-section-number">2.4</span> The subjective view: probability is a degree of belief</a>
+  <li><a href="#the-subjective-view-probability-is-a-degree-of-belief" id="toc-the-subjective-view-probability-is-a-degree-of-belief" class="nav-link" data-scroll-target="#the-subjective-view-probability-is-a-degree-of-belief"><span class="header-section-number">3.4</span> The subjective view: probability is a degree of belief</a>
   <ul class="collapse">
-  <li><a href="#where-the-subjective-view-runs-out-of-road" id="toc-where-the-subjective-view-runs-out-of-road" class="nav-link" data-scroll-target="#where-the-subjective-view-runs-out-of-road"><span class="header-section-number">2.4.1</span> Where the subjective view runs out of road</a></li>
+  <li><a href="#where-the-subjective-view-runs-out-of-road" id="toc-where-the-subjective-view-runs-out-of-road" class="nav-link" data-scroll-target="#where-the-subjective-view-runs-out-of-road"><span class="header-section-number">3.4.1</span> Where the subjective view runs out of road</a></li>
   </ul></li>
-  <li><a href="#the-formal-framework" id="toc-the-formal-framework" class="nav-link" data-scroll-target="#the-formal-framework"><span class="header-section-number">2.5</span> The formal framework</a>
+  <li><a href="#the-formal-framework" id="toc-the-formal-framework" class="nav-link" data-scroll-target="#the-formal-framework"><span class="header-section-number">3.5</span> The formal framework</a>
   <ul class="collapse">
-  <li><a href="#concrete-problem-rolling-two-dice" id="toc-concrete-problem-rolling-two-dice" class="nav-link" data-scroll-target="#concrete-problem-rolling-two-dice"><span class="header-section-number">2.5.1</span> Concrete problem: rolling two dice</a></li>
-  <li><a href="#sample-space" id="toc-sample-space" class="nav-link" data-scroll-target="#sample-space"><span class="header-section-number">2.5.2</span> Sample space</a></li>
-  <li><a href="#events" id="toc-events" class="nav-link" data-scroll-target="#events"><span class="header-section-number">2.5.3</span> Events</a></li>
-  <li><a href="#probability-law-the-three-axioms" id="toc-probability-law-the-three-axioms" class="nav-link" data-scroll-target="#probability-law-the-three-axioms"><span class="header-section-number">2.5.4</span> Probability law: the three axioms</a></li>
+  <li><a href="#concrete-problem-rolling-two-dice" id="toc-concrete-problem-rolling-two-dice" class="nav-link" data-scroll-target="#concrete-problem-rolling-two-dice"><span class="header-section-number">3.5.1</span> Concrete problem: rolling two dice</a></li>
+  <li><a href="#sample-space" id="toc-sample-space" class="nav-link" data-scroll-target="#sample-space"><span class="header-section-number">3.5.2</span> Sample space</a></li>
+  <li><a href="#events" id="toc-events" class="nav-link" data-scroll-target="#events"><span class="header-section-number">3.5.3</span> Events</a></li>
+  <li><a href="#probability-law-the-three-axioms" id="toc-probability-law-the-three-axioms" class="nav-link" data-scroll-target="#probability-law-the-three-axioms"><span class="header-section-number">3.5.4</span> Probability law: the three axioms</a></li>
   </ul></li>
-  <li><a href="#sequential-experiments-and-tree-diagrams" id="toc-sequential-experiments-and-tree-diagrams" class="nav-link" data-scroll-target="#sequential-experiments-and-tree-diagrams"><span class="header-section-number">2.6</span> Sequential experiments and tree diagrams</a></li>
-  <li><a href="#tying-it-together-simulating-the-dice" id="toc-tying-it-together-simulating-the-dice" class="nav-link" data-scroll-target="#tying-it-together-simulating-the-dice"><span class="header-section-number">2.7</span> Tying it together: simulating the dice</a></li>
-  <li><a href="#three-things-you-should-take-away" id="toc-three-things-you-should-take-away" class="nav-link" data-scroll-target="#three-things-you-should-take-away"><span class="header-section-number">2.8</span> Three things you should take away</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">2.9</span> Exercises</a></li>
+  <li><a href="#sequential-experiments-and-tree-diagrams" id="toc-sequential-experiments-and-tree-diagrams" class="nav-link" data-scroll-target="#sequential-experiments-and-tree-diagrams"><span class="header-section-number">3.6</span> Sequential experiments and tree diagrams</a></li>
+  <li><a href="#tying-it-together-simulating-the-dice" id="toc-tying-it-together-simulating-the-dice" class="nav-link" data-scroll-target="#tying-it-together-simulating-the-dice"><span class="header-section-number">3.7</span> Tying it together: simulating the dice</a></li>
+  <li><a href="#three-things-you-should-take-away" id="toc-three-things-you-should-take-away" class="nav-link" data-scroll-target="#three-things-you-should-take-away"><span class="header-section-number">3.8</span> Three things you should take away</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">3.9</span> Exercises</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nv-mldev/math-bootcamp/edit/main/chapters/probability/what_is_probability.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nv-mldev/math-bootcamp/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -432,9 +438,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/probability/what_is_probability.html">Probability</a></li><li class="breadcrumb-item"><a href="../../chapters/probability/what_is_probability.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What is Probability?</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/probability/what_is_probability.html">Probability</a></li><li class="breadcrumb-item"><a href="../../chapters/probability/what_is_probability.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">What is Probability?</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What is Probability?</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">What is Probability?</span></h1>
 </div>
 
 
@@ -454,8 +460,8 @@ window.Quarto = {
 <p><strong>Probability is the branch of mathematics that studies uncertainty.</strong></p>
 <p>Whenever the world refuses to commit to a single answer — <em>will the drug work? will it rain tomorrow? is this email spam? — </em>probability gives us the language to say something useful about the alternatives. It is the language behind weather forecasts, medical trials, insurance, gambling, quantum mechanics, machine learning, and the routing algorithm that delivered this page to your screen.</p>
 <p>What’s surprising is that probability is <strong>young</strong>. Mathematicians had been doing calculus and geometry for centuries before anyone took randomness seriously enough to write equations about it. The story of how probability became a real subject is short, dramatic, and full of gamblers, monks, astronomers, and one telephone engineer who quietly changed the world. We’ll meet a few of them before we begin.</p>
-<section id="a-short-history" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="a-short-history"><span class="header-section-number">2.1</span> A short history</h2>
+<section id="a-short-history" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="a-short-history"><span class="header-section-number">3.1</span> A short history</h2>
 <p>Click any name to read more.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -682,8 +688,8 @@ window.Quarto = {
 <p>You can skip the rigorous parts on the first read; click the <strong>▶ Show the math</strong> boxes when you want them.</p>
 <hr>
 </section>
-<section id="a-dialogue" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="a-dialogue"><span class="header-section-number">2.2</span> A dialogue</h2>
+<section id="a-dialogue" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="a-dialogue"><span class="header-section-number">3.2</span> A dialogue</h2>
 <p>The clearest way to see what’s at stake is to listen to a short conversation in a hospital. A relative is asking the nurse about a drug.</p>
 <blockquote class="blockquote">
 <p><strong>Relative:</strong> Nurse, what is the probability that the drug will work?</p>
@@ -725,15 +731,15 @@ window.Quarto = {
 </div>
 <hr>
 </section>
-<section id="the-frequentist-view-probability-is-what-frequencies-converge-to" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="the-frequentist-view-probability-is-what-frequencies-converge-to"><span class="header-section-number">2.3</span> The frequentist view: probability is what frequencies converge to</h2>
+<section id="the-frequentist-view-probability-is-what-frequencies-converge-to" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="the-frequentist-view-probability-is-what-frequencies-converge-to"><span class="header-section-number">3.3</span> The frequentist view: probability is what frequencies converge to</h2>
 <p>The frequentist answer to “what is probability?” is a recipe:</p>
 <blockquote class="blockquote">
 <p><strong>The probability of an event is the long-run frequency with which it happens, if you could repeat the experiment infinitely many times.</strong></p>
 </blockquote>
 <p>This is intuitive for things you can repeat. <em>“This coin lands heads with probability 0.5”</em> means: if you flip it enough times, the fraction landing heads will get arbitrarily close to 0.5.</p>
 <p>Let’s actually watch that happen.</p>
-<div id="aedce30f" class="cell" data-execution_count="1">
+<div id="45ab884f" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -795,8 +801,8 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<section id="where-the-frequentist-view-runs-out-of-road" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="where-the-frequentist-view-runs-out-of-road"><span class="header-section-number">2.3.1</span> Where the frequentist view runs out of road</h3>
+<section id="where-the-frequentist-view-runs-out-of-road" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="where-the-frequentist-view-runs-out-of-road"><span class="header-section-number">3.3.1</span> Where the frequentist view runs out of road</h3>
 <p>The recipe <strong>only works for repeatable experiments</strong>. Try applying it to these statements:</p>
 <ul>
 <li><em>“The probability that life exists on Mars is 30%.”</em></li>
@@ -808,8 +814,8 @@ window.Quarto = {
 <hr>
 </section>
 </section>
-<section id="the-subjective-view-probability-is-a-degree-of-belief" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="the-subjective-view-probability-is-a-degree-of-belief"><span class="header-section-number">2.4</span> The subjective view: probability is a degree of belief</h2>
+<section id="the-subjective-view-probability-is-a-degree-of-belief" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="the-subjective-view-probability-is-a-degree-of-belief"><span class="header-section-number">3.4</span> The subjective view: probability is a degree of belief</h2>
 <p>The subjective answer:</p>
 <blockquote class="blockquote">
 <p><strong>The probability of an event, for a given person at a given time, is the price they are willing to pay for a bet that pays $1 if the event happens and $0 otherwise.</strong></p>
@@ -818,7 +824,7 @@ window.Quarto = {
 0.5</span>. Push the price further until she’s indifferent, and you’ve measured her subjective probability to whatever precision you care for.</p>
 <p>This view doesn’t need repetition. It works for one-shot events, for historical claims, for personal beliefs about the future.</p>
 <p>Let’s see one in action. Suppose two people — call them Alice and Bob — have different prior beliefs about whether a particular coin is fair. We’ll see how their beliefs <strong>update</strong> as evidence comes in.</p>
-<div id="024647da" class="cell" data-execution_count="2">
+<div id="df0c1655" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A coin we'll flip. Pretend we don't know its true bias (it's actually 0.7).</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>true_p <span class="op">=</span> <span class="fl">0.7</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>n_flips <span class="op">=</span> <span class="dv">200</span></span>
@@ -866,8 +872,8 @@ window.Quarto = {
 <li><strong>They end up in the same place.</strong> Both converge toward the true value 0.7 as data accumulates, but Alice gets there <em>more slowly</em> because her strong prior takes more evidence to overturn.</li>
 </ol>
 <p>The subjective view is fine with this. It says: probability is a <strong>personal</strong> quantity, but <strong>rational people who share the same information will agree</strong> in the limit. The formal mechanism for <em>how</em> beliefs update is <strong>Bayes’ rule</strong>, which we’ll meet two chapters from now.</p>
-<section id="where-the-subjective-view-runs-out-of-road" class="level3" data-number="2.4.1">
-<h3 data-number="2.4.1" class="anchored" data-anchor-id="where-the-subjective-view-runs-out-of-road"><span class="header-section-number">2.4.1</span> Where the subjective view runs out of road</h3>
+<section id="where-the-subjective-view-runs-out-of-road" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="where-the-subjective-view-runs-out-of-road"><span class="header-section-number">3.4.1</span> Where the subjective view runs out of road</h3>
 <p>The standard objections are:</p>
 <ul>
 <li><em>“Whose probability are we talking about?”</em> — different people, looking at the same evidence, can have different priors and so different posteriors. Frequentists find this disturbing; subjectivists say it’s just honest.</li>
@@ -877,8 +883,8 @@ window.Quarto = {
 <hr>
 </section>
 </section>
-<section id="the-formal-framework" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="the-formal-framework"><span class="header-section-number">2.5</span> The formal framework</h2>
+<section id="the-formal-framework" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="the-formal-framework"><span class="header-section-number">3.5</span> The formal framework</h2>
 <p>Both views — frequentist and subjective — agree on the <strong>mathematical structure</strong> that any probability assignment has to obey. That structure is:</p>
 <ol type="1">
 <li>A <strong>sample space</strong> <span class="math inline">\Omega</span> — the set of all possible outcomes.</li>
@@ -886,10 +892,10 @@ window.Quarto = {
 <li>A <strong>probability law</strong> <span class="math inline">P</span> — a function that assigns a number to each event, obeying three axioms.</li>
 </ol>
 <p>Three pieces. The art is in choosing the first two; the science is in working with the third. Let’s build each piece against a concrete problem we can simulate.</p>
-<section id="concrete-problem-rolling-two-dice" class="level3" data-number="2.5.1">
-<h3 data-number="2.5.1" class="anchored" data-anchor-id="concrete-problem-rolling-two-dice"><span class="header-section-number">2.5.1</span> Concrete problem: rolling two dice</h3>
+<section id="concrete-problem-rolling-two-dice" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="concrete-problem-rolling-two-dice"><span class="header-section-number">3.5.1</span> Concrete problem: rolling two dice</h3>
 <p>Throughout the rest of this chapter, we’ll use a single running example. You roll two ordinary six-sided dice. We’ll define everything against this.</p>
-<div id="9248dc91" class="cell" data-execution_count="3">
+<div id="e3180715" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Enumerate all 36 outcomes</span></span>
@@ -902,8 +908,8 @@ First few: [(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6)]</code></pre>
 </div>
 </div>
 </section>
-<section id="sample-space" class="level3" data-number="2.5.2">
-<h3 data-number="2.5.2" class="anchored" data-anchor-id="sample-space"><span class="header-section-number">2.5.2</span> Sample space</h3>
+<section id="sample-space" class="level3" data-number="3.5.2">
+<h3 data-number="3.5.2" class="anchored" data-anchor-id="sample-space"><span class="header-section-number">3.5.2</span> Sample space</h3>
 <p>The <strong>sample space</strong> <span class="math inline">\Omega</span> is the set of all possible outcomes of an experiment. For two dice:</p>
 <p><span class="math display">
 \Omega = \{(1,1), (1,2), \ldots, (6,6)\}, \qquad |\Omega| = 36.
@@ -934,7 +940,7 @@ First few: [(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6)]</code></pre>
 </div>
 </div>
 <p>The third point is subtle. Watch:</p>
-<div id="67a9caa7" class="cell" data-execution_count="4">
+<div id="723a547b" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Three different sample spaces for the SAME experiment of rolling two dice.</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># (A) Too coarse: just the sum</span></span>
@@ -971,10 +977,10 @@ C) Ordered pairs + colour + rotation angle: |Ω| ≈ infinite, useless</code></p
 </div>
 </div>
 </section>
-<section id="events" class="level3" data-number="2.5.3">
-<h3 data-number="2.5.3" class="anchored" data-anchor-id="events"><span class="header-section-number">2.5.3</span> Events</h3>
+<section id="events" class="level3" data-number="3.5.3">
+<h3 data-number="3.5.3" class="anchored" data-anchor-id="events"><span class="header-section-number">3.5.3</span> Events</h3>
 <p>An <strong>event</strong> is just a subset of <span class="math inline">\Omega</span>. Some examples for our two dice:</p>
-<div id="fb570134" class="cell" data-execution_count="5">
+<div id="e01bc31a" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>omega <span class="op">=</span> <span class="bu">set</span>(outcomes)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {(d1, d2) <span class="cf">for</span> d1, d2 <span class="kw">in</span> omega <span class="cf">if</span> d1 <span class="op">+</span> d2 <span class="op">==</span> <span class="dv">7</span>}        <span class="co"># sum is 7</span></span>
@@ -994,7 +1000,7 @@ D = sum ≥ 10        (6 outcomes): [(4, 6), (5, 5), (5, 6), (6, 4), (6, 5), (6,
 </div>
 </div>
 <p>Because events are sets, you can combine them with set operations. Combining events gives you new events:</p>
-<div id="dd1bafe5" class="cell" data-execution_count="6">
+<div id="4db0bc37" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum is 7 OR doubles</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>A_or_B <span class="op">=</span> A <span class="op">|</span> B          <span class="co"># set union → "A or B"</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum is 7 AND first die is 6  (impossible — empty set)</span></span>
@@ -1061,8 +1067,8 @@ A \ B   ('sum is 7 but not doubles'):  6 outcomes</code></pre>
 </div>
 </div>
 </section>
-<section id="probability-law-the-three-axioms" class="level3" data-number="2.5.4">
-<h3 data-number="2.5.4" class="anchored" data-anchor-id="probability-law-the-three-axioms"><span class="header-section-number">2.5.4</span> Probability law: the three axioms</h3>
+<section id="probability-law-the-three-axioms" class="level3" data-number="3.5.4">
+<h3 data-number="3.5.4" class="anchored" data-anchor-id="probability-law-the-three-axioms"><span class="header-section-number">3.5.4</span> Probability law: the three axioms</h3>
 <p>A <strong>probability law</strong> <span class="math inline">P</span> is a function from events to numbers that satisfies three axioms:</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1086,7 +1092,7 @@ A \ B   ('sum is 7 but not doubles'):  6 outcomes</code></pre>
 </div>
 <p>Three axioms. That’s the whole foundation. Everything else in probability theory — every formula, every theorem, every proof — follows from these three.</p>
 <p>Let’s verify them on our dice.</p>
-<div id="04bba1dc" class="cell" data-execution_count="7">
+<div id="4d22e0e9" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For fair dice, each of the 36 outcomes has probability 1/36.</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># We define the probability law as: for any event E, P(E) = |E| / 36.</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1160,12 +1166,12 @@ P\!\left(\bigcup_i A_i\right) \le \sum_i P(A_i).
 <hr>
 </section>
 </section>
-<section id="sequential-experiments-and-tree-diagrams" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="sequential-experiments-and-tree-diagrams"><span class="header-section-number">2.6</span> Sequential experiments and tree diagrams</h2>
+<section id="sequential-experiments-and-tree-diagrams" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="sequential-experiments-and-tree-diagrams"><span class="header-section-number">3.6</span> Sequential experiments and tree diagrams</h2>
 <p>Many real experiments unfold <strong>in stages</strong>. You don’t roll all your dice at once — you roll the first, see what happens, then roll the second. You don’t measure all your sensor outputs at once — readings come in over time. You don’t read an email and decide it’s spam in a single glance — you check the sender, then the subject line, then the body.</p>
 <p>For these step-by-step experiments, the cleanest representation is a <strong>tree diagram</strong>. Each branch from a node represents a possible outcome at that stage; each path from root to leaf is one complete sequence of outcomes. The set of all leaves is the sample space.</p>
 <p>Let’s draw one. We’ll use the simplest sequential experiment that’s still interesting: <strong>flipping a fair coin three times</strong>.</p>
-<div id="692cd48f" class="cell" data-execution_count="8">
+<div id="e0acc9d0" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.patches <span class="im">import</span> FancyArrowPatch</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1244,7 +1250,7 @@ P\!\left(\bigcup_i A_i\right) \le \sum_i P(A_i).
 <li><p><strong>Probabilities follow paths.</strong> Each branch in a fair coin tree is taken with probability <span class="math inline">1/2</span>, and the probability of reaching a specific leaf is the product along the path: <span class="math inline">(1/2)(1/2)(1/2) = 1/8</span>. Multiply along branches; add across branches.</p></li>
 </ul>
 <p>Let’s verify by computing some probabilities directly from the tree:</p>
-<div id="2482598e" class="cell" data-execution_count="9">
+<div id="cfc6fec4" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> product</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate all leaves</span></span>
@@ -1297,8 +1303,8 @@ P(all same) = 2/8 = 0.25</code></pre>
 </div>
 <hr>
 </section>
-<section id="tying-it-together-simulating-the-dice" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="tying-it-together-simulating-the-dice"><span class="header-section-number">2.7</span> Tying it together: simulating the dice</h2>
+<section id="tying-it-together-simulating-the-dice" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="tying-it-together-simulating-the-dice"><span class="header-section-number">3.7</span> Tying it together: simulating the dice</h2>
 <p>We’ve defined a model: <span class="math inline">\Omega</span>, events, probability law. <strong>Stage 1 done.</strong> Now we do <strong>Stage 2</strong> (analysis) and check it against simulation.</p>
 <blockquote class="blockquote">
 <p><em>Question.</em> What’s the probability that the sum of two dice is 7?</p>
@@ -1324,7 +1330,7 @@ P(A) \;=\; \frac{|A|}{|\Omega|} \;=\; \frac{\text{number of outcomes in } A}{\te
 </div>
 </div>
 <p><strong>Way 1 — Counting (analytical).</strong></p>
-<div id="92d1db01" class="cell" data-execution_count="10">
+<div id="a83d5f5a" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># By the equally-likely-outcomes formula</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>event_sum_7 <span class="op">=</span> {(d1, d2) <span class="cf">for</span> d1, d2 <span class="kw">in</span> omega <span class="cf">if</span> d1 <span class="op">+</span> d2 <span class="op">==</span> <span class="dv">7</span>}</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>p_analytical <span class="op">=</span> <span class="bu">len</span>(event_sum_7) <span class="op">/</span> <span class="dv">36</span></span>
@@ -1336,7 +1342,7 @@ P(A) \;=\; \frac{|A|}{|\Omega|} \;=\; \frac{\text{number of outcomes in } A}{\te
 </div>
 </div>
 <p><strong>Way 2 — Simulation (frequentist).</strong></p>
-<div id="91d38e25" class="cell" data-execution_count="11">
+<div id="e3cfdaa2" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Roll a million pairs of dice and count the fraction with sum = 7.</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>n_rolls <span class="op">=</span> <span class="dv">1_000_000</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>d1 <span class="op">=</span> rng.integers(<span class="dv">1</span>, <span class="dv">7</span>, size<span class="op">=</span>n_rolls)</span>
@@ -1350,7 +1356,7 @@ P(A) \;=\; \frac{|A|}{|\Omega|} \;=\; \frac{\text{number of outcomes in } A}{\te
 </div>
 </div>
 <p><strong>Way 3 — Picture (where you can just <em>see</em> the answer).</strong></p>
-<div id="1bea2312" class="cell" data-execution_count="12">
+<div id="139790c3" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the 6×6 grid. Highlight outcomes whose sum is 7.</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="fl">5.5</span>, <span class="fl">5.5</span>))</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> d1 <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">7</span>):</span>
@@ -1385,8 +1391,8 @@ P(A) \;=\; \frac{|A|}{|\Omega|} \;=\; \frac{\text{number of outcomes in } A}{\te
 <p>That triangulation — formula, simulation, picture — is the working style we’ll use for the entire book. Whenever you’re unsure of an answer: <strong>simulate it. Picture it. Then prove it.</strong></p>
 <hr>
 </section>
-<section id="three-things-you-should-take-away" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="three-things-you-should-take-away"><span class="header-section-number">2.8</span> Three things you should take away</h2>
+<section id="three-things-you-should-take-away" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="three-things-you-should-take-away"><span class="header-section-number">3.8</span> Three things you should take away</h2>
 <ol type="1">
 <li><p><strong>Probability has two interpretations and one math.</strong> Frequentist probability is a long-run frequency; subjective probability is a degree of belief. They argue about Stage 1 (modelling). They agree on Stage 2 (the math).</p></li>
 <li><p><strong>Every probability calculation rests on three things</strong> — sample space, events, axioms. Specify the first two carefully; the third is non-negotiable. Most “paradoxes” come from being sloppy about <span class="math inline">\Omega</span>.</p></li>
@@ -1394,8 +1400,8 @@ P(A) \;=\; \frac{|A|}{|\Omega|} \;=\; \frac{\text{number of outcomes in } A}{\te
 </ol>
 <hr>
 </section>
-<section id="exercises" class="level2" data-number="2.9">
-<h2 data-number="2.9" class="anchored" data-anchor-id="exercises"><span class="header-section-number">2.9</span> Exercises</h2>
+<section id="exercises" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="exercises"><span class="header-section-number">3.9</span> Exercises</h2>
 <ol type="1">
 <li><p><strong>Build a sample space.</strong> Define <span class="math inline">\Omega</span> for the experiment “draw one card from a standard 52-card deck”. Then describe the following events as subsets:</p>
 <ol type="a">
@@ -1829,12 +1835,12 @@ P(A) \;=\; \frac{|A|}{|\Omega|} \;=\; \frac{\text{number of outcomes in } A}{\te
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../../chapters/introduction.html" class="pagination-link" aria-label="Introduction">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../../chapters/probability/conditional.html" class="pagination-link" aria-label="Conditional Probability">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Conditional Probability</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Conditional Probability</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

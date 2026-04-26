@@ -1,0 +1,14 @@
+.cover-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 200px);
+  padding: 2rem 0;
+}
+.book-cover-image {
+  max-width: 600px;
+  width: 90%;
+  height: auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}

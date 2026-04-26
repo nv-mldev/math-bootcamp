@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; Conditional Probability – Math for Machine Learning</title>
+<title>4&nbsp; Conditional Probability – Math for Machine Learning</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -329,7 +329,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/probability/what_is_probability.html">Probability</a></li><li class="breadcrumb-item"><a href="../../chapters/probability/conditional.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Conditional Probability</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/probability/what_is_probability.html">Probability</a></li><li class="breadcrumb-item"><a href="../../chapters/probability/conditional.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Conditional Probability</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -360,6 +360,12 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../cover.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Cover</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
@@ -367,7 +373,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -382,13 +388,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/probability/what_is_probability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What is Probability?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">What is Probability?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/probability/conditional.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Conditional Probability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Conditional Probability</span></span></a>
   </div>
 </li>
       </ul>
@@ -403,13 +409,13 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-question" id="toc-the-question" class="nav-link active" data-scroll-target="#the-question"><span class="header-section-number">3.1</span> The question</a></li>
-  <li><a href="#step-1-simulate-the-test" id="toc-step-1-simulate-the-test" class="nav-link" data-scroll-target="#step-1-simulate-the-test"><span class="header-section-number">3.2</span> Step 1 — Simulate the test</a></li>
-  <li><a href="#step-2-stare-at-the-table" id="toc-step-2-stare-at-the-table" class="nav-link" data-scroll-target="#step-2-stare-at-the-table"><span class="header-section-number">3.3</span> Step 2 — Stare at the table</a></li>
-  <li><a href="#step-3-now-the-formula" id="toc-step-3-now-the-formula" class="nav-link" data-scroll-target="#step-3-now-the-formula"><span class="header-section-number">3.4</span> Step 3 — Now the formula</a></li>
-  <li><a href="#why-the-result-was-so-counterintuitive" id="toc-why-the-result-was-so-counterintuitive" class="nav-link" data-scroll-target="#why-the-result-was-so-counterintuitive"><span class="header-section-number">3.5</span> Why the result was so counterintuitive</a></li>
-  <li><a href="#three-things-you-should-take-away" id="toc-three-things-you-should-take-away" class="nav-link" data-scroll-target="#three-things-you-should-take-away"><span class="header-section-number">3.6</span> Three things you should take away</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">3.7</span> Exercises</a></li>
+  <li><a href="#the-question" id="toc-the-question" class="nav-link active" data-scroll-target="#the-question"><span class="header-section-number">4.1</span> The question</a></li>
+  <li><a href="#step-1-simulate-the-test" id="toc-step-1-simulate-the-test" class="nav-link" data-scroll-target="#step-1-simulate-the-test"><span class="header-section-number">4.2</span> Step 1 — Simulate the test</a></li>
+  <li><a href="#step-2-stare-at-the-table" id="toc-step-2-stare-at-the-table" class="nav-link" data-scroll-target="#step-2-stare-at-the-table"><span class="header-section-number">4.3</span> Step 2 — Stare at the table</a></li>
+  <li><a href="#step-3-now-the-formula" id="toc-step-3-now-the-formula" class="nav-link" data-scroll-target="#step-3-now-the-formula"><span class="header-section-number">4.4</span> Step 3 — Now the formula</a></li>
+  <li><a href="#why-the-result-was-so-counterintuitive" id="toc-why-the-result-was-so-counterintuitive" class="nav-link" data-scroll-target="#why-the-result-was-so-counterintuitive"><span class="header-section-number">4.5</span> Why the result was so counterintuitive</a></li>
+  <li><a href="#three-things-you-should-take-away" id="toc-three-things-you-should-take-away" class="nav-link" data-scroll-target="#three-things-you-should-take-away"><span class="header-section-number">4.6</span> Three things you should take away</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">4.7</span> Exercises</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nv-mldev/math-bootcamp/edit/main/chapters/probability/conditional.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nv-mldev/math-bootcamp/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -417,9 +423,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/probability/what_is_probability.html">Probability</a></li><li class="breadcrumb-item"><a href="../../chapters/probability/conditional.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Conditional Probability</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/probability/what_is_probability.html">Probability</a></li><li class="breadcrumb-item"><a href="../../chapters/probability/conditional.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Conditional Probability</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Conditional Probability</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Conditional Probability</span></h1>
 </div>
 
 
@@ -436,8 +442,8 @@ window.Quarto = {
 </header>
 
 
-<section id="the-question" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="the-question"><span class="header-section-number">3.1</span> The question</h2>
+<section id="the-question" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="the-question"><span class="header-section-number">4.1</span> The question</h2>
 <p>A rapid test for some disease is described as <strong>95% accurate</strong>.</p>
 <p>You take the test. It comes back <strong>positive</strong>.</p>
 <p>How worried should you be?</p>
@@ -466,8 +472,8 @@ window.Quarto = {
 </div>
 <hr>
 </section>
-<section id="step-1-simulate-the-test" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="step-1-simulate-the-test"><span class="header-section-number">3.2</span> Step 1 — Simulate the test</h2>
+<section id="step-1-simulate-the-test" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="step-1-simulate-the-test"><span class="header-section-number">4.2</span> Step 1 — Simulate the test</h2>
 <p>Imagine a population of 100,000 people. We need three numbers to define the world:</p>
 <table class="caption-top table">
 <colgroup>
@@ -502,7 +508,7 @@ window.Quarto = {
 </table>
 <p>That second + third number is what “95% accurate” usually means in advertising. The first number — prevalence — is the one nobody mentions, and it’s the one that matters most.</p>
 <p>Let’s run it:</p>
-<div id="ec02adc8" class="cell" data-execution_count="1">
+<div id="d958ad84" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(seed<span class="op">=</span><span class="dv">42</span>)</span>
@@ -534,7 +540,7 @@ Tested positive AND sick:      982</code></pre>
 </div>
 </div>
 <p>Look at those last two lines. <strong>Most people who tested positive are not actually sick.</strong> Let’s compute the answer to our original question:</p>
-<div id="af46a4ef" class="cell" data-execution_count="2">
+<div id="72481519" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>n_positive <span class="op">=</span> test_positive.<span class="bu">sum</span>()</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>n_positive_and_sick <span class="op">=</span> (test_positive <span class="op">&amp;</span> is_sick).<span class="bu">sum</span>()</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -549,10 +555,10 @@ Tested positive AND sick:      982</code></pre>
 <p>That should feel deeply wrong on first read. Let’s see why it’s right.</p>
 <hr>
 </section>
-<section id="step-2-stare-at-the-table" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="step-2-stare-at-the-table"><span class="header-section-number">3.3</span> Step 2 — Stare at the table</h2>
+<section id="step-2-stare-at-the-table" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="step-2-stare-at-the-table"><span class="header-section-number">4.3</span> Step 2 — Stare at the table</h2>
 <p>The simulation gave us four kinds of people. Let’s count each:</p>
-<div id="1884aaf5" class="cell" data-execution_count="3">
+<div id="494ddab4" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> pd.crosstab(</span>
@@ -584,8 +590,8 @@ total             94154      5846  100000</code></pre>
 <p>That’s it. That’s the whole idea. Nothing to memorise yet — we just counted.</p>
 <hr>
 </section>
-<section id="step-3-now-the-formula" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="step-3-now-the-formula"><span class="header-section-number">3.4</span> Step 3 — Now the formula</h2>
+<section id="step-3-now-the-formula" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="step-3-now-the-formula"><span class="header-section-number">4.4</span> Step 3 — Now the formula</h2>
 <p>Let <span class="math inline">S</span> = “actually sick” and <span class="math inline">T</span> = “tested positive”. The phrase “given that the test was positive” is conditional probability, written <span class="math inline">P(S \mid T)</span>. It’s defined as:</p>
 <p><span class="math display">
 P(S \mid T) \;=\; \frac{P(S \cap T)}{P(T)}
@@ -631,15 +637,15 @@ Q\!\left(\bigcup_i A_i\right) \;=\; \frac{P\!\left(\bigcup_i A_i \cap B\right)}{
 </div>
 <hr>
 </section>
-<section id="why-the-result-was-so-counterintuitive" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="why-the-result-was-so-counterintuitive"><span class="header-section-number">3.5</span> Why the result was so counterintuitive</h2>
+<section id="why-the-result-was-so-counterintuitive" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="why-the-result-was-so-counterintuitive"><span class="header-section-number">4.5</span> Why the result was so counterintuitive</h2>
 <p>Most people, asked “what’s the probability you’re sick given a positive test?”, silently substitute the <em>reverse</em> question: <strong>“what’s the probability of testing positive given that you’re sick?”</strong> That second quantity is the sensitivity — 95%.</p>
 <p>These two probabilities, <span class="math inline">P(S \mid T)</span> and <span class="math inline">P(T \mid S)</span>, are very different in general. Confusing them is so common it has a name — <strong>the prosecutor’s fallacy</strong> — and it shows up in courtrooms, medical decision-making, and basically every bad statistics-in-the-news story you’ll ever read.</p>
 <p>The trick that converts one to the other is <strong>Bayes’ rule</strong>, which is what the next section is about. But you’ve already seen its essence: it’s the formula that re-weights your belief by the prevalence (the <em>prior</em>).</p>
 <hr>
 </section>
-<section id="three-things-you-should-take-away" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="three-things-you-should-take-away"><span class="header-section-number">3.6</span> Three things you should take away</h2>
+<section id="three-things-you-should-take-away" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="three-things-you-should-take-away"><span class="header-section-number">4.6</span> Three things you should take away</h2>
 <ol type="1">
 <li><p><strong>Conditional probability is restriction.</strong> “Given <span class="math inline">B</span>” means “restrict the universe to <span class="math inline">B</span>, then re-normalise.” The table makes this visible; the formula encodes it.</p></li>
 <li><p><strong>The denominator matters more than the numerator.</strong> Small false-positive rates against large healthy populations can swamp small true-positive counts against tiny sick populations. Always ask: “what’s the base rate?”</p></li>
@@ -676,8 +682,8 @@ P(S \mid T) \;=\; \frac{P(T \mid S)\, P(S)}{P(T)}
 </div>
 <hr>
 </section>
-<section id="exercises" class="level2" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="exercises"><span class="header-section-number">3.7</span> Exercises</h2>
+<section id="exercises" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="exercises"><span class="header-section-number">4.7</span> Exercises</h2>
 <ol type="1">
 <li><p><strong>Vary the prevalence.</strong> Re-run the simulation with prevalence <span class="math inline">= 50\%</span> (a coin-flip baseline). What’s <span class="math inline">P(\text{sick} \mid +)</span> now? Why does the answer change so dramatically?</p></li>
 <li><p><strong>Improve the test.</strong> Keep prevalence at 1%, but raise specificity to 99.9%. What does <span class="math inline">P(\text{sick} \mid +)</span> become? Which knob moves the answer faster — sensitivity or specificity? Why?</p></li>
@@ -1104,7 +1110,7 @@ P(S \mid T) \;=\; \frac{P(T \mid S)\, P(S)}{P(T)}
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../../chapters/probability/what_is_probability.html" class="pagination-link" aria-label="What is Probability?">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What is Probability?</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">What is Probability?</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
