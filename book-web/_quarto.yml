@@ -16,6 +16,7 @@ book:
     style: docked
     background: light
   chapters:
+    - cover.qmd
     - index.qmd
     - chapters/introduction.qmd
     - part: "Probability"

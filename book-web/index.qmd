@@ -1,7 +1,5 @@
 # Preface {.unnumbered}
 
-![](figures/cover.png){.book-cover fig-align="center" width="60%"}
-
 Welcome to **Math for Machine Learning** — a simulation-first guide to
 the mathematics behind modern ML.
 
