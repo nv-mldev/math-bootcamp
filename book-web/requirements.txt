@@ -1,4 +1,5 @@
 jupyter
+jupyter-cache
 nbformat
 nbclient
 numpy
