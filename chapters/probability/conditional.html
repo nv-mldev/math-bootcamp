@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; Conditional Probability – Math Bootcamp</title>
+<title>3&nbsp; Conditional Probability – Math for Machine Learning</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -69,6 +69,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../chapters/probability/what_is_probability.html" rel="prev">
+<link href="../../figures/cover.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -343,9 +344,9 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">Math Bootcamp</a> 
+      <a href="../../">Math for Machine Learning</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/Nithin/math-bootcamp" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/nv-mldev/math-bootcamp" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -410,7 +411,7 @@ window.Quarto = {
   <li><a href="#three-things-you-should-take-away" id="toc-three-things-you-should-take-away" class="nav-link" data-scroll-target="#three-things-you-should-take-away"><span class="header-section-number">3.6</span> Three things you should take away</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">3.7</span> Exercises</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/Nithin/math-bootcamp/edit/main/chapters/probability/conditional.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Nithin/math-bootcamp/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/nv-mldev/math-bootcamp/edit/main/chapters/probability/conditional.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nv-mldev/math-bootcamp/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -501,7 +502,7 @@ window.Quarto = {
 </table>
 <p>That second + third number is what “95% accurate” usually means in advertising. The first number — prevalence — is the one nobody mentions, and it’s the one that matters most.</p>
 <p>Let’s run it:</p>
-<div id="49a28491" class="cell" data-execution_count="1">
+<div id="ec02adc8" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(seed<span class="op">=</span><span class="dv">42</span>)</span>
@@ -533,7 +534,7 @@ Tested positive AND sick:      982</code></pre>
 </div>
 </div>
 <p>Look at those last two lines. <strong>Most people who tested positive are not actually sick.</strong> Let’s compute the answer to our original question:</p>
-<div id="d4effa30" class="cell" data-execution_count="2">
+<div id="af46a4ef" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>n_positive <span class="op">=</span> test_positive.<span class="bu">sum</span>()</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>n_positive_and_sick <span class="op">=</span> (test_positive <span class="op">&amp;</span> is_sick).<span class="bu">sum</span>()</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -551,7 +552,7 @@ Tested positive AND sick:      982</code></pre>
 <section id="step-2-stare-at-the-table" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="step-2-stare-at-the-table"><span class="header-section-number">3.3</span> Step 2 — Stare at the table</h2>
 <p>The simulation gave us four kinds of people. Let’s count each:</p>
-<div id="6b8da462" class="cell" data-execution_count="3">
+<div id="1884aaf5" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> pd.crosstab(</span>
@@ -1114,4 +1115,4 @@ P(S \mid T) \;=\; \frac{P(T \mid S)\, P(S)}{P(T)}
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Nithin/math-bootcamp/edit/main/chapters/probability/conditional.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Nithin/math-bootcamp/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nv-mldev/math-bootcamp/edit/main/chapters/probability/conditional.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nv-mldev/math-bootcamp/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

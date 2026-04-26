@@ -9,7 +9,7 @@
 <meta name="author" content="Nithin Vadekkapat">
 <meta name="dcterms.date" content="2026-04-26">
 
-<title>Math Bootcamp</title>
+<title>Math for Machine Learning</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,6 +36,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./chapters/introduction.html" rel="next">
+<link href="./figures/cover.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -267,9 +268,9 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Math Bootcamp</a> 
+      <a href="./">Math for Machine Learning</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/Nithin/math-bootcamp" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/nv-mldev/math-bootcamp" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -328,7 +329,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/Nithin/math-bootcamp/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Nithin/math-bootcamp/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/nv-mldev/math-bootcamp/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nv-mldev/math-bootcamp/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -336,8 +337,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Math Bootcamp</h1>
-<p class="subtitle lead">From Algebra to Probability — A practical guide for ML</p>
+<h1 class="title">Math for Machine Learning</h1>
+<p class="subtitle lead">A simulation-first approach</p>
 </div>
 
 
@@ -366,17 +367,25 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+
 <section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>Welcome to <strong>Math Bootcamp</strong> — a practical guide to the mathematics behind machine learning, written as a self-contained book.</p>
-<p>The book is structured around the following flow for each topic:</p>
+<h1 class="unnumbered">Preface</h1><p><img src="figures/cover.png" title="Math for Machine Learning" class="quarto-cover-image nolightbox img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/cover.png" class="book-cover img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+<p>Welcome to <strong>Math for Machine Learning</strong> — a simulation-first guide to the mathematics behind modern ML.</p>
+<p>Most math books teach a concept by first defining it formally, then proving things about it, and finally — if there’s room — showing an example. <strong>This book inverts that.</strong> Every concept is introduced as a problem you can simulate, watch unfold, and reason about visually <em>before</em> the formula appears. The proofs and rigorous derivations are all here, but they live behind collapsible <strong>▶ Show the math</strong> boxes that you open only when you want them.</p>
+<p>The structure of every section is the same:</p>
 <ol type="1">
-<li><strong>Intuition</strong> — what is the idea, and why does it matter?</li>
-<li><strong>Math</strong> — the formal definitions and derivations.</li>
-<li><strong>Code</strong> — Python implementations you can run yourself.</li>
-<li><strong>Visualization</strong> — diagrams and plots that make the math concrete.</li>
+<li><strong>Story</strong> — a concrete problem you can imagine.</li>
+<li><strong>Simulation</strong> — Python code you can run that exposes the pattern.</li>
+<li><strong>Picture / table</strong> — what the data shows.</li>
+<li><strong>Formula</strong> — the math, revealed as a description of what you just saw.</li>
+<li><strong>▶ Show the math</strong> — the rigorous version, on demand.</li>
 </ol>
-<p>This is a living document. New chapters are added as they are written. If you spot an error or have a suggestion, the <strong>Edit this page</strong> link in the top-right of each chapter goes straight to the source on GitHub.</p>
+<p>This is a living document. New chapters are added as they are written. The <strong>Edit this page</strong> link in the top-right of each chapter goes straight to the source on GitHub.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -387,7 +396,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This is a proof-of-concept build. Only the introductory chapter is currently available on the web; the remaining chapters are being migrated from the LaTeX source.</p>
+<p>This is an early build. Currently available: the introduction and the probability core (<em>What is Probability?</em>, <em>Conditional Probability</em>). More chapters are added as they’re written.</p>
 </div>
 </div>
 
@@ -822,4 +831,4 @@ Note
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Nithin/math-bootcamp/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Nithin/math-bootcamp/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nv-mldev/math-bootcamp/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nv-mldev/math-bootcamp/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
