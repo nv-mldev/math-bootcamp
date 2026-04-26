@@ -6,6 +6,212 @@ execute:
   cache: true
 ---
 
+**Probability is the branch of mathematics that studies uncertainty.**
+
+Whenever the world refuses to commit to a single answer — *will the drug
+work? will it rain tomorrow? is this email spam? — *probability gives us
+the language to say something useful about the alternatives. It is the
+language behind weather forecasts, medical trials, insurance, gambling,
+quantum mechanics, machine learning, and the routing algorithm that
+delivered this page to your screen.
+
+What's surprising is that probability is **young**. Mathematicians had
+been doing calculus and geometry for centuries before anyone took
+randomness seriously enough to write equations about it. The story of
+how probability became a real subject is short, dramatic, and full of
+gamblers, monks, astronomers, and one telephone engineer who quietly
+changed the world. We'll meet a few of them before we begin.
+
+## A short history
+
+Click any name to read more.
+
+::: {.callout-tip collapse="true"}
+## ▶ **Gerolamo Cardano** (1501–1576) — the gambling doctor
+
+::: {layout="[1,3]"}
+![](../../figures/history/cardano.jpg){width="180px"}
+
+A 16th-century Italian physician, mathematician, and chronic gambler.
+Cardano wrote *Liber de Ludo Aleae* ("Book on Games of Chance") around
+1560 — the **first known systematic treatment of probability**. He
+worked out odds for dice, cards, and backgammon, and even discussed how
+to detect cheating.
+
+Embarrassed by the subject's disreputable connections, he kept the
+manuscript private. It wasn't published until 1663 — almost 90 years
+after his death. Cardano's instincts were correct, but the field had to
+be re-discovered by mathematicians who took it more seriously.
+:::
+
+<small>*Stipple engraving by R. Cooper, [Wellcome
+Collection](https://commons.wikimedia.org/wiki/File:Girolamo_Cardano._Stipple_engraving_by_R._Cooper._Wellcome_V0001004.jpg),
+CC BY 4.0.*</small>
+:::
+
+::: {.callout-tip collapse="true"}
+## ▶ **Blaise Pascal & Pierre de Fermat** (1654) — letters that founded a field
+
+::: {layout-ncol="2"}
+![Blaise Pascal (1623–1662)](../../figures/history/pascal.jpg){width="220px"}
+
+![Pierre de Fermat (1601–1665)](../../figures/history/fermat.jpg){width="220px"}
+:::
+
+A French nobleman named the **Chevalier de Méré** asked Pascal a
+question about a dice game: *if a game has to stop early, how should the
+pot be divided fairly between the players?*
+
+Pascal didn't know. He wrote to **Fermat** in 1654, and the two
+exchanged a series of letters working out the answer. In doing so they
+invented — almost by accident — the foundations of probability theory:
+expected value, the multiplication rule, the structure of compound
+events. Six letters. The field begins here.
+
+The problem they solved is still called the **problem of points**, and
+their solution is still the right one.
+
+<small>*Pascal portrait: copy of François Quesnel (1691), Palace of
+Versailles
+([Wikimedia](https://commons.wikimedia.org/wiki/File:Blaise_Pascal_Versailles.JPG),
+CC BY 3.0). Fermat portrait: oil on canvas by Rolland Lefebvre, c. 1650
+([Wikimedia](https://commons.wikimedia.org/wiki/File:Pierre_de_Fermat3.jpg),
+public domain).*</small>
+:::
+
+::: {.callout-tip collapse="true"}
+## ▶ **Jacob Bernoulli** (1654–1705) — the law of large numbers
+
+::: {layout="[1,3]"}
+![](../../figures/history/bernoulli.jpg){width="180px"}
+
+Twenty years after Pascal and Fermat, the Swiss mathematician Jacob
+Bernoulli took up the question: *if I flip a coin enough times, does
+the fraction of heads actually converge to its true probability?*
+
+Yes — and he proved it. His **Law of Large Numbers** (published
+posthumously in 1713 in *Ars Conjectandi*) is the bridge between
+**frequencies you can measure** and **probabilities you cannot**. It
+turns probability from a calculator's curiosity into a science: the
+empirical world *can* be used to estimate the unseen.
+
+Every time you compute an average, you are leaning on his theorem.
+:::
+
+<small>*Portrait by his brother Niklaus Bernoulli, c. 1687
+([Wikimedia](https://commons.wikimedia.org/wiki/File:Jakob_Bernoulli.jpg),
+public domain).*</small>
+:::
+
+::: {.callout-tip collapse="true"}
+## ▶ **Thomas Bayes** (1701–1761) — the rule that runs modern AI
+
+::: {layout="[1,3]"}
+![](../../figures/history/bayes.png){width="180px"}
+
+An English Presbyterian minister and amateur mathematician, Bayes wrote
+a paper on inverse probability — *given an observed effect, what was the
+likely cause?* — and never published it. After his death, his friend
+Richard Price found it in his papers and submitted it to the Royal
+Society in 1763.
+
+For 200 years it was a curiosity. Then statisticians, and later machine
+learning researchers, noticed something: **Bayes' rule is the
+mathematics of learning from evidence**. Every spam filter, every
+medical diagnostic system, every Bayesian neural network is a child of
+this short paper by a country minister who didn't think it worth
+printing.
+
+We'll meet his rule formally a few chapters from now. It deserves the
+build-up.
+:::
+
+<small>*The only commonly-circulated portrait traditionally identified
+as Thomas Bayes — its authenticity is **disputed** by historians (no
+verified likeness of Bayes survives). Colorized version by Mark Riehl
+([Wikimedia](https://commons.wikimedia.org/wiki/File:ThomasBayes.png),
+CC BY-SA 4.0).*</small>
+:::
+
+::: {.callout-tip collapse="true"}
+## ▶ **Pierre-Simon Laplace** (1749–1827) — the great consolidator
+
+::: {layout="[1,3]"}
+![](../../figures/history/laplace.jpg){width="180px"}
+
+If Bayes was the seed, Laplace was the gardener. The French polymath
+generalized Bayes' rule, applied probability to **astronomy, geodesy,
+demographics, and law**, and wrote *Théorie Analytique des Probabilités*
+(1812) — the first comprehensive textbook of the subject.
+
+Laplace took probability seriously *as a science*. He used it to weigh
+witness testimony in court cases, to estimate the population of France
+from a sample, to argue that the solar system was stable. After
+Laplace, no one could dismiss probability as gambler's mathematics
+again.
+
+A famous quip attributed to him: *"It is remarkable that a science
+which began with the consideration of games of chance should have
+become the most important object of human knowledge."*
+:::
+
+<small>*Portrait by Jean-Baptiste Paulin Guérin, 1838, Palace of
+Versailles
+([Wikimedia](https://commons.wikimedia.org/wiki/File:Pierre-Simon,_marquis_de_Laplace_(1745-1827)_-_Gu%C3%A9rin.jpg),
+public domain).*</small>
+:::
+
+::: {.callout-tip collapse="true"}
+## ▶ **Andrey Kolmogorov** (1903–1987) — the axioms
+
+Until 1933, probability was a working subject without a formal
+foundation. Different mathematicians used different definitions; the
+field had paradoxes nobody could agree how to resolve.
+
+Then a 30-year-old Soviet mathematician named **Andrey Kolmogorov**
+published *Grundbegriffe der Wahrscheinlichkeitsrechnung* — a slim
+monograph in which he proposed that probability theory should be built
+on **three simple axioms** (the ones we'll meet later in this chapter)
+plus measure theory.
+
+Within a decade, the entire field had reorganised around his framework.
+Every textbook written since 1933 — including this one — uses
+Kolmogorov's axioms. **The formal foundation of probability is younger
+than your grandparents.**
+
+<small>*Photos of Kolmogorov are still under copyright; see the
+[Oberwolfach Photo Collection](https://owpdb.mfo.de/) for licensed
+portraits.*</small>
+:::
+
+::: {.callout-tip collapse="true"}
+## ▶ **Claude Shannon** (1916–2001) — the bridge to machine learning
+
+A telephone engineer at Bell Labs, Shannon noticed something nobody
+else had: **information itself can be measured probabilistically**. His
+1948 paper *A Mathematical Theory of Communication* introduced
+**entropy** ($H = -\sum p_i \log p_i$), the bit, and the channel
+capacity theorem.
+
+Shannon's work is why you can make a phone call, store data on a hard
+drive, compress a file, or train a neural network. Every loss function
+in deep learning that has the word *cross-entropy* in it is a tribute to
+him. He also liked to ride a unicycle through the Bell Labs corridors
+while juggling.
+
+If you take only one name from this list with you, take Shannon. He is
+the reason probability and computation became inseparable.
+
+<small>*Photos of Shannon are still under copyright. The Bell Labs and
+MIT Museum archives hold the famous portraits.*</small>
+:::
+
+That's roughly four centuries of work, ending 75 years ago. The subject
+is still young. With that history in your pocket, let's see what
+probability actually *says*.
+
+---
+
 Luck. Coincidence. Randomness. Uncertainty. Risk. Doubt. Fortune. Chance.
 
 You've probably heard these words countless times, but chances are they
