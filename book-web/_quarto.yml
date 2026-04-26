@@ -3,13 +3,15 @@ project:
   output-dir: _book
 
 book:
-  title: "Math Bootcamp"
-  subtitle: "From Algebra to Probability — A practical guide for ML"
+  title: "Math for Machine Learning"
+  subtitle: "A simulation-first approach"
   author: "Nithin Vadekkapat"
   date: today
   search: true
-  repo-url: https://github.com/Nithin/math-bootcamp
+  repo-url: https://github.com/nv-mldev/math-bootcamp
   repo-actions: [edit, issue]
+  cover-image: figures/cover.png
+  favicon: figures/cover.png
   sidebar:
     style: docked
     background: light

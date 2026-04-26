@@ -1,21 +1,32 @@
 # Preface {.unnumbered}
 
-Welcome to **Math Bootcamp** — a practical guide to the mathematics behind
-machine learning, written as a self-contained book.
+![](figures/cover.png){.book-cover fig-align="center" width="60%"}
 
-The book is structured around the following flow for each topic:
+Welcome to **Math for Machine Learning** — a simulation-first guide to
+the mathematics behind modern ML.
 
-1. **Intuition** — what is the idea, and why does it matter?
-2. **Math** — the formal definitions and derivations.
-3. **Code** — Python implementations you can run yourself.
-4. **Visualization** — diagrams and plots that make the math concrete.
+Most math books teach a concept by first defining it formally, then
+proving things about it, and finally — if there's room — showing an
+example. **This book inverts that.** Every concept is introduced as a
+problem you can simulate, watch unfold, and reason about visually
+*before* the formula appears. The proofs and rigorous derivations are
+all here, but they live behind collapsible **▶ Show the math** boxes
+that you open only when you want them.
 
-This is a living document. New chapters are added as they are written. If
-you spot an error or have a suggestion, the **Edit this page** link in the
-top-right of each chapter goes straight to the source on GitHub.
+The structure of every section is the same:
+
+1. **Story** — a concrete problem you can imagine.
+2. **Simulation** — Python code you can run that exposes the pattern.
+3. **Picture / table** — what the data shows.
+4. **Formula** — the math, revealed as a description of what you just saw.
+5. **▶ Show the math** — the rigorous version, on demand.
+
+This is a living document. New chapters are added as they are written.
+The **Edit this page** link in the top-right of each chapter goes
+straight to the source on GitHub.
 
 ::: {.callout-note}
-This is a proof-of-concept build. Only the introductory chapter is
-currently available on the web; the remaining chapters are being migrated
-from the LaTeX source.
+This is an early build. Currently available: the introduction and the
+probability core (*What is Probability?*, *Conditional Probability*).
+More chapters are added as they're written.
 :::
