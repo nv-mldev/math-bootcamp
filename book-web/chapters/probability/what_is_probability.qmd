@@ -359,6 +359,8 @@ math falls out.
 # Model A: simulate many two-child families. Each child is independently
 # B or G with probability 1/2. Among families with AT LEAST ONE boy, what
 # fraction have TWO boys?
+import numpy as np
+rng = np.random.default_rng(seed=0)
 
 n_families = 200_000
 child_1 = rng.integers(0, 2, size=n_families)   # 1 = boy, 0 = girl
