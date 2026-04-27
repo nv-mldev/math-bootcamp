@@ -23,6 +23,7 @@ book:
       chapters:
         - chapters/probability/what_is_probability.qmd
         - chapters/probability/conditional.qmd
+        - chapters/probability/bernoulli.qmd
 
 bibliography: references.bib
 
