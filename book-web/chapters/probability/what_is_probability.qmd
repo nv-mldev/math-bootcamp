@@ -575,6 +575,30 @@ or refuses, we can pin down her subjective probability to whatever
 precision we like. **The bet she's willing to take *is* her belief, made
 measurable.**
 
+::: {.callout-tip collapse="true"}
+## ▶ Where does the formula $p \ge L/(W+L)$ come from?
+
+The break-even rule we just derived has a longer history than it looks:
+
+- **Christiaan Huygens (1657)** introduced the idea of **expected
+  value** in *De Ratiociniis in Ludo Aleae* — the first systematic
+  probability text. The formula $E[\text{profit}] = pW - (1-p)L$ comes
+  directly from his definition.
+- **Jakob Bernoulli (1713)** — yes, the same Bernoulli from earlier in
+  this chapter — proved the **Law of Large Numbers** in *Ars
+  Conjectandi*. This is what justifies the rule across many bets:
+  *average* profit and *expected* profit converge.
+- **Daniel Bernoulli (1738)** — Jakob's nephew — pointed out in the
+  *St. Petersburg paradox* that real people don't maximize expected
+  money; they maximize **expected utility**. Losing \$2 hurts more than
+  gaining \$2 helps. This is the formal reason a real nurse needs ~80–
+  90% belief, not just the break-even ≥ 67%.
+
+So the inequality is Huygens's; the reason it's reliable is Jakob
+Bernoulli's; the reason humans don't bet right at the break-even line
+is Daniel Bernoulli's.
+:::
+
 This view doesn't need repetition. It works for one-shot events, for
 historical claims, for personal beliefs about the future.
 
