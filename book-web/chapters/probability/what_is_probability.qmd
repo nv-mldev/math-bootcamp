@@ -696,33 +696,51 @@ A working sample space must let you point at exactly one outcome after
 the experiment runs. No ambiguity.
 :::
 
-The third point is subtle. Watch:
+The third point is subtle. The same experiment — rolling two dice —
+can be modelled with very different sample spaces depending on how much
+detail we keep. Let's compare three of them.
 
 ```{python}
-# Three different sample spaces for the SAME experiment of rolling two dice.
+# Three different sample spaces for the SAME experiment: rolling two dice.
 
-# (A) Too coarse: just the sum
+# --- (A) Too coarse: record only the SUM of the two dice. ---
+# The smallest possible sum is 1+1 = 2; the largest is 6+6 = 12.
+# So the sample space is the integers from 2 to 12 — eleven outcomes.
 omega_A = list(range(2, 13))
-print(f"A) Sum only:  |Ω| = {len(omega_A)}, e.g. {omega_A[:5]}…")
+print(f"(A) Sum of the two dice:")
+print(f"    Ω = {omega_A}")
+print(f"    |Ω| = {len(omega_A)}  (eleven possible sums: 2, 3, ..., 12)")
+print()
 
-# (B) The natural one: ordered pairs
+# --- (B) The natural one: record the ORDERED PAIR (die1, die2). ---
+# Each die has 6 faces, so there are 6 x 6 = 36 ordered pairs.
 omega_B = outcomes
-print(f"B) Ordered pairs:  |Ω| = {len(omega_B)}, e.g. {omega_B[:3]}…")
+print(f"(B) Ordered pair (first die, second die):")
+print(f"    Ω = {{(1,1), (1,2), ..., (6,6)}}")
+print(f"    |Ω| = {len(omega_B)}  (six choices for each die: 6 x 6 = 36)")
+print()
 
-# (C) Too fine: pairs plus colour of each die plus rotation angle on landing.
-# We won't enumerate this — it's silly.
-print("C) Ordered pairs + colour + rotation angle: |Ω| ≈ infinite, useless")
+# --- (C) Too fine: ordered pair PLUS colour of each die PLUS the rotation
+# angle each die came to rest at. Infinitely many possibilities, none
+# of which help us answer dice questions. We won't enumerate it.
+print("(C) Ordered pair + colour + rotation angle on landing:")
+print("    |Ω| is effectively infinite — and useless for our questions.")
 ```
 
-Sample space **A** is fine if the *only* question you'll ever ask is
-about the sum. But it can't answer *"was the first die a 6?"*, because
-that information has been thrown away.
+What does each one let us ask?
 
-Sample space **C** can answer everything but adds detail nobody cares
-about — and the detail makes calculations harder, not easier.
-
-Sample space **B** is the **right level**. It can answer every question
-of interest and nothing more.
+- **Sample space (A) — sums only.** Good for *"what's the probability
+  the sum is 7?"*. But it **cannot** answer *"was the first die a 6?"*
+  — that information has been thrown away. The sum 7 could have come
+  from $(1,6), (2,5), (3,4), (4,3), (5,2)$ or $(6,1)$, and (A) doesn't
+  remember which.
+- **Sample space (C) — pairs + colour + rotation angle.** Can answer
+  everything (including questions nobody asked, like *"did the red die
+  land at exactly 47°?"*). The extra detail makes the model harder to
+  work with and adds no value.
+- **Sample space (B) — ordered pairs.** Can answer every question we
+  actually care about (sum, individual die values, parity, max, min,
+  …) and nothing more. **This is the right level of detail.**
 
 ::: {.callout-tip}
 ## Choosing the sample space is part of modelling
