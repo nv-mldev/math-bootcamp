@@ -82,9 +82,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-837715a9b051786859ba5690928b907c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-d238813cdd6b312b1a55b5f3c43c7949.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-837715a9b051786859ba5690928b907c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-b73b843a458076963ccebc3c13129489.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-7354b933ecc64d5124f38a0ea3e7a5a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-b73b843a458076963ccebc3c13129489.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -760,7 +760,7 @@ window.Quarto = {
 <p>The verbal sentence “at least one is a boy” is the <em>same</em> in both stories, but it was <em>generated</em> by two different experiments. The sample space follows the experiment, not the sentence.</p>
 <p>Two models, two different answers. <strong>Nobody has done arithmetic yet.</strong> The argument is happening at Stage 1.</p>
 <p>We can confirm Model A’s answer by simulation — pick the model and the math falls out.</p>
-<div id="2c7dfc52" class="cell" data-execution_count="1">
+<div id="7d2660b2" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model A: simulate many two-child families. Each child is independently</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># B or G with probability 1/2. Among families with AT LEAST ONE boy, what</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># fraction have TWO boys?</span></span>
@@ -784,7 +784,7 @@ window.Quarto = {
 Theoretical answer: 1/3 ≈ 0.3333</code></pre>
 </div>
 </div>
-<div id="687485f7" class="cell" data-execution_count="2">
+<div id="e10ba6d6" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model B: simulate the same families, but now we 'meet' a uniformly random</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># child from each family. Condition on the child we met being a boy, and ask</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># whether the OTHER child is also a boy.</span></span>
@@ -831,7 +831,7 @@ Theoretical answer: 1/2 ≈ 0.5000</code></pre>
 </blockquote>
 <p>This is intuitive for things you can repeat. <em>“This coin lands heads with probability 0.5”</em> means: if you flip it enough times, the fraction landing heads will get arbitrarily close to 0.5.</p>
 <p>Let’s actually watch that happen.</p>
-<div id="09ba3a4a" class="cell" data-execution_count="3">
+<div id="ab2b998e" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -958,9 +958,31 @@ p \;\ge\; \frac{L}{W + L}.
 </tbody>
 </table>
 <p>By offering bets of different shapes and watching which ones she accepts or refuses, we can pin down her subjective probability to whatever precision we like. <strong>The bet she’s willing to take <em>is</em> her belief, made measurable.</strong></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>▶ Where does the formula <span class="math inline">p \ge L/(W+L)</span> come from?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The break-even rule we just derived has a longer history than it looks:</p>
+<ul>
+<li><strong>Christiaan Huygens (1657)</strong> introduced the idea of <strong>expected value</strong> in <em>De Ratiociniis in Ludo Aleae</em> — the first systematic probability text. The formula <span class="math inline">E[\text{profit}] = pW - (1-p)L</span> comes directly from his definition.</li>
+<li><strong>Jakob Bernoulli (1713)</strong> — yes, the same Bernoulli from earlier in this chapter — proved the <strong>Law of Large Numbers</strong> in <em>Ars Conjectandi</em>. This is what justifies the rule across many bets: <em>average</em> profit and <em>expected</em> profit converge.</li>
+<li><strong>Daniel Bernoulli (1738)</strong> — Jakob’s nephew — pointed out in the <em>St.&nbsp;Petersburg paradox</em> that real people don’t maximize expected money; they maximize <strong>expected utility</strong>. Losing $2 hurts more than gaining $2 helps. This is the formal reason a real nurse needs ~80– 90% belief, not just the break-even ≥ 67%.</li>
+</ul>
+<p>So the inequality is Huygens’s; the reason it’s reliable is Jakob Bernoulli’s; the reason humans don’t bet right at the break-even line is Daniel Bernoulli’s.</p>
+</div>
+</div>
+</div>
 <p>This view doesn’t need repetition. It works for one-shot events, for historical claims, for personal beliefs about the future.</p>
 <p>Let’s see one in action. Suppose two people — call them Alice and Bob — have different prior beliefs about whether a particular coin is fair. We’ll see how their beliefs <strong>update</strong> as evidence comes in.</p>
-<div id="c43ef43a" class="cell" data-execution_count="4">
+<div id="5a75d3d3" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A coin we'll flip. Pretend we don't know its true bias (it's actually 0.7).</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>true_p <span class="op">=</span> <span class="fl">0.7</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>n_flips <span class="op">=</span> <span class="dv">200</span></span>
@@ -1031,7 +1053,7 @@ p \;\ge\; \frac{L}{W + L}.
 <section id="concrete-problem-rolling-two-dice" class="level3" data-number="3.5.1">
 <h3 data-number="3.5.1" class="anchored" data-anchor-id="concrete-problem-rolling-two-dice"><span class="header-section-number">3.5.1</span> Concrete problem: rolling two dice</h3>
 <p>Throughout the rest of this chapter, we’ll use a single running example. You roll two ordinary six-sided dice. We’ll define everything against this.</p>
-<div id="bdec2d53" class="cell" data-execution_count="5">
+<div id="d2b9c16e" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Enumerate all 36 outcomes</span></span>
@@ -1076,7 +1098,7 @@ First few: [(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6)]</code></pre>
 </div>
 </div>
 <p>The third point is subtle. Watch:</p>
-<div id="17f05835" class="cell" data-execution_count="6">
+<div id="7d29fea4" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Three different sample spaces for the SAME experiment of rolling two dice.</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># (A) Too coarse: just the sum</span></span>
@@ -1116,7 +1138,7 @@ C) Ordered pairs + colour + rotation angle: |Ω| ≈ infinite, useless</code></p
 <section id="events" class="level3" data-number="3.5.3">
 <h3 data-number="3.5.3" class="anchored" data-anchor-id="events"><span class="header-section-number">3.5.3</span> Events</h3>
 <p>An <strong>event</strong> is just a subset of <span class="math inline">\Omega</span>. Some examples for our two dice:</p>
-<div id="81d76c2d" class="cell" data-execution_count="7">
+<div id="0187ae1d" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>omega <span class="op">=</span> <span class="bu">set</span>(outcomes)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {(d1, d2) <span class="cf">for</span> d1, d2 <span class="kw">in</span> omega <span class="cf">if</span> d1 <span class="op">+</span> d2 <span class="op">==</span> <span class="dv">7</span>}        <span class="co"># sum is 7</span></span>
@@ -1136,7 +1158,7 @@ D = sum ≥ 10        (6 outcomes): [(4, 6), (5, 5), (5, 6), (6, 4), (6, 5), (6,
 </div>
 </div>
 <p>Because events are sets, you can combine them with set operations. Combining events gives you new events:</p>
-<div id="20b63d35" class="cell" data-execution_count="8">
+<div id="f17dab54" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum is 7 OR doubles</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>A_or_B <span class="op">=</span> A <span class="op">|</span> B          <span class="co"># set union → "A or B"</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum is 7 AND first die is 6  (impossible — empty set)</span></span>
@@ -1155,7 +1177,7 @@ A \ B   ('sum is 7 but not doubles'):  6 outcomes</code></pre>
 </div>
 <p>That’s the entire grammar. Set union for “or”, set intersection for “and”, set complement for “not”. Probability theory inherits its grammar from set theory.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1164,7 +1186,7 @@ A \ B   ('sum is 7 but not doubles'):  6 outcomes</code></pre>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>For any events <span class="math inline">A</span>, <span class="math inline">B</span>, <span class="math inline">C \subseteq \Omega</span>, the following identities hold and are used constantly:</p>
 <p><strong>Commutative.</strong> <span class="math inline">A \cup B = B \cup A</span>, <span class="math inline">\;\; A \cap B = B \cap A</span>.</p>
@@ -1180,7 +1202,7 @@ A \ B   ('sum is 7 but not doubles'):  6 outcomes</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1189,7 +1211,7 @@ A \ B   ('sum is 7 but not doubles'):  6 outcomes</code></pre>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>If “countable vs uncountable” sounds vague, here’s the picture that makes it concrete.</p>
 <p><strong>Hilbert’s Hotel</strong> has infinitely many rooms — one for each natural number — and they’re all full. A new guest arrives. Can the manager fit them in?</p>
@@ -1228,7 +1250,7 @@ A \ B   ('sum is 7 but not doubles'):  6 outcomes</code></pre>
 </div>
 <p>Three axioms. That’s the whole foundation. Everything else in probability theory — every formula, every theorem, every proof — follows from these three.</p>
 <p>Let’s verify them on our dice.</p>
-<div id="3aeec19c" class="cell" data-execution_count="9">
+<div id="15728216" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For fair dice, each of the 36 outcomes has probability 1/36.</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># We define the probability law as: for any event E, P(E) = |E| / 36.</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1260,7 +1282,7 @@ A \ B   ('sum is 7 but not doubles'):  6 outcomes</code></pre>
 </div>
 <p>That’s it. The rest of probability theory is just consequences of these three rules.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1269,7 +1291,7 @@ A \ B   ('sum is 7 but not doubles'):  6 outcomes</code></pre>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>From the three axioms alone, we can derive a long list of useful facts. Here are the most-used ones, with proofs.</p>
 <p><strong>1. <span class="math inline">P(\emptyset) = 0</span>.</strong></p>
@@ -1307,7 +1329,7 @@ P\!\left(\bigcup_i A_i\right) \le \sum_i P(A_i).
 <p>Many real experiments unfold <strong>in stages</strong>. You don’t roll all your dice at once — you roll the first, see what happens, then roll the second. You don’t measure all your sensor outputs at once — readings come in over time. You don’t read an email and decide it’s spam in a single glance — you check the sender, then the subject line, then the body.</p>
 <p>For these step-by-step experiments, the cleanest representation is a <strong>tree diagram</strong>. Each branch from a node represents a possible outcome at that stage; each path from root to leaf is one complete sequence of outcomes. The set of all leaves is the sample space.</p>
 <p>Let’s draw one. We’ll use the simplest sequential experiment that’s still interesting: <strong>flipping a fair coin three times</strong>.</p>
-<div id="3198c70f" class="cell" data-execution_count="10">
+<div id="d43e4ca9" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.patches <span class="im">import</span> FancyArrowPatch</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1386,7 +1408,7 @@ P\!\left(\bigcup_i A_i\right) \le \sum_i P(A_i).
 <li><p><strong>Probabilities follow paths.</strong> Each branch in a fair coin tree is taken with probability <span class="math inline">1/2</span>, and the probability of reaching a specific leaf is the product along the path: <span class="math inline">(1/2)(1/2)(1/2) = 1/8</span>. Multiply along branches; add across branches.</p></li>
 </ul>
 <p>Let’s verify by computing some probabilities directly from the tree:</p>
-<div id="b090f066" class="cell" data-execution_count="11">
+<div id="e65e9d43" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> product</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate all leaves</span></span>
@@ -1466,7 +1488,7 @@ P(A) \;=\; \frac{|A|}{|\Omega|} \;=\; \frac{\text{number of outcomes in } A}{\te
 </div>
 </div>
 <p><strong>Way 1 — Counting (analytical).</strong></p>
-<div id="d98a749c" class="cell" data-execution_count="12">
+<div id="bbdd498f" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># By the equally-likely-outcomes formula</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>event_sum_7 <span class="op">=</span> {(d1, d2) <span class="cf">for</span> d1, d2 <span class="kw">in</span> omega <span class="cf">if</span> d1 <span class="op">+</span> d2 <span class="op">==</span> <span class="dv">7</span>}</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>p_analytical <span class="op">=</span> <span class="bu">len</span>(event_sum_7) <span class="op">/</span> <span class="dv">36</span></span>
@@ -1478,7 +1500,7 @@ P(A) \;=\; \frac{|A|}{|\Omega|} \;=\; \frac{\text{number of outcomes in } A}{\te
 </div>
 </div>
 <p><strong>Way 2 — Simulation (frequentist).</strong></p>
-<div id="6c7d06e5" class="cell" data-execution_count="13">
+<div id="1c292109" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Roll a million pairs of dice and count the fraction with sum = 7.</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>n_rolls <span class="op">=</span> <span class="dv">1_000_000</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>d1 <span class="op">=</span> rng.integers(<span class="dv">1</span>, <span class="dv">7</span>, size<span class="op">=</span>n_rolls)</span>
@@ -1492,7 +1514,7 @@ P(A) \;=\; \frac{|A|}{|\Omega|} \;=\; \frac{\text{number of outcomes in } A}{\te
 </div>
 </div>
 <p><strong>Way 3 — Picture (where you can just <em>see</em> the answer).</strong></p>
-<div id="c8fa75ce" class="cell" data-execution_count="14">
+<div id="78e11b0c" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the 6×6 grid. Highlight outcomes whose sum is 7.</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="fl">5.5</span>, <span class="fl">5.5</span>))</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> d1 <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">7</span>):</span>
