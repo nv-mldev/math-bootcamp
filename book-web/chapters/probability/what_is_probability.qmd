@@ -612,11 +612,14 @@ is **Bayes' rule**, which we'll meet two chapters from now.
 The standard objections are:
 
 - *"Whose probability are we talking about?"* — different people, looking
-  at the same evidence, can have different priors and so different
-  posteriors. Frequentists find this disturbing; subjectivists say it's
-  just honest.
-- *"How do you elicit a prior in practice?"* — easier said than done. In
-  ML this manifests as the **prior choice problem** in Bayesian models.
+  at the same evidence, can have different **priors** (their starting
+  beliefs, before seeing any data) and so different **posteriors**
+  (their updated beliefs after seeing the data). Frequentists find this
+  disturbing; subjectivists say it's just honest.
+- *"How do you choose a prior in practice?"* — easier said than done.
+  In ML this shows up as the **prior choice problem** in Bayesian
+  models: how much should you let your starting belief shape the
+  conclusion?
 
 We will pragmatically use **whichever view fits the problem**. Don't pick
 a side. For coin flips and dice, frequentist intuition is sharper. For
@@ -1220,13 +1223,7 @@ we'll use for the entire book. Whenever you're unsure of an answer:
    How many flips do you need before the frequency is within 0.01 of
    the true value? Run it 5 times — does the answer vary?
 
-3. **Subjective limit.** In the Alice/Bob simulation, what happens if
-   Alice's prior is *wrong* and very confident — say, Beta(500, 500)
-   meaning "I'm extremely sure this coin is fair"? How many flips before
-   she's overruled by the data? What does this tell you about strong
-   priors in Bayesian inference?
-
-4. **Check an axiom.** Pick any two events from the dice example
+3. **Check an axiom.** Pick any two events from the dice example
    (e.g. $E$ = "sum is even" and $F$ = "first die is odd"). Verify
    inclusion–exclusion: compute $P(E)$, $P(F)$, $P(E \cap F)$, and
    $P(E \cup F)$ separately, and check that $P(E \cup F) = P(E) + P(F)
