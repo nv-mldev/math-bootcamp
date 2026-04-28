@@ -602,61 +602,10 @@ is Daniel Bernoulli's.
 This view doesn't need repetition. It works for one-shot events, for
 historical claims, for personal beliefs about the future.
 
-Let's see one in action. Suppose two people — call them Alice and Bob —
-have different prior beliefs about whether a particular coin is fair.
-We'll see how their beliefs **update** as evidence comes in.
-
-```{python}
-# A coin we'll flip. Pretend we don't know its true bias (it's actually 0.7).
-true_p = 0.7
-n_flips = 200
-flips = rng.integers(0, 2, size=n_flips, endpoint=False)
-flips = (rng.random(n_flips) < true_p).astype(int)
-
-# Alice starts confident the coin is fair: prior is concentrated near 0.5.
-# Bob starts skeptical: prior is uniform (he doesn't know).
-# We track each person's running estimate of P(heads) after each flip.
-# Both use a Beta prior + Bernoulli likelihood (you'll meet this formally
-# in the chapter on Bayesian inference). The point here is just visual.
-
-def beta_posterior_means(alpha0, beta0, flips):
-    """Running posterior mean of P(heads) given a Beta(alpha0, beta0) prior."""
-    heads = np.cumsum(flips)
-    n = np.arange(1, len(flips) + 1)
-    alpha = alpha0 + heads
-    beta = beta0 + (n - heads)
-    return alpha / (alpha + beta)
-
-alice = beta_posterior_means(50, 50, flips)   # strong prior: fair coin
-bob = beta_posterior_means(1, 1, flips)       # uniform prior: no clue
-
-fig, ax = plt.subplots(figsize=(9, 4))
-ax.plot(alice, label="Alice (prior: coin is fair)", color="C0")
-ax.plot(bob, label="Bob (prior: no clue)", color="C2")
-ax.axhline(true_p, color="C3", ls="--", lw=1, label=f"True p = {true_p}")
-ax.set_xlabel("Number of flips observed")
-ax.set_ylabel("Estimated P(heads)")
-ax.set_title("Two people, two priors, same data — beliefs converge")
-ax.legend()
-plt.tight_layout()
-plt.show()
-```
-
-Two things to notice:
-
-1. **They start in different places.** Alice begins near 0.5 because she
-   was confident the coin was fair. Bob begins near 0.5 too, but for the
-   opposite reason (he had no information, and a uniform prior over
-   $[0,1]$ has mean 0.5).
-2. **They end up in the same place.** Both converge toward the true
-   value 0.7 as data accumulates, but Alice gets there *more slowly*
-   because her strong prior takes more evidence to overturn.
-
-The subjective view is fine with this. It says: probability is a
-**personal** quantity, but **rational people who share the same
-information will agree** in the limit. The formal mechanism for *how*
-beliefs update is **Bayes' rule**, which we'll meet two chapters from
-now.
+A natural follow-up question is: *if two rational people start with
+different beliefs but see the same evidence, do they end up agreeing?*
+The answer is yes — and the formal mechanism for *how* beliefs update
+is **Bayes' rule**, which we'll meet two chapters from now.
 
 ### Where the subjective view runs out of road
 
