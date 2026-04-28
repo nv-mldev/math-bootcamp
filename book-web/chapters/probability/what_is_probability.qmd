@@ -316,7 +316,7 @@ say **1/2** — *"the other child is either a boy or a girl, those are
 equally likely, so 1/2."* Others, after some thought, say **1/3**.
 A few say "it depends" and look smug.
 
-Here's the thing: **all three answers can be defended**, and the
+Here's the thing: **both 1/3 and 1/2 can be defended**, and the
 disagreement is *entirely* about Stage 1 — what sample space should we
 use? Once a sample space is fixed, every reasonable person gets the
 same number out. Let's see this happen.
@@ -525,15 +525,55 @@ does.
 The subjective answer:
 
 > **The probability of an event, for a given person at a given time, is
-> the price they are willing to pay for a bet that pays \$1 if the event
-> happens and \$0 otherwise.**
+> revealed by the bets they are willing to take on it.**
 
-Look at the dialogue again. When the relative said *"would you take a
-two-for-one bet?"*, that's exactly this definition in action. If the
-nurse accepts a bet that pays \$1 if the drug works and costs her \$0.50
-otherwise, she is implicitly saying she believes $P(\text{works}) \ge
-0.5$. Push the price further until she's indifferent, and you've measured
-her subjective probability to whatever precision you care for.
+Look at the dialogue again. The relative offered the nurse this bet:
+
+- If the drug **works** → the nurse gains **\$1**.
+- If the drug **does not work** → the nurse loses **\$2**.
+
+What does it mean if she accepts? Let $p = P(\text{works})$ be her
+belief that the drug works. Across many imagined runs of the bet, her
+*average* (expected) profit is:
+
+$$
+E[\text{profit}] = p \cdot (\$1) \;+\; (1 - p) \cdot (-\$2) \;=\; 3p - 2
+$$
+
+A rational person only takes a bet whose expected profit is at least
+zero (otherwise, on average, they lose money):
+
+$$
+3p - 2 \;\ge\; 0 \quad\Longrightarrow\quad p \;\ge\; \frac{2}{3} \;\approx\; 0.67
+$$
+
+So if the nurse accepts, she is implicitly saying she believes the drug
+works with probability **at least 2/3 (≈ 67%)**. In practice, no one
+takes a bet at the exact break-even point — people want a margin of
+safety — so accepting a "lose \$2, win \$1" bet usually signals belief
+closer to **80–90%**. She would have to be quite confident.
+
+**The general rule.** If a bet pays you **\$W** when you win and costs
+you **\$L** when you lose, you should only take it if your belief
+satisfies
+
+$$
+p \;\ge\; \frac{L}{W + L}.
+$$
+
+The bigger the loss relative to the win, the higher your belief must
+be:
+
+| Win | Lose | Minimum belief to take the bet |
+|-----|------|--------------------------------|
+| \$1 | \$1  | 1/2 = 50% |
+| \$1 | \$2  | 2/3 ≈ 67% *(the nurse's bet)* |
+| \$1 | \$9  | 9/10 = 90% |
+
+By offering bets of different shapes and watching which ones she accepts
+or refuses, we can pin down her subjective probability to whatever
+precision we like. **The bet she's willing to take *is* her belief, made
+measurable.**
 
 This view doesn't need repetition. It works for one-shot events, for
 historical claims, for personal beliefs about the future.
