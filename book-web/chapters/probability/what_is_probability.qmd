@@ -638,7 +638,9 @@ is:
 2. A collection of **events** — subsets of $\Omega$ that we might want
    to assign probabilities to.
 3. A **probability law** $P$ — a function that assigns a number to each
-   event, obeying three axioms.
+   event, obeying three axioms (non-negativity, normalization,
+   additivity — we'll state them precisely in [Probability law: the
+   three axioms](#probability-law-the-three-axioms) below).
 
 Three pieces. The art is in choosing the first two; the science is in
 working with the third. Let's build each piece against a concrete
