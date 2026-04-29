@@ -827,13 +827,63 @@ $$
 In words: "not (A or B)" = "(not A) and (not B)", and the dual.
 :::
 
-A small caveat is worth knowing about, though we won't use it
-directly. So far we've said "event = subset of $\Omega$" without
-worrying about it. For finite or countable sample spaces (dice, coins,
-integers) that's exactly right. For *uncountable* sample spaces — like
-the real line — it turns out you can't safely call every subset an
-event. The fix is a small piece of formal machinery called a
-**$\sigma$-algebra**. The next callout unpacks why; it's optional.
+Before we go further, a quick detour into something we'll lean on
+shortly: the difference between **countable** and **uncountable** sets.
+The integers and rationals are *countable* (you can list them); the
+real numbers are *uncountable* (you cannot). The next callout makes
+this concrete.
+
+::: {.callout-tip collapse="true"}
+## ▶ Show the math — Different sizes of infinity (Hilbert's Hotel)
+
+If "countable vs uncountable" sounds vague, here's the picture that
+makes it concrete.
+
+**Hilbert's Hotel** has infinitely many rooms — one for each natural
+number — and they're all full. A new guest arrives. Can the manager fit
+them in?
+
+Yes! Move the guest in room 1 to room 2. Move room 2 to room 3. In
+general, move room $n$ to room $n+1$. Room 1 is now free. The new
+guest checks in.
+
+What if **infinitely many** new guests arrive? Still fine. Move every
+current guest from room $n$ to room $2n$. All odd-numbered rooms are
+now empty. Room any number of new guests in them.
+
+This is what mathematicians mean by **countably infinite**: a set is
+countable if you can put its elements in 1-to-1 correspondence with
+the natural numbers $\{1, 2, 3, \ldots\}$. The integers $\mathbb{Z}$
+are countable. The rationals $\mathbb{Q}$ are countable (Cantor's
+zigzag argument lists them all). Even the algebraic numbers are
+countable.
+
+But here's the punchline. Hilbert's Hotel **cannot** fit the **real
+numbers** $\mathbb{R}$. Cantor proved this in 1891 with his famous
+**diagonal argument**: assume you have a list of all reals between 0
+and 1; construct a new real that differs from the $n$-th entry in its
+$n$-th decimal digit; this new real is on the list (we said the list
+was complete) but cannot be on the list (it differs from every entry).
+Contradiction. So no list exists.
+
+This means there are **at least two genuinely different sizes of
+infinity**: the countable (the rooms in Hilbert's Hotel) and the
+uncountable (the real line). It also means probability theory on
+$\mathbb{R}$ is fundamentally different from probability on a
+finite set — which is why we'll need calculus, integration, and
+measure theory once we get to continuous distributions.
+
+That's all the measure theory we need for now. Welcome to the deep end.
+:::
+
+With that distinction in hand, a small caveat about events is worth
+knowing — though we won't use it directly. So far we've said *"event =
+subset of $\Omega$"* without worrying about it. For finite or
+countable sample spaces (dice, coins, integers) that's exactly right.
+For *uncountable* sample spaces — like the real line — it turns out
+you can't safely call every subset an event. The fix is a small piece
+of formal machinery called a **$\sigma$-algebra**. The next callout
+unpacks why; it's optional.
 
 ::: {.callout-note collapse="true"}
 ## ▶ The fine print: why "event = subset" eventually breaks
@@ -896,49 +946,6 @@ Treat *"event = subset of $\Omega$"* as your working definition and
 trust that the measure-theoretic fine print holds. If you go on to a
 formal probability course (Billingsley, Durrett), this is where the
 careful version lives.
-:::
-
-::: {.callout-tip collapse="true"}
-## ▶ Show the math — Different sizes of infinity (Hilbert's Hotel)
-
-If "countable vs uncountable" sounds vague, here's the picture that
-makes it concrete.
-
-**Hilbert's Hotel** has infinitely many rooms — one for each natural
-number — and they're all full. A new guest arrives. Can the manager fit
-them in?
-
-Yes! Move the guest in room 1 to room 2. Move room 2 to room 3. In
-general, move room $n$ to room $n+1$. Room 1 is now free. The new
-guest checks in.
-
-What if **infinitely many** new guests arrive? Still fine. Move every
-current guest from room $n$ to room $2n$. All odd-numbered rooms are
-now empty. Room any number of new guests in them.
-
-This is what mathematicians mean by **countably infinite**: a set is
-countable if you can put its elements in 1-to-1 correspondence with
-the natural numbers $\{1, 2, 3, \ldots\}$. The integers $\mathbb{Z}$
-are countable. The rationals $\mathbb{Q}$ are countable (Cantor's
-zigzag argument lists them all). Even the algebraic numbers are
-countable.
-
-But here's the punchline. Hilbert's Hotel **cannot** fit the **real
-numbers** $\mathbb{R}$. Cantor proved this in 1891 with his famous
-**diagonal argument**: assume you have a list of all reals between 0
-and 1; construct a new real that differs from the $n$-th entry in its
-$n$-th decimal digit; this new real is on the list (we said the list
-was complete) but cannot be on the list (it differs from every entry).
-Contradiction. So no list exists.
-
-This means there are **at least two genuinely different sizes of
-infinity**: the countable (the rooms in Hilbert's Hotel) and the
-uncountable (the real line). It also means probability theory on
-$\mathbb{R}$ is fundamentally different from probability on a
-finite set — which is why we'll need calculus, integration, and
-measure theory once we get to continuous distributions.
-
-That's all the measure theory we need for now. Welcome to the deep end.
 :::
 
 ### Probability law: the three axioms
