@@ -774,16 +774,29 @@ Combining events gives you new events:
 
 ```{python}
 # Sum is 7 OR doubles
-A_or_B = A | B          # set union → "A or B"
-# Sum is 7 AND first die is 6  (impossible — empty set)
-A_and_C = A & C         # set intersection → "A and B"
+A_or_B = A | B          # set union  → "A or B"
+# Sum is 7 AND first die is 6  → exactly one roll: (6, 1)
+A_and_C = A & C         # set intersection  → "A and C"
 # Sum is 7 but NOT doubles
-A_not_B = A - B         # set difference
+A_not_B = A - B         # set difference  → "A but not B"
+# Sum is 7 AND doubles  → impossible (no double sums to 7), so empty set
+A_and_B = A & B
 
-print(f"A ∪ B   ('sum is 7 OR doubles'):  {len(A_or_B)} outcomes")
-print(f"A ∩ C   ('sum is 7 AND first die is 6'):  {len(A_and_C)} outcomes  →  {A_and_C}")
-print(f"A \\ B   ('sum is 7 but not doubles'):  {len(A_not_B)} outcomes")
+print(f"A ∪ B   ('sum is 7 OR doubles'):           {len(A_or_B)} outcomes")
+print(f"A ∩ C   ('sum is 7 AND first die is 6'):   {len(A_and_C)} outcomes  →  {A_and_C}")
+print(f"A \\ B   ('sum is 7 but not doubles'):      {len(A_not_B)} outcomes")
+print(f"A ∩ B   ('sum is 7 AND doubles'):          {len(A_and_B)} outcomes  →  {A_and_B}  (empty set ∅)")
 ```
+
+A few things to notice in the output:
+
+- `A ∩ C` gives the single roll `(6, 1)` — the first die is 6 *and* the
+  sum is 7. So this intersection is **not** empty.
+- `A ∩ B` *is* empty, because no double `(k, k)` sums to 7 (we'd need
+  $2k = 7$, but $k$ has to be a whole number from 1 to 6). When two
+  events cannot happen together, their intersection is the empty set
+  $\emptyset$, and we say they are **disjoint** or **mutually
+  exclusive**.
 
 That's the entire grammar. Set union for "or", set intersection for
 "and", set complement for "not". Probability theory inherits its grammar
