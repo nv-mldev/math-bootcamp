@@ -866,6 +866,85 @@ $n$-th decimal digit; this new real is on the list (we said the list
 was complete) but cannot be on the list (it differs from every entry).
 Contradiction. So no list exists.
 
+The picture below shows it in action. The boxed digits along the
+diagonal — $d_{11}, d_{22}, d_{33}, \ldots$ — are read off the
+supposed list. The new number $r^\star$ at the bottom is built by
+flipping each diagonal digit (we use the rule "if it's $\le 4$, change
+to 8; otherwise change to 1"). Whatever row you point to, $r^\star$
+differs from it *in at least one position* — so $r^\star$ cannot be
+on the list. But the list was supposed to contain *every* real in
+$[0, 1]$. Contradiction.
+
+```{python}
+#| fig-cap: "Cantor's diagonal argument: r* differs from every row in the diagonal position, so r* cannot be on the list — yet the list was supposed to contain every real in [0, 1]."
+import matplotlib.pyplot as plt
+import numpy as np
+
+# A made-up "list of all reals in [0, 1]" — five rows, six digits each
+# (in reality the list would be infinite and the digits would go on
+# forever; we truncate for the picture).
+rows = [
+    [3, 1, 4, 1, 5, 9],
+    [2, 7, 1, 8, 2, 8],
+    [1, 4, 1, 4, 2, 1],
+    [0, 5, 7, 7, 2, 1],
+    [9, 2, 5, 6, 5, 3],
+]
+
+n_rows = len(rows)
+n_cols = len(rows[0])
+
+# Build the diagonal-flipped number r*: differ from row n in position n.
+flip = lambda d: 8 if d <= 4 else 1
+r_star = [flip(rows[i][i]) for i in range(n_rows)]
+
+fig, ax = plt.subplots(figsize=(8, 4.5))
+ax.set_xlim(-0.5, n_cols + 1.0)
+ax.set_ylim(-2.0, n_rows + 0.5)
+ax.invert_yaxis()
+ax.axis("off")
+
+# Header row: column indices d_1, d_2, ...
+for j in range(n_cols):
+    ax.text(j + 1, -0.3, f"$d_{j+1}$", ha="center", va="center",
+            fontsize=12, color="grey")
+
+# The list of reals
+for i, row in enumerate(rows):
+    ax.text(0, i, f"$r_{i+1} = 0.$", ha="right", va="center", fontsize=13)
+    for j, digit in enumerate(row):
+        is_diag = (i == j)
+        ax.text(j + 1, i, str(digit), ha="center", va="center",
+                fontsize=14,
+                color="white" if is_diag else "black",
+                fontweight="bold" if is_diag else "normal",
+                bbox=dict(
+                    boxstyle="round,pad=0.25",
+                    facecolor="#c0392b" if is_diag else "white",
+                    edgecolor="#c0392b" if is_diag else "lightgrey",
+                ))
+
+# Separator
+ax.plot([-0.3, n_cols + 0.5], [n_rows - 0.5, n_rows - 0.5],
+        color="black", lw=1)
+
+# r*: built by flipping the diagonal
+ax.text(0, n_rows + 0.2, r"$r^\star = 0.$", ha="right", va="center",
+        fontsize=13, fontweight="bold")
+for j, digit in enumerate(r_star):
+    ax.text(j + 1, n_rows + 0.2, str(digit), ha="center", va="center",
+            fontsize=14, fontweight="bold", color="white",
+            bbox=dict(boxstyle="round,pad=0.25",
+                      facecolor="#27ae60", edgecolor="#27ae60"))
+
+ax.text(n_cols + 0.6, n_rows + 0.2,
+        r"differs from $r_n$ in position $n$",
+        ha="left", va="center", fontsize=11, color="#27ae60", style="italic")
+
+plt.tight_layout()
+plt.show()
+```
+
 This means there are **at least two genuinely different sizes of
 infinity**: the countable (the rooms in Hilbert's Hotel) and the
 uncountable (the real line). It also means probability theory on
