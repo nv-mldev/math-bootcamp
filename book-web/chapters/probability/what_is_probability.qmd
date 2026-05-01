@@ -854,17 +854,113 @@ now empty. Room any number of new guests in them.
 This is what mathematicians mean by **countably infinite**: a set is
 countable if you can put its elements in 1-to-1 correspondence with
 the natural numbers $\{1, 2, 3, \ldots\}$. The integers $\mathbb{Z}$
-are countable. The rationals $\mathbb{Q}$ are countable (Cantor's
-zigzag argument lists them all). Even the algebraic numbers are
-countable.
+are countable. Even the algebraic numbers are countable. The
+*rationals* are countable too — and the way Cantor showed this is the
+warm-up for the diagonal argument we'll see in a moment.
 
-But here's the punchline. Hilbert's Hotel **cannot** fit the **real
-numbers** $\mathbb{R}$. Cantor proved this in 1891 with his famous
-**diagonal argument**: assume you have a list of all reals between 0
-and 1; construct a new real that differs from the $n$-th entry in its
-$n$-th decimal digit; this new real is on the list (we said the list
-was complete) but cannot be on the list (it differs from every entry).
-Contradiction. So no list exists.
+**Warm-up: $\mathbb{Q}$ fits in Hilbert's Hotel (Cantor's zigzag).**
+Lay out every positive rational $p/q$ in a 2D grid: row $p$, column
+$q$. The grid contains *every* positive rational somewhere — even
+duplicates like $2/4 = 1/2$ — but it's a 2D infinity, so naively it
+looks "bigger" than $\mathbb{N}$.
+
+Cantor's trick: walk through the grid along anti-diagonals (the lines
+where $p + q$ is constant). Skip any fraction you've already seen in
+lowest terms. Number each new fraction as you go: 1, 2, 3, …. Every
+rational eventually gets a number, so the rationals can be put in
+1-to-1 correspondence with $\mathbb{N}$. They fit.
+
+```{python}
+#| fig-cap: "Cantor's zigzag enumeration of the positive rationals. Walking along anti-diagonals of the (p, q) grid, we visit every fraction p/q. Numbers in green show the visit order, skipping fractions already seen in lowest terms (greyed out). Every rational eventually gets a position — so Q is countable."
+import matplotlib.pyplot as plt
+from math import gcd
+
+# Build the grid of positive rationals up to numerator/denominator <= 5.
+# Walk anti-diagonals (where p + q is constant), increasing.
+# Skip duplicates: visit p/q only when gcd(p, q) == 1.
+max_pq = 5
+visit_order = {}     # (p, q) -> position number on the list
+seen_values = set()  # set of (p_reduced, q_reduced) already counted
+counter = 0
+for s in range(2, 2 * max_pq + 1):           # s = p + q
+    for p in range(1, s):
+        q = s - p
+        if p > max_pq or q > max_pq:
+            continue
+        g = gcd(p, q)
+        reduced = (p // g, q // g)
+        if reduced in seen_values:
+            visit_order[(p, q)] = None       # duplicate — skip
+        else:
+            counter += 1
+            visit_order[(p, q)] = counter
+            seen_values.add(reduced)
+
+fig, ax = plt.subplots(figsize=(7.5, 6))
+ax.set_xlim(0.3, max_pq + 1.0)
+ax.set_ylim(0.3, max_pq + 0.7)
+ax.invert_yaxis()
+ax.axis("off")
+
+# Column headers (q values)
+for q in range(1, max_pq + 1):
+    ax.text(q, 0.6, f"$q = {q}$", ha="center", va="center",
+            fontsize=11, color="grey")
+# Row headers (p values)
+for p in range(1, max_pq + 1):
+    ax.text(0.5, p, f"$p = {p}$", ha="right", va="center",
+            fontsize=11, color="grey")
+
+# Draw the grid cells with the fraction p/q
+for (p, q), pos in visit_order.items():
+    is_visited = pos is not None
+    label = f"$\\frac{{{p}}}{{{q}}}$"
+    if is_visited:
+        ax.text(q, p, label, ha="center", va="center", fontsize=14,
+                color="black", fontweight="bold",
+                bbox=dict(boxstyle="round,pad=0.3",
+                          facecolor="white", edgecolor="#27ae60", lw=1.5))
+        # Visit-order number in the corner
+        ax.text(q + 0.32, p - 0.32, str(pos), ha="center", va="center",
+                fontsize=10, color="#27ae60", fontweight="bold")
+    else:
+        ax.text(q, p, label, ha="center", va="center", fontsize=12,
+                color="lightgrey")
+
+# Draw arrows along the visit path connecting consecutive numbers
+path = sorted(
+    [(pos, p, q) for (p, q), pos in visit_order.items() if pos is not None],
+    key=lambda t: t[0],
+)
+for k in range(len(path) - 1):
+    _, p1, q1 = path[k]
+    _, p2, q2 = path[k + 1]
+    ax.annotate("", xy=(q2, p2), xytext=(q1, p1),
+                arrowprops=dict(arrowstyle="->", color="#27ae60",
+                                lw=1.0, alpha=0.5))
+
+ax.set_title("Cantor's zigzag: every positive rational gets a number",
+             fontsize=12)
+plt.tight_layout()
+plt.show()
+```
+
+So the rationals — even though they form a 2D infinity — *fit* in
+Hilbert's Hotel. The same geometric idea (walk a 2D table along its
+diagonals) gives us a 1D listing.
+
+**The punchline: the reals don't fit.** Hilbert's Hotel **cannot**
+accommodate the **real numbers** $\mathbb{R}$. Cantor proved this in
+1891 with his famous **diagonal argument**: assume you have a list of
+all reals between 0 and 1; construct a new real that differs from the
+$n$-th entry in its $n$-th decimal digit; this new real is on the list
+(we said the list was complete) but cannot be on the list (it differs
+from every entry). Contradiction. So no list exists.
+
+The same diagonal geometry that *succeeded* for $\mathbb{Q}$ now
+*fails* for $\mathbb{R}$. For $\mathbb{Q}$, walking the diagonals
+*enumerated* every fraction. For $\mathbb{R}$, walking the diagonal of
+any attempted list lets us *escape* it — build a real that's missing.
 
 The picture below shows it in action. The boxed digits along the
 diagonal — $d_{11}, d_{22}, d_{33}, \ldots$ — are read off the
