@@ -1041,6 +1041,69 @@ plt.tight_layout()
 plt.show()
 ```
 
+**"But you only showed five numbers — how is this a proof?"** This is
+the right question to ask. The list is supposed to be *infinite*, and
+we obviously can't write down infinitely many entries. So how does the
+argument generalise?
+
+The trick is that **the proof is not about a particular list — it's
+about *any* list**. We never construct the list ourselves. The
+opponent does (or claims they could). All we provide is a **recipe**
+that, applied to *any* list, produces a number missing from it. The
+recipe is one short sentence:
+
+> *"For each $n$, the $n$-th digit of $r^\star$ is different from the
+> $n$-th digit of $r_n$."*
+
+Notice what this recipe needs to know: just the $n$-th digit of the
+$n$-th row, for every $n$. Whatever list you hand me — five rows or
+five trillion — the same recipe applies.
+
+Now suppose someone says: *"You stopped at row 5. Maybe $r^\star$ is at
+row 1,000,000 of the real list."* My reply: if $r^\star = r_{1{,}000{,}000}$,
+they must agree in *every* decimal position — including the
+1,000,000-th. But by the recipe, the 1,000,000-th digit of $r^\star$ is
+*defined* to differ from the 1,000,000-th digit of $r_{1{,}000{,}000}$.
+So they can't be equal. The same argument works for *any* row number,
+no matter how large — because the disagreement at row $n$ is built into
+the construction *for every $n$*, not checked one by one. That's the
+crucial move: a single finite recipe handles infinitely many cases
+simultaneously.
+
+So the worked example with five rows is just a **visual aid** — you can
+see the geometry of the diagonal in a small case. The real proof works
+on the infinite case because the recipe doesn't depend on the list's
+length. It works for *any* list, including the imagined infinite one.
+
+::: {.callout-note collapse="true"}
+## ▶ Why doesn't this argument also "disprove" $\mathbb{Q}$?
+
+You might wonder: couldn't we apply the same diagonal trick to a list
+of rationals $q_1, q_2, q_3, \ldots$ and conclude that $\mathbb{Q}$ is
+also uncountable? But we just showed $\mathbb{Q}$ *is* countable
+(zigzag), so something must rescue us.
+
+Here's the rescue. The diagonal recipe builds $r^\star$ digit by
+digit. The result is a real number — but with no guarantee that its
+decimal expansion is eventually periodic. **Infinite non-repeating
+decimals are irrational.** So the constructed $r^\star$ is generally
+not a rational at all.
+
+That means: when the opponent's list is supposed to contain every
+*rational*, our $r^\star$ being missing from it is *not* a
+contradiction — $r^\star$ was never required to be on a list of
+rationals in the first place.
+
+When the opponent's list is supposed to contain every *real*, our
+$r^\star$ being missing **is** a contradiction — because $r^\star$ is
+a real, by construction (any decimal expansion defines a real).
+
+That asymmetry — *"diagonalising a list of rationals escapes
+$\mathbb{Q}$, but diagonalising a list of reals stays inside
+$\mathbb{R}$"* — is the entire reason the argument works for one and
+not the other.
+:::
+
 This means there are **at least two genuinely different sizes of
 infinity**: the countable (the rooms in Hilbert's Hotel) and the
 uncountable (the real line). It also means probability theory on
