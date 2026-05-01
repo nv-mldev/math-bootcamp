@@ -5,3 +5,6 @@ nbclient
 numpy
 pandas
 matplotlib
+pyyaml
+scipy
+statsmodels

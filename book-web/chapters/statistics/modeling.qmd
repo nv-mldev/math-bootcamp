@@ -1,0 +1,335 @@
+---
+title: "Modeling Distributions"
+jupyter: python3
+execute:
+  echo: true
+  cache: true
+---
+
+## The question
+
+> "Can we describe this entire distribution with just 2 numbers?"
+
+So far we have described distributions empirically — we plot the
+actual data. Empirical descriptions are specific to this sample. If
+we collect new data, the histogram shifts slightly.
+
+A **parametric model** says: "this data comes from a known family of
+distributions, characterised by a small number of parameters." If the
+model fits well, we can:
+
+- Describe the distribution in 2–3 numbers instead of thousands
+- Generate synthetic data
+- Compute probabilities analytically
+- Compare datasets on the same scale
+
+---
+
+## The exponential distribution
+
+**When it appears:** waiting times between events, inter-arrival
+times, survival times.
+
+$$
+f(x; \lambda) \;=\; \lambda e^{-\lambda x}, \qquad x \geq 0
+$$
+
+**Parameters:** one — the rate $\lambda$ (events per unit time), or
+equivalently the mean $\mu = 1/\lambda$.
+
+**Key property: memoryless.** The probability of waiting another $t$
+minutes is the same regardless of how long you've already waited.
+
+::: {.callout-tip}
+## Detecting exponential shape
+If $X \sim \text{Exponential}(\lambda)$, then on a log-y axis the
+complementary CDF becomes a straight line:
+$$
+\ln(1 - F(x)) \;=\; -\lambda x
+$$
+If the complementary CDF looks linear on a log scale, the data is
+exponential.
+:::
+
+---
+
+## The normal distribution
+
+The most famous distribution in statistics. Also called Gaussian.
+
+$$
+f(x; \mu, \sigma) \;=\; \frac{1}{\sigma\sqrt{2\pi}}
+\exp\!\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
+$$
+
+**Parameters:** mean $\mu$ and standard deviation $\sigma$.
+
+Bell shape, symmetric, with the **68–95–99.7 rule**:
+
+- 68 % of data within 1$\sigma$ of the mean
+- 95 % within 2$\sigma$
+- 99.7 % within 3$\sigma$
+
+**In NSFG:** birth weight is approximately normal. Many measurement
+errors are normal (by the Central Limit Theorem).
+
+### Normal probability plot
+
+Plot the data against what you'd expect if it were perfectly normal:
+
+1. Sort your data $x_1 \leq x_2 \leq \ldots \leq x_n$
+2. Compute the expected normal quantiles $q_i = \Phi^{-1}(i/n)$
+3. Plot $x_i$ vs $q_i$
+
+If the data is normal, the plot is a straight line. Curves indicate
+skew or heavy tails.
+
+---
+
+## The lognormal distribution
+
+If $\ln(X)$ is normally distributed, then $X$ is **lognormal**.
+
+$$
+f(x; \mu, \sigma) \;=\; \frac{1}{x\sigma\sqrt{2\pi}}
+\exp\!\left(-\frac{(\ln x - \mu)^2}{2\sigma^2}\right)
+$$
+
+**When it appears:** anything that is the product of many independent
+factors. Income, city populations, file sizes, biological growth
+rates.
+
+---
+
+## The Pareto distribution
+
+Named after economist Vilfredo Pareto. Describes the "80/20 rule".
+
+$$
+f(x; x_m, \alpha) \;=\; \frac{\alpha x_m^\alpha}{x^{\alpha+1}},
+\qquad x \geq x_m
+$$
+
+**Parameters:** minimum value $x_m$ and shape $\alpha$.
+
+**When it appears:** wealth, city sizes, earthquake magnitudes, word
+frequencies. Very heavy right tail — extreme values are much more
+common than a normal distribution predicts.
+
+**Detection:** on a log–log plot, the CDF is linear.
+
+---
+
+## Fitting models to NSFG birth weight
+
+```{python}
+import sys, os
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import stats
+
+sys.path.insert(0, os.path.dirname(os.path.abspath("__file__")) or ".")
+from _nsfg import load_groups, Cdf, COLORS
+
+live, _, _ = load_groups()
+
+weights = live["totalwgt_lb"].dropna().values
+weights = weights[(weights > 0) & (weights < 20)]
+
+mu_hat    = weights.mean()
+sigma_hat = weights.std()
+
+print(f"Normal fit (birth weight)")
+print(f"  mu    : {mu_hat:.3f} lbs")
+print(f"  sigma : {sigma_hat:.3f} lbs")
+print()
+print("68-95-99.7 rule check:")
+for n_sigma in [1, 2, 3]:
+    lo = mu_hat - n_sigma * sigma_hat
+    hi = mu_hat + n_sigma * sigma_hat
+    fraction = np.mean((weights >= lo) & (weights <= hi))
+    expected = [0.683, 0.954, 0.997][n_sigma - 1]
+    print(f"  within {n_sigma}σ: {fraction:.3f}  (expected {expected:.3f})")
+```
+
+The within-1σ fraction matches the theory closely. Within-2σ and 3σ
+slightly under-shoot — birth weight has a heavier-than-normal left
+tail (premature babies).
+
+---
+
+## Lognormal fit
+
+```{python}
+log_weights = np.log(weights)
+mu_log    = log_weights.mean()
+sigma_log = log_weights.std()
+
+print(f"Lognormal fit")
+print(f"  mu_log    : {mu_log:.4f}")
+print(f"  sigma_log : {sigma_log:.4f}")
+print(f"  median    : {np.exp(mu_log):.3f} lbs (= e^mu_log)")
+```
+
+---
+
+## Goodness of fit — the KS test
+
+The **Kolmogorov–Smirnov** test asks: is the data consistent with a
+given distribution? It computes $D = \max | F_{\text{empirical}}(x) -
+F_{\text{model}}(x)|$. Small $D$, large $p$ → the model is plausible.
+
+```{python}
+ks_norm,    p_norm    = stats.kstest(weights, "norm",    args=(mu_hat, sigma_hat))
+ks_lognorm, p_lognorm = stats.kstest(weights, "lognorm",
+                                     args=(sigma_log, 0, np.exp(mu_log)))
+
+print(f"Normal    : D={ks_norm:.4f}   p={p_norm:.4f}")
+print(f"Lognormal : D={ks_lognorm:.4f}   p={p_lognorm:.4f}")
+```
+
+Both fits are imperfect (with $n \approx 9000$, even tiny
+discrepancies become "significant"). Eyeballing the visual fit is
+more useful than the $p$ value at this sample size.
+
+---
+
+## Visualising it
+
+```{python}
+#| fig-cap: "Normal probability plot, empirical vs modelled CDF, histogram with overlays, and exponential shape check."
+def normal_probability_plot_data(values: np.ndarray):
+    n = len(values)
+    sorted_data = np.sort(values)
+    ranks = (np.arange(n) + 0.5) / n
+    return stats.norm.ppf(ranks), sorted_data
+
+
+theory_q, sorted_w = normal_probability_plot_data(weights)
+
+# inter-pregnancy spacing as a (rough) exponential proxy
+prg_lengths = live["prglngth"].dropna().values
+prg_lengths = prg_lengths[prg_lengths >= 27]
+exp_data = np.diff(np.sort(prg_lengths))
+exp_data = exp_data[exp_data > 0]
+lambda_hat = 1.0 / exp_data.mean() if len(exp_data) else 1.0
+
+fig, axes = plt.subplots(2, 2, figsize=(12, 9))
+
+# 1. Normal probability plot
+ax = axes[0, 0]
+ax.scatter(theory_q, sorted_w, alpha=0.3, s=5, color=COLORS["first"], label="Data")
+q25, q75 = np.percentile(weights, [25, 75])
+t25, t75 = stats.norm.ppf([0.25, 0.75])
+slope = (q75 - q25) / (t75 - t25)
+intercept = q25 - slope * t25
+x_line = np.array([theory_q.min(), theory_q.max()])
+ax.plot(x_line, slope * x_line + intercept,
+        color=COLORS["other"], linewidth=2, label="Normal reference")
+ax.set_xlabel("Theoretical normal quantiles")
+ax.set_ylabel("Sample quantiles (lbs)")
+ax.set_title("Normal Probability Plot")
+ax.legend(fontsize=8)
+
+# 2. CDF: empirical vs models
+ax = axes[0, 1]
+wgt_cdf = Cdf(weights)
+x_range = np.linspace(weights.min(), weights.max(), 300)
+ax.plot(wgt_cdf.xs, wgt_cdf.ps, color=COLORS["first"], linewidth=2, label="Empirical")
+ax.plot(x_range, stats.norm.cdf(x_range, mu_hat, sigma_hat),
+        color=COLORS["other"], linewidth=2, linestyle="--", label="Normal")
+ax.plot(x_range, stats.lognorm.cdf(x_range, sigma_log, 0, np.exp(mu_log)),
+        color="#9C27B0", linewidth=2, linestyle=":", label="Lognormal")
+ax.set_xlabel("Birth weight (lbs)")
+ax.set_ylabel("CDF")
+ax.set_title("Empirical vs Modelled CDFs")
+ax.legend(fontsize=8)
+
+# 3. Histogram with overlays
+ax = axes[1, 0]
+ax.hist(weights, bins=40, density=True, color=COLORS["first"], alpha=0.6, label="Data")
+xr = np.linspace(0, 16, 300)
+ax.plot(xr, stats.norm.pdf(xr, mu_hat, sigma_hat),
+        color=COLORS["other"], linewidth=2,
+        label=f"Normal(μ={mu_hat:.2f}, σ={sigma_hat:.2f})")
+ax.plot(xr, stats.lognorm.pdf(xr, sigma_log, 0, np.exp(mu_log)),
+        color="#9C27B0", linewidth=2, linestyle="--", label="Lognormal")
+ax.set_xlabel("Birth weight (lbs)")
+ax.set_ylabel("Density")
+ax.set_title("Histogram with model fits")
+ax.legend(fontsize=8)
+ax.set_xlim(0, 16)
+
+# 4. Exponential shape check
+ax = axes[1, 1]
+if len(exp_data) > 10:
+    exp_cdf = Cdf(exp_data)
+    ccdf = 1 - exp_cdf.ps
+    mask = ccdf > 0
+    ax.semilogy(exp_cdf.xs[mask], ccdf[mask],
+                color=COLORS["first"], linewidth=2, label="1 − CDF (data)")
+    xe = np.linspace(exp_data.min(), exp_data.max(), 100)
+    ax.semilogy(xe, np.exp(-lambda_hat * xe),
+                color="#FF9800", linestyle="--", linewidth=2,
+                label=f"Exponential(λ={lambda_hat:.3f})")
+    ax.set_xlabel("Value")
+    ax.set_ylabel("1 − CDF (log scale)")
+    ax.set_title("Exponential Shape Check")
+    ax.legend(fontsize=8)
+
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+## Why model?
+
+Three reasons:
+
+1. **Compression.** A fitted normal replaces thousands of data points
+   with $(\mu, \sigma)$.
+2. **Interpolation.** Estimate probabilities between observed values.
+3. **Communication.** "The data is approximately normal with
+   $\mu = 7.4$, $\sigma = 1.2$" is instantly understood.
+
+But models can be wrong. Always check the fit visually. A model that
+fits poorly is **worse** than no model — it gives false confidence.
+
+---
+
+## Exercises
+
+1. Fit a normal distribution to birth weight. What are $\mu$ and
+   $\sigma$?
+2. Make a normal probability plot for birth weight. Does the fit
+   look good?
+3. Plot the complementary CDF of inter-pregnancy intervals on a log
+   scale. Is it exponential?
+4. Fit a lognormal distribution to birth weight. Which fits better,
+   normal or lognormal?
+5. What fraction of babies weigh more than $\mu + 2\sigma$ under the
+   normal model? Verify against the data.
+
+---
+
+## Glossary
+
+**parametric model** — a family of distributions described by a
+fixed number of parameters.
+
+**exponential** — models waiting times; memoryless; rate $\lambda$.
+
+**normal** — bell-shaped, symmetric; mean $\mu$ and std $\sigma$.
+
+**lognormal** — distribution whose log is normal; right-skewed.
+
+**Pareto** — heavy-tailed distribution; models 80/20 phenomena.
+
+**normal probability plot** — quantiles vs normal quantiles; linear
+if normal.
+
+**goodness of fit** — how well a model matches observed data.
+
+**68–95–99.7 rule** — for a normal, 68/95/99.7 % of data lies within
+1/2/3 std devs.

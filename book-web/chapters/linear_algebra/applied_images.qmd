@@ -1,0 +1,159 @@
+---
+title: "Linear Algebra Applied — Images as Vectors"
+---
+
+> *Earlier chapters introduced L2 normalisation and mean subtraction
+> as tools for invariant image matching. This page closes the linear
+> algebra track by explaining the geometry behind those operations
+> — and reveals that **Pearson correlation is just a cosine
+> similarity between mean-subtracted vectors**.*
+
+---
+
+## 1. An image patch is a vector
+
+A $3 \times 3$ grayscale patch has 9 pixel values. Unroll them into
+a column vector:
+
+$$
+\mathbf x \;=\; [x_1, x_2, \ldots, x_9]^\top \in \mathbb R^9
+$$
+
+This is a **point in 9-dimensional space**. Every possible $3 \times
+3$ patch is a different point. Comparing two patches means measuring
+the distance or angle between two points in this space.
+
+For an $m \times n$ patch, $\mathbf x \in \mathbb R^{mn}$. A
+$64 \times 64$ patch is a point in $\mathbb R^{4096}$.
+
+---
+
+## 2. Dot product — measuring agreement
+
+$$
+\mathbf x \cdot \mathbf y \;=\; \sum_i x_i y_i
+\;=\; \|\mathbf x\|\,\|\mathbf y\|\,\cos\theta
+$$
+
+Pixel-by-pixel agreement, but magnitude-dependent: a brighter patch
+has a larger dot product with everything.
+
+---
+
+## 3. L2 norm and unit vectors
+
+$$
+\|\mathbf x\| \;=\; \sqrt{\sum_i x_i^2}
+$$
+
+Dividing by the norm gives a **unit vector** $\hat{\mathbf x} =
+\mathbf x / \|\mathbf x\|$. All unit vectors lie on the surface of
+the unit hypersphere. Their dot product is
+
+$$
+\hat{\mathbf x} \cdot \hat{\mathbf y} \;=\; \cos\theta
+$$
+
+— **cosine similarity**, independent of magnitude. A contrast change
+($\mathbf y = a\mathbf x$) does not change the angle, so it does not
+change cosine similarity.
+
+This is the geometric interpretation of L2 normalisation.
+
+---
+
+## 4. Mean subtraction — projecting out the brightness direction
+
+The vector $\mathbf 1 = [1, 1, \ldots, 1]^\top$ points in the
+"uniform brightness" direction. Projecting $\mathbf x$ onto
+$\mathbf 1$ gives the mean; subtracting it removes the mean:
+
+$$
+\tilde{\mathbf x} \;=\; \mathbf x - \bar x \mathbf 1
+$$
+
+Geometrically, mean subtraction projects $\mathbf x$ onto the
+hyperplane orthogonal to $\mathbf 1$. A brightness offset
+($\mathbf y = \mathbf x + b\mathbf 1$) adds a component along
+$\mathbf 1$; mean subtraction removes it.
+
+After mean subtraction, the dot product is unaffected by uniform
+brightness changes.
+
+---
+
+## 5. Pearson correlation = cosine of mean-subtracted vectors
+
+Combine both operations:
+
+$$
+r(\mathbf x, \mathbf y) \;=\;
+\frac{\tilde{\mathbf x} \cdot \tilde{\mathbf y}}
+{\|\tilde{\mathbf x}\|\,\|\tilde{\mathbf y}\|}
+\;=\; \cos\theta_{\tilde{\mathbf x}, \tilde{\mathbf y}}
+$$
+
+Pearson correlation is the **cosine similarity of mean-subtracted
+vectors**. It is invariant to any $aT + b$ transform because:
+
+- Mean subtraction removes $b$ (projects out the $\mathbf 1$
+  component).
+- L2 normalisation removes $a$ (cancels magnitude).
+
+This geometric view makes the invariance obvious — and the ceiling
+obvious too. Once the pixel grid shifts (rotation, scale), the
+vectors $\tilde{\mathbf x}$ and $\tilde{\mathbf y}$ have their
+components shuffled around, and no amount of normalisation restores
+alignment.
+
+---
+
+## 6. Orthogonality and transforms
+
+Two vectors are **orthogonal** when $\mathbf x \cdot \mathbf y = 0$
+— they are geometrically perpendicular, carrying completely
+independent information.
+
+An **orthogonal transform** $Q$ preserves norms and dot products:
+
+$$
+\|Q\mathbf x\| \;=\; \|\mathbf x\|,
+\qquad (Q\mathbf x) \cdot (Q\mathbf y) \;=\; \mathbf x \cdot \mathbf y
+$$
+
+The Fourier transform is an orthogonal transform — it decomposes an
+image into orthogonal frequency components while preserving energy
+(Parseval's theorem).
+
+---
+
+## 7. The manifold hypothesis
+
+An $m \times n$ image is a point in $\mathbb R^{mn}$. For a
+$64 \times 64$ image that is $\mathbb R^{4096}$. The number of
+possible images is $256^{4096}$ — astronomically large.
+
+But **natural images** occupy a tiny, thin slice of this space. Most
+points in $\mathbb R^{4096}$ are random noise — not images of
+anything real. The set of natural images forms a low-dimensional
+**manifold** embedded in the high-dimensional pixel space.
+
+This is the **manifold hypothesis**, and it explains why learned
+features work: CNNs learn to map the high-dimensional pixel space to
+a lower-dimensional representation that captures *where* you are on
+the natural image manifold — not where you are in the raw pixel
+cube.
+
+---
+
+## Summary
+
+| Concept | Geometric meaning |
+|---|---|
+| Pixel patch as vector | Point in $\mathbb R^{mn}$ |
+| Dot product | Pixel-by-pixel agreement; magnitude-dependent |
+| L2 norm | Vector length |
+| Cosine similarity | Angle between vectors; magnitude-independent |
+| Mean subtraction | Project out the $\mathbf 1$ component |
+| Pearson correlation | $\cos\theta$ of mean-subtracted vectors |
+| Manifold hypothesis | Natural images = thin slice of pixel space |

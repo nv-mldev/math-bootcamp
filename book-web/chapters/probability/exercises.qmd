@@ -1,0 +1,142 @@
+---
+title: "Exercises — Probability Track"
+---
+
+End-of-chapter exercises that span the probability series. Each one
+asks for a small simulation or an analytic check that exercises the
+chain Bernoulli → Binomial → Poisson → Normal → CLT.
+
+---
+
+## Exercise 1 — Binomial → Poisson convergence (quantitative)
+
+For $\lambda = 50$, compute the maximum absolute difference between
+$\text{Binomial}(n, \lambda/n)$ and $\text{Poisson}(\lambda)$ PMFs
+for $n \in \{50, 100, 500, 1000, 5000\}$. Plot max difference vs $n$
+on a log–log scale. What is the convergence rate?
+
+**Hint:** use `scipy.stats.binom.pmf` and
+`scipy.stats.poisson.pmf`; evaluate over $k \in [0, 100]$.
+
+**Expected:** approximately $O(1/n)$ convergence — the slope on log–
+log axes should be near $-1$.
+
+### Steps
+
+1. For each $n$, compute both PMFs over the same $k$ range.
+2. Take the maximum absolute difference across all $k$.
+3. Plot results on a log–log scale.
+4. Fit a line to estimate the slope.
+
+---
+
+## Exercise 2 — Variance-stabilising transform (Anscombe)
+
+The Poisson distribution has signal-dependent noise ($\sigma =
+\sqrt\lambda$). The **Anscombe transform** $f(x) = 2\sqrt{x + 3/8}$
+approximately stabilises the variance, making it constant regardless
+of $\lambda$. This transform is used in fluorescence microscopy and
+astronomical imaging before applying Gaussian denoisers — it
+converts Poisson data into a form where standard Gaussian denoising
+(NLM, BM3D, Wiener) is valid.
+
+### Steps
+
+1. Generate Poisson samples for $\lambda \in \{5, 50, 500\}$
+   (10 000 samples each).
+2. Apply the Anscombe transform to each set.
+3. Compute the variance before and after.
+4. Plot histograms showing how the transform makes all three
+   distributions have similar spread.
+
+**Expected:** after the Anscombe transform, the variance should be
+approximately 1 for all $\lambda$ values.
+
+---
+
+## Exercise 3 — Build your own noise budget
+
+You are building an image denoising pipeline for industrial
+inspection. Given:
+
+- Scene illumination: 200 photons/µm²/exposure
+- Photosite pitch: 3.45 µm (Basler acA1920-40gm)
+- Quantum efficiency: 0.65
+- Read noise: 4 electrons
+- Dark current: 2 electrons (cooled sensor)
+- Full well: 11 000 electrons
+- Bit depth: 12
+
+### Steps
+
+1. Compute the expected electron count per pixel.
+2. Compute each noise source's contribution (variance).
+3. Compute the total noise and SNR at different signal levels.
+4. Determine where Gaussian denoising is valid vs where Anscombe
+   pre-processing is needed (hint: at what signal level does
+   Poisson ≈ Normal?).
+5. Simulate 10 000 exposures and verify your calculations.
+
+**Hint:** photosite area = pitch²; expected electrons = flux × area
+× QE. Gaussian denoising is reasonable once $\lambda > 20$.
+
+**Expected:** a noise-budget table, an SNR-vs-signal plot, and a
+simulated histogram that matches theory.
+
+---
+
+## Exercise 4 — CLT convergence vs skewness
+
+The CLT convergence rate depends on the **skewness** of the
+original distribution. Distributions with higher skewness need more
+samples to converge.
+
+### Steps
+
+1. Generate samples from Uniform$(0, 1)$, Exponential$(1)$, and
+   Pareto$(2, 1)$ — three distributions with increasing skewness.
+2. For each, compute the standardised sum of $n$ samples for
+   $n \in \{1, 2, 5, 10, 30, 100\}$.
+3. Measure the KS distance from the standard normal:
+   `scipy.stats.kstest(z, "norm")`.
+4. Plot KS distance vs $n$ for all three on log–log axes.
+
+**Expected:** higher-skewness distributions need more terms.
+Pareto slowest, Uniform fastest.
+
+---
+
+## Exercise 5 — Variance equals mean (Poisson)
+
+For $\lambda \in \{1, 5, 20, 100, 500\}$, draw 10 000 Poisson
+samples each and compute the sample mean and sample variance.
+Verify that they're equal to within Monte-Carlo error. Plot both as
+a function of $\lambda$ on a log–log scale.
+
+---
+
+## Exercise 6 — The $1/\sqrt n$ noise reduction law
+
+Generate $n_{\text{trials}} = 10\,000$ traces of length $T = 1000$
+from Uniform$(-1, 1)$. For each trace, compute the moving average
+with window length $w \in \{1, 4, 16, 64, 256\}$. For each $w$,
+compute the std of the smoothed signal. Plot std vs $w$ on log–log
+axes; the slope should be $-1/2$.
+
+---
+
+## Exercise 7 — Fixing a non-Bernoulli scenario
+
+For each scenario, identify which of the three Bernoulli conditions
+(two outcomes / independence / constant $p$) fails and which
+distribution is appropriate instead:
+
+(a) Drawing 5 cards from a deck without replacement, counting hearts.
+
+(b) Tomorrow's weather, given today's.
+
+(c) Whether a server is up at one-minute intervals throughout the
+day.
+
+(d) Logging whether each photo in a benchmark is correctly
+classified by a fixed model.

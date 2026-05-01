@@ -1,0 +1,294 @@
+---
+title: "Relationships Between Variables"
+jupyter: python3
+execute:
+  echo: true
+  cache: true
+---
+
+## The question
+
+> "Does a mother's age predict the birth weight of her baby?"
+
+All previous chapters studied one variable at a time. Now we ask:
+**do two variables move together?** And if so, how strongly?
+
+---
+
+## Scatter plots
+
+The first tool for any relationship: plot one variable against the
+other. With 9 000 points, dots overlap completely. Standard fixes:
+
+1. **Jitter** — add small random noise so overlapping points spread
+   out
+2. **Alpha** — make each dot semi-transparent; dense regions appear
+   darker
+3. **Bin and mean** — divide x into bins, plot mean y per bin (shows
+   trend clearly)
+4. **Hexbin** — 2D histogram using hexagonal bins
+
+---
+
+## Characterising relationships
+
+Before computing a correlation coefficient, ask:
+
+1. Is the relationship **linear** or **curved**?
+2. Is it **monotone** (always increasing or always decreasing)?
+3. Are there **subgroups** that behave differently?
+4. Are there **outliers** that dominate the relationship?
+
+A correlation coefficient summarises only point 1. Always look at the
+scatter plot first.
+
+---
+
+## Covariance
+
+$$
+\operatorname{Cov}(X, Y) \;=\;
+\frac{1}{n}\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})
+$$
+
+- Positive: when $X$ is high, $Y$ tends to be high
+- Negative: when $X$ is high, $Y$ tends to be low
+
+Covariance has units (lbs × years for our example) — comparing
+covariances across pairs is meaningless.
+
+---
+
+## Pearson's correlation
+
+Normalise covariance by the product of standard deviations:
+
+$$
+r \;=\; \frac{\operatorname{Cov}(X, Y)}{\sigma_X \sigma_Y}
+\;=\; \frac{\sum(x_i - \bar{x})(y_i - \bar{y})}
+{\sqrt{\sum(x_i - \bar{x})^2 \sum(y_i - \bar{y})^2}}
+$$
+
+Now $r \in [-1, 1]$:
+
+- $r = +1$: perfect positive linear relationship
+- $r = -1$: perfect negative linear relationship
+- $r = 0$: no *linear* relationship
+
+::: {.callout-warning}
+## $r = 0$ does not mean "no relationship"
+It means *no linear relationship*. The data can have a strong curved
+relationship and still produce $r = 0$. Always plot first.
+:::
+
+---
+
+## Spearman's rank correlation
+
+Pearson's $r$ applied to **ranks**, not values:
+
+1. Replace each $x_i$ with its rank
+2. Replace each $y_i$ with its rank
+3. Compute Pearson's $r$ on the ranks
+
+$$
+\rho \;=\; 1 - \frac{6 \sum d_i^2}{n(n^2 - 1)}
+$$
+
+where $d_i$ is the difference in ranks.
+
+**Use Spearman when:** the relationship is monotone but not linear;
+outliers are present; data is ordinal.
+
+---
+
+## Computing it on NSFG
+
+```{python}
+import sys, os
+import numpy as np
+import matplotlib.pyplot as plt
+
+sys.path.insert(0, os.path.dirname(os.path.abspath("__file__")) or ".")
+from _nsfg import load_groups, COLORS
+
+live, _, _ = load_groups()
+
+df = live[["agepreg", "totalwgt_lb", "prglngth"]].dropna()
+df = df[(df["totalwgt_lb"] > 0) & (df["totalwgt_lb"] < 20)]
+df = df[(df["agepreg"] > 10) & (df["agepreg"] < 50)]
+
+age    = df["agepreg"].values
+weight = df["totalwgt_lb"].values
+prg    = df["prglngth"].values
+
+
+def covariance(x, y):
+    return np.mean((x - x.mean()) * (y - y.mean()))
+
+
+def pearson_r(x, y):
+    return covariance(x, y) / (x.std() * y.std())
+
+
+def rank_array(x):
+    order = np.argsort(x)
+    ranks = np.empty(len(x))
+    ranks[order] = np.arange(1, len(x) + 1)
+    return ranks
+
+
+def spearman_rho(x, y):
+    return pearson_r(rank_array(x), rank_array(y))
+
+
+print("── Mother's age vs birth weight ─────────────────────")
+print(f"  Covariance : {covariance(age, weight):.4f} (lbs × years)")
+print(f"  Pearson r  : {pearson_r(age, weight):+.4f}")
+print(f"  Spearman ρ : {spearman_rho(age, weight):+.4f}")
+print()
+print("── Pregnancy length vs birth weight ─────────────────")
+print(f"  Pearson r  : {pearson_r(prg, weight):+.4f}")
+print(f"  Spearman ρ : {spearman_rho(prg, weight):+.4f}")
+```
+
+Pregnancy-length vs weight: strong positive correlation — longer
+pregnancies produce heavier babies. Age vs weight: weak positive
+correlation — but Pearson's $r$ misses something the binned-mean plot
+will reveal.
+
+---
+
+## Binned mean — revealing nonlinearity
+
+```{python}
+age_bins = np.arange(10, 50, 5)
+bin_means, bin_centers, bin_counts = [], [], []
+for lo, hi in zip(age_bins[:-1], age_bins[1:]):
+    mask = (age >= lo) & (age < hi)
+    if mask.sum() > 10:
+        bin_means.append(weight[mask].mean())
+        bin_centers.append((lo + hi) / 2)
+        bin_counts.append(int(mask.sum()))
+
+print(f"  {'Age range':>14}  {'Mean wgt (lbs)':>15}  {'n':>6}")
+for c, m, n in zip(bin_centers, bin_means, bin_counts):
+    print(f"  {c-2.5:.0f}–{c+2.5:.0f} years   {m:>12.3f}    {n:>6,}")
+```
+
+The relationship is **U-shaped**: very young mothers (teens) have
+lighter babies; mothers in their 20s and 30s have the heaviest;
+mothers above 40 have slightly lighter babies again. Pearson's $r$
+flattens this U into a single near-zero number.
+
+---
+
+## Correlation and causation
+
+**The most abused concept in statistics.**
+
+Correlation tells you two variables are associated. It says nothing
+about *why*. Ice cream sales and drowning rates are positively
+correlated. The cause is summer (a confound), not ice cream.
+
+Establishing causation requires either:
+
+1. A randomised controlled experiment
+2. A natural experiment (quasi-random assignment)
+3. Careful matching/adjustment for confounds
+
+Observational data like NSFG can only establish association.
+
+---
+
+## Visualising it
+
+```{python}
+#| fig-cap: "Raw scatter, jittered scatter with binned mean, the binned-mean plot, and Pearson vs Spearman."
+np.random.seed(42)
+
+fig, axes = plt.subplots(2, 2, figsize=(12, 9))
+
+# 1. Raw scatter — too dense
+ax = axes[0, 0]
+ax.scatter(age, weight, alpha=0.05, s=5, color=COLORS["first"])
+ax.set_xlabel("Mother's age (years)")
+ax.set_ylabel("Birth weight (lbs)")
+ax.set_title("Scatter (alpha=0.05)")
+
+# 2. Jitter + binned mean
+ax = axes[0, 1]
+jitter_age = age + np.random.normal(0, 0.3, len(age))
+ax.scatter(jitter_age, weight, alpha=0.05, s=5, color=COLORS["first"])
+ax.plot(bin_centers, bin_means, color=COLORS["highlight"],
+        linewidth=2.5, marker="o", markersize=6, label="Binned mean")
+ax.set_xlabel("Mother's age (years)")
+ax.set_ylabel("Birth weight (lbs)")
+ax.set_title("Jittered Scatter + Binned Mean")
+ax.legend()
+
+# 3. Binned mean alone — U shape clearer
+ax = axes[1, 0]
+ax.plot(bin_centers, bin_means, color=COLORS["highlight"],
+        linewidth=2.5, marker="o", markersize=8)
+ax.fill_between(bin_centers, bin_means, alpha=0.15, color=COLORS["highlight"])
+ax.set_xlabel("Mother's age (years)")
+ax.set_ylabel("Mean birth weight (lbs)")
+ax.set_title("Nonlinear: Age vs Birth Weight")
+ax.set_ylim(6.5, 8.5)
+
+# 4. Pearson vs Spearman across pairs
+ax = axes[1, 1]
+pairs = ["Age vs\nWeight", "Prg Length vs\nWeight"]
+pearson_vals  = [pearson_r(age, weight),    pearson_r(prg, weight)]
+spearman_vals = [spearman_rho(age, weight), spearman_rho(prg, weight)]
+x = np.arange(len(pairs))
+ax.bar(x - 0.2, pearson_vals,  width=0.4, color=COLORS["other"],
+       alpha=0.85, label="Pearson r")
+ax.bar(x + 0.2, spearman_vals, width=0.4, color="#FF9800",
+       alpha=0.85, label="Spearman ρ")
+ax.axhline(0, color="black", linewidth=0.8)
+ax.set_xticks(x)
+ax.set_xticklabels(pairs, fontsize=9)
+ax.set_ylabel("Correlation")
+ax.set_title("Pearson vs Spearman")
+ax.legend()
+ax.set_ylim(-0.1, 0.5)
+
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+## Exercises
+
+1. Make a scatter plot of mother's age vs birth weight with
+   `alpha=0.1`. What pattern do you see?
+2. Compute Pearson's $r$ between age and birth weight. Is it strong?
+3. Compute Spearman's $\rho$ for the same pair. How does it compare?
+4. Bin mother's age into 5-year groups and plot mean birth weight
+   per bin. What shape do you see?
+5. Compute $r$ between pregnancy length and birth weight. Which pair
+   is more strongly correlated?
+
+---
+
+## Glossary
+
+**scatter plot** — one point per observation.
+
+**jitter** — small random noise to avoid overplotting.
+
+**covariance** — $\operatorname{Cov}(X,Y)$; direction of linear
+association; has units.
+
+**Pearson's r** — normalised covariance; unit-free; linear
+association.
+
+**Spearman's ρ** — Pearson's $r$ on ranks; monotone association;
+robust to outliers.
+
+**confound** — a third variable that causes both $X$ and $Y$.
+
+**correlation ≠ causation** — association does not imply causation.

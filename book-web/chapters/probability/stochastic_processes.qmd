@@ -1,0 +1,100 @@
+---
+title: "Stochastic Processes — Time-Indexed Randomness"
+---
+
+::: {.callout-note}
+## Status — outline
+This page is a placeholder outline. The main probability series only
+needs single random variables, so this material is not on the
+critical path. Read it once the question *"what about a whole window
+of samples, not just one?"* starts to matter — typically when you
+move into time-series work or signal processing.
+:::
+
+---
+
+## Why this page exists
+
+The early probability chapters introduce the **random variable** —
+single trial, no time index. That distinction is enough to keep
+those chapters honest, but it leaves real questions on the table:
+
+- What does it mean for two samples in a vibration stream to be
+  "related"?
+- Why does a 1 s window of accelerometer data look noticeably
+  different from a 10 s window of the same machine?
+- How do you describe a noise signal whose statistics drift over an
+  exposure?
+- What's actually being measured by a power spectral density plot?
+- When does averaging *over time* tell you the same thing as
+  averaging *over many trials*?
+
+Each of these needs the language of stochastic processes.
+
+---
+
+## Outline
+
+The sections below are placeholders. Each will follow the same
+applied-first pattern as the rest of the probability series: one
+concrete sensor scenario → the math needed to describe it → numbers
+→ cross-domain examples.
+
+### 1. From random variable to stochastic process
+
+- A stochastic process as a collection of random variables indexed
+  by time: $\{X(t) : t \in T\}$
+- Two ways to look at one: a single realisation (one waveform) vs
+  the ensemble (the distribution at each $t$)
+- Discrete-time vs continuous-time
+- Worked example: vibration sensor stream as a discrete-time process
+
+### 2. Mean and variance over time
+
+- $\mu(t) = E[X(t)]$ — the mean function
+- $\sigma^2(t) = \operatorname{Var}(X(t))$ — the variance function
+- Why these can change over time — and why we often want them not
+  to
+- Worked example: motor warm-up — the noise floor's $\sigma$ changes
+  over the first 10 minutes
+
+### 3. Autocorrelation — are successive samples independent?
+
+- Definition: $R_X(t_1, t_2) = E[X(t_1) X(t_2)]$
+- Intuition: how much knowing $X(t_1)$ tells you about $X(t_2)$
+- The autocorrelation function $R_X(\tau)$ for a stationary process
+- Worked example: white noise vs band-limited noise vs a periodic
+  signal — three very different shapes
+- Why this matters: many statistical tools (CLT included) assume
+  independent samples; autocorrelation tells you when that
+  assumption is broken
+
+### 4. Stationarity
+
+- **Strict stationarity:** the joint distribution of any subset is
+  invariant to time shifts
+- **Wide-sense stationarity (WSS):** mean is constant in time and
+  the autocorrelation depends only on lag
+- Why WSS is enough for most engineering work
+- Worked example: a healthy bearing is WSS; a failing bearing
+  isn't
+
+### 5. Power spectral density
+
+- Definition: Fourier transform of the autocorrelation function
+- Worked example: 1/f noise, white noise, narrowband interference
+
+### 6. Ergodicity
+
+- When can you replace ensemble averages with time averages?
+- The bridge between "many independent experiments" and "one long
+  recording"
+
+---
+
+::: {.callout-tip}
+## Where to point me
+If you'd like this filled in earlier, raise an issue against the
+repo. The material is well-defined; it's mostly a writing-time
+question.
+:::

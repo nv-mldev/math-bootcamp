@@ -1,0 +1,302 @@
+---
+title: "Estimation"
+jupyter: python3
+execute:
+  echo: true
+  cache: true
+---
+
+## The question
+
+> "We measured 9,148 babies. But we want to say something about ALL
+> babies. How good is our estimate?"
+
+Everything computed so far is a **sample statistic** — a number
+computed from the data we have. What we really want is a **population
+parameter** — the true value in the real world.
+
+The sample mean $\bar{x}$ is our best guess for the population mean
+$\mu$. But how far off is it likely to be?
+
+---
+
+## The estimation game
+
+Suppose a population is normal with unknown $\mu$ and $\sigma$. You
+draw a random sample of $n$ observations. Your best estimate of
+$\mu$? The sample mean $\bar{x}$ — the **maximum likelihood
+estimator** of $\mu$ for a normal distribution.
+
+Variance is subtler. The naive estimate
+
+$$
+\hat{\sigma}^2 \;=\; \frac{1}{n}\sum_{i=1}^n (x_i - \bar{x})^2
+$$
+
+is **biased** — it systematically underestimates $\sigma^2$. The
+unbiased estimator divides by $n - 1$ instead:
+
+$$
+s^2 \;=\; \frac{1}{n-1}\sum_{i=1}^n (x_i - \bar{x})^2
+$$
+
+::: {.callout-note collapse="true"}
+## ▶ Why $n-1$? Bessel's correction in one sentence
+We estimated $\bar{x}$ from the data. That used up one degree of
+freedom — the deviations $(x_i - \bar{x})$ sum to zero, so the last
+one is not free. Dividing by $n-1$ corrects for this.
+:::
+
+For large $n$, the difference is negligible. For small $n$ (say
+$n = 5$), it matters.
+
+---
+
+## Sampling distributions
+
+If you draw many samples and compute the mean of each, the
+distribution of those means is the **sampling distribution of the
+mean**.
+
+For a population with mean $\mu$ and std $\sigma$:
+
+$$
+E[\bar{X}] = \mu, \qquad
+\operatorname{Std}(\bar{X}) \;=\; \frac{\sigma}{\sqrt{n}}
+$$
+
+The standard error shrinks as $\sqrt{n}$ — doubling sample size cuts
+error by $\sqrt{2}$.
+
+---
+
+## Standard error in NSFG
+
+```{python}
+import sys, os
+import numpy as np
+import matplotlib.pyplot as plt
+
+sys.path.insert(0, os.path.dirname(os.path.abspath("__file__")) or ".")
+from _nsfg import load_groups, COLORS
+
+live, _, _ = load_groups()
+weights = live["totalwgt_lb"].dropna().values
+weights = weights[(weights > 0) & (weights < 20)]
+
+true_mean = weights.mean()
+true_std  = weights.std()
+
+print(f"σ ≈ {true_std:.3f} lbs, n = {len(weights):,}")
+print(f"SE = σ/√n = {true_std / np.sqrt(len(weights)):.4f} lbs")
+```
+
+Our estimate of the mean is likely within ≈ 0.015 lbs of the true
+mean.
+
+---
+
+## Biased vs unbiased variance — a simulation
+
+```{python}
+np.random.seed(42)
+sample_size = 10
+n_simulations = 10_000
+
+biased, unbiased = [], []
+for _ in range(n_simulations):
+    s = np.random.choice(weights, size=sample_size, replace=False)
+    m = s.mean()
+    biased.append(np.sum((s - m) ** 2) / sample_size)
+    unbiased.append(np.sum((s - m) ** 2) / (sample_size - 1))
+
+true_var = weights.var()
+
+print(f"True variance              : {true_var:.4f}")
+print(f"Mean of 1/n estimates      : {np.mean(biased):.4f}")
+print(f"Mean of 1/(n-1) estimates  : {np.mean(unbiased):.4f}")
+print(f"Bias 1/n                   : {np.mean(biased) - true_var:+.4f}")
+print(f"Bias 1/(n-1)               : {np.mean(unbiased) - true_var:+.4f}")
+```
+
+The 1/n estimator is biased downward by exactly the predicted
+amount; the 1/(n-1) estimator is right on the nose.
+
+---
+
+## SE shrinks as σ/√n
+
+```{python}
+sample_sizes = [10, 50, 200, 1000]
+sampling = {}
+print(f"  {'n':>6}  {'SE (analytic)':>15}  {'SE (simulated)':>15}")
+for n in sample_sizes:
+    means = [np.random.choice(weights, size=n).mean() for _ in range(2000)]
+    se_a = true_std / np.sqrt(n)
+    se_s = np.std(means)
+    sampling[n] = (means, se_a, se_s)
+    print(f"  {n:>6}  {se_a:>15.4f}  {se_s:>15.4f}")
+```
+
+SE halves when n quadruples.
+
+---
+
+## Sampling bias
+
+Not all estimation errors are random. **Bias** is a systematic error
+that doesn't average away with more data.
+
+The class size paradox is a clean example: sampling students
+oversamples large classes, so the estimate of mean class size is
+biased upward — taking more data makes it more *precise* but not
+more *accurate*.
+
+NSFG uses **survey weights** (`finalwgt`) to correct for deliberate
+oversampling of minority groups. If you ignore the weights, your
+estimates of national statistics will be biased.
+
+```{python}
+df = live[["totalwgt_lb", "finalwgt"]].dropna()
+df = df[(df["totalwgt_lb"] > 0) & (df["totalwgt_lb"] < 20)]
+
+unweighted = df["totalwgt_lb"].mean()
+weighted   = np.average(df["totalwgt_lb"], weights=df["finalwgt"])
+
+print(f"Unweighted mean : {unweighted:.4f} lbs")
+print(f"Weighted mean   : {weighted:.4f} lbs")
+print(f"Difference      : {weighted - unweighted:+.4f} lbs")
+```
+
+Difference is small for birth weight specifically, but the principle
+matters: ignoring survey weights gives biased national estimates.
+
+---
+
+## Bootstrap — simulation-based standard errors
+
+We often can't compute SE analytically (think: median, correlation,
+ratio). The **bootstrap** is a simulation alternative:
+
+1. Draw $B$ bootstrap samples — resample *with replacement* from your
+   data
+2. Compute the statistic for each sample
+3. The standard deviation of the $B$ estimates is the bootstrap SE
+
+```{python}
+def bootstrap_se(data, statistic, n_boot=2000):
+    estimates = [statistic(np.random.choice(data, size=len(data), replace=True))
+                 for _ in range(n_boot)]
+    return np.std(estimates), estimates
+
+
+se_mean,   boot_means   = bootstrap_se(weights, np.mean)
+se_median, boot_medians = bootstrap_se(weights, np.median)
+
+print(f"Mean   : {weights.mean():.4f}  ±  {se_mean:.4f} (SE)")
+print(f"Median : {np.median(weights):.4f}  ±  {se_median:.4f} (SE)")
+print(f"Analytic SE for mean: {true_std / np.sqrt(len(weights)):.4f}")
+```
+
+Bootstrap and analytic SE agree closely for the mean. The bootstrap
+just works for any statistic — that's its real value.
+
+---
+
+## Visualising it
+
+```{python}
+#| fig-cap: "Biased vs unbiased variance, sampling distributions, the σ/√n curve, and bootstrap distributions of mean and median."
+fig, axes = plt.subplots(2, 2, figsize=(12, 9))
+
+# 1. biased vs unbiased
+ax = axes[0, 0]
+ax.hist(biased,   bins=50, density=True, alpha=0.6,
+        color=COLORS["highlight"], label="Biased (1/n)")
+ax.hist(unbiased, bins=50, density=True, alpha=0.6,
+        color=COLORS["other"],     label="Unbiased (1/(n-1))")
+ax.axvline(true_var, color="black", linewidth=2,
+           label=f"True = {true_var:.3f}")
+ax.set_xlabel("Estimated variance")
+ax.set_title(f"Biased vs Unbiased (n={sample_size}, {n_simulations:,} sims)")
+ax.legend(fontsize=8)
+
+# 2. Sampling distributions
+ax = axes[0, 1]
+for n in sample_sizes:
+    means, se_a, _ = sampling[n]
+    ax.hist(means, bins=40, density=True, alpha=0.5, label=f"n={n}, SE={se_a:.3f}")
+ax.axvline(true_mean, color="black", linewidth=2,
+           label=f"True mean = {true_mean:.3f}")
+ax.set_xlabel("Sample mean (lbs)")
+ax.set_title("Sampling Distribution of the Mean")
+ax.legend(fontsize=7)
+
+# 3. SE = σ/√n on log-log
+ax = axes[1, 0]
+n_range = np.logspace(1, 4, 50)
+ax.loglog(n_range, true_std / np.sqrt(n_range),
+          color=COLORS["first"], linewidth=2)
+for n in sample_sizes:
+    _, se_a, _ = sampling[n]
+    ax.scatter([n], [se_a], s=80, zorder=5)
+ax.set_xlabel("Sample size n (log)")
+ax.set_ylabel("Standard error (log)")
+ax.set_title(r"$SE = \sigma / \sqrt{n}$ (log–log)")
+
+# 4. Bootstrap mean vs median
+ax = axes[1, 1]
+ax.hist(boot_means,   bins=40, density=True, alpha=0.6,
+        color=COLORS["first"], label=f"Mean (SE={se_mean:.4f})")
+ax.hist(boot_medians, bins=40, density=True, alpha=0.6,
+        color="#FF9800",       label=f"Median (SE={se_median:.4f})")
+ax.set_xlabel("Estimate (lbs)")
+ax.set_title("Bootstrap Distributions")
+ax.legend(fontsize=8)
+
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+## Exercises
+
+1. Simulate drawing 100 samples of size $n = 50$ from birth weight.
+   Plot the sampling distribution of the mean.
+2. Compute the SE analytically and compare to the simulated std of
+   sample means.
+3. Bootstrap the median birth weight. What is the bootstrap SE?
+4. Compute the mean with and without survey weights (`finalwgt`).
+   How different are they?
+5. Show that the $1/n$ variance estimator is biased: simulate many
+   samples, compute $1/n$ variance each time, average. Does it equal
+   the true variance?
+
+---
+
+## Glossary
+
+**sample statistic** — value computed from data (e.g.,
+$\bar{x}$).
+
+**population parameter** — true value in the population (e.g.,
+$\mu$).
+
+**estimator** — formula for computing a parameter from sample data.
+
+**bias** — systematic error; $E[\hat{\theta}] - \theta$.
+
+**unbiased estimator** — $E[\hat{\theta}] = \theta$.
+
+**sampling distribution** — distribution of a statistic over many
+repeated samples.
+
+**standard error** — std of the sampling distribution; $SE =
+\sigma/\sqrt{n}$ for the mean.
+
+**bootstrap** — resample with replacement to simulate the sampling
+distribution.
+
+**degrees of freedom** — number of values free to vary; affects bias
+in variance estimation.

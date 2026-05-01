@@ -1,0 +1,413 @@
+---
+title: "Distributions"
+jupyter: python3
+execute:
+  echo: true
+  cache: true
+---
+
+## The Question
+
+> "First babies are born 13 hours later on average. Is that a big
+> difference?"
+
+Chapter 1 gave us a number. But a number without context is
+meaningless.
+
+13 hours sounds large. But if pregnancy length varies by *weeks*
+between women, 13 hours might be invisible. To judge whether a
+difference is large, we need to understand the **shape of the data**
+— the distribution.
+
+---
+
+## What is a distribution?
+
+A **distribution** tells you two things about a variable:
+
+1. What values are possible?
+2. How often does each value appear?
+
+The simplest way to represent a distribution is a **histogram**.
+
+---
+
+## Histograms
+
+A histogram divides the range of values into **bins** and counts how
+many observations fall in each bin.
+
+```
+Bin [38, 39):  ████████████████  1,243 pregnancies
+Bin [39, 40):  ██████████████    1,089 pregnancies
+Bin [40, 41):  ████████          612 pregnancies
+```
+
+**Binning choices matter.** Too few bins → you lose shape. Too many
+bins → noise looks like signal. This is a judgment call — always try
+multiple bin widths.
+
+### The frequency trap
+
+If you plot raw counts and your two groups have different sizes, the
+taller bar is always the bigger group — not necessarily the more
+common value. Always **normalize** before comparing:
+
+$$
+\text{proportion} \;=\; \frac{\text{count in bin}}{\text{total count}}
+$$
+
+---
+
+## Setup — reuse the cleaned NSFG data
+
+```{python}
+import sys
+import os
+import numpy as np
+import matplotlib.pyplot as plt
+
+# `_nsfg.py` lives next to this chapter.
+sys.path.insert(0, os.path.dirname(os.path.abspath("__file__")) or ".")
+from _nsfg import load_groups, COLORS
+
+live, first, other = load_groups()
+print(f"Live: {len(live):,}   First: {len(first):,}   Other: {len(other):,}")
+```
+
+---
+
+## Building a histogram from scratch
+
+We do this manually first, so you see what `np.histogram` does
+internally.
+
+```{python}
+def make_histogram(values: np.ndarray, bins: np.ndarray) -> dict[float, int]:
+    """Count how many values fall in each bin. Returns {bin_left_edge: count}."""
+    counts: dict[float, int] = {b: 0 for b in bins[:-1]}
+    for value in values:
+        if np.isnan(value):
+            continue
+        for i in range(len(bins) - 1):
+            if bins[i] <= value < bins[i + 1]:
+                counts[bins[i]] += 1
+                break
+    return counts
+
+
+def normalize_histogram(hist: dict[float, int]) -> dict[float, float]:
+    """Convert counts to proportions so groups of different sizes are comparable."""
+    total = sum(hist.values())
+    return {k: v / total for k, v in hist.items()}
+
+
+prglngth_bins = np.arange(27, 46, 1)   # 27, 28, ..., 45 weeks
+
+first_hist = make_histogram(first["prglngth"].values, prglngth_bins)
+other_hist = make_histogram(other["prglngth"].values, prglngth_bins)
+
+first_norm = normalize_histogram(first_hist)
+other_norm = normalize_histogram(other_hist)
+
+print(f"{'Weeks':>6}  {'First':>8}  {'Other':>8}  {'Diff':>8}")
+for week in sorted(first_norm):
+    f = first_norm.get(week, 0)
+    o = other_norm.get(week, 0)
+    print(f"  {week:>4.0f}    {f:>7.4f}    {o:>7.4f}    {f-o:>+7.4f}")
+```
+
+The two columns are nearly identical at every week. The biggest
+difference is at week 39, and even there it's a fraction of a
+percentage point.
+
+---
+
+## Outliers
+
+Every real dataset has outliers — values far from the rest.
+
+In NSFG `prglngth` you'll see values of 0 weeks (unclear what this
+means) and values above 45 weeks (rare but possible). Before any
+analysis, you must decide what to do with them:
+
+1. **Remove them** — if they represent data errors.
+2. **Keep them** — if they represent genuine rare events.
+3. **Flag them** — compute results with and without, report both.
+
+For pregnancy length we restrict to 27–44 weeks for live births.
+Shorter than 27 weeks is extreme prematurity (rare, different medical
+category). Longer than 44 weeks is likely a recording error.
+
+---
+
+## Summarising a distribution
+
+Sometimes you want a single number instead of a plot. The most common
+summaries:
+
+### Mean
+
+$$
+\bar{x} \;=\; \frac{1}{n} \sum_{i=1}^{n} x_i
+$$
+
+Sensitive to outliers. One very large value pulls the mean far from
+the centre.
+
+### Variance
+
+$$
+\sigma^2 \;=\; \frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})^2
+$$
+
+The average squared deviation from the mean. Units are squared
+(weeks²).
+
+### Standard deviation
+
+$$
+\sigma \;=\; \sqrt{\sigma^2}
+$$
+
+Same units as the data. A typical pregnancy deviates from the mean by
+$\sigma$ weeks.
+
+::: {.callout-note collapse="true"}
+## ▶ Why `ddof=1` for samples and `ddof=0` for populations
+
+When you compute variance from a *sample* and want to estimate the
+*population* variance, dividing by $n$ underestimates the true
+variance — because the sample mean $\bar{x}$ is itself the value that
+minimises $\sum (x_i - \bar{x})^2$. Bessel's correction divides by
+$n - 1$ instead, restoring an unbiased estimator. The argument
+`ddof=1` (delta degrees of freedom) tells `numpy` and our helpers to
+do this.
+:::
+
+```{python}
+def mean(values: np.ndarray) -> float:
+    v = values[~np.isnan(values)]
+    return v.sum() / len(v)
+
+
+def variance(values: np.ndarray, ddof: int = 0) -> float:
+    v = values[~np.isnan(values)]
+    m = mean(v)
+    return np.sum((v - m) ** 2) / (len(v) - ddof)
+
+
+def std(values: np.ndarray, ddof: int = 0) -> float:
+    return np.sqrt(variance(values, ddof))
+
+
+first_prg = first["prglngth"].values
+other_prg = other["prglngth"].values
+
+print(f"                 First babies    Other babies")
+print(f"  n            : {len(first_prg):>12,}   {len(other_prg):>12,}")
+print(f"  Mean (weeks) : {mean(first_prg):>12.3f}   {mean(other_prg):>12.3f}")
+print(f"  Variance     : {variance(first_prg):>12.3f}   {variance(other_prg):>12.3f}")
+print(f"  Std dev      : {std(first_prg):>12.3f}   {std(other_prg):>12.3f}")
+```
+
+The two groups have nearly identical spread (~2.7 weeks). The
+0.078-week gap in their means is about **3 % of one standard
+deviation** — vanishingly small relative to natural variation.
+
+---
+
+## Effect size — Cohen's d
+
+The problem with raw differences: "0.078 weeks" sounds small. But how
+small? Is it 1 % of the typical variation or 50 %?
+
+**Cohen's d** measures the difference in means, normalised by the
+pooled standard deviation:
+
+$$
+d \;=\; \frac{\bar{x}_1 - \bar{x}_2}{s_{\text{pooled}}}, \qquad
+s_{\text{pooled}} \;=\; \sqrt{\frac{(n_1 - 1) s_1^2 + (n_2 - 1) s_2^2}{n_1 + n_2 - 2}}
+$$
+
+**Rough guidelines (Cohen 1988):**
+
+- $|d| < 0.2$ → small effect
+- $|d| \approx 0.5$ → medium effect
+- $|d| > 0.8$ → large effect
+
+```{python}
+def cohens_d(group1: np.ndarray, group2: np.ndarray) -> float:
+    g1 = group1[~np.isnan(group1)]
+    g2 = group2[~np.isnan(group2)]
+    n1, n2 = len(g1), len(g2)
+    s1 = std(g1, ddof=1)
+    s2 = std(g2, ddof=1)
+    pooled = np.sqrt(((n1 - 1) * s1**2 + (n2 - 1) * s2**2) / (n1 + n2 - 2))
+    return (mean(g1) - mean(g2)) / pooled
+
+
+d_prglngth = cohens_d(first_prg, other_prg)
+
+first_wgt = first["totalwgt_lb"].dropna().values
+other_wgt = other["totalwgt_lb"].dropna().values
+d_wgt = cohens_d(first_wgt, other_wgt)
+
+
+def label(d: float) -> str:
+    a = abs(d)
+    if a < 0.2:
+        return "small"
+    if a < 0.5:
+        return "medium"
+    return "large"
+
+
+print(f"Cohen's d (pregnancy length) : {d_prglngth:+.4f}  ({label(d_prglngth)})")
+print(f"Cohen's d (birth weight)     : {d_wgt:+.4f}  ({label(d_wgt)})")
+```
+
+Two surprises:
+
+1. The pregnancy-length effect is *tiny* — about 3 % of a standard
+   deviation. The folk belief is technically true but practically
+   negligible.
+2. The birth-weight effect runs the *opposite* way: first babies are
+   slightly **lighter**, not heavier. The "first babies are bigger"
+   anecdote (which also exists) is also wrong.
+
+---
+
+## Reporting results
+
+When you report a statistical result, always report:
+
+1. The **effect size** (not just whether it is "significant").
+2. The **sample sizes** (larger samples detect smaller effects).
+3. The **direction** of the effect.
+
+❌ Bad: "First babies are born later (p < 0.05)."
+
+✅ Good: "First babies have a mean pregnancy length 0.078 weeks
+longer (Cohen's d = 0.029, n₁ = 4,413, n₂ = 4,735), a statistically
+detectable but practically negligible difference."
+
+---
+
+## Visualising it
+
+```{python}
+#| fig-cap: "Normalised histograms and effect sizes for the first-baby question."
+fig, axes = plt.subplots(1, 3, figsize=(15, 4))
+
+# 1. Pregnancy length, normalised, side-by-side
+ax = axes[0]
+weeks = sorted(first_norm.keys())
+width = 0.4
+ax.bar([w - 0.2 for w in weeks], [first_norm[w] for w in weeks],
+       width=width, color=COLORS["first"], alpha=0.85, label="First babies")
+ax.bar([w + 0.2 for w in weeks], [other_norm[w] for w in weeks],
+       width=width, color=COLORS["other"], alpha=0.85, label="Other babies")
+ax.set_xlabel("Pregnancy length (weeks)")
+ax.set_ylabel("Proportion")
+ax.set_title("Pregnancy Length (normalised)")
+ax.legend(fontsize=8)
+
+# 2. Birth weight — note the bell shape
+ax = axes[1]
+wgt_bins = np.arange(0, 16, 0.5)
+ax.hist(first_wgt, bins=wgt_bins, density=True, alpha=0.6,
+        color=COLORS["first"], label="First")
+ax.hist(other_wgt, bins=wgt_bins, density=True, alpha=0.6,
+        color=COLORS["other"], label="Other")
+ax.set_xlabel("Birth weight (lbs)")
+ax.set_ylabel("Density")
+ax.set_title("Birth Weight Distribution")
+ax.legend()
+
+# 3. Effect sizes
+ax = axes[2]
+effects = [d_prglngth, d_wgt]
+labels = ["Pregnancy\nlength", "Birth\nweight"]
+bar_colors = [COLORS["first"] if d >= 0 else COLORS["highlight"] for d in effects]
+bars = ax.bar(labels, [abs(d) for d in effects], color=bar_colors, alpha=0.85)
+ax.axhline(0.2, color="grey", linestyle="--", linewidth=1,
+           label="Small threshold (0.2)")
+ax.set_ylabel("Cohen's d (absolute)")
+ax.set_title("Effect Sizes")
+ax.legend(fontsize=8)
+for bar, d in zip(bars, effects):
+    ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.003,
+            f"{d:+.3f}", ha="center", va="bottom", fontsize=9)
+
+plt.tight_layout()
+plt.show()
+```
+
+Look at the **birth-weight histogram**. It is roughly bell-shaped,
+symmetric, peaked near 7.4 lbs.
+
+You've seen this shape before — or you're about to.
+
+---
+
+## The pivot — back to probability
+
+The histogram raises a question:
+
+> "Is there a mathematical model that perfectly describes this shape?
+> One with just two numbers — a mean and a spread — that captures
+> everything?"
+
+The answer is the **Normal distribution**. And the reason it appears
+everywhere is the **Central Limit Theorem**.
+
+Both of these belong in the probability chapters that come next. Read
+them, then come back here — Chapter 3 picks up where we left off and
+uses the Normal/CLT machinery to ask harder questions about the same
+data.
+
+---
+
+## Exercises
+
+1. Compute mean, variance, and std for `prglngth` for first vs other
+   babies — using the helpers above and using `np.mean` / `np.var`.
+   Confirm they agree.
+2. Compute Cohen's d for pregnancy length. Is it small, medium, or
+   large?
+3. Plot histograms of `totalwgt_lb` for first vs other babies. What
+   do you notice about the direction of the difference?
+4. What fraction of pregnancies have `prglngth` < 37 weeks
+   (premature)?
+5. Compute Cohen's d for birth weight. Compare it to the
+   pregnancy-length effect.
+
+---
+
+## Glossary
+
+**distribution** — the set of possible values of a variable and the
+frequency of each.
+
+**histogram** — a plot that counts how many values fall in each bin.
+
+**bin** — an interval used to group values in a histogram.
+
+**normalisation** — dividing counts by total to get proportions
+(removes group-size effects).
+
+**outlier** — a value far from the rest of the data.
+
+**mean** — sum of values divided by count; sensitive to outliers.
+
+**variance** — average squared deviation from the mean.
+
+**standard deviation** — square root of variance; same units as the
+data.
+
+**Cohen's d** — difference in means divided by pooled std; a
+unit-free effect-size measure.
+
+**effect size** — how large a difference is, expressed in meaningful
+units.

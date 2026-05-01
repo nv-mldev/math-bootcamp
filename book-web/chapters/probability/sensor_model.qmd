@@ -1,0 +1,343 @@
+---
+title: "Putting It Together — The Sensor Model"
+jupyter: python3
+execute:
+  echo: true
+  cache: true
+---
+
+The whole probability ladder we've built — Bernoulli → Binomial →
+Poisson → Normal, glued together by the CLT — exists to answer one
+question that every signal-processing engineer faces:
+
+> *Given a measurement, how much of what I'm seeing is signal and
+> how much is noise — and what shape does that noise take?*
+
+This chapter assembles the answer for the cleanest end-to-end
+example: the camera sensor.
+
+---
+
+## The measurement chain — generic template
+
+Almost every digital sensor performs the same five-stage
+transformation from physical world to integer reading:
+
+```
+physical event  →  transduction  →  accumulation  →  electronics  →  ADC
+   (random)        (each event has    (sum over          (read,         (round
+                    detection prob)    exposure)         amplify)        to bits)
+```
+
+Each stage adds its own statistical character:
+
+| Stage | Random source | Distribution |
+|---|---|---|
+| Physical event | Quantum / thermal / arrival | **Poisson** |
+| Transduction | Detection probability | **Binomial** thinning |
+| Accumulation | Sum over a window | Poisson stays Poisson; small-noise sums become **Normal** |
+| Electronics | Amplifier and circuit noise | **Gaussian** (CLT on micro-disturbances) |
+| ADC | Rounding to nearest bit | **Uniform** over one quantization step |
+
+The total reading is the sum of all of these, and by the CLT the sum
+is **approximately Gaussian** at moderate-to-high signal levels —
+which is why classical denoising tools assume Gaussian noise and get
+away with it.
+
+---
+
+## The full noise budget — camera
+
+| Source | Origin | Distribution | Parameters |
+|---|---|---|---|
+| **Shot noise** | Photon arrival is quantum-random | $\text{Poisson}(\lambda)$ | $\lambda$ = expected photons |
+| **Dark current** | Thermal electrons (no light needed) | $\text{Poisson}(\lambda_d)$ | $\lambda_d \propto$ temperature × time |
+| **Read noise** | Amplifier + ADC electronics | $\mathcal{N}(0, \sigma_r^2)$ | $\sigma_r \approx$ 1–5 e⁻ |
+| **Quantization** | ADC rounding | $\text{Uniform}(-\Delta/2, \Delta/2)$ | $\Delta$ = full well / $2^{\text{bits}}$ |
+
+**Total signal in electrons:**
+
+$$
+S \;=\; \underbrace{\text{Poisson}(\lambda)}_{\text{photons}}
++ \underbrace{\text{Poisson}(\lambda_d)}_{\text{dark current}}
++ \underbrace{\mathcal{N}(0, \sigma_r^2)}_{\text{read noise}}
++ \underbrace{\text{Uniform}(-\Delta/2, \Delta/2)}_{\text{quantization}}
+$$
+
+By the CLT, this sum approaches Gaussian with:
+
+- mean: $\mu = \lambda + \lambda_d$
+- variance: $\sigma^2 = \lambda + \lambda_d + \sigma_r^2 + \Delta^2/12$
+
+---
+
+## The complete signal chain — code
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import norm
+
+np.random.seed(42)
+
+
+def simulate_sensor(expected_photons, dark_current_electrons, read_noise_sigma,
+                    full_well_capacity, bit_depth, quantum_efficiency=0.7,
+                    num_exposures=10_000):
+    """Simulate the full signal chain from photons to pixel values.
+
+    Returns intermediate signals at every stage so each piece can be
+    inspected on its own.
+    """
+    out = {}
+
+    # 1. Photon arrival — Poisson
+    incident = np.random.poisson(expected_photons, size=num_exposures)
+    out["incident_photons"] = incident
+
+    # 2. Quantum efficiency — Binomial thinning
+    detected = np.random.binomial(incident, quantum_efficiency)
+    out["detected_electrons"] = detected
+
+    # 3. Dark current — Poisson
+    dark = np.random.poisson(dark_current_electrons, size=num_exposures)
+    out["dark_electrons"] = dark
+
+    # 4. Total electrons, clipped at full well
+    total = np.clip(detected + dark, 0, full_well_capacity)
+    out["total_electrons"] = total
+
+    # 5. Read noise — Gaussian
+    read = np.random.normal(0, read_noise_sigma, size=num_exposures)
+    analog = total + read
+    out["analog_signal"] = analog
+
+    # 6. ADC quantization
+    levels = 2 ** bit_depth
+    step = full_well_capacity / levels
+    digital = np.clip(np.round(analog / step), 0, levels - 1)
+    out["digital_values"] = digital
+    out["pixel_values"] = digital / (levels - 1) * 255   # scaled for 8-bit display
+
+    return out
+
+
+results = simulate_sensor(
+    expected_photons       = 500,
+    dark_current_electrons = 10,
+    read_noise_sigma       = 3.0,
+    full_well_capacity     = 10_000,
+    bit_depth              = 12,
+    quantum_efficiency     = 0.7,
+    num_exposures          = 50_000,
+)
+
+print("One-pixel signal chain (50 000 exposures):")
+for key in ["incident_photons", "detected_electrons", "dark_electrons",
+            "total_electrons", "analog_signal", "digital_values"]:
+    arr = results[key]
+    print(f"  {key:<22}: mean = {arr.mean():.1f}, std = {arr.std():.2f}")
+```
+
+---
+
+## Each stage as a histogram
+
+```{python}
+#| fig-cap: "Stages 1–6 of the signal chain. The shape evolves from discrete Poisson to nearly Gaussian as noise sources accumulate."
+fig, axes = plt.subplots(2, 3, figsize=(15, 8))
+
+stages = [
+    ("incident_photons",   "1. Photon arrival\n(Poisson)",         "#2196F3"),
+    ("detected_electrons", "2. After QE\n(Binomial filter)",       "#4CAF50"),
+    ("dark_electrons",     "3. Dark current\n(Poisson, small)",    "#9C27B0"),
+    ("total_electrons",    "4. Total electrons",                   "#FF9800"),
+    ("analog_signal",      "5. After read noise\n(+ Gaussian)",    "#F44336"),
+    ("digital_values",     "6. After ADC\n(quantised)",            "gray"),
+]
+
+for ax, (key, title, color) in zip(axes.flat, stages):
+    data = results[key]
+    ax.hist(data, bins=80, density=True, color=color, alpha=0.6, label="Simulated")
+    mu, sigma = data.mean(), data.std()
+    xr = np.linspace(data.min(), data.max(), 300)
+    ax.plot(xr, norm.pdf(xr, mu, sigma), "k--", linewidth=2,
+            label=f"N({mu:.0f}, {sigma:.1f}²)")
+    ax.set_title(title, fontsize=10)
+    ax.set_xlabel("Value")
+    ax.legend(fontsize=7)
+
+plt.tight_layout()
+plt.show()
+```
+
+Key observations:
+
+1. Shot noise (Poisson) dominates at this photon count.
+2. QE reduces the signal but preserves the Poisson shape.
+3. Dark current adds a small extra Poisson contribution.
+4. Read noise barely changes the shape (small $\sigma_r$ relative
+   to shot noise at most exposures).
+5. The total is well-approximated by Gaussian (by the CLT).
+6. ADC quantisation creates discrete steps but doesn't change the
+   envelope.
+
+---
+
+## The three regimes of sensor noise
+
+Different noise sources dominate at different signal levels:
+
+| Regime | Signal level | Dominant noise | SNR behaviour |
+|---|---|---|---|
+| **Read-noise limited** | Dark pixels | Electronics ($\sigma_r$) | SNR ∝ signal (linear) |
+| **Shot-noise limited** | Mid-tones | Physics ($\sqrt\lambda$) | SNR ∝ $\sqrt{\text{signal}}$ |
+| **Saturation** | Bright pixels | Well is full | SNR collapses |
+
+```{python}
+#| fig-cap: "Left: noise sources vs signal. Read-noise dominates dark; shot noise dominates mid-tones; saturation kills SNR. Right: actual SNR follows the shot-noise limit between the two."
+expected_photons_range = np.logspace(0, 4, 200)
+
+read_noise_sigma   = 3.0
+dark_current       = 5.0
+full_well          = 10_000
+qe                 = 0.7
+
+signal               = expected_photons_range * qe
+shot_noise_var       = signal
+dark_noise_var       = dark_current
+read_noise_var       = read_noise_sigma ** 2
+total_noise          = np.sqrt(shot_noise_var + dark_noise_var + read_noise_var)
+snr                  = signal / total_noise
+
+fig, axes = plt.subplots(1, 2, figsize=(13, 5))
+
+ax = axes[0]
+ax.loglog(expected_photons_range, np.sqrt(shot_noise_var),
+          color="#2196F3", linewidth=2, label="Shot (√signal)")
+ax.loglog(expected_photons_range,
+          np.full_like(expected_photons_range, np.sqrt(read_noise_var)),
+          color="#F44336", linewidth=2,
+          label=f"Read (σ={read_noise_sigma})")
+ax.loglog(expected_photons_range,
+          np.full_like(expected_photons_range, np.sqrt(dark_noise_var)),
+          color="#9C27B0", linewidth=2, label=f"Dark (σ={np.sqrt(dark_current):.1f})")
+ax.loglog(expected_photons_range, total_noise, "k-", linewidth=2.5,
+          label="Total")
+ax.set_xlabel("Expected photons")
+ax.set_ylabel("Noise (electrons, std)")
+ax.set_title("Noise sources vs signal")
+ax.legend(fontsize=9)
+ax.grid(True, alpha=0.3)
+ax.set_ylim(0.5, 500)
+
+ax = axes[1]
+ax.loglog(expected_photons_range, snr, "k-", linewidth=2.5, label="Actual SNR")
+ax.loglog(expected_photons_range, np.sqrt(signal), "--", color="#2196F3",
+          linewidth=1.5, label="Shot-noise limit (√signal)")
+ax.axhline(1, color="#F44336", linestyle=":", linewidth=1.5, label="SNR = 1")
+ax.set_xlabel("Expected photons")
+ax.set_ylabel("SNR")
+ax.set_title("SNR vs signal")
+ax.legend(fontsize=9)
+ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+```
+
+Knowing the regime tells you the right denoising strategy:
+
+- **Read-noise regime** — averaging frames helps (reduces $\sigma_r$
+  by $1/\sqrt n$).
+- **Shot-noise regime** — use signal-dependent denoising (Anscombe
+  transform + Gaussian denoiser).
+- **Saturation** — information is irreversibly lost; no algorithm
+  recovers it.
+
+---
+
+## The same template for other sensors
+
+Once you've internalised the camera example, every other sensor
+falls into the same template with different physics in each slot.
+
+**Vibration sensor (accelerometer):**
+
+| Stage | Camera | Vibration |
+|---|---|---|
+| Physical event | Photon arrivals (Poisson) | Mechanical impacts (Poisson when bearing is faulty) |
+| Transduction | Quantum efficiency | Piezoelectric coupling efficiency |
+| Accumulation | Photons over exposure | Acceleration over a sample interval |
+| Electronics | Amplifier + read noise (Gaussian) | Charge amplifier + ADC noise (Gaussian) |
+| ADC | $2^{\text{bits}}$ levels | $2^{\text{bits}}$ levels |
+
+**Network telemetry:**
+
+| Stage | Network |
+|---|---|
+| Physical event | Packet drops (Poisson) |
+| Transduction | Probability the drop is observed |
+| Accumulation | Drops counted per minute |
+
+No analog stage, but the Poisson → Normal transition still happens
+as the count per window grows.
+
+---
+
+## Key takeaways
+
+1. **Bernoulli → Binomial → Poisson → Normal** is a chain of
+   increasing abstraction. Each is a limiting case of the one before
+   it.
+2. **Rare-event counting is Poisson — across all domains.**
+   Variance-equals-mean ($\sigma^2 = \lambda$) means noise is
+   signal-dependent.
+3. **The CLT is why Gaussian assumptions work everywhere.**
+   Aggregated readings, smoothed signals, calibration averages —
+   all converge to Normal regardless of where they started.
+4. **Every classical signal-processing algorithm that assumes
+   Gaussian noise is implicitly relying on this entire chain.**
+   Wiener, Kalman, least-squares, learned denoisers — all sit on
+   top of Bernoulli → Binomial → Poisson → Normal.
+5. **The three regimes — electronics-limited, physics-limited,
+   saturated — exist in every sensor.** The names change but the
+   structure is identical.
+
+---
+
+## Exercises
+
+1. Run `simulate_sensor` for $\lambda \in \{5, 50, 500, 5000\}$. For
+   each, plot the digital-value distribution and overlay a Gaussian
+   fit. At what $\lambda$ does the Gaussian fit visually fail?
+2. Reduce $\sigma_r$ by a factor of 10. Where does the read-noise →
+   shot-noise crossover move?
+3. Implement a frame-averaging denoiser. Show that read-noise std
+   drops as $\sigma_r / \sqrt n$ but shot noise drops only as
+   $\sqrt{\lambda / n}$.
+4. Pick a non-camera sensor (microphone, RF, vibration) and write
+   out the same five-stage table for it.
+
+---
+
+## Glossary
+
+**signal chain** — the sequence of physical and electronic stages
+between a physical event and a digital reading.
+
+**shot noise** — Poisson noise from quantum-random arrival events
+(photons, electrons, packets).
+
+**dark current** — Poisson noise from thermal electrons inside the
+sensor, independent of light.
+
+**read noise** — Gaussian noise added by the readout amplifier.
+
+**quantization noise** — uniform noise from rounding to a finite
+bit depth.
+
+**SNR** — signal-to-noise ratio.
+
+**full well capacity** — the maximum number of electrons a photosite
+can hold before saturating.

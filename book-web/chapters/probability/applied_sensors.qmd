@@ -1,0 +1,191 @@
+---
+title: "Probability Applied — Sensor Noise from First Principles"
+---
+
+> *The previous chapter laid out the generic measurement chain.
+> This page works it through end-to-end for one concrete sensor —
+> the camera — because every link corresponds to physically distinct
+> hardware, making it the cleanest worked example. The same template
+> applies to vibration, audio, network telemetry; the table at the
+> bottom shows where each one plugs in.*
+
+---
+
+## 1. Random variables and distributions — recap
+
+A **random variable** is a function that maps an experiment's
+outcome to a number. Every sensor reading is a random variable — it
+takes a different value each time you measure the same underlying
+state, because the physics of measurement is inherently random.
+
+Three quantities characterise a distribution:
+
+- **Mean** $\mu = E[X]$ — the expected value
+- **Variance** $\sigma^2 = E[(X - \mu)^2]$ — the spread
+- **Standard deviation** $\sigma$ — same units as $X$
+
+---
+
+## 2. The distribution chain — worked for the camera
+
+### Bernoulli — one photon, one photosite
+
+Each photon either reaches the photosite or it doesn't. Probability
+$p$ of detection (= quantum efficiency, QE):
+
+$$
+P(X = 1) = p, \qquad P(X = 0) = 1 - p
+$$
+
+Mean = $p$, variance = $p(1 - p)$.
+
+*Generic version:* one event, two outcomes, probability $p$ of
+success.
+
+### Binomial — $n$ photons, one photosite
+
+Count the number detected in $n$ independent trials:
+
+$$
+P(X = k) \;=\; \binom{n}{k} p^k (1 - p)^{n - k}
+$$
+
+Mean = $np$, variance = $np(1 - p)$.
+
+*Generic version:* successes in $n$ identical independent trials.
+
+### Poisson — photon flux model
+
+When $n \to \infty$ and $p \to 0$ such that $np = \lambda$ stays
+fixed:
+
+$$
+P(X = k) \;=\; \frac{\lambda^k \, e^{-\lambda}}{k!}
+$$
+
+Mean = $\lambda$, variance = $\lambda$. This is the exact model for
+photon arrivals over an exposure.
+
+*Generic version:* rare events arriving at rate $\lambda$ per
+window — photons per exposure, shock pulses per second, packet drops
+per minute.
+
+### Normal — large-count limit
+
+When $\lambda \gg 1$, the Poisson distribution converges to a
+Gaussian:
+
+$$
+\text{Poisson}(\lambda) \;\xrightarrow{\lambda \to \infty}\;
+\mathcal{N}(\mu = \lambda, \sigma^2 = \lambda)
+$$
+
+This is why shot noise is Gaussian in bright conditions.
+
+### Central Limit Theorem — why sums are always Gaussian
+
+In a sensor, multiple noise sources add together (shot + read +
+dark + quantization). Even if each source is non-Gaussian, the
+CLT says the sum is approximately Gaussian. This is why total sensor
+noise is well-modelled as Gaussian in almost all practical cases —
+and the same conclusion holds for a vibration sensor, an audio ADC,
+or any other measurement front-end.
+
+---
+
+## 3. Shot noise is irreducible
+
+From the Poisson model: $\sigma_{\text{shot}} = \sqrt\lambda$.
+
+This **cannot** be reduced by better hardware — it is a fundamental
+property of the discrete nature of light. To halve the shot noise
+you must quadruple the photon count (larger aperture, longer
+exposure, bigger photosite).
+
+$$
+\text{SNR} \;=\; \frac{\lambda}{\sqrt\lambda} \;=\; \sqrt\lambda
+$$
+
+Doubling the photon count improves SNR by $\sqrt 2 \approx 41\,\%$.
+The same $\sigma = \sqrt\lambda$ rule holds for any Poisson process:
+bearing-fault counts, packet drops, Geiger-counter clicks.
+
+---
+
+## 4. Noise budget
+
+A real sensor has multiple noise sources. The total noise variance
+is their sum (assuming independence):
+
+$$
+\sigma_{\text{total}}^2 \;=\;
+\sigma_{\text{shot}}^2 + \sigma_{\text{read}}^2
++ \sigma_{\text{dark}}^2 + \sigma_{\text{quant}}^2
+\;=\; \lambda + \sigma_r^2 + \sigma_d^2 + \frac{\Delta^2}{12}
+$$
+
+where $\Delta$ is the quantization step size.
+
+Which term dominates depends on the signal regime:
+
+| Regime | Dominant noise | Characteristic |
+|---|---|---|
+| Bright ($\lambda \gg \sigma_r^2$) | Shot noise | $\sigma \propto \sqrt\lambda$ |
+| Dim ($\lambda \ll \sigma_r^2$) | Read noise | $\sigma \approx \sigma_r$ (constant floor) |
+| Saturated ($\lambda \geq C$) | Clipping | All information above $C$ is lost |
+
+In bright conditions, collecting more signal always helps. In dim
+conditions, electronics dominate and more signal doesn't help much
+until you climb out of the electronics floor.
+
+The same regime structure shows up in any measurement chain: an
+electronics-limited floor at low signal, a physics-limited (often
+$\sqrt\lambda$) regime at medium signal, and a saturation regime
+where the measurement is destroyed.
+
+---
+
+## 5. The Anscombe transform
+
+Poisson noise has variance equal to its mean — awkward statistically.
+The **Anscombe transform** converts Poisson noise to approximately
+unit-variance Gaussian:
+
+$$
+A(X) \;=\; 2\sqrt{X + \tfrac{3}{8}}
+$$
+
+After applying $A$, the data has approximately constant variance
+$\approx 1$ regardless of $\lambda$. This lets standard
+Gaussian-assumption algorithms work correctly on Poisson-distributed
+data — useful any time you have count data you want to feed into a
+tool that assumes constant-variance Gaussian noise.
+
+---
+
+## 6. The same chain — where other sensors plug in
+
+| Stage | Camera | Vibration (accelerometer) | Network telemetry | Audio (microphone) |
+|---|---|---|---|---|
+| **Bernoulli event** | Photon detected (QE) | Shock pulse in a time slice | Packet dropped or not | Pressure crossing threshold |
+| **Binomial count** | Photons detected per exposure | Pulses per window | Drops per minute | Threshold crossings per frame |
+| **Poisson regime** | $\lambda$ = expected photons | $\lambda$ = expected pulses/hour | $\lambda$ = expected drops/min | (rarely the dominant model) |
+| **Gaussian limit** | High illumination | Many pulses per window | High-traffic monitoring | Almost always — the noise floor is Gaussian to begin with |
+| **Electronics floor** | Read noise | Charge-amp + ADC noise | (none) | Pre-amp + ADC noise |
+| **Quantization** | ADC bit depth | ADC bit depth | (count, no quantization) | 16/24-bit ADC |
+
+The chain is the same. Only the names change.
+
+---
+
+## Summary
+
+| Concept | Key fact |
+|---|---|
+| Bernoulli | One trial, two outcomes |
+| Binomial | $n$ trials, count of successes |
+| Poisson | $n \to \infty$, $p \to 0$, $np = \lambda$; mean = variance = $\lambda$ |
+| Gaussian | Limiting case $\lambda \to \infty$ — why most noise floors are approximately Normal |
+| CLT | Sum of any independent RVs → Gaussian; why total sensor noise is Normal |
+| SNR | $= \sqrt\lambda$ in any Poisson regime (photons, pulses, packets) |
+| Noise budget | $\sigma_{\text{total}}^2 = \sigma_{\text{physics}}^2 + \sigma_{\text{electronics}}^2 + \sigma_{\text{quant}}^2$ |

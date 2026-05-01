@@ -1,0 +1,225 @@
+---
+title: "Orthogonality and Projection"
+jupyter: python3
+execute:
+  echo: true
+  cache: true
+---
+
+## Learning objective
+
+Understand orthogonality as the independence of two vector
+directions, and show that **mean subtraction is exactly orthogonal
+projection** onto the $[1, 1, \ldots, 1]$ brightness direction —
+making brightness and pattern independent components.
+
+---
+
+## Orthogonality
+
+Two vectors are **orthogonal** (perpendicular) when their dot
+product is zero:
+
+$$
+\vec a \cdot \vec b \;=\; 0
+\quad \Longleftrightarrow \quad \vec a \perp \vec b
+$$
+
+Geometrically, they point in completely independent directions —
+knowing one tells you nothing about the other.
+
+**Why this matters for normalisation:** mean subtraction splits a
+patch vector into two orthogonal parts — a brightness component and
+a pattern component. Because they're orthogonal, changing brightness
+**cannot** affect the pattern. That independence is the whole reason
+normalisation works.
+
+The orthogonality that matters here is between:
+
+- The **uniform brightness vector** $[1, 1, 1, \ldots, 1]$ — equal
+  value everywhere, encodes only brightness, zero spatial pattern.
+- The **mean-subtracted residual** of any vector.
+
+Any scalar multiple of $[1, 1, \ldots, 1]$ is a flat grey image.
+Mean subtraction removes exactly this component.
+
+---
+
+## Orthogonal projection
+
+**Orthogonal projection** splits a vector into two perpendicular
+parts:
+
+$$
+\vec v \;=\; \underbrace{\operatorname{proj}_{\vec u} \vec v}_{\text{component along } \vec u}
+\;+\; \underbrace{(\vec v - \operatorname{proj}_{\vec u} \vec v)}_{\text{component perpendicular to } \vec u}
+$$
+
+The projection formula onto a unit vector $\hat u$:
+
+$$
+\operatorname{proj}_{\hat u} \vec v \;=\; (\vec v \cdot \hat u)\,\hat u
+$$
+
+---
+
+## Mean subtraction is orthogonal projection
+
+Let $\vec u = [1, 1, \ldots, 1]$ with $n$ elements. Its unit vector
+is:
+
+$$
+\hat u \;=\; \frac{[1, 1, \ldots, 1]}{\sqrt n}
+$$
+
+The projection of $\vec v$ onto $\hat u$:
+
+$$
+\operatorname{proj}_{\hat u} \vec v
+\;=\; (\vec v \cdot \hat u)\,\hat u
+\;=\; \left(\frac{\sum v_i}{\sqrt n}\right)\,\frac{[1, 1, \ldots, 1]}{\sqrt n}
+\;=\; \frac{\sum v_i}{n}\,[1, 1, \ldots, 1]
+\;=\; \bar v \cdot [1, 1, \ldots, 1]
+$$
+
+So the projection is just the **mean** of the pixel values, broadcast
+to every element. Mean subtraction removes this projection, leaving
+only the perpendicular (pattern) component.
+
+**Consequence:** a brightness offset only changes the brightness
+component, not the pattern component. After mean subtraction,
+patterns are identical regardless of uniform lighting shifts.
+
+---
+
+## Decomposition in code
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+COLORS = {
+    "primary":   "#2196F3",
+    "secondary": "#4CAF50",
+    "highlight": "#F44336",
+    "transform": "#9C27B0",
+    "gradient":  "#FF9800",
+}
+
+
+def decompose(v):
+    """Split v into brightness and pattern components."""
+    n = len(v)
+    ones = np.ones(n)
+    brightness = v.mean() * ones        # along [1,1,...,1]
+    pattern    = v - brightness         # perpendicular to it
+    return brightness, pattern
+
+
+template = np.array([ 50, 150, 250], dtype=float)
+brightness, pattern = decompose(template)
+
+print("template      :", template)
+print("brightness    :", brightness)
+print("pattern       :", pattern)
+print()
+print(f"brightness · pattern = {np.dot(brightness, pattern):+.6e}")
+print("(should be ~ 0 — they are orthogonal)")
+```
+
+---
+
+## Brightness offset only moves the brightness component
+
+```{python}
+shifted = template + 50.0
+b1, p1 = decompose(template)
+b2, p2 = decompose(shifted)
+
+print("template          :", template)
+print("brightness comp   :", b1)
+print("pattern  comp     :", p1)
+print()
+print("template + 50     :", shifted)
+print("brightness comp   :", b2)
+print("pattern  comp     :", p2)
+print()
+print(f"Pattern unchanged? {np.allclose(p1, p2)}")
+```
+
+That's the whole point of mean subtraction: the brightness component
+absorbs any uniform offset, and the pattern component is invariant
+to it.
+
+---
+
+## Visualising the split
+
+```{python}
+#| fig-cap: "Original, brightness component, and pattern (mean-subtracted) component for the template and a brightness-shifted copy."
+fig, axes = plt.subplots(2, 3, figsize=(12, 6))
+
+for row, (vec, label) in enumerate([(template, "template"),
+                                    (shifted,  "template + 50")]):
+    b, p = decompose(vec)
+    for ax, data, name in [
+        (axes[row, 0], vec, label),
+        (axes[row, 1], b,   "brightness"),
+        (axes[row, 2], p,   "pattern"),
+    ]:
+        ax.bar(range(len(data)), data, color=COLORS["primary"], alpha=0.85)
+        ax.axhline(0, color="black", linewidth=0.8)
+        ax.set_title(name, fontsize=10)
+        ax.set_xticks(range(len(data)))
+        ax.set_ylim(-100, 280)
+
+plt.tight_layout()
+plt.show()
+```
+
+The pattern bars are identical between the two rows. Only the
+brightness bars change.
+
+---
+
+## Pearson correlation as a normalised dot product
+
+Once you've subtracted the mean from both signals, the cosine
+similarity of the residuals is exactly **Pearson's correlation
+coefficient** $r$. That's why every classical similarity score that
+"handles brightness changes" — `TM_CCOEFF_NORMED` in OpenCV, the
+NCC denoising in BM3D, the score in cross-correlation tracking —
+is, under the hood: subtract the mean, normalise, take the dot
+product.
+
+---
+
+## Exercises
+
+1. For $\vec v = [4, 8, 12]$, compute brightness and pattern
+   components. Verify orthogonality.
+2. Show by simulation that for any random $\vec v$, the pattern
+   component sums to zero.
+3. Implement `pearson_r(a, b)` from scratch using mean subtraction
+   and cosine similarity. Compare to `numpy.corrcoef`.
+4. Two patches differ only by an additive constant. Show that
+   Pearson's $r$ between them is exactly 1.
+
+---
+
+## Glossary
+
+**orthogonal** — perpendicular; dot product = 0.
+
+**projection** — component of one vector along another.
+
+**mean subtraction** — subtracting the per-vector mean from each
+element.
+
+**brightness component** — the projection of a patch onto $[1, 1,
+\ldots, 1]$.
+
+**pattern component** — the residual after removing the brightness
+component.
+
+**Pearson's r** — cosine similarity of mean-subtracted vectors.

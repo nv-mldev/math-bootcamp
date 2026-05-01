@@ -24,6 +24,39 @@ book:
         - chapters/probability/what_is_probability.qmd
         - chapters/probability/conditional.qmd
         - chapters/probability/bernoulli.qmd
+        - chapters/probability/binomial.qmd
+        - chapters/probability/poisson.qmd
+        - chapters/probability/normal.qmd
+        - chapters/probability/clt.qmd
+        - chapters/probability/sensor_model.qmd
+        - chapters/probability/applied_sensors.qmd
+        - chapters/probability/stochastic_processes.qmd
+        - chapters/probability/exercises.qmd
+    - part: "Linear Algebra"
+      chapters:
+        - chapters/linear_algebra/vectors.qmd
+        - chapters/linear_algebra/norms.qmd
+        - chapters/linear_algebra/orthogonality.qmd
+        - chapters/linear_algebra/transforms.qmd
+        - chapters/linear_algebra/applied_images.qmd
+        - chapters/linear_algebra/exercises.qmd
+    - part: "Statistics"
+      chapters:
+        - chapters/statistics/eda.qmd
+        - chapters/statistics/distributions.qmd
+        - chapters/statistics/pmf.qmd
+        - chapters/statistics/cdf.qmd
+        - chapters/statistics/modeling.qmd
+        - chapters/statistics/pdf.qmd
+        - chapters/statistics/relationships.qmd
+        - chapters/statistics/estimation.qmd
+        - chapters/statistics/hypothesis_testing.qmd
+        - chapters/statistics/least_squares.qmd
+        - chapters/statistics/regression.qmd
+        - chapters/statistics/time_series.qmd
+        - chapters/statistics/survival.qmd
+        - chapters/statistics/analytic_methods.qmd
+        - chapters/statistics/exercises.qmd
 
 bibliography: references.bib
 

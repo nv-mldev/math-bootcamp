@@ -1,0 +1,64 @@
+---
+title: "Exercises — Linear Algebra Track"
+---
+
+Three exercises to consolidate the concepts from the four chapters
+of the linear algebra track.
+
+---
+
+## Exercise 1 — Flatten and compare
+
+Create two $4 \times 4$ synthetic images — a **horizontal** gradient
+(constant within each row, increasing left-to-right) and a
+**vertical** gradient (constant within each column, increasing
+top-to-bottom). Flatten both to vectors.
+
+1. Compute their dot product and cosine similarity.
+2. Are they orthogonal?
+3. Subtract the mean from each, then re-check. Are the
+   mean-subtracted versions orthogonal?
+
+**Hint:** a horizontal gradient has the same value in each column;
+a vertical one has the same value in each row.
+
+**Expected:** the raw dot product is non-zero, but the
+mean-subtracted versions are orthogonal.
+
+---
+
+## Exercise 2 — Energy change under transforms
+
+Take a $3 \times 3$ checkerboard patch (alternating black and
+white). Apply these transforms and compute the **energy**
+($\|\mathbf x\|^2$) of each:
+
+1. Multiply by 3 (contrast increase)
+2. Add 100 (brightness increase)
+3. Rotate the flattened vector using a random orthogonal matrix —
+   `Q, _ = np.linalg.qr(np.random.randn(9, 9))`
+
+Which transforms preserve energy?
+
+**Expected:** only the rotation preserves energy.
+
+---
+
+## Exercise 3 — Decompose a real-ish image
+
+Create an $8 \times 8$ synthetic image with both a **pattern**
+(diagonal stripe) and a **brightness** (overall mean around 150):
+
+```python
+image = np.where(np.abs(np.subtract.outer(np.arange(8), np.arange(8))) < 2,
+                 255.0, 50.0)
+```
+
+1. Decompose it into brightness + pattern components using mean
+   subtraction.
+2. Verify the two components are orthogonal.
+3. Add a brightness offset of $+80$ and show the **pattern
+   component is unchanged**.
+
+**Expected:** identical pattern components before and after the
+brightness offset; the orthogonality holds in both cases.

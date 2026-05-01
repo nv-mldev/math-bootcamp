@@ -1,0 +1,221 @@
+---
+title: "Norms and Similarity"
+jupyter: python3
+execute:
+  echo: true
+  cache: true
+---
+
+## Learning objective
+
+Understand the L2 norm as a measure of image energy, how
+normalisation removes brightness, and why cosine similarity handles
+contrast scaling but fails on brightness offsets.
+
+---
+
+## L2 norm — vector length
+
+The **L2 norm** is the length of a vector — the distance from the
+origin to the point. For an image patch, it measures the overall
+**energy** or **magnitude** of the pixel values.
+
+$$
+\|\vec v\| \;=\; \sqrt{\sum_{i=1}^n v_i^2}
+\;=\; \sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}
+$$
+
+A bright image has a large L2 norm. A dark image has a small L2
+norm. Two images with the **same pattern but different brightness**
+have different L2 norms.
+
+The squared L2 norm is the dot product of a vector with itself:
+
+$$
+\|\vec v\|^2 \;=\; \vec v \cdot \vec v \;=\; \sum v_i^2
+$$
+
+This is why the L2 norm is also called the **energy** — total
+"power" in the pixel values.
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+COLORS = {
+    "primary":   "#2196F3",
+    "secondary": "#4CAF50",
+    "result":    "#FFC107",
+    "highlight": "#F44336",
+    "transform": "#9C27B0",
+}
+
+bright = np.array([200, 220, 240], dtype=float)
+dim    = np.array([ 50,  70,  90], dtype=float)
+print(f"||bright|| = {np.linalg.norm(bright):.2f}")
+print(f"||dim||    = {np.linalg.norm(dim):.2f}")
+print(f"Same pattern, different brightness → different L2 norms.")
+```
+
+---
+
+## Unit vectors — normalisation removes brightness
+
+A **unit vector** has length 1. Dividing any vector by its L2 norm
+gives a unit vector pointing in the **same direction**:
+
+$$
+\hat v \;=\; \frac{\vec v}{\|\vec v\|}
+$$
+
+For image patches, this operation **removes brightness** (the
+length) and keeps only the **pattern** (the direction). Two patches
+with the same pattern but different brightness produce the **same
+unit vector**.
+
+All normalised patches lie on the unit sphere. Patches with the
+same pattern map to the same point on that sphere regardless of
+brightness.
+
+```{python}
+def unit(v):
+    return v / np.linalg.norm(v)
+
+
+u_bright = unit(bright)
+u_dim    = unit(dim)
+
+print("bright (raw)      :", bright)
+print("bright (unit)     :", np.round(u_bright, 4))
+print("dim    (raw)      :", dim)
+print("dim    (unit)     :", np.round(u_dim, 4))
+print()
+print("Are unit versions equal? ", np.allclose(u_bright, u_dim))
+```
+
+(They aren't *quite* equal — `bright` and `dim` aren't true
+constant-multiples of each other. They're close in pattern but not
+identical. Picking two perfectly-scaled patches would make the
+unit-vector equality exact.)
+
+---
+
+## Cosine similarity
+
+From the geometric definition of the dot product:
+
+$$
+\vec a \cdot \vec b \;=\; \|\vec a\|\,\|\vec b\|\,\cos\theta
+$$
+
+Rearranging:
+
+$$
+\cos\theta \;=\; \frac{\vec a \cdot \vec b}{\|\vec a\|\,\|\vec b\|}
+$$
+
+This is the **cosine similarity** — the dot product of the two unit
+vectors. It measures the angle between them, ignoring their lengths
+(brightness).
+
+| $\cos\theta$ | Meaning | Image example |
+|---|---|---|
+| $+1$ | Same direction | Same pattern, any brightness |
+| $0$ | Perpendicular | Completely unrelated patterns |
+| $-1$ | Opposite direction | Inverted (negative) image |
+
+```{python}
+def cosine_similarity(a, b):
+    return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
+
+
+template = np.array([ 50, 150, 250], dtype=float)
+similar  = np.array([ 60, 140, 230], dtype=float)
+brighter = template * 1.5            # contrast scaled
+inverted = 255 - template            # negative image
+
+for name, patch in [("template (self)", template),
+                    ("similar",        similar),
+                    ("contrast-scaled (×1.5)", brighter),
+                    ("inverted",       inverted)]:
+    print(f"  cos(template, {name:<25s}) = {cosine_similarity(template, patch):+.4f}")
+```
+
+Cosine similarity handles **contrast scaling** ($a \cdot T$)
+perfectly because scaling changes the vector length but not its
+direction.
+
+---
+
+## The blind spot — brightness offset
+
+A **brightness offset** ($T + b$) shifts every pixel by the same
+constant. This pushes the vector toward the
+$[1, 1, \ldots, 1]$ direction, changing the angle — so cosine
+similarity gives the wrong answer.
+
+```{python}
+shifted = template + 50      # brightness offset
+
+print(f"cos(template, template + 50) = {cosine_similarity(template, shifted):+.4f}")
+print(f"(Even though only brightness changed, similarity dropped from 1.0)")
+```
+
+This is why `TM_SQDIFF_NORMED` fails on scenes with illumination
+offsets. Fixing it requires **mean subtraction** — covered in the
+next chapter.
+
+---
+
+## Visualising it
+
+```{python}
+#| fig-cap: "Original, scaled, shifted, and inverted versions of the same template, with cosine similarity to the original."
+ts = [
+    ("Template",                template),
+    ("× 1.5 (contrast)",        brighter),
+    ("+ 50 (brightness)",       shifted),
+    ("Inverted",                inverted),
+]
+
+fig, axes = plt.subplots(1, len(ts), figsize=(13, 3.5))
+for ax, (name, vec) in zip(axes, ts):
+    ax.bar(range(len(vec)), vec, color=COLORS["primary"], alpha=0.85)
+    ax.set_ylim(-50, 280)
+    ax.set_xticks(range(len(vec)))
+    cs = cosine_similarity(template, vec)
+    ax.set_title(f"{name}\ncos = {cs:+.3f}", fontsize=10)
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+## Exercises
+
+1. Compute $\|\vec v\|$ for $[3, 4]$ and $[6, 8]$. What's the cosine
+   similarity?
+2. Show that $\|c \vec v\| = |c| \|\vec v\|$ for any scalar $c$.
+3. For two random 9-D vectors, compute their cosine similarity. How
+   close to 0 is it on average? Repeat 1 000 times and plot a
+   histogram.
+4. Apply a brightness offset of $b = 30$ to a template; show how
+   cosine similarity changes as a function of $b$.
+
+---
+
+## Glossary
+
+**L2 norm** — Euclidean length: $\|\vec v\| = \sqrt{\sum v_i^2}$.
+
+**energy** — squared L2 norm; sum of squared values.
+
+**unit vector** — vector of length 1.
+
+**normalisation** — dividing by L2 norm to obtain a unit vector.
+
+**cosine similarity** — dot product of unit vectors; in $[-1, 1]$.
+
+**brightness offset** — adding the same constant to every pixel.
+
+**contrast scaling** — multiplying every pixel by the same constant.
