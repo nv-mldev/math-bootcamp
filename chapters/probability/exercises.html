@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; Bernoulli — The Atom of Randomness – Math for Machine Learning</title>
+<title>13&nbsp; Exercises — Probability Track – Math for Machine Learning</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,41 +23,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -68,8 +33,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../chapters/probability/binomial.html" rel="next">
-<link href="../../chapters/probability/conditional.html" rel="prev">
+<link href="../../chapters/linear_algebra/vectors.html" rel="next">
+<link href="../../chapters/probability/stochastic_processes.html" rel="prev">
 <link href="../../figures/cover.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -330,7 +295,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/probability/what_is_probability.html">Probability</a></li><li class="breadcrumb-item"><a href="../../chapters/probability/bernoulli.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Bernoulli — The Atom of Randomness</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/probability/what_is_probability.html">Probability</a></li><li class="breadcrumb-item"><a href="../../chapters/probability/exercises.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Exercises — Probability Track</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -400,7 +365,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/probability/bernoulli.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../chapters/probability/bernoulli.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Bernoulli — The Atom of Randomness</span></span></a>
   </div>
 </li>
@@ -448,7 +413,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/probability/exercises.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/probability/exercises.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Exercises — Probability Track</span></span></a>
   </div>
 </li>
@@ -612,26 +577,35 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#an-applied-scenario-one-reading-from-a-vibration-sensor" id="toc-an-applied-scenario-one-reading-from-a-vibration-sensor" class="nav-link active" data-scroll-target="#an-applied-scenario-one-reading-from-a-vibration-sensor"><span class="header-section-number">5.1</span> An Applied Scenario — One Reading from a Vibration Sensor</a></li>
-  <li><a href="#intuition" id="toc-intuition" class="nav-link" data-scroll-target="#intuition"><span class="header-section-number">5.2</span> Intuition</a></li>
-  <li><a href="#back-to-the-vibration-sensor" id="toc-back-to-the-vibration-sensor" class="nav-link" data-scroll-target="#back-to-the-vibration-sensor"><span class="header-section-number">5.3</span> Back to the Vibration Sensor</a></li>
-  <li><a href="#simulation-a-single-bernoulli-experiment" id="toc-simulation-a-single-bernoulli-experiment" class="nav-link" data-scroll-target="#simulation-a-single-bernoulli-experiment"><span class="header-section-number">5.4</span> Simulation: a single Bernoulli experiment</a></li>
-  <li><a href="#watching-the-law-of-large-numbers-happen" id="toc-watching-the-law-of-large-numbers-happen" class="nav-link" data-scroll-target="#watching-the-law-of-large-numbers-happen"><span class="header-section-number">5.5</span> Watching the law of large numbers happen</a></li>
-  <li><a href="#where-else-bernoulli-trials-appear" id="toc-where-else-bernoulli-trials-appear" class="nav-link" data-scroll-target="#where-else-bernoulli-trials-appear"><span class="header-section-number">5.6</span> Where Else Bernoulli Trials Appear</a></li>
-  <li><a href="#what-bernoulli-really-requires-three-conditions-not-one" id="toc-what-bernoulli-really-requires-three-conditions-not-one" class="nav-link" data-scroll-target="#what-bernoulli-really-requires-three-conditions-not-one"><span class="header-section-number">5.7</span> What “Bernoulli” really requires — three conditions, not one</a></li>
-  <li><a href="#why-this-distinction-matters-in-ml" id="toc-why-this-distinction-matters-in-ml" class="nav-link" data-scroll-target="#why-this-distinction-matters-in-ml"><span class="header-section-number">5.8</span> Why this distinction matters in ML</a></li>
-  <li><a href="#key-insight" id="toc-key-insight" class="nav-link" data-scroll-target="#key-insight"><span class="header-section-number">5.9</span> Key Insight</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">5.10</span> Exercises</a></li>
+  <li><a href="#exercise-1-binomial-poisson-convergence-quantitative" id="toc-exercise-1-binomial-poisson-convergence-quantitative" class="nav-link active" data-scroll-target="#exercise-1-binomial-poisson-convergence-quantitative"><span class="header-section-number">13.1</span> Exercise 1 — Binomial → Poisson convergence (quantitative)</a>
+  <ul class="collapse">
+  <li><a href="#steps" id="toc-steps" class="nav-link" data-scroll-target="#steps"><span class="header-section-number">13.1.1</span> Steps</a></li>
+  </ul></li>
+  <li><a href="#exercise-2-variance-stabilising-transform-anscombe" id="toc-exercise-2-variance-stabilising-transform-anscombe" class="nav-link" data-scroll-target="#exercise-2-variance-stabilising-transform-anscombe"><span class="header-section-number">13.2</span> Exercise 2 — Variance-stabilising transform (Anscombe)</a>
+  <ul class="collapse">
+  <li><a href="#steps-1" id="toc-steps-1" class="nav-link" data-scroll-target="#steps-1"><span class="header-section-number">13.2.1</span> Steps</a></li>
+  </ul></li>
+  <li><a href="#exercise-3-build-your-own-noise-budget" id="toc-exercise-3-build-your-own-noise-budget" class="nav-link" data-scroll-target="#exercise-3-build-your-own-noise-budget"><span class="header-section-number">13.3</span> Exercise 3 — Build your own noise budget</a>
+  <ul class="collapse">
+  <li><a href="#steps-2" id="toc-steps-2" class="nav-link" data-scroll-target="#steps-2"><span class="header-section-number">13.3.1</span> Steps</a></li>
+  </ul></li>
+  <li><a href="#exercise-4-clt-convergence-vs-skewness" id="toc-exercise-4-clt-convergence-vs-skewness" class="nav-link" data-scroll-target="#exercise-4-clt-convergence-vs-skewness"><span class="header-section-number">13.4</span> Exercise 4 — CLT convergence vs skewness</a>
+  <ul class="collapse">
+  <li><a href="#steps-3" id="toc-steps-3" class="nav-link" data-scroll-target="#steps-3"><span class="header-section-number">13.4.1</span> Steps</a></li>
+  </ul></li>
+  <li><a href="#exercise-5-variance-equals-mean-poisson" id="toc-exercise-5-variance-equals-mean-poisson" class="nav-link" data-scroll-target="#exercise-5-variance-equals-mean-poisson"><span class="header-section-number">13.5</span> Exercise 5 — Variance equals mean (Poisson)</a></li>
+  <li><a href="#exercise-6-the-1sqrt-n-noise-reduction-law" id="toc-exercise-6-the-1sqrt-n-noise-reduction-law" class="nav-link" data-scroll-target="#exercise-6-the-1sqrt-n-noise-reduction-law"><span class="header-section-number">13.6</span> Exercise 6 — The <span class="math inline">1/\sqrt n</span> noise reduction law</a></li>
+  <li><a href="#exercise-7-fixing-a-non-bernoulli-scenario" id="toc-exercise-7-fixing-a-non-bernoulli-scenario" class="nav-link" data-scroll-target="#exercise-7-fixing-a-non-bernoulli-scenario"><span class="header-section-number">13.7</span> Exercise 7 — Fixing a non-Bernoulli scenario</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/nv-mldev/math-bootcamp/edit/main/chapters/probability/bernoulli.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nv-mldev/math-bootcamp/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/nv-mldev/math-bootcamp/edit/main/chapters/probability/exercises.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nv-mldev/math-bootcamp/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/probability/what_is_probability.html">Probability</a></li><li class="breadcrumb-item"><a href="../../chapters/probability/bernoulli.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Bernoulli — The Atom of Randomness</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/probability/what_is_probability.html">Probability</a></li><li class="breadcrumb-item"><a href="../../chapters/probability/exercises.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Exercises — Probability Track</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Bernoulli — The Atom of Randomness</span></h1>
+<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Exercises — Probability Track</span></h1>
 </div>
 
 
@@ -648,283 +622,99 @@ window.Quarto = {
 </header>
 
 
-<section id="an-applied-scenario-one-reading-from-a-vibration-sensor" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="an-applied-scenario-one-reading-from-a-vibration-sensor"><span class="header-section-number">5.1</span> An Applied Scenario — One Reading from a Vibration Sensor</h2>
-<p>A factory motor has an accelerometer bolted to its housing. Every millisecond, the sensor reports a vibration amplitude in g (units of gravity). Most of the time the reading sits inside the normal operating band — say, between <span class="math inline">-2\,\mathrm{g}</span> and <span class="math inline">+2\,\mathrm{g}</span>. Occasionally, a transient impact pushes it above <span class="math inline">+2\,\mathrm{g}</span>.</p>
-<p>You set up a simple condition monitor: <strong>for each new sample, mark it <code>1</code> if it exceeds <span class="math inline">+2\,\mathrm{g}</span>, else <code>0</code>.</strong></p>
-<p>That single observation — <em>did this sample cross the threshold?</em> — is the smallest possible random event. There are exactly two outcomes. There is one number that controls how often you see a <code>1</code>: the probability that any given sample is a transient.</p>
-<p>You now have everything you need to define the simplest distribution in probability.</p>
+<p>End-of-chapter exercises that span the probability series. Each one asks for a small simulation or an analytic check that exercises the chain Bernoulli → Binomial → Poisson → Normal → CLT.</p>
 <hr>
-</section>
-<section id="intuition" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="intuition"><span class="header-section-number">5.2</span> Intuition</h2>
-<p>The atom of all the randomness we’ll study is this: <strong>something either happens or it doesn’t.</strong></p>
-<ul>
-<li>A vibration sample either crosses the alarm threshold or it doesn’t (condition monitoring)</li>
-<li>A motor bearing either fails on a given day or it doesn’t (reliability)</li>
-<li>A photon either gets absorbed by a sensor pixel or it doesn’t (image sensor physics)</li>
-<li>A coin lands heads or tails</li>
-</ul>
-<p>This binary event is called a <strong>Bernoulli trial</strong>. It has exactly one parameter: the probability of “success”, <span class="math inline">p</span>. (“Success” just means the event you’re counting — a threshold crossing, a fault, an absorbed photon.)</p>
-<p><span class="math display">
-X \sim \text{Bernoulli}(p) \quad \Rightarrow \quad
-X = \begin{cases} 1 &amp; \text{with probability } p \\
-                  0 &amp; \text{with probability } 1-p \end{cases}
-</span></p>
-<p><strong>Mean:</strong> <span class="math inline">E[X] = p</span> <strong>Variance:</strong> <span class="math inline">\operatorname{Var}(X) = p(1-p)</span></p>
-<p>The mean tells you the long-run fraction of <code>1</code>s. The variance is largest at <span class="math inline">p = 0.5</span> (maximum uncertainty) and shrinks to <span class="math inline">0</span> as <span class="math inline">p</span> approaches <span class="math inline">0</span> or <span class="math inline">1</span> (the outcome becomes predictable).</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>▶ Show the math — Why <span class="math inline">E[X] = p</span> and <span class="math inline">\operatorname{Var}(X) = p(1-p)</span>
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>By definition of expectation for a discrete random variable:</p>
-<p><span class="math display">
-E[X] \;=\; 1 \cdot P(X{=}1) + 0 \cdot P(X{=}0) \;=\; p.
-</span></p>
-<p>For the variance, use <span class="math inline">\operatorname{Var}(X) = E[X^2] - (E[X])^2</span>. Since <span class="math inline">X \in \{0, 1\}</span>, we have <span class="math inline">X^2 = X</span>, so <span class="math inline">E[X^2] = E[X] = p</span>:</p>
-<p><span class="math display">
-\operatorname{Var}(X) \;=\; p - p^2 \;=\; p(1-p).
-</span></p>
-<p>The function <span class="math inline">p(1-p)</span> peaks at <span class="math inline">p = 1/2</span> (value <span class="math inline">1/4</span>) and is zero at both endpoints — encoding the fact that a maximally fair coin is the most uncertain Bernoulli, and a coin that always lands the same way has no variance at all.</p>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="back-to-the-vibration-sensor" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="back-to-the-vibration-sensor"><span class="header-section-number">5.3</span> Back to the Vibration Sensor</h2>
-<p>For the motor scenario, suppose calibration runs show that on a healthy machine, roughly 1 sample in 200 crosses <span class="math inline">+2\,\mathrm{g}</span> from ambient noise alone. That fixes the parameter:</p>
-<p><span class="math display">
-p \;=\; \frac{1}{200} \;=\; 0.005.
-</span></p>
-<p>Each new millisecond is one Bernoulli trial with <span class="math inline">p = 0.005</span>. The stream of <code>0</code>s and <code>1</code>s coming out of the threshold check is a sequence of independent Bernoulli outcomes — provided the machine state isn’t changing.</p>
-<p>This is already useful on its own: if you start seeing <code>1</code>s at a rate much higher than <span class="math inline">0.005</span>, something has changed. But to <em>quantify</em> “much higher” you need to count successes over a window of <span class="math inline">n</span> samples — and that’s the <strong>Binomial distribution</strong> (next chapter).</p>
-<hr>
-</section>
-<section id="simulation-a-single-bernoulli-experiment" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="simulation-a-single-bernoulli-experiment"><span class="header-section-number">5.4</span> Simulation: a single Bernoulli experiment</h2>
-<p>We’ll start with a slightly larger <span class="math inline">p</span> so the effect is visible in a short run. Pretend each trial is a CMOS pixel checking whether an incident photon is absorbed (quantum efficiency <span class="math inline">p = 0.7</span>).</p>
-<div id="2d14d89c" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Each cell in this chapter is self-contained — re-init the RNG so</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Quarto's per-cell caching cannot lose the state of upstream cells.</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(seed<span class="op">=</span><span class="dv">42</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>quantum_efficiency <span class="op">=</span> <span class="fl">0.7</span>   <span class="co"># p — probability of "success" per trial</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>number_of_trials   <span class="op">=</span> <span class="dv">20</span>    <span class="co"># could be 20 pixels, 20 sensor samples, …</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Each trial: did it succeed? (1 = yes, 0 = no)</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>trial_outcomes <span class="op">=</span> rng.integers(<span class="dv">0</span>, <span class="dv">2</span>, size<span class="op">=</span>number_of_trials)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Override with biased trials so we can use p ≠ 0.5:</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>trial_outcomes <span class="op">=</span> (rng.random(number_of_trials) <span class="op">&lt;</span> quantum_efficiency).astype(<span class="bu">int</span>)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Success probability (p): </span><span class="sc">{</span>quantum_efficiency<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Number of trials: </span><span class="sc">{</span>number_of_trials<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Each trial's result: </span><span class="sc">{</span>trial_outcomes<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"  1 = success (electron produced / pixel above threshold / etc.)"</span>)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"  0 = failure"</span>)</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Total successes: </span><span class="sc">{</span>trial_outcomes<span class="sc">.</span><span class="bu">sum</span>()<span class="sc">}</span><span class="ss"> out of </span><span class="sc">{</span>number_of_trials<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Success rate this run: </span><span class="sc">{</span>trial_outcomes<span class="sc">.</span>mean()<span class="sc">:.0%}</span><span class="ss">"</span>)</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Expected successes (n × p): </span><span class="sc">{</span>quantum_efficiency <span class="op">*</span> number_of_trials<span class="sc">:.1f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Success probability (p): 0.7
-Number of trials: 20
-
-Each trial's result: [1 0 1 0 1 1 1 1 0 1 0 1 0 0 0 1 1 1 1 1]
-  1 = success (electron produced / pixel above threshold / etc.)
-  0 = failure
-
-Total successes: 13 out of 20
-Success rate this run: 65%
-Expected successes (n × p): 14.0</code></pre>
-</div>
-</div>
-<p>Run this conceptually a few times. The sequence changes every run, but the <strong>total count hovers near <span class="math inline">n \cdot p = 14</span></strong>. That’s the law of large numbers in miniature: a single trial is unpredictable, but the average behaviour is locked in.</p>
-<hr>
-</section>
-<section id="watching-the-law-of-large-numbers-happen" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="watching-the-law-of-large-numbers-happen"><span class="header-section-number">5.5</span> Watching the law of large numbers happen</h2>
-<p>Let’s actually plot the convergence. We flip the same biased coin (here <span class="math inline">p = 0.7</span>) ten thousand times and watch the running success fraction settle.</p>
-<div id="84b51831" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(seed<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="fl">0.7</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>n_trials <span class="op">=</span> <span class="dv">10_000</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>trials <span class="op">=</span> (rng.random(n_trials) <span class="op">&lt;</span> p).astype(<span class="bu">int</span>)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>running_fraction <span class="op">=</span> np.cumsum(trials) <span class="op">/</span> np.arange(<span class="dv">1</span>, n_trials <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">4</span>))</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>ax.plot(running_fraction, color<span class="op">=</span><span class="st">"#2196F3"</span>, lw<span class="op">=</span><span class="fl">1.2</span>,</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="st">"running success fraction"</span>)</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>ax.axhline(p, color<span class="op">=</span><span class="st">"#F44336"</span>, ls<span class="op">=</span><span class="st">"--"</span>, lw<span class="op">=</span><span class="dv">1</span>,</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>           label<span class="op">=</span><span class="ss">f"true p = </span><span class="sc">{</span>p<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>ax.set_xscale(<span class="st">"log"</span>)</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Number of trials (log scale)"</span>)</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Fraction of successes so far"</span>)</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Bernoulli(0.7) — running fraction converges to p"</span>)</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="bernoulli_files/figure-html/cell-3-output-1.png" width="854" height="372" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Three things to notice:</p>
+<section id="exercise-1-binomial-poisson-convergence-quantitative" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="exercise-1-binomial-poisson-convergence-quantitative"><span class="header-section-number">13.1</span> Exercise 1 — Binomial → Poisson convergence (quantitative)</h2>
+<p>For <span class="math inline">\lambda = 50</span>, compute the maximum absolute difference between <span class="math inline">\text{Binomial}(n, \lambda/n)</span> and <span class="math inline">\text{Poisson}(\lambda)</span> PMFs for <span class="math inline">n \in \{50, 100, 500, 1000, 5000\}</span>. Plot max difference vs <span class="math inline">n</span> on a log–log scale. What is the convergence rate?</p>
+<p><strong>Hint:</strong> use <code>scipy.stats.binom.pmf</code> and <code>scipy.stats.poisson.pmf</code>; evaluate over <span class="math inline">k \in [0, 100]</span>.</p>
+<p><strong>Expected:</strong> approximately <span class="math inline">O(1/n)</span> convergence — the slope on log– log axes should be near <span class="math inline">-1</span>.</p>
+<section id="steps" class="level3" data-number="13.1.1">
+<h3 data-number="13.1.1" class="anchored" data-anchor-id="steps"><span class="header-section-number">13.1.1</span> Steps</h3>
 <ol type="1">
-<li>The first handful of trials are wild — the running fraction jumps between 0 and 1 because the denominator is tiny.</li>
-<li>By a few hundred trials the fraction is already locked in around <span class="math inline">p = 0.7</span>.</li>
-<li>It never settles <em>exactly</em>. The wobble around the true value gets smaller as <span class="math inline">n</span> grows, but never disappears — that’s what convergence looks like in finite samples.</li>
+<li>For each <span class="math inline">n</span>, compute both PMFs over the same <span class="math inline">k</span> range.</li>
+<li>Take the maximum absolute difference across all <span class="math inline">k</span>.</li>
+<li>Plot results on a log–log scale.</li>
+<li>Fit a line to estimate the slope.</li>
 </ol>
-<p>This is the same picture you saw in the coin-flip plot from <a href="../../chapters/probability/what_is_probability.html"><em>What is Probability?</em></a> — we’re just generalising from <span class="math inline">p = 0.5</span> to arbitrary <span class="math inline">p</span>.</p>
 <hr>
 </section>
-<section id="where-else-bernoulli-trials-appear" class="level2" data-number="5.6">
-<h2 data-number="5.6" class="anchored" data-anchor-id="where-else-bernoulli-trials-appear"><span class="header-section-number">5.6</span> Where Else Bernoulli Trials Appear</h2>
-<p>The same atom shows up across signal processing and ML wherever a single binary decision is made:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Domain</th>
-<th>What’s the trial?</th>
-<th>What’s <span class="math inline">p</span>?</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Vibration monitoring</td>
-<td>One sample crosses alarm threshold</td>
-<td>Probability of a transient per sample</td>
-</tr>
-<tr class="even">
-<td>Audio VAD</td>
-<td>One frame contains speech</td>
-<td>Speech-active fraction</td>
-</tr>
-<tr class="odd">
-<td>Image sensor (CMOS)</td>
-<td>One photon produces a detectable electron</td>
-<td>Quantum efficiency, QE</td>
-</tr>
-<tr class="even">
-<td>Image thresholding</td>
-<td>One pixel exceeds intensity <span class="math inline">T</span></td>
-<td>Fraction of “bright” pixels</td>
-</tr>
-<tr class="odd">
-<td>Binary classifier</td>
-<td>One input is classified as positive</td>
-<td>Class prior × model accuracy</td>
-</tr>
-<tr class="even">
-<td>Reliability</td>
-<td>One unit fails in its first year</td>
-<td>Annual failure probability</td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>The cleanest physical Bernoulli trial in nature
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>A CMOS photosite converts photons to electrons via the photoelectric effect. The sensor’s <strong>quantum efficiency</strong> (QE ≈ 0.4–0.9 for modern silicon) is <em>literally</em> a Bernoulli probability:</p>
-<p><span class="math display">
-\text{QE} \;=\; p \;=\; \frac{\text{electrons produced}}{\text{photons incident}}.
-</span></p>
-<p>Each incident photon is one independent trial. We’ll lean on this in later chapters because the physics gives us an exact <span class="math inline">p</span> to work with.</p>
-</div>
-</div>
-<hr>
 </section>
-<section id="what-bernoulli-really-requires-three-conditions-not-one" class="level2" data-number="5.7">
-<h2 data-number="5.7" class="anchored" data-anchor-id="what-bernoulli-really-requires-three-conditions-not-one"><span class="header-section-number">5.7</span> What “Bernoulli” really requires — three conditions, not one</h2>
-<p>A common slip is to call any binary process Bernoulli. The full definition has three requirements:</p>
+<section id="exercise-2-variance-stabilising-transform-anscombe" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="exercise-2-variance-stabilising-transform-anscombe"><span class="header-section-number">13.2</span> Exercise 2 — Variance-stabilising transform (Anscombe)</h2>
+<p>The Poisson distribution has signal-dependent noise (<span class="math inline">\sigma =
+\sqrt\lambda</span>). The <strong>Anscombe transform</strong> <span class="math inline">f(x) = 2\sqrt{x + 3/8}</span> approximately stabilises the variance, making it constant regardless of <span class="math inline">\lambda</span>. This transform is used in fluorescence microscopy and astronomical imaging before applying Gaussian denoisers — it converts Poisson data into a form where standard Gaussian denoising (NLM, BM3D, Wiener) is valid.</p>
+<section id="steps-1" class="level3" data-number="13.2.1">
+<h3 data-number="13.2.1" class="anchored" data-anchor-id="steps-1"><span class="header-section-number">13.2.1</span> Steps</h3>
 <ol type="1">
-<li><strong>Two outcomes</strong> — every trial produces exactly one of two results.</li>
-<li><strong>Independence</strong> — the outcome of one trial gives you no information about any other.</li>
-<li><strong>Constant probability</strong> — the success probability <span class="math inline">p</span> is the same in every trial.</li>
+<li>Generate Poisson samples for <span class="math inline">\lambda \in \{5, 50, 500\}</span> (10 000 samples each).</li>
+<li>Apply the Anscombe transform to each set.</li>
+<li>Compute the variance before and after.</li>
+<li>Plot histograms showing how the transform makes all three distributions have similar spread.</li>
 </ol>
-<p>Drop any one and it stops being a Bernoulli process — even though the “success/failure” label still fits.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Counterexamples: binary, but not Bernoulli
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Drawing cards without replacement.</strong> Success = “drew a heart”. First draw: <span class="math inline">P = 13/52 = 0.25</span>. After a heart, second draw: <span class="math inline">P = 12/51
-\approx 0.235</span>. Probability changes with history → independence fails. <em>This is the</em> <strong>hypergeometric</strong> <em>distribution.</em> (With replacement, it’s Bernoulli again.)</p>
-<p><strong>Tomorrow’s weather.</strong> Success = “rains today”. Rain today makes rain tomorrow more likely — trials are correlated. <em>This is closer to a</em> <strong>Markov chain.</strong></p>
-<p><strong>A drifting factory.</strong> A machine starts the shift calibrated (<span class="math inline">p = 0.99</span>) and drifts as it heats up (<span class="math inline">p \to 0.95</span>). Trials are independent but <span class="math inline">p</span> changes over time. <em>This is a</em> <strong>non-homogeneous binary process.</strong></p>
-<p><strong>Pólya’s urn.</strong> Urn has 1 red and 1 blue ball; after each draw, put the ball back <em>plus one more of the same colour</em>. Each draw shifts the probabilities for future draws. Not independent, <span class="math inline">p</span> not constant — <strong>not Bernoulli.</strong></p>
-<p>The success/failure structure is necessary but not sufficient. All three conditions matter.</p>
-</div>
-</div>
+<p><strong>Expected:</strong> after the Anscombe transform, the variance should be approximately 1 for all <span class="math inline">\lambda</span> values.</p>
 <hr>
 </section>
-<section id="why-this-distinction-matters-in-ml" class="level2" data-number="5.8">
-<h2 data-number="5.8" class="anchored" data-anchor-id="why-this-distinction-matters-in-ml"><span class="header-section-number">5.8</span> Why this distinction matters in ML</h2>
-<p>You’ll meet this constantly:</p>
+</section>
+<section id="exercise-3-build-your-own-noise-budget" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="exercise-3-build-your-own-noise-budget"><span class="header-section-number">13.3</span> Exercise 3 — Build your own noise budget</h2>
+<p>You are building an image denoising pipeline for industrial inspection. Given:</p>
 <ul>
-<li><strong>Logistic regression</strong> assumes each label <span class="math inline">y_i \in \{0, 1\}</span> is conditionally Bernoulli given features <span class="math inline">x_i</span> — but <span class="math inline">p_i</span> varies with <span class="math inline">x_i</span>. So labels are <em>independent Bernoullis with different <span class="math inline">p</span></em> — not a single Bernoulli process. Statisticians call this <strong>Bernoulli with covariates</strong>.</li>
-<li><strong>Bandit problems</strong> are usually modelled as IID Bernoulli rewards per arm. Independence is the key assumption that makes the standard regret bounds work.</li>
-<li><strong>Time-series binary data</strong> (clicks, defects per minute) typically <em>violate</em> independence and need Markov or autoregressive models.</li>
+<li>Scene illumination: 200 photons/µm²/exposure</li>
+<li>Photosite pitch: 3.45 µm (Basler acA1920-40gm)</li>
+<li>Quantum efficiency: 0.65</li>
+<li>Read noise: 4 electrons</li>
+<li>Dark current: 2 electrons (cooled sensor)</li>
+<li>Full well: 11 000 electrons</li>
+<li>Bit depth: 12</li>
 </ul>
-<p>Knowing whether your data satisfies all three conditions tells you which tools you can use and which will give you wrong answers.</p>
-<hr>
-</section>
-<section id="key-insight" class="level2" data-number="5.9">
-<h2 data-number="5.9" class="anchored" data-anchor-id="key-insight"><span class="header-section-number">5.9</span> Key Insight</h2>
-<p>Each <code>1</code> in a Bernoulli stream is one event — one threshold crossing, one absorbed photon, one positive classification. On its own, a single trial tells you almost nothing. What you actually care about is the <strong>count of successes over many trials</strong>: how many transients in a 1-second window, how many electrons from a 10 ms exposure, how many positive predictions in a batch.</p>
-<p>Counting Bernoulli successes is exactly what the <strong>Binomial distribution</strong> does — and that’s the next chapter.</p>
-<hr>
-</section>
-<section id="exercises" class="level2" data-number="5.10">
-<h2 data-number="5.10" class="anchored" data-anchor-id="exercises"><span class="header-section-number">5.10</span> Exercises</h2>
+<section id="steps-2" class="level3" data-number="13.3.1">
+<h3 data-number="13.3.1" class="anchored" data-anchor-id="steps-2"><span class="header-section-number">13.3.1</span> Steps</h3>
 <ol type="1">
-<li><p><strong>Variance check.</strong> Simulate <span class="math inline">N = 100{,}000</span> Bernoulli trials at each of <span class="math inline">p \in \{0.1, 0.3, 0.5, 0.7, 0.9\}</span>. For each, compute the sample variance of the trial outcomes and compare to the theoretical <span class="math inline">p(1-p)</span>. Plot both as a function of <span class="math inline">p</span>.</p></li>
-<li><p><strong>Convergence rate.</strong> For <span class="math inline">p = 0.5</span>, generate Bernoulli trials and plot how the <em>gap</em> between the running fraction and <span class="math inline">p</span> shrinks with <span class="math inline">n</span>. Use a log–log axis. The slope should be roughly <span class="math inline">-1/2</span> (you’re seeing the <span class="math inline">1/\sqrt{n}</span> rule that the <strong>CLT</strong> will explain formally later).</p></li>
-<li><p><strong>Spot the non-Bernoulli.</strong> For each scenario below, identify which of the three Bernoulli conditions fails:</p>
+<li>Compute the expected electron count per pixel.</li>
+<li>Compute each noise source’s contribution (variance).</li>
+<li>Compute the total noise and SNR at different signal levels.</li>
+<li>Determine where Gaussian denoising is valid vs where Anscombe pre-processing is needed (hint: at what signal level does Poisson ≈ Normal?).</li>
+<li>Simulate 10 000 exposures and verify your calculations.</li>
+</ol>
+<p><strong>Hint:</strong> photosite area = pitch²; expected electrons = flux × area × QE. Gaussian denoising is reasonable once <span class="math inline">\lambda &gt; 20</span>.</p>
+<p><strong>Expected:</strong> a noise-budget table, an SNR-vs-signal plot, and a simulated histogram that matches theory.</p>
+<hr>
+</section>
+</section>
+<section id="exercise-4-clt-convergence-vs-skewness" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="exercise-4-clt-convergence-vs-skewness"><span class="header-section-number">13.4</span> Exercise 4 — CLT convergence vs skewness</h2>
+<p>The CLT convergence rate depends on the <strong>skewness</strong> of the original distribution. Distributions with higher skewness need more samples to converge.</p>
+<section id="steps-3" class="level3" data-number="13.4.1">
+<h3 data-number="13.4.1" class="anchored" data-anchor-id="steps-3"><span class="header-section-number">13.4.1</span> Steps</h3>
+<ol type="1">
+<li>Generate samples from Uniform<span class="math inline">(0, 1)</span>, Exponential<span class="math inline">(1)</span>, and Pareto<span class="math inline">(2, 1)</span> — three distributions with increasing skewness.</li>
+<li>For each, compute the standardised sum of <span class="math inline">n</span> samples for <span class="math inline">n \in \{1, 2, 5, 10, 30, 100\}</span>.</li>
+<li>Measure the KS distance from the standard normal: <code>scipy.stats.kstest(z, "norm")</code>.</li>
+<li>Plot KS distance vs <span class="math inline">n</span> for all three on log–log axes.</li>
+</ol>
+<p><strong>Expected:</strong> higher-skewness distributions need more terms. Pareto slowest, Uniform fastest.</p>
+<hr>
+</section>
+</section>
+<section id="exercise-5-variance-equals-mean-poisson" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="exercise-5-variance-equals-mean-poisson"><span class="header-section-number">13.5</span> Exercise 5 — Variance equals mean (Poisson)</h2>
+<p>For <span class="math inline">\lambda \in \{1, 5, 20, 100, 500\}</span>, draw 10 000 Poisson samples each and compute the sample mean and sample variance. Verify that they’re equal to within Monte-Carlo error. Plot both as a function of <span class="math inline">\lambda</span> on a log–log scale.</p>
+<hr>
+</section>
+<section id="exercise-6-the-1sqrt-n-noise-reduction-law" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="exercise-6-the-1sqrt-n-noise-reduction-law"><span class="header-section-number">13.6</span> Exercise 6 — The <span class="math inline">1/\sqrt n</span> noise reduction law</h2>
+<p>Generate <span class="math inline">n_{\text{trials}} = 10\,000</span> traces of length <span class="math inline">T = 1000</span> from Uniform<span class="math inline">(-1, 1)</span>. For each trace, compute the moving average with window length <span class="math inline">w \in \{1, 4, 16, 64, 256\}</span>. For each <span class="math inline">w</span>, compute the std of the smoothed signal. Plot std vs <span class="math inline">w</span> on log–log axes; the slope should be <span class="math inline">-1/2</span>.</p>
+<hr>
+</section>
+<section id="exercise-7-fixing-a-non-bernoulli-scenario" class="level2" data-number="13.7">
+<h2 data-number="13.7" class="anchored" data-anchor-id="exercise-7-fixing-a-non-bernoulli-scenario"><span class="header-section-number">13.7</span> Exercise 7 — Fixing a non-Bernoulli scenario</h2>
+<p>For each scenario, identify which of the three Bernoulli conditions (two outcomes / independence / constant <span class="math inline">p</span>) fails and which distribution is appropriate instead:</p>
 <ol type="a">
-<li>Asking 5 friends in a row whether they’ll come to a party.</li>
-<li>Drawing 5 marbles from a bag of 10 red and 10 blue, no replacement.</li>
-<li>Whether a server is up at one-minute intervals throughout the day.</li>
-<li>Logging whether each photo in a face-detection benchmark is correctly classified.</li>
-</ol></li>
+<li><p>Drawing 5 cards from a deck without replacement, counting hearts.</p></li>
+<li><p>Tomorrow’s weather, given today’s.</p></li>
+<li><p>Whether a server is up at one-minute intervals throughout the day.</p></li>
+<li><p>Logging whether each photo in a benchmark is correctly classified by a fixed model.</p></li>
 </ol>
 
 
@@ -1346,13 +1136,13 @@ Expected successes (n × p): 14.0</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../chapters/probability/conditional.html" class="pagination-link" aria-label="Conditional Probability">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Conditional Probability</span></span>
+      <a href="../../chapters/probability/stochastic_processes.html" class="pagination-link" aria-label="Stochastic Processes — Time-Indexed Randomness">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Stochastic Processes — Time-Indexed Randomness</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../chapters/probability/binomial.html" class="pagination-link" aria-label="Binomial — Counting Successes">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Binomial — Counting Successes</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../chapters/linear_algebra/vectors.html" class="pagination-link" aria-label="Vectors and Dot Product">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Vectors and Dot Product</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1361,4 +1151,4 @@ Expected successes (n × p): 14.0</code></pre>
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nv-mldev/math-bootcamp/edit/main/chapters/probability/bernoulli.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nv-mldev/math-bootcamp/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nv-mldev/math-bootcamp/edit/main/chapters/probability/exercises.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nv-mldev/math-bootcamp/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
