@@ -760,7 +760,7 @@ window.Quarto = {
 <p>The verbal sentence “at least one is a boy” is the <em>same</em> in both stories, but it was <em>generated</em> by two different experiments. The sample space follows the experiment, not the sentence.</p>
 <p>Two models, two different answers. <strong>Nobody has done arithmetic yet.</strong> The argument is happening at Stage 1.</p>
 <p>We can confirm Model A’s answer by simulation — pick the model and the math falls out.</p>
-<div id="8daa297f" class="cell" data-execution_count="1">
+<div id="de2a02be" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model A: simulate many two-child families. Each child is independently</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># B or G with probability 1/2. Among families with AT LEAST ONE boy, what</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># fraction have TWO boys?</span></span>
@@ -784,7 +784,7 @@ window.Quarto = {
 Theoretical answer: 1/3 ≈ 0.3333</code></pre>
 </div>
 </div>
-<div id="fee15786" class="cell" data-execution_count="2">
+<div id="f83e7b91" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model B: simulate the same families, but now we 'meet' a uniformly random</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># child from each family. Condition on the child we met being a boy, and ask</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># whether the OTHER child is also a boy.</span></span>
@@ -831,7 +831,7 @@ Theoretical answer: 1/2 ≈ 0.5000</code></pre>
 </blockquote>
 <p>This is intuitive for things you can repeat. <em>“This coin lands heads with probability 0.5”</em> means: if you flip it enough times, the fraction landing heads will get arbitrarily close to 0.5.</p>
 <p>Let’s actually watch that happen.</p>
-<div id="e978edb9" class="cell" data-execution_count="3">
+<div id="cf86b71f" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1005,7 +1005,7 @@ p \;\ge\; \frac{L}{W + L}.
 <section id="concrete-problem-rolling-two-dice" class="level3" data-number="3.5.1">
 <h3 data-number="3.5.1" class="anchored" data-anchor-id="concrete-problem-rolling-two-dice"><span class="header-section-number">3.5.1</span> Concrete problem: rolling two dice</h3>
 <p>Throughout the rest of this chapter, we’ll use a single running example. You roll two ordinary six-sided dice. We’ll define everything against this.</p>
-<div id="5c3fc01e" class="cell" data-execution_count="4">
+<div id="f67dc883" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Enumerate all 36 outcomes</span></span>
@@ -1050,7 +1050,7 @@ First few: [(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6)]</code></pre>
 </div>
 </div>
 <p>The third point is subtle. The same experiment — rolling two dice — can be modelled with very different sample spaces depending on how much detail we keep. Let’s compare three of them.</p>
-<div id="3be88c8e" class="cell" data-execution_count="5">
+<div id="ab81736e" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Three different sample spaces for the SAME experiment: rolling two dice.</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># --- (A) Too coarse: record only the SUM of the two dice. ---</span></span>
@@ -1111,7 +1111,7 @@ First few: [(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6)]</code></pre>
 <section id="events" class="level3" data-number="3.5.3">
 <h3 data-number="3.5.3" class="anchored" data-anchor-id="events"><span class="header-section-number">3.5.3</span> Events</h3>
 <p>An <strong>event</strong> is just a subset of <span class="math inline">\Omega</span>. Some examples for our two dice:</p>
-<div id="83d360ac" class="cell" data-execution_count="6">
+<div id="42188631" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>omega <span class="op">=</span> <span class="bu">set</span>(outcomes)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {(d1, d2) <span class="cf">for</span> d1, d2 <span class="kw">in</span> omega <span class="cf">if</span> d1 <span class="op">+</span> d2 <span class="op">==</span> <span class="dv">7</span>}        <span class="co"># sum is 7</span></span>
@@ -1131,7 +1131,7 @@ D = sum ≥ 10        (6 outcomes): [(4, 6), (5, 5), (5, 6), (6, 4), (6, 5), (6,
 </div>
 </div>
 <p>Because events are sets, you can combine them with set operations. Combining events gives you new events:</p>
-<div id="8cea55e6" class="cell" data-execution_count="7">
+<div id="5d3f4cfa" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum is 7 OR doubles</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>A_or_B <span class="op">=</span> A <span class="op">|</span> B          <span class="co"># set union  → "A or B"</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum is 7 AND first die is 6  → exactly one roll: (6, 1)</span></span>
@@ -1184,7 +1184,7 @@ A ∩ B   ('sum is 7 AND doubles'):          0 outcomes  →  set()  (empty set 
 </div>
 <p>Before we go further, a quick detour into something we’ll lean on shortly: the difference between <strong>countable</strong> and <strong>uncountable</strong> sets. The integers and rationals are <em>countable</em> (you can list them); the real numbers are <em>uncountable</em> (you cannot). The next callout makes this concrete.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1193,7 +1193,7 @@ A ∩ B   ('sum is 7 AND doubles'):          0 outcomes  →  set()  (empty set 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>If “countable vs uncountable” sounds vague, here’s the picture that makes it concrete.</p>
 <p><strong>Hilbert’s Hotel</strong> has infinitely many rooms — one for each natural number — and they’re all full. A new guest arrives. Can the manager fit them in?</p>
@@ -1202,7 +1202,7 @@ A ∩ B   ('sum is 7 AND doubles'):          0 outcomes  →  set()  (empty set 
 <p>This is what mathematicians mean by <strong>countably infinite</strong>: a set is countable if you can put its elements in 1-to-1 correspondence with the natural numbers <span class="math inline">\{1, 2, 3, \ldots\}</span>. The integers <span class="math inline">\mathbb{Z}</span> are countable. Even the algebraic numbers are countable. The <em>rationals</em> are countable too — and the way Cantor showed this is the warm-up for the diagonal argument we’ll see in a moment.</p>
 <p><strong>Warm-up: <span class="math inline">\mathbb{Q}</span> fits in Hilbert’s Hotel (Cantor’s zigzag).</strong> Lay out every positive rational <span class="math inline">p/q</span> in a 2D grid: row <span class="math inline">p</span>, column <span class="math inline">q</span>. The grid contains <em>every</em> positive rational somewhere — even duplicates like <span class="math inline">2/4 = 1/2</span> — but it’s a 2D infinity, so naively it looks “bigger” than <span class="math inline">\mathbb{N}</span>.</p>
 <p>Cantor’s trick: walk through the grid along anti-diagonals (the lines where <span class="math inline">p + q</span> is constant). Skip any fraction you’ve already seen in lowest terms. Number each new fraction as you go: 1, 2, 3, …. Every rational eventually gets a number, so the rationals can be put in 1-to-1 correspondence with <span class="math inline">\mathbb{N}</span>. They fit.</p>
-<div id="e7d9fa6f" class="cell" data-execution_count="8">
+<div id="973dc69a" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> gcd</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1287,7 +1287,7 @@ A ∩ B   ('sum is 7 AND doubles'):          0 outcomes  →  set()  (empty set 
 <p><strong>The punchline: the reals don’t fit.</strong> Hilbert’s Hotel <strong>cannot</strong> accommodate the <strong>real numbers</strong> <span class="math inline">\mathbb{R}</span>. Cantor proved this in 1891 with his famous <strong>diagonal argument</strong>: assume you have a list of all reals between 0 and 1; construct a new real that differs from the <span class="math inline">n</span>-th entry in its <span class="math inline">n</span>-th decimal digit; this new real is on the list (we said the list was complete) but cannot be on the list (it differs from every entry). Contradiction. So no list exists.</p>
 <p>The same diagonal geometry that <em>succeeded</em> for <span class="math inline">\mathbb{Q}</span> now <em>fails</em> for <span class="math inline">\mathbb{R}</span>. For <span class="math inline">\mathbb{Q}</span>, walking the diagonals <em>enumerated</em> every fraction. For <span class="math inline">\mathbb{R}</span>, walking the diagonal of any attempted list lets us <em>escape</em> it — build a real that’s missing.</p>
 <p>The picture below shows it in action. The boxed digits along the diagonal — <span class="math inline">d_{11}, d_{22}, d_{33}, \ldots</span> — are read off the supposed list. The new number <span class="math inline">r^\star</span> at the bottom is built by flipping each diagonal digit (we use the rule “if it’s <span class="math inline">\le 4</span>, change to 8; otherwise change to 1”). Whatever row you point to, <span class="math inline">r^\star</span> differs from it <em>in at least one position</em> — so <span class="math inline">r^\star</span> cannot be on the list. But the list was supposed to contain <em>every</em> real in <span class="math inline">[0, 1]</span>. Contradiction.</p>
-<div id="dcb83e35" class="cell" data-execution_count="9">
+<div id="3f7411d2" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1363,6 +1363,34 @@ A ∩ B   ('sum is 7 AND doubles'):          0 outcomes  →  set()  (empty set 
 </div>
 </div>
 </div>
+<p><strong>“But you only showed five numbers — how is this a proof?”</strong> This is the right question to ask. The list is supposed to be <em>infinite</em>, and we obviously can’t write down infinitely many entries. So how does the argument generalise?</p>
+<p>The trick is that <strong>the proof is not about a particular list — it’s about <em>any</em> list</strong>. We never construct the list ourselves. The opponent does (or claims they could). All we provide is a <strong>recipe</strong> that, applied to <em>any</em> list, produces a number missing from it. The recipe is one short sentence:</p>
+<blockquote class="blockquote">
+<p><em>“For each <span class="math inline">n</span>, the <span class="math inline">n</span>-th digit of <span class="math inline">r^\star</span> is different from the <span class="math inline">n</span>-th digit of <span class="math inline">r_n</span>.”</em></p>
+</blockquote>
+<p>Notice what this recipe needs to know: just the <span class="math inline">n</span>-th digit of the <span class="math inline">n</span>-th row, for every <span class="math inline">n</span>. Whatever list you hand me — five rows or five trillion — the same recipe applies.</p>
+<p>Now suppose someone says: <em>“You stopped at row 5. Maybe <span class="math inline">r^\star</span> is at row 1,000,000 of the real list.”</em> My reply: if <span class="math inline">r^\star = r_{1{,}000{,}000}</span>, they must agree in <em>every</em> decimal position — including the 1,000,000-th. But by the recipe, the 1,000,000-th digit of <span class="math inline">r^\star</span> is <em>defined</em> to differ from the 1,000,000-th digit of <span class="math inline">r_{1{,}000{,}000}</span>. So they can’t be equal. The same argument works for <em>any</em> row number, no matter how large — because the disagreement at row <span class="math inline">n</span> is built into the construction <em>for every <span class="math inline">n</span></em>, not checked one by one. That’s the crucial move: a single finite recipe handles infinitely many cases simultaneously.</p>
+<p>So the worked example with five rows is just a <strong>visual aid</strong> — you can see the geometry of the diagonal in a small case. The real proof works on the infinite case because the recipe doesn’t depend on the list’s length. It works for <em>any</em> list, including the imagined infinite one.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>▶ Why doesn’t this argument also “disprove” <span class="math inline">\mathbb{Q}</span>?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You might wonder: couldn’t we apply the same diagonal trick to a list of rationals <span class="math inline">q_1, q_2, q_3, \ldots</span> and conclude that <span class="math inline">\mathbb{Q}</span> is also uncountable? But we just showed <span class="math inline">\mathbb{Q}</span> <em>is</em> countable (zigzag), so something must rescue us.</p>
+<p>Here’s the rescue. The diagonal recipe builds <span class="math inline">r^\star</span> digit by digit. The result is a real number — but with no guarantee that its decimal expansion is eventually periodic. <strong>Infinite non-repeating decimals are irrational.</strong> So the constructed <span class="math inline">r^\star</span> is generally not a rational at all.</p>
+<p>That means: when the opponent’s list is supposed to contain every <em>rational</em>, our <span class="math inline">r^\star</span> being missing from it is <em>not</em> a contradiction — <span class="math inline">r^\star</span> was never required to be on a list of rationals in the first place.</p>
+<p>When the opponent’s list is supposed to contain every <em>real</em>, our <span class="math inline">r^\star</span> being missing <strong>is</strong> a contradiction — because <span class="math inline">r^\star</span> is a real, by construction (any decimal expansion defines a real).</p>
+<p>That asymmetry — <em>“diagonalising a list of rationals escapes <span class="math inline">\mathbb{Q}</span>, but diagonalising a list of reals stays inside <span class="math inline">\mathbb{R}</span>”</em> — is the entire reason the argument works for one and not the other.</p>
+</div>
+</div>
+</div>
 <p>This means there are <strong>at least two genuinely different sizes of infinity</strong>: the countable (the rooms in Hilbert’s Hotel) and the uncountable (the real line). It also means probability theory on <span class="math inline">\mathbb{R}</span> is fundamentally different from probability on a finite set — which is why we’ll need calculus, integration, and measure theory once we get to continuous distributions.</p>
 <p>That’s all the measure theory we need for now. Welcome to the deep end.</p>
 </div>
@@ -1370,7 +1398,7 @@ A ∩ B   ('sum is 7 AND doubles'):          0 outcomes  →  set()  (empty set 
 </div>
 <p>With that distinction in hand, a small caveat about events is worth knowing — though we won’t use it directly. So far we’ve said <em>“event = subset of <span class="math inline">\Omega</span>”</em> without worrying about it. For finite or countable sample spaces (dice, coins, integers) that’s exactly right. For <em>uncountable</em> sample spaces — like the real line — it turns out you can’t safely call every subset an event. The fix is a small piece of formal machinery called a <strong><span class="math inline">\sigma</span>-algebra</strong>. The next callout unpacks why; it’s optional.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1379,7 +1407,7 @@ A ∩ B   ('sum is 7 AND doubles'):          0 outcomes  →  set()  (empty set 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>The setup.</strong> A probability law <span class="math inline">P</span> assigns a number to every event. We’ve been saying “event = subset of <span class="math inline">\Omega</span>”. For finite or countable <span class="math inline">\Omega</span>, that’s fine — every subset is allowed.</p>
 <p>For <em>uncountable</em> <span class="math inline">\Omega</span> (like <span class="math inline">[0, 1]</span> or <span class="math inline">\mathbb{R}</span>), the question is whether we can still assign a probability to every subset. The surprising answer is <strong>no</strong> — some subsets break the axioms.</p>
@@ -1436,7 +1464,7 @@ A ∩ B   ('sum is 7 AND doubles'):          0 outcomes  →  set()  (empty set 
 </div>
 <p>Three axioms. That’s the whole foundation. Everything else in probability theory — every formula, every theorem, every proof — follows from these three.</p>
 <p>Let’s verify them on our dice.</p>
-<div id="43b3f893" class="cell" data-execution_count="10">
+<div id="b68fe42e" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For fair dice, each of the 36 outcomes has probability 1/36.</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># We define the probability law as: for any event E, P(E) = |E| / 36.</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1468,7 +1496,7 @@ A ∩ B   ('sum is 7 AND doubles'):          0 outcomes  →  set()  (empty set 
 </div>
 <p>That’s it. The rest of probability theory is just consequences of these three rules.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1477,7 +1505,7 @@ A ∩ B   ('sum is 7 AND doubles'):          0 outcomes  →  set()  (empty set 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>From the three axioms alone, we can derive a long list of useful facts. Here are the most-used ones, with proofs.</p>
 <p><strong>1. <span class="math inline">P(\emptyset) = 0</span>.</strong></p>
@@ -1515,7 +1543,7 @@ P\!\left(\bigcup_i A_i\right) \le \sum_i P(A_i).
 <p>Many real experiments unfold <strong>in stages</strong>. You don’t roll all your dice at once — you roll the first, see what happens, then roll the second. You don’t measure all your sensor outputs at once — readings come in over time. You don’t read an email and decide it’s spam in a single glance — you check the sender, then the subject line, then the body.</p>
 <p>For these step-by-step experiments, the cleanest representation is a <strong>tree diagram</strong>. Each branch from a node represents a possible outcome at that stage; each path from root to leaf is one complete sequence of outcomes. The set of all leaves is the sample space.</p>
 <p>Let’s draw one. We’ll use the simplest sequential experiment that’s still interesting: <strong>flipping a fair coin three times</strong>.</p>
-<div id="9ad8be18" class="cell" data-execution_count="11">
+<div id="d9074cc3" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.patches <span class="im">import</span> FancyArrowPatch</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1594,7 +1622,7 @@ P\!\left(\bigcup_i A_i\right) \le \sum_i P(A_i).
 <li><p><strong>Probabilities follow paths.</strong> Each branch in a fair coin tree is taken with probability <span class="math inline">1/2</span>, and the probability of reaching a specific leaf is the product along the path: <span class="math inline">(1/2)(1/2)(1/2) = 1/8</span>. Multiply along branches; add across branches.</p></li>
 </ul>
 <p>Let’s verify by computing some probabilities directly from the tree:</p>
-<div id="d914a1d2" class="cell" data-execution_count="12">
+<div id="1eac1ca0" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> product</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate all leaves</span></span>
@@ -1674,7 +1702,7 @@ P(A) \;=\; \frac{|A|}{|\Omega|} \;=\; \frac{\text{number of outcomes in } A}{\te
 </div>
 </div>
 <p><strong>Way 1 — Counting (analytical).</strong></p>
-<div id="5c9a7d9c" class="cell" data-execution_count="13">
+<div id="d93c4e1d" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># By the equally-likely-outcomes formula</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>event_sum_7 <span class="op">=</span> {(d1, d2) <span class="cf">for</span> d1, d2 <span class="kw">in</span> omega <span class="cf">if</span> d1 <span class="op">+</span> d2 <span class="op">==</span> <span class="dv">7</span>}</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>p_analytical <span class="op">=</span> <span class="bu">len</span>(event_sum_7) <span class="op">/</span> <span class="dv">36</span></span>
@@ -1686,7 +1714,7 @@ P(A) \;=\; \frac{|A|}{|\Omega|} \;=\; \frac{\text{number of outcomes in } A}{\te
 </div>
 </div>
 <p><strong>Way 2 — Simulation (frequentist).</strong></p>
-<div id="adbd6c0e" class="cell" data-execution_count="14">
+<div id="2d021656" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Roll a million pairs of dice and count the fraction with sum = 7.</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>n_rolls <span class="op">=</span> <span class="dv">1_000_000</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>d1 <span class="op">=</span> rng.integers(<span class="dv">1</span>, <span class="dv">7</span>, size<span class="op">=</span>n_rolls)</span>
@@ -1700,7 +1728,7 @@ P(A) \;=\; \frac{|A|}{|\Omega|} \;=\; \frac{\text{number of outcomes in } A}{\te
 </div>
 </div>
 <p><strong>Way 3 — Picture (where you can just <em>see</em> the answer).</strong></p>
-<div id="595ee8f7" class="cell" data-execution_count="15">
+<div id="8292998d" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the 6×6 grid. Highlight outcomes whose sum is 7.</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="fl">5.5</span>, <span class="fl">5.5</span>))</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> d1 <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">7</span>):</span>
