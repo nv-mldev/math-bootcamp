@@ -677,7 +677,7 @@ h \;=\; 1.06 \cdot \hat{\sigma} \cdot n^{-1/5}
 </section>
 <section id="building-a-gaussian-kde-from-scratch" class="level2" data-number="19.3">
 <h2 data-number="19.3" class="anchored" data-anchor-id="building-a-gaussian-kde-from-scratch"><span class="header-section-number">19.3</span> Building a Gaussian KDE from scratch</h2>
-<div id="8bea6091" class="cell" data-execution_count="1">
+<div id="6b96169c" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys, os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -795,7 +795,7 @@ E\!\left[\left(\frac{X - \mu}{\sigma}\right)^4\right] - 3
 <li>positive (leptokurtic) → heavier tails than normal</li>
 <li>negative (platykurtic) → lighter tails</li>
 </ul>
-<div id="ef47f879" class="cell" data-execution_count="2">
+<div id="6946cae2" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> skewness(data):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    mu, sigma <span class="op">=</span> data.mean(), data.std()</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.mean(((data <span class="op">-</span> mu) <span class="op">/</span> sigma) <span class="op">**</span> <span class="dv">3</span>)</span>
@@ -829,7 +829,7 @@ E\!\left[\left(\frac{X - \mu}{\sigma}\right)^4\right] - 3
 </section>
 <section id="visualising-it" class="level2" data-number="19.6">
 <h2 data-number="19.6" class="anchored" data-anchor-id="visualising-it"><span class="header-section-number">19.6</span> Visualising it</h2>
-<div id="3f1e3875" class="cell" data-execution_count="3">
+<div id="9f18521b" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">9</span>))</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Histogram + KDE</span></span>
