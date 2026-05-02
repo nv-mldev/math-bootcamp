@@ -6,1498 +6,867 @@ execute:
   cache: true
 ---
 
-**Probability is the branch of mathematics that studies uncertainty.**
+## Why Probability?
 
-Whenever the world refuses to commit to a single answer — *will the drug
-work? will it rain tomorrow? is this email spam? — *probability gives us
-the language to say something useful about the alternatives. It is the
-language behind weather forecasts, medical trials, insurance, gambling,
-quantum mechanics, machine learning, and the routing algorithm that
-delivered this page to your screen.
+Every day you make decisions under uncertainty. Will the bridge hold? Is this email spam? Will the drug work? Will it rain? You cannot know the answer with certainty — but you are not helpless. You can reason carefully about the likelihood of different outcomes, and that reasoning is what probability theory formalises.
 
-What's surprising is that probability is **young**. Mathematicians had
-been doing calculus and geometry for centuries before anyone took
-randomness seriously enough to write equations about it. The story of
-how probability became a real subject is short, dramatic, and full of
-gamblers, monks, astronomers, and one telephone engineer who quietly
-changed the world. We'll meet a few of them before we begin.
+::: {.callout-note}
+## A conversation at a hospital
 
-## A short history
-
-Click any name to read more.
-
-::: {.callout-tip collapse="true"}
-## ▶ **Gerolamo Cardano** (1501–1576) — the gambling doctor
-
-::: {layout="[1,3]"}
-![](../../figures/history/cardano.jpg){width="180px"}
-
-A 16th-century Italian physician, mathematician, and chronic gambler.
-Cardano wrote *Liber de Ludo Aleae* ("Book on Games of Chance") around
-1560 — the **first known systematic treatment of probability**. He
-worked out odds for dice, cards, and backgammon, and even discussed how
-to detect cheating.
-
-Embarrassed by the subject's disreputable connections, he kept the
-manuscript private. It wasn't published until 1663 — almost 90 years
-after his death. Cardano's instincts were correct, but the field had to
-be re-discovered by mathematicians who took it more seriously.
-:::
-
-<small>*Stipple engraving by R. Cooper, [Wellcome
-Collection](https://commons.wikimedia.org/wiki/File:Girolamo_Cardano._Stipple_engraving_by_R._Cooper._Wellcome_V0001004.jpg),
-CC BY 4.0.*</small>
-:::
-
-::: {.callout-tip collapse="true"}
-## ▶ **Blaise Pascal & Pierre de Fermat** (1654) — letters that founded a field
-
-::: {layout-ncol="2"}
-![Blaise Pascal (1623–1662)](../../figures/history/pascal.jpg){width="220px"}
-
-![Pierre de Fermat (1601–1665)](../../figures/history/fermat.jpg){width="220px"}
-:::
-
-A French nobleman named the **Chevalier de Méré** asked Pascal a
-question about a dice game: *if a game has to stop early, how should the
-pot be divided fairly between the players?*
-
-Pascal didn't know. He wrote to **Fermat** in 1654, and the two
-exchanged a series of letters working out the answer. In doing so they
-invented — almost by accident — the foundations of probability theory:
-expected value, the multiplication rule, the structure of compound
-events. Six letters. The field begins here.
-
-The problem they solved is still called the **problem of points**, and
-their solution is still the right one.
-
-<small>*Pascal portrait: copy of François Quesnel (1691), Palace of
-Versailles
-([Wikimedia](https://commons.wikimedia.org/wiki/File:Blaise_Pascal_Versailles.JPG),
-CC BY 3.0). Fermat portrait: oil on canvas by Rolland Lefebvre, c. 1650
-([Wikimedia](https://commons.wikimedia.org/wiki/File:Pierre_de_Fermat3.jpg),
-public domain).*</small>
-:::
-
-::: {.callout-tip collapse="true"}
-## ▶ **Jacob Bernoulli** (1654–1705) — the law of large numbers
-
-::: {layout="[1,3]"}
-![](../../figures/history/bernoulli.jpg){width="180px"}
-
-Twenty years after Pascal and Fermat, the Swiss mathematician Jacob
-Bernoulli took up the question: *if I flip a coin enough times, does
-the fraction of heads actually converge to its true probability?*
-
-Yes — and he proved it. His **Law of Large Numbers** (published
-posthumously in 1713 in *Ars Conjectandi*) is the bridge between
-**frequencies you can measure** and **probabilities you cannot**. It
-turns probability from a calculator's curiosity into a science: the
-empirical world *can* be used to estimate the unseen.
-
-Every time you compute an average, you are leaning on his theorem.
-:::
-
-<small>*Portrait by his brother Niklaus Bernoulli, c. 1687
-([Wikimedia](https://commons.wikimedia.org/wiki/File:Jakob_Bernoulli.jpg),
-public domain).*</small>
-:::
-
-::: {.callout-tip collapse="true"}
-## ▶ **Thomas Bayes** (1701–1761) — the rule that runs modern AI
-
-::: {layout="[1,3]"}
-![](../../figures/history/bayes.png){width="180px"}
-
-An English Presbyterian minister and amateur mathematician, Bayes wrote
-a paper on inverse probability — *given an observed effect, what was the
-likely cause?* — and never published it. After his death, his friend
-Richard Price found it in his papers and submitted it to the Royal
-Society in 1763.
-
-For 200 years it was a curiosity. Then statisticians, and later machine
-learning researchers, noticed something: **Bayes' rule is the
-mathematics of learning from evidence**. Every spam filter, every
-medical diagnostic system, every Bayesian neural network is a child of
-this short paper by a country minister who didn't think it worth
-printing.
-
-We'll meet his rule formally a few chapters from now. It deserves the
-build-up.
-:::
-
-<small>*The only commonly-circulated portrait traditionally identified
-as Thomas Bayes — its authenticity is **disputed** by historians (no
-verified likeness of Bayes survives). Colorized version by Mark Riehl
-([Wikimedia](https://commons.wikimedia.org/wiki/File:ThomasBayes.png),
-CC BY-SA 4.0).*</small>
-:::
-
-::: {.callout-tip collapse="true"}
-## ▶ **Pierre-Simon Laplace** (1749–1827) — the great consolidator
-
-::: {layout="[1,3]"}
-![](../../figures/history/laplace.jpg){width="180px"}
-
-If Bayes was the seed, Laplace was the gardener. The French polymath
-generalized Bayes' rule, applied probability to **astronomy, geodesy,
-demographics, and law**, and wrote *Théorie Analytique des Probabilités*
-(1812) — the first comprehensive textbook of the subject.
-
-Laplace took probability seriously *as a science*. He used it to weigh
-witness testimony in court cases, to estimate the population of France
-from a sample, to argue that the solar system was stable. After
-Laplace, no one could dismiss probability as gambler's mathematics
-again.
-
-A famous quip attributed to him: *"It is remarkable that a science
-which began with the consideration of games of chance should have
-become the most important object of human knowledge."*
-:::
-
-<small>*Portrait by Jean-Baptiste Paulin Guérin, 1838, Palace of
-Versailles
-([Wikimedia](https://commons.wikimedia.org/wiki/File:Pierre-Simon,_marquis_de_Laplace_(1745-1827)_-_Gu%C3%A9rin.jpg),
-public domain).*</small>
-:::
-
-::: {.callout-tip collapse="true"}
-## ▶ **Andrey Kolmogorov** (1903–1987) — the axioms
-
-Until 1933, probability was a working subject without a formal
-foundation. Different mathematicians used different definitions; the
-field had paradoxes nobody could agree how to resolve.
-
-Then a 30-year-old Soviet mathematician named **Andrey Kolmogorov**
-published *Grundbegriffe der Wahrscheinlichkeitsrechnung* — a slim
-monograph in which he proposed that probability theory should be built
-on **three simple axioms** (the ones we'll meet later in this chapter)
-plus measure theory.
-
-Within a decade, the entire field had reorganised around his framework.
-Every textbook written since 1933 — including this one — uses
-Kolmogorov's axioms. **The formal foundation of probability is younger
-than your grandparents.**
-
-<small>*Photos of Kolmogorov are still under copyright; see the
-[Oberwolfach Photo Collection](https://owpdb.mfo.de/) for licensed
-portraits.*</small>
-:::
-
-::: {.callout-tip collapse="true"}
-## ▶ **Claude Shannon** (1916–2001) — the bridge to machine learning
-
-A telephone engineer at Bell Labs, Shannon noticed something nobody
-else had: **information itself can be measured probabilistically**. His
-1948 paper *A Mathematical Theory of Communication* introduced
-**entropy** ($H = -\sum p_i \log p_i$), the bit, and the channel
-capacity theorem.
-
-Shannon's work is why you can make a phone call, store data on a hard
-drive, compress a file, or train a neural network. Every loss function
-in deep learning that has the word *cross-entropy* in it is a tribute to
-him. He also liked to ride a unicycle through the Bell Labs corridors
-while juggling.
-
-If you take only one name from this list with you, take Shannon. He is
-the reason probability and computation became inseparable.
-
-<small>*Photos of Shannon are still under copyright. The Bell Labs and
-MIT Museum archives hold the famous portraits.*</small>
-:::
-
-That's roughly four centuries of work, ending 75 years ago. The subject
-is still young. With that history in your pocket, let's see what
-probability actually *says*.
-
----
-
-Luck. Coincidence. Randomness. Uncertainty. Risk. Doubt. Fortune. Chance.
-
-You've probably heard these words countless times, but chances are they
-were used in a vague, casual way. Despite probability being everywhere in
-science and daily life, it can be deeply counterintuitive. The point of
-this chapter is to put a precise meaning on the word **probability** —
-precise enough that we can compute with it, simulate it, and bet on it.
-
-We'll get there in five passes:
-
-1. **A dialogue** that exposes the question hiding in plain sight.
-2. **The frequentist view** — probability as long-run frequency.
-3. **The subjective view** — probability as degree of belief.
-4. **The formal framework** — sample space, events, axioms.
-5. **A worked example** that ties the three views together.
-
-You can skip the rigorous parts on the first read; click the **▶ Show the
-math** boxes when you want them.
-
----
-
-## A dialogue
-
-The clearest way to see what's at stake is to listen to a short
-conversation in a hospital. A relative is asking the nurse about a drug.
-
-> **Relative:** Nurse, what is the probability that the drug will work?
+> **Relative:** Nurse, what is the probability the drug will work?
 >
-> **Nurse:** I hope it works, we'll know tomorrow.
+> **Nurse:** I hope it works — we'll know tomorrow.
 >
-> **Relative:** Yes, but what is the *probability* that it will?
+> **Relative:** Yes, but what is the *probability* it will?
 >
 > **Nurse:** Each case is different. We have to wait.
 >
-> **Relative:** But out of a hundred patients treated under similar
-> conditions, how many times would you expect it to work?
+> **Relative:** Out of a hundred patients treated under similar conditions, how many times would you expect it to work?
 >
-> **Nurse:** *(annoyed)* I told you, every person is different. For some
-> it works, for some it doesn't.
+> **Nurse:** *(somewhat annoyed)* I told you, every person is different.
 >
-> **Relative:** *(insisting)* Then tell me — if you had to *bet* whether
-> it will work or not, which side of the bet would you take?
+> **Relative:** Then if you had to *bet* whether it will work — which side would you take?
 >
-> **Nurse:** *(brightening)* I'd bet it will work.
+> **Nurse:** *(cheering up briefly)* I'd bet it will work.
 >
-> **Relative:** *(relieved)* OK — would you be willing to lose two
-> dollars if it doesn't, and gain one dollar if it does?
+> **Relative:** Would you accept losing \$2 if it doesn't, and gaining \$1 if it does?
 >
 > **Nurse:** *(exasperated)* What a sick thought! You are wasting my time!
 
-Two important things happened here.
-
-First, the relative tried **two completely different definitions** of
-probability:
-
-- *"Out of a hundred patients..."* — probability as a long-run
-  **frequency**.
-- *"Which side of the bet would you take?"* — probability as a
-  **degree of belief** that can be elicited from someone's willingness to
-  bet.
-
-Second, the nurse refused both. She wasn't being unreasonable — she was
-sensing that *this particular patient* is unique. That tension —
-between the universal (population-level) and the particular
-(this-case) — is the central problem the rest of this chapter
-addresses.
-
-::: {.callout-tip}
-## The two-stage framework
-
-There are really **two stages** to applying probability to a real
-problem:
-
-- **Stage 1 — Modelling (art).** Decide on a sample space and a
-  probability law. There are no rigid rules here. Reasonable people will
-  disagree about which model fits.
-- **Stage 2 — Analysis (science).** Once the model is fixed, calculate
-  probabilities. There is exactly one right answer; only your skill
-  determines whether you find it.
-
-Most "paradoxes" in probability are arguments about **Stage 1** disguised
-as arguments about **Stage 2**. When two clever people get different
-answers to the same problem, they almost never disagree about the math —
-they disagree about which model is right.
-
-The discipline of this chapter is to make Stage 1 explicit before
-calculating anything.
 :::
 
-### A real disagreement: the two-child puzzle
+This exchange captures something important. The relative is trying to get the nurse to express a *probability* — a number that captures how likely something is. The nurse resists, but by agreeing to bet on one side, she has already revealed that she believes the probability of success is above 50%. And if she had accepted the 2-to-1 bet, we could infer she believes it is above 2/3.
 
-Abstract claims about "Stage 1 vs Stage 2" only land once you've watched
-two clever people disagree about a real problem. Here's one. It's
-short, it's famous, and it has stumped working mathematicians.
-
-> *You meet a stranger at a party. She tells you, "I have two children,
-> and at least one of them is a boy." What is the probability that
-> **both** of her children are boys?*
-
-Take a moment. Write down your answer before reading on. Most people
-say **1/2** — *"the other child is either a boy or a girl, those are
-equally likely, so 1/2."* Others, after some thought, say **1/3**.
-A few say "it depends" and look smug.
-
-Here's the thing: **both 1/3 and 1/2 can be defended**, and the
-disagreement is *entirely* about Stage 1 — what sample space should we
-use? Once a sample space is fixed, every reasonable person gets the
-same number out. Let's see this happen.
-
-**Model A — "boy first, girl second" is a different family from "girl
-first, boy second".** Birth order matters; the four equally likely
-families are:
-
-$$
-\Omega_A = \{\text{BB},\; \text{BG},\; \text{GB},\; \text{GG}\}.
-$$
-
-The stranger told us "at least one is a boy", so we eliminate GG. Three
-families remain — BB, BG, GB — and **all three are still equally likely**
-(we haven't been given any reason to prefer one over the others). Of
-those three, only BB has two boys. So $P(\text{both boys}) = 1/3$.
-
-**Model B — we already met one of the children, and he was a boy.**
-Maybe she said it because *the boy was standing next to her*. In that
-case, the information isn't "at least one is a boy" — it's "*this
-specific child* is a boy". The other child is then independent of the
-one we met, and is a boy or a girl with equal probability. So
-$P(\text{both boys}) = 1/2$.
-
-**So what actually changed?** The two models aren't disagreeing about
-the rules of probability — they're reasoning over *different sample
-spaces*.
-
-- **Model A** samples *families*. Start with the four equally likely
-  families $\{\text{BB}, \text{BG}, \text{GB}, \text{GG}\}$, filter out
-  the ones with no boy. Three families survive; only one is BB.
-- **Model B** samples *a specific child* and asks about their sibling.
-  Once one child has been identified as a boy, BG and GB are no longer
-  two distinct outcomes — they collapse into "this boy plus one unknown
-  sibling", and the sibling is a fresh coin flip.
-
-The verbal sentence "at least one is a boy" is the *same* in both
-stories, but it was *generated* by two different experiments. The sample
-space follows the experiment, not the sentence.
-
-Two models, two different answers. **Nobody has done arithmetic yet.**
-The argument is happening at Stage 1.
-
-We can confirm Model A's answer by simulation — pick the model and the
-math falls out.
-
-```{python}
-# Model A: simulate many two-child families. Each child is independently
-# B or G with probability 1/2. Among families with AT LEAST ONE boy, what
-# fraction have TWO boys?
-import numpy as np
-rng = np.random.default_rng(seed=0)
-
-n_families = 200_000
-child_1 = rng.integers(0, 2, size=n_families)   # 1 = boy, 0 = girl
-child_2 = rng.integers(0, 2, size=n_families)
-
-at_least_one_boy = (child_1 == 1) | (child_2 == 1)
-both_boys        = (child_1 == 1) & (child_2 == 1)
-
-# Conditional frequency: among families with at least one boy,
-# the fraction that have two boys.
-p_model_A = both_boys.sum() / at_least_one_boy.sum()
-print(f"Model A simulation: P(both boys | at least one boy) ≈ {p_model_A:.4f}")
-print(f"Theoretical answer: 1/3 ≈ {1/3:.4f}")
-```
-
-```{python}
-# Model B: simulate the same families, but now we 'meet' a uniformly random
-# child from each family. Condition on the child we met being a boy, and ask
-# whether the OTHER child is also a boy.
-
-# Pick a random child to 'meet' from each family (0 = first, 1 = second)
-which_met   = rng.integers(0, 2, size=n_families)
-met_child   = np.where(which_met == 0, child_1, child_2)
-other_child = np.where(which_met == 0, child_2, child_1)
-
-met_a_boy   = (met_child == 1)
-other_is_boy = (other_child == 1)
-
-p_model_B = other_is_boy[met_a_boy].mean()
-print(f"Model B simulation: P(other child is boy | met a boy) ≈ {p_model_B:.4f}")
-print(f"Theoretical answer: 1/2 ≈ {1/2:.4f}")
-```
-
-The simulations agree with the theory **for whichever model you
-chose**. The math is not in dispute. The model is.
-
-::: {.callout-tip}
-## The lesson
-
-When someone claims a probability problem has a "right" answer and a
-"wrong" answer, your first job is *not* to do the calculation. It's to
-ask: **what sample space are you using, and why?** Almost every
-probability paradox you'll meet — Monty Hall, the Sleeping Beauty
-problem, the boy-girl paradox above, the envelope paradox — is a Stage
-1 disagreement wearing a Stage 2 costume. The math is fine. The
-modelling is what people are actually arguing about.
-
-Throughout this book, whenever we set up a problem, we'll spell out
-$\Omega$ first. It's a habit worth building.
-:::
+Probability is not just an academic tool. It is the language of uncertainty — used in weather forecasting, medical diagnosis, engineering reliability, financial risk, and machine learning. The goal of this chapter is to build this language carefully, from first principles.
 
 ---
 
-## The frequentist view: probability is what frequencies converge to
+## 1. The Probabilistic Model
 
-The frequentist answer to "what is probability?" is a recipe:
+A **probabilistic model** is a mathematical description of an uncertain situation. Every probabilistic model is built in exactly two steps:
 
-> **The probability of an event is the long-run frequency with which it
-> happens, if you could repeat the experiment infinitely many times.**
+1. **Describe the sample space** — list all possible outcomes.
+2. **Assign a probability law** — specify how likely each outcome (or collection of outcomes) is.
 
-This is intuitive for things you can repeat. *"This coin lands heads with
-probability 0.5"* means: if you flip it enough times, the fraction
-landing heads will get arbitrarily close to 0.5.
+This two-step structure is the backbone of everything that follows. Let us look at each part carefully.
 
-Let's actually watch that happen.
+---
+
+## 2. The Sample Space
+
+### Definition
+
+::: {.callout-important}
+## Sample Space
+The **sample space** $\Omega$ is the set of all possible outcomes of an experiment. Each element of $\Omega$ is called an **outcome**.
+
+For $\Omega$ to be valid, the outcomes must satisfy two properties:
+
+- **Mutually exclusive**: At the end of the experiment, exactly one outcome occurs. No two distinct outcomes can both occur.
+- **Collectively exhaustive**: Together, the outcomes cover all possibilities. No matter what happens, one outcome from $\Omega$ must occur.
+
+**Summary**: At the end of the experiment, you can point to one — and exactly one — outcome in $\Omega$.
+:::
+
+### The Granularity Principle
+
+How much detail should a sample space contain? The answer depends on the questions you want to answer.
+
+Consider a coin flip. Two possible sample spaces:
+
+**Option A** (simple):
+$$\Omega = \{H, T\}$$
+
+**Option B** (over-detailed):
+$$\Omega = \{(H, \text{rain}),\ (H, \text{no rain}),\ (T, \text{rain}),\ (T, \text{no rain})\}$$
+
+Option B is not wrong — it is still mutually exclusive and collectively exhaustive. But it includes weather information that is irrelevant to the coin. Option A is the right choice unless you believe weather affects the coin's outcome.
+
+::: {.callout-tip}
+## The Granularity Principle
+Include details that are **relevant** to the questions you want to answer. Exclude details that are irrelevant — they only add complexity without improving the model.
+:::
+
+The right level of detail is not always obvious. Consider a clinical trial:
+
+- **Too little detail**: $\Omega = \{\text{drug works},\ \text{drug doesn't work}\}$ — cannot capture how well it works.
+- **Too much detail**: $\Omega = \{\text{every molecular interaction in every patient}\}$ — impossible to work with.
+- **Right level**: $\Omega = \{\text{no effect},\ \text{mild improvement},\ \text{moderate improvement},\ \text{major improvement},\ \text{adverse reaction}\}$
+
+### Discrete Sample Spaces
+
+When $\Omega$ contains a finite or countably infinite number of outcomes, we have a **discrete** sample space.
+
+**Example: Rolling a 4-sided die twice.**
+
+The outcome is a pair $(i, j)$ where $i$ is the first roll and $j$ is the second.
+
+$$\Omega = \{(i, j) \mid i, j \in \{1, 2, 3, 4\}\}$$
+
+This gives $4 \times 4 = 16$ outcomes. We can represent them on a grid:
 
 ```{python}
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
-rng = np.random.default_rng(seed=0)
-n_flips = 10_000
+fig, ax = plt.subplots(figsize=(5, 5))
+for i in range(1, 5):
+    for j in range(1, 5):
+        ax.plot(i, j, 'ko', markersize=10)
+        ax.text(i + 0.1, j + 0.1, f'({i},{j})', fontsize=7)
 
-# 1 = heads, 0 = tails. Fair coin so probability of heads = 0.5.
-flips = rng.integers(0, 2, size=n_flips)
-
-# Running frequency of heads after each flip
-running_heads = np.cumsum(flips)
-running_freq = running_heads / np.arange(1, n_flips + 1)
-
-fig, ax = plt.subplots(figsize=(9, 4))
-ax.plot(running_freq, color="C0", lw=1.2)
-ax.axhline(0.5, color="C3", ls="--", lw=1, label="True probability = 0.5")
-ax.set_xscale("log")
-ax.set_xlabel("Number of flips (log scale)")
-ax.set_ylabel("Fraction landing heads")
-ax.set_title("A frequency converging to a probability")
-ax.legend()
-ax.set_ylim(0, 1)
+ax.set_xlim(0.5, 4.8)
+ax.set_ylim(0.5, 4.8)
+ax.set_xlabel('First roll', fontsize=12)
+ax.set_ylabel('Second roll', fontsize=12)
+ax.set_title('Sample space: two rolls of a 4-sided die', fontsize=12)
+ax.set_xticks([1, 2, 3, 4])
+ax.set_yticks([1, 2, 3, 4])
+ax.grid(True, alpha=0.3)
 plt.tight_layout()
 plt.show()
 ```
 
-Notice three things in the plot:
+**Important**: The outcome $(2, 3)$ is distinct from $(3, 2)$. Order matters because the two rolls are distinguishable (first roll vs second roll).
 
-1. **The first 10 flips are all over the place.** The fraction is 0, or
-   1, or 0.6, depending on what came up. Frequency is *not* probability
-   when the sample is small.
-2. **By the time we have 100+ flips, the fraction is close to 0.5 and
-   stays close.** That's frequency *converging* to probability.
-3. **It never settles exactly.** It zigzags around 0.5 forever, the
-   zigzag getting smaller as $n$ grows.
+### Sequential Experiments and Tree Diagrams
 
-The frequentist says: *"the probability of heads is 0.5"* is a statement
-about that limit. The behaviour you see in the plot — the convergence —
-is the empirical content of the claim.
+When an experiment has multiple stages, a **tree diagram** makes the sample space visible.
 
-::: {.callout-note collapse="true"}
-## ▶ Show the math — The Law of Large Numbers, briefly
-
-What we just observed is a special case of the **Law of Large Numbers**.
-
-If $X_1, X_2, \ldots$ are independent flips of the same coin (so each
-$X_i$ is 1 with probability $p$ and 0 with probability $1-p$), and we
-form the sample mean
-
-$$
-\bar{X}_n = \frac{1}{n}\sum_{i=1}^{n} X_i,
-$$
-
-then the Law of Large Numbers says $\bar{X}_n \to p$ as $n \to \infty$.
-There are two flavours: the **weak** law (convergence in probability) and
-the **strong** law (almost-sure convergence). Both make rigorous the
-intuitive idea that "the long-run frequency equals the probability".
-
-A full proof needs Chebyshev's inequality (which we'll meet later) and
-some measure theory. We'll come back to it in the chapter on limit
-theorems. For now, the picture above is what you should keep in mind.
-:::
-
-### Where the frequentist view runs out of road
-
-The recipe **only works for repeatable experiments**. Try applying it to
-these statements:
-
-- *"The probability that life exists on Mars is 30%."*
-- *"There is a 70% chance the defendant is guilty."*
-- *"The probability that the Iliad and Odyssey were composed by the
-  same person is 90%."*
-
-None of these can be repeated. There is exactly one Mars, one trial, one
-historical fact about Homer. **There is no long-run frequency to point
-at.** And yet people make statements like these every day, and they seem
-to convey real information.
-
-So either we say "those statements are nonsense" — or we expand our
-notion of probability to cover them. That's what the subjective view
-does.
-
----
-
-## The subjective view: probability is a degree of belief
-
-The subjective answer:
-
-> **The probability of an event, for a given person at a given time, is
-> revealed by the bets they are willing to take on it.**
-
-Look at the dialogue again. The relative offered the nurse this bet:
-
-- If the drug **works** → the nurse gains **\$1**.
-- If the drug **does not work** → the nurse loses **\$2**.
-
-What does it mean if she accepts? Let $p = P(\text{works})$ be her
-belief that the drug works. Across many imagined runs of the bet, her
-*average* (expected) profit is:
-
-$$
-E[\text{profit}] = p \cdot (\$1) \;+\; (1 - p) \cdot (-\$2) \;=\; 3p - 2
-$$
-
-A rational person only takes a bet whose expected profit is at least
-zero (otherwise, on average, they lose money):
-
-$$
-3p - 2 \;\ge\; 0 \quad\Longrightarrow\quad p \;\ge\; \frac{2}{3} \;\approx\; 0.67
-$$
-
-So if the nurse accepts, she is implicitly saying she believes the drug
-works with probability **at least 2/3 (≈ 67%)**. In practice, no one
-takes a bet at the exact break-even point — people want a margin of
-safety — so accepting a "lose \$2, win \$1" bet usually signals belief
-closer to **80–90%**. She would have to be quite confident.
-
-**The general rule.** If a bet pays you **\$W** when you win and costs
-you **\$L** when you lose, you should only take it if your belief
-satisfies
-
-$$
-p \;\ge\; \frac{L}{W + L}.
-$$
-
-The bigger the loss relative to the win, the higher your belief must
-be:
-
-| Win | Lose | Minimum belief to take the bet |
-|-----|------|--------------------------------|
-| \$1 | \$1  | 1/2 = 50% |
-| \$1 | \$2  | 2/3 ≈ 67% *(the nurse's bet)* |
-| \$1 | \$9  | 9/10 = 90% |
-
-By offering bets of different shapes and watching which ones she accepts
-or refuses, we can pin down her subjective probability to whatever
-precision we like. **The bet she's willing to take *is* her belief, made
-measurable.**
-
-::: {.callout-tip collapse="true"}
-## ▶ Where does the formula $p \ge L/(W+L)$ come from?
-
-The break-even rule we just derived has a longer history than it looks:
-
-- **Christiaan Huygens (1657)** introduced the idea of **expected
-  value** in *De Ratiociniis in Ludo Aleae* — the first systematic
-  probability text. The formula $E[\text{profit}] = pW - (1-p)L$ comes
-  directly from his definition.
-- **Jakob Bernoulli (1713)** — yes, the same Bernoulli from earlier in
-  this chapter — proved the **Law of Large Numbers** in *Ars
-  Conjectandi*. This is what justifies the rule across many bets:
-  *average* profit and *expected* profit converge.
-- **Daniel Bernoulli (1738)** — Jakob's nephew — pointed out in the
-  *St. Petersburg paradox* that real people don't maximize expected
-  money; they maximize **expected utility**. Losing \$2 hurts more than
-  gaining \$2 helps. This is the formal reason a real nurse needs ~80–
-  90% belief, not just the break-even ≥ 67%.
-
-So the inequality is Huygens's; the reason it's reliable is Jakob
-Bernoulli's; the reason humans don't bet right at the break-even line
-is Daniel Bernoulli's.
-:::
-
-This view doesn't need repetition. It works for one-shot events, for
-historical claims, for personal beliefs about the future.
-
-A natural follow-up question is: *if two rational people start with
-different beliefs but see the same evidence, do they end up agreeing?*
-The answer is yes — and the formal mechanism for *how* beliefs update
-is **Bayes' rule**, which we'll meet two chapters from now.
-
-### Where the subjective view runs out of road
-
-The standard objections are:
-
-- *"Whose probability are we talking about?"* — different people, looking
-  at the same evidence, can have different **priors** (their starting
-  beliefs, before seeing any data) and so different **posteriors**
-  (their updated beliefs after seeing the data). Frequentists find this
-  disturbing; subjectivists say it's just honest.
-- *"How do you choose a prior in practice?"* — easier said than done.
-  In ML this shows up as the **prior choice problem** in Bayesian
-  models: how much should you let your starting belief shape the
-  conclusion?
-
-We will pragmatically use **whichever view fits the problem**. Don't pick
-a side. For coin flips and dice, frequentist intuition is sharper. For
-"how confident is this classifier?", subjective intuition is sharper. The
-math underneath is the same.
-
----
-
-## The formal framework
-
-Both views — frequentist and subjective — agree on the **mathematical
-structure** that any probability assignment has to obey. That structure
-is:
-
-1. A **sample space** $\Omega$ — the set of all possible outcomes.
-2. A collection of **events** — subsets of $\Omega$ that we might want
-   to assign probabilities to.
-3. A **probability law** $P$ — a function that assigns a number to each
-   event, obeying three axioms (non-negativity, normalization,
-   additivity — we'll state them precisely in [Probability law: the
-   three axioms](#probability-law-the-three-axioms) below).
-
-Three pieces. The art is in choosing the first two; the science is in
-working with the third. Let's build each piece against a concrete
-problem we can simulate.
-
-### Concrete problem: rolling two dice
-
-Throughout the rest of this chapter, we'll use a single running example.
-You roll two ordinary six-sided dice. We'll define everything against
-this.
+**Example: Flipping a coin three times.**
 
 ```{python}
-import pandas as pd
-
-# Enumerate all 36 outcomes
-outcomes = [(d1, d2) for d1 in range(1, 7) for d2 in range(1, 7)]
-print(f"Total outcomes: {len(outcomes)}")
-print("First few:", outcomes[:6])
-```
-
-### Sample space
-
-The **sample space** $\Omega$ is the set of all possible outcomes of an
-experiment. For two dice:
-
-$$
-\Omega = \{(1,1), (1,2), \ldots, (6,6)\}, \qquad |\Omega| = 36.
-$$
-
-Three things to insist on, and they're not optional:
-
-1. **Mutually exclusive.** Each die roll produces exactly one outcome.
-   You can't roll "(1,2) and (3,4) at the same time".
-2. **Collectively exhaustive.** Every possible result of the experiment
-   is in the list. You can't roll something not in $\Omega$.
-3. **Right level of detail.** Detailed enough to answer the questions
-   you care about, but no more.
-
-::: {.callout-warning}
-## Why mutual exclusivity matters
-
-Compare these two attempted sample spaces for a single die roll:
-
-- $\Omega_{\text{good}} = \{1, 2, 3, 4, 5, 6\}$ ✓
-- $\Omega_{\text{bad}} = \{\text{"1 or 3"}, \text{"1 or 4"}, 2, 3, 5, 6\}$ ✗
-
-The second one is **broken**. If you roll a 1, *which* outcome occurred —
-"1 or 3" or "1 or 4"? The outcomes overlap (both contain a 1), so the
-result of the experiment isn't uniquely defined. Probability calculations
-break immediately: the axioms assume disjointness when adding.
-
-A working sample space must let you point at exactly one outcome after
-the experiment runs. No ambiguity.
-:::
-
-The third point is subtle. The same experiment — rolling two dice —
-can be modelled with very different sample spaces depending on how much
-detail we keep. Let's compare three of them.
-
-```{python}
-# Three different sample spaces for the SAME experiment: rolling two dice.
-
-# --- (A) Too coarse: record only the SUM of the two dice. ---
-# The smallest possible sum is 1+1 = 2; the largest is 6+6 = 12.
-# So the sample space is the integers from 2 to 12 — eleven outcomes.
-omega_A = list(range(2, 13))
-print(f"(A) Sum of the two dice:")
-print(f"    Ω = {omega_A}")
-print(f"    |Ω| = {len(omega_A)}  (eleven possible sums: 2, 3, ..., 12)")
-print()
-
-# --- (B) The natural one: record the ORDERED PAIR (die1, die2). ---
-# Each die has 6 faces, so there are 6 x 6 = 36 ordered pairs.
-omega_B = outcomes
-print(f"(B) Ordered pair (first die, second die):")
-print(f"    Ω = {{(1,1), (1,2), ..., (6,6)}}")
-print(f"    |Ω| = {len(omega_B)}  (six choices for each die: 6 x 6 = 36)")
-print()
-
-# --- (C) Too fine: ordered pair PLUS colour of each die PLUS the rotation
-# angle each die came to rest at. Infinitely many possibilities, none
-# of which help us answer dice questions. We won't enumerate it.
-print("(C) Ordered pair + colour + rotation angle on landing:")
-print("    |Ω| is effectively infinite — and useless for our questions.")
-```
-
-What does each one let us ask?
-
-- **Sample space (A) — sums only.** Good for *"what's the probability
-  the sum is 7?"*. But it **cannot** answer *"was the first die a 6?"*
-  — that information has been thrown away. The sum 7 could have come
-  from $(1,6), (2,5), (3,4), (4,3), (5,2)$ or $(6,1)$, and (A) doesn't
-  remember which.
-- **Sample space (C) — pairs + colour + rotation angle.** Can answer
-  everything (including questions nobody asked, like *"did the red die
-  land at exactly 47°?"*). The extra detail makes the model harder to
-  work with and adds no value.
-- **Sample space (B) — ordered pairs.** Can answer every question we
-  actually care about (sum, individual die values, parity, max, min,
-  …) and nothing more. **This is the right level of detail.**
-
-::: {.callout-tip}
-## Choosing the sample space is part of modelling
-
-There is no "the" sample space for an experiment. There is the sample
-space *you choose* for the questions you want to answer. This is the
-clearest example of Stage 1 (modelling = art) at work.
-:::
-
-### Events
-
-An **event** is just a subset of $\Omega$. Some examples for our two
-dice:
-
-```{python}
-omega = set(outcomes)
-
-A = {(d1, d2) for d1, d2 in omega if d1 + d2 == 7}        # sum is 7
-B = {(d1, d2) for d1, d2 in omega if d1 == d2}            # doubles
-C = {(d1, d2) for d1, d2 in omega if d1 == 6}             # first die is 6
-D = {(d1, d2) for d1, d2 in omega if d1 + d2 >= 10}       # sum ≥ 10
-
-print(f"A = sum is 7        ({len(A)} outcomes): {sorted(A)}")
-print(f"B = doubles         ({len(B)} outcomes): {sorted(B)}")
-print(f"C = first die is 6  ({len(C)} outcomes): {sorted(C)}")
-print(f"D = sum ≥ 10        ({len(D)} outcomes): {sorted(D)}")
-```
-
-Because events are sets, you can combine them with set operations.
-Combining events gives you new events:
-
-```{python}
-# Sum is 7 OR doubles
-A_or_B = A | B          # set union  → "A or B"
-# Sum is 7 AND first die is 6  → exactly one roll: (6, 1)
-A_and_C = A & C         # set intersection  → "A and C"
-# Sum is 7 but NOT doubles
-A_not_B = A - B         # set difference  → "A but not B"
-# Sum is 7 AND doubles  → impossible (no double sums to 7), so empty set
-A_and_B = A & B
-
-print(f"A ∪ B   ('sum is 7 OR doubles'):           {len(A_or_B)} outcomes")
-print(f"A ∩ C   ('sum is 7 AND first die is 6'):   {len(A_and_C)} outcomes  →  {A_and_C}")
-print(f"A \\ B   ('sum is 7 but not doubles'):      {len(A_not_B)} outcomes")
-print(f"A ∩ B   ('sum is 7 AND doubles'):          {len(A_and_B)} outcomes  →  {A_and_B}  (empty set ∅)")
-```
-
-A few things to notice in the output:
-
-- `A ∩ C` gives the single roll `(6, 1)` — the first die is 6 *and* the
-  sum is 7. So this intersection is **not** empty.
-- `A ∩ B` *is* empty, because no double `(k, k)` sums to 7 (we'd need
-  $2k = 7$, but $k$ has to be a whole number from 1 to 6). When two
-  events cannot happen together, their intersection is the empty set
-  $\emptyset$, and we say they are **disjoint** or **mutually
-  exclusive**.
-
-That's the entire grammar. Set union for "or", set intersection for
-"and", set complement for "not". Probability theory inherits its grammar
-from set theory.
-
-::: {.callout-note collapse="true"}
-## ▶ Show the math — Set algebra and De Morgan's laws
-
-For any events $A$, $B$, $C \subseteq \Omega$, the following identities
-hold and are used constantly:
-
-**Commutative.** $A \cup B = B \cup A$, $\;\; A \cap B = B \cap A$.
-
-**Associative.**
-$(A \cup B) \cup C = A \cup (B \cup C)$,
-$\;\; (A \cap B) \cap C = A \cap (B \cap C)$.
-
-**Distributive.**
-$A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$,
-$\;\; A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$.
-
-**De Morgan's laws** (the most-used one in proofs):
-
-$$
-(A \cup B)^c = A^c \cap B^c, \qquad (A \cap B)^c = A^c \cup B^c.
-$$
-
-In words: "not (A or B)" = "(not A) and (not B)", and the dual.
-:::
-
-Before we go further, a quick detour into something we'll lean on
-shortly: the difference between **countable** and **uncountable** sets.
-The integers and rationals are *countable* (you can list them); the
-real numbers are *uncountable* (you cannot). The next callout makes
-this concrete.
-
-::: {.callout-tip collapse="true"}
-## ▶ Show the math — Different sizes of infinity (Hilbert's Hotel)
-
-If "countable vs uncountable" sounds vague, here's the picture that
-makes it concrete.
-
-**Hilbert's Hotel** has infinitely many rooms — one for each natural
-number — and they're all full. A new guest arrives. Can the manager fit
-them in?
-
-Yes! Move the guest in room 1 to room 2. Move room 2 to room 3. In
-general, move room $n$ to room $n+1$. Room 1 is now free. The new
-guest checks in.
-
-What if **infinitely many** new guests arrive? Still fine. Move every
-current guest from room $n$ to room $2n$. All odd-numbered rooms are
-now empty. Room any number of new guests in them.
-
-This is what mathematicians mean by **countably infinite**: a set is
-countable if you can put its elements in 1-to-1 correspondence with
-the natural numbers $\{1, 2, 3, \ldots\}$. The integers $\mathbb{Z}$
-are countable. Even the algebraic numbers are countable. The
-*rationals* are countable too — and the way Cantor showed this is the
-warm-up for the diagonal argument we'll see in a moment.
-
-**Warm-up: $\mathbb{Q}$ fits in Hilbert's Hotel (Cantor's zigzag).**
-Lay out every positive rational $p/q$ in a 2D grid: row $p$, column
-$q$. The grid contains *every* positive rational somewhere — even
-duplicates like $2/4 = 1/2$ — but it's a 2D infinity, so naively it
-looks "bigger" than $\mathbb{N}$.
-
-Cantor's trick: walk through the grid along anti-diagonals (the lines
-where $p + q$ is constant). Skip any fraction you've already seen in
-lowest terms. Number each new fraction as you go: 1, 2, 3, …. Every
-rational eventually gets a number, so the rationals can be put in
-1-to-1 correspondence with $\mathbb{N}$. They fit.
-
-```{python}
-#| fig-cap: "Cantor's zigzag enumeration of the positive rationals. Walking along anti-diagonals of the (p, q) grid, we visit every fraction p/q. Numbers in green show the visit order, skipping fractions already seen in lowest terms (greyed out). Every rational eventually gets a position — so Q is countable."
 import matplotlib.pyplot as plt
-from math import gcd
+import matplotlib.patches as mpatches
 
-# Build the grid of positive rationals up to numerator/denominator <= 5.
-# Walk anti-diagonals (where p + q is constant), increasing.
-# Skip duplicates: visit p/q only when gcd(p, q) == 1.
-max_pq = 5
-visit_order = {}     # (p, q) -> position number on the list
-seen_values = set()  # set of (p_reduced, q_reduced) already counted
-counter = 0
-for s in range(2, 2 * max_pq + 1):           # s = p + q
-    for p in range(1, s):
-        q = s - p
-        if p > max_pq or q > max_pq:
-            continue
-        g = gcd(p, q)
-        reduced = (p // g, q // g)
-        if reduced in seen_values:
-            visit_order[(p, q)] = None       # duplicate — skip
-        else:
-            counter += 1
-            visit_order[(p, q)] = counter
-            seen_values.add(reduced)
+fig, ax = plt.subplots(figsize=(12, 7))
+ax.axis('off')
 
-fig, ax = plt.subplots(figsize=(7.5, 6))
-ax.set_xlim(0.3, max_pq + 1.0)
-ax.set_ylim(0.3, max_pq + 0.7)
-ax.invert_yaxis()
-ax.axis("off")
+def draw_tree(ax):
+    # Root
+    ax.text(0.5, 0.95, 'Start', ha='center', va='center',
+            fontsize=11, fontweight='bold',
+            bbox=dict(boxstyle='round', facecolor='lightblue', alpha=0.8))
 
-# Column headers (q values)
-for q in range(1, max_pq + 1):
-    ax.text(q, 0.6, f"$q = {q}$", ha="center", va="center",
-            fontsize=11, color="grey")
-# Row headers (p values)
-for p in range(1, max_pq + 1):
-    ax.text(0.5, p, f"$p = {p}$", ha="right", va="center",
-            fontsize=11, color="grey")
+    # Level 1
+    for i, (label, x) in enumerate([('H', 0.25), ('T', 0.75)]):
+        ax.annotate('', xy=(x, 0.75), xytext=(0.5, 0.88),
+                    arrowprops=dict(arrowstyle='->', color='gray'))
+        ax.text(x, 0.75, label, ha='center', va='center', fontsize=11,
+                bbox=dict(boxstyle='round', facecolor='lightyellow', alpha=0.8))
 
-# Draw the grid cells with the fraction p/q
-for (p, q), pos in visit_order.items():
-    is_visited = pos is not None
-    label = f"$\\frac{{{p}}}{{{q}}}$"
-    if is_visited:
-        ax.text(q, p, label, ha="center", va="center", fontsize=14,
-                color="black", fontweight="bold",
-                bbox=dict(boxstyle="round,pad=0.3",
-                          facecolor="white", edgecolor="#27ae60", lw=1.5))
-        # Visit-order number in the corner
-        ax.text(q + 0.32, p - 0.32, str(pos), ha="center", va="center",
-                fontsize=10, color="#27ae60", fontweight="bold")
-    else:
-        ax.text(q, p, label, ha="center", va="center", fontsize=12,
-                color="lightgrey")
+    # Level 2
+    l2 = [('H', 0.125), ('T', 0.375), ('H', 0.625), ('T', 0.875)]
+    l2_parents = [0.25, 0.25, 0.75, 0.75]
+    for (label, x), px in zip(l2, l2_parents):
+        ax.annotate('', xy=(x, 0.52), xytext=(px, 0.68),
+                    arrowprops=dict(arrowstyle='->', color='gray'))
+        ax.text(x, 0.52, label, ha='center', va='center', fontsize=10,
+                bbox=dict(boxstyle='round', facecolor='lightyellow', alpha=0.8))
 
-# Draw arrows along the visit path connecting consecutive numbers
-path = sorted(
-    [(pos, p, q) for (p, q), pos in visit_order.items() if pos is not None],
-    key=lambda t: t[0],
-)
-for k in range(len(path) - 1):
-    _, p1, q1 = path[k]
-    _, p2, q2 = path[k + 1]
-    ax.annotate("", xy=(q2, p2), xytext=(q1, p1),
-                arrowprops=dict(arrowstyle="->", color="#27ae60",
-                                lw=1.0, alpha=0.5))
+    # Level 3 (leaves)
+    l3 = [('H','HHH'), ('T','HHT'), ('H','HTH'), ('T','HTT'),
+          ('H','THH'), ('T','THT'), ('H','TTH'), ('T','TTT')]
+    l3_x = [0.0625, 0.1875, 0.3125, 0.4375, 0.5625, 0.6875, 0.8125, 0.9375]
+    l3_parents = [0.125, 0.125, 0.375, 0.375, 0.625, 0.625, 0.875, 0.875]
+    for (label, outcome), x, px in zip(l3, l3_x, l3_parents):
+        ax.annotate('', xy=(x, 0.30), xytext=(px, 0.45),
+                    arrowprops=dict(arrowstyle='->', color='gray'))
+        ax.text(x, 0.30, label, ha='center', va='center', fontsize=9,
+                bbox=dict(boxstyle='round', facecolor='lightyellow', alpha=0.8))
+        ax.text(x, 0.12, outcome, ha='center', va='center', fontsize=9,
+                color='darkgreen', fontweight='bold')
 
-ax.set_title("Cantor's zigzag: every positive rational gets a number",
+draw_tree(ax)
+ax.set_title('Tree diagram: three coin tosses\n(leaves = sample space outcomes)',
              fontsize=12)
 plt.tight_layout()
 plt.show()
 ```
 
-So the rationals — even though they form a 2D infinity — *fit* in
-Hilbert's Hotel. The same geometric idea (walk a 2D table along its
-diagonals) gives us a 1D listing.
+The sample space is all 8 leaf nodes:
+$$\Omega = \{\text{HHH, HHT, HTH, HTT, THH, THT, TTH, TTT}\}$$
 
-**The punchline: the reals don't fit.** Hilbert's Hotel **cannot**
-accommodate the **real numbers** $\mathbb{R}$. Cantor proved this in
-1891 with his famous **diagonal argument**: assume you have a list of
-all reals between 0 and 1; construct a new real that differs from the
-$n$-th entry in its $n$-th decimal digit; this new real is on the list
-(we said the list was complete) but cannot be on the list (it differs
-from every entry). Contradiction. So no list exists.
+Each path from root to leaf represents one complete outcome. Tree diagrams are especially useful because they make it impossible to miss outcomes or double-count them.
 
-The same diagonal geometry that *succeeded* for $\mathbb{Q}$ now
-*fails* for $\mathbb{R}$. For $\mathbb{Q}$, walking the diagonals
-*enumerated* every fraction. For $\mathbb{R}$, walking the diagonal of
-any attempted list lets us *escape* it — build a real that's missing.
+### Continuous Sample Spaces
 
-The picture below shows it in action. The boxed digits along the
-diagonal — $d_{11}, d_{22}, d_{33}, \ldots$ — are read off the
-supposed list. The new number $r^\star$ at the bottom is built by
-flipping each diagonal digit (we use the rule "if it's $\le 4$, change
-to 8; otherwise change to 1"). Whatever row you point to, $r^\star$
-differs from it *in at least one position* — so $r^\star$ cannot be
-on the list. But the list was supposed to contain *every* real in
-$[0, 1]$. Contradiction.
+Some experiments have outcomes that take any value in a continuous range.
+
+**Example: Throwing a dart at a unit square.**
+
+$$\Omega = \{(x, y) \mid 0 \le x \le 1,\ 0 \le y \le 1\}$$
+
+Here $(x, y)$ is the position where the dart lands, measured with infinite precision. There are uncountably many possible outcomes — you cannot list them. This is a **continuous** sample space.
+
+---
+
+## 3. Events
+
+In a continuous sample space, asking "what is the probability of landing on exactly the point $(0.5, 0.3)$?" leads to trouble — there are infinitely many points, so if each had positive probability, the total would be infinite. The solution is to assign probabilities to *regions*, not individual points.
+
+::: {.callout-important}
+## Event
+An **event** is any subset $A \subseteq \Omega$ of the sample space. We say event $A$ **occurs** if the outcome of the experiment is an element of $A$.
+:::
+
+**Examples for the dart throw:**
+
+- $A = \{(x,y) \mid x + y \le 0.5\}$ — the dart lands in the lower-left triangle.
+- $B = \{(x,y) \mid x \ge 0.5\}$ — the dart lands in the right half.
+- $C = \{(0.5, 0.3)\}$ — the dart lands on a specific point (probability will be 0).
+
+### Set Operations on Events
+
+Since events are sets, all set operations apply:
+
+| Operation | Symbol | Meaning |
+|---|---|---|
+| Complement | $A^c$ | $A$ does not occur |
+| Union | $A \cup B$ | $A$ or $B$ (or both) occur |
+| Intersection | $A \cap B$ | Both $A$ and $B$ occur |
+| Disjoint | $A \cap B = \emptyset$ | $A$ and $B$ cannot both occur |
+
+These operations are your main tools for building complex events from simple ones.
+
+---
+
+## 4. Probability Laws and Axioms
+
+### Motivation
+
+We need a rule that assigns a number $P(A)$ to every event $A$, capturing how likely it is. What properties should such a rule have?
+
+Think about it intuitively:
+
+- A likelihood below zero makes no sense — so probabilities must be **non-negative**.
+- Something must happen — so the total probability of the entire sample space must be **1**.
+- If two events cannot both occur (disjoint events), the probability of either one happening is the **sum** of their individual probabilities. Rolling a 1 *or* a 2 on a fair die has probability $\frac{1}{6} + \frac{1}{6} = \frac{1}{3}$.
+
+These three intuitions are not arbitrary. They turn out to be exactly the *minimum* set of rules needed for a consistent and useful theory of probability. They are the **axioms**.
+
+::: {.callout-important}
+## The Kolmogorov Axioms
+
+A **probability law** $P$ is a function that assigns a number $P(A)$ to every event $A \subseteq \Omega$, satisfying:
+
+**(A1) Non-negativity.** $P(A) \ge 0$ for every event $A$.
+
+**(A2) Normalization.** $P(\Omega) = 1$.
+
+**(A3) Additivity.** If $A$ and $B$ are disjoint ($A \cap B = \emptyset$), then
+$$P(A \cup B) = P(A) + P(B).$$
+:::
+
+**Think of probability as mass.** Imagine spreading 1 kilogram of mass over the sample space. $P(A)$ is the mass sitting on top of region $A$. Non-negativity says mass can't be negative. Normalization says the total mass is 1 kg. Additivity says non-overlapping regions just add their masses.
+
+Three axioms. That is the entire foundation. Everything else in probability — every formula, theorem, and proof — follows from these three.
+
+### Extending Additivity to Infinite Sequences
+
+The additivity axiom above handles two disjoint events. But many experiments have infinitely many possible stages. Consider tossing a coin until the first heads appears — the number of tosses could be 1, 2, 3, ... with no bound. The events "first heads on toss $n$" are mutually exclusive for different $n$, and together they cover all possibilities. We need:
+
+$$P(\text{toss 1}) + P(\text{toss 2}) + P(\text{toss 3}) + \cdots = 1$$
+
+For this to work, we need to extend the additivity axiom:
+
+::: {.callout-important}
+## Countable Additivity
+
+If $A_1, A_2, A_3, \ldots$ is an infinite sequence of pairwise disjoint events, then:
+$$P\!\left(\bigcup_{i=1}^{\infty} A_i\right) = \sum_{i=1}^{\infty} P(A_i)$$
+:::
+
+The word **sequence** here is critical — we need the events to be arrangeable in a list (countably many). This works for coin tosses, dice rolls, integers. It does *not* apply to uncountable collections like every individual point in $[0,1]$ — we will see why shortly.
+
+---
+
+## 5. Derived Properties of Probability
+
+From just the three axioms, we can derive every useful property of probability. Here are the key ones:
+
+### Complement Rule
+
+$$P(A^c) = 1 - P(A)$$
+
+*Proof.* $A$ and $A^c$ are disjoint and $A \cup A^c = \Omega$. By A3: $P(A) + P(A^c) = P(\Omega) = 1$. $\blacksquare$
+
+**Example**: If there is a 30% chance of rain, there is a 70% chance of no rain.
+
+### Probability of the Empty Set
+
+$$P(\emptyset) = 0$$
+
+*Proof.* $\Omega^c = \emptyset$, so by the complement rule: $P(\emptyset) = 1 - P(\Omega) = 1 - 1 = 0$. $\blacksquare$
+
+### Upper Bound
+
+$$P(A) \le 1$$
+
+*Proof.* $P(A) = 1 - P(A^c) \le 1$ since $P(A^c) \ge 0$. $\blacksquare$
+
+### Generalized Additivity
+
+If $A_1, A_2, \ldots, A_k$ are pairwise disjoint:
+$$P\!\left(\bigcup_{i=1}^k A_i\right) = \sum_{i=1}^k P(A_i)$$
+
+*Proof.* Apply A3 repeatedly: $P(A_1 \cup A_2 \cup A_3) = P(A_1 \cup A_2) + P(A_3) = P(A_1) + P(A_2) + P(A_3)$. Continue by induction. $\blacksquare$
+
+### Monotonicity
+
+If $A \subseteq B$, then $P(A) \le P(B)$.
+
+*Proof.* Write $B = A \cup (B \cap A^c)$. These are disjoint, so $P(B) = P(A) + P(B \cap A^c) \ge P(A)$ since $P(B \cap A^c) \ge 0$. $\blacksquare$
+
+**Intuition**: If $A$ is a subset of $B$, then whenever $A$ occurs, $B$ also occurs — so $B$ is at least as likely.
+
+### Inclusion-Exclusion
+
+$$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$
+
+*Proof.* Decompose $A \cup B$ into three disjoint pieces:
+
+- $a = A \cap B^c$ (only in $A$)
+- $b = A \cap B$ (in both)
+- $c = B \cap A^c$ (only in $B$)
+
+Then $P(A \cup B) = a + b + c$, $P(A) = a + b$, $P(B) = b + c$, so $P(A) + P(B) - P(A \cap B) = (a+b) + (b+c) - b = a + b + c$. $\blacksquare$
+
+**When two events overlap, you must subtract the overlap to avoid counting it twice.**
+
+### Union Bound (Boole's Inequality)
+
+$$P(A \cup B) \le P(A) + P(B)$$
+
+This follows immediately from inclusion-exclusion since $P(A \cap B) \ge 0$. It is useful when you want a quick upper bound and computing $P(A \cap B)$ is hard.
 
 ```{python}
-#| fig-cap: "Cantor's diagonal argument: r* differs from every row in the diagonal position, so r* cannot be on the list — yet the list was supposed to contain every real in [0, 1]."
+import numpy as np
+
+# Verify all properties numerically on the 4-sided die example
+omega = {(i, j) for i in range(1, 5) for j in range(1, 5)}
+n = len(omega)  # 16
+
+def P(event):
+    return len(event) / n
+
+# Define events
+A = {(i, j) for i, j in omega if i == 1}       # first roll = 1
+B = {(i, j) for i, j in omega if i + j >= 7}   # sum >= 7
+
+print(f"P(A) = {P(A):.4f}")
+print(f"P(B) = {P(B):.4f}")
+print(f"P(A^c) = {P(omega - A):.4f}  (should be 1 - P(A) = {1 - P(A):.4f})")
+print(f"P(A ∩ B) = {P(A & B):.4f}")
+print(f"P(A ∪ B) = {P(A | B):.4f}")
+print(f"P(A) + P(B) - P(A ∩ B) = {P(A) + P(B) - P(A & B):.4f}  (inclusion-exclusion ✓)")
+print(f"P(A) + P(B) = {P(A) + P(B):.4f}  (union bound ≥ P(A ∪ B) ✓)")
+```
+
+---
+
+## 6. The Discrete Uniform Law
+
+The axioms tell us *what conditions* a probability law must satisfy — they do not tell us *which* law to use. The simplest and most common choice for a finite sample space is to treat all outcomes as equally likely.
+
+::: {.callout-important}
+## Discrete Uniform Law
+
+If $\Omega$ has $n$ outcomes and all are equally likely, then each outcome has probability $\frac{1}{n}$, and for any event $A$:
+
+$$P(A) = \frac{|A|}{n} = \frac{\text{number of outcomes in } A}{\text{total number of outcomes}}$$
+:::
+
+**Under the Discrete Uniform Law, probability becomes a counting problem.** To find $P(A)$, you count.
+
+**Example: Two rolls of a 4-sided die** ($n = 16$, all equally likely).
+
+```{python}
+omega = {(i, j) for i in range(1, 5) for j in range(1, 5)}
+n = len(omega)
+
+def P_uniform(event, total=n):
+    return len(event) / total
+
+# Example A: P(first roll = 1)
+A = {(i, j) for i, j in omega if i == 1}
+print(f"P(first roll = 1) = {len(A)}/{n} = {P_uniform(A):.4f}")
+
+# Example B: P(minimum = 4)
+B = {(i, j) for i, j in omega if min(i, j) == 4}
+print(f"P(minimum = 4)   = {len(B)}/{n} = {P_uniform(B):.4f}")
+
+# Example C: P(minimum = 2)
+C = {(i, j) for i, j in omega if min(i, j) == 2}
+print(f"P(minimum = 2)   = {len(C)}/{n} = {P_uniform(C):.4f}")
+```
+
+Notice how Example C is not just $(2,2)$ — you need to count carefully: $(2,2), (2,3), (2,4), (3,2), (4,2)$ — five outcomes. Getting the count right is the skill.
+
+---
+
+## 7. The Continuous Uniform Law
+
+For a continuous sample space, individual outcomes have zero probability. Instead, we assign probability to *regions*, and the natural choice is that probability equals area (or length, or volume).
+
+::: {.callout-important}
+## Continuous Uniform Law
+
+For a sample space that is a region of area 1:
+$$P(A) = \text{Area}(A)$$
+
+More generally, if $\Omega$ has area $|\Omega|$:
+$$P(A) = \frac{\text{Area}(A)}{\text{Area}(\Omega)}$$
+:::
+
+**Example: Dart thrown at a unit square.**
+
+$\Omega = \{(x,y) \mid 0 \le x \le 1,\ 0 \le y \le 1\}$, area = 1.
+
+**What is $P(x + y \le 0.5)$?**
+
+The event is the triangle below the line $y = 0.5 - x$:
+
+$$\text{Area} = \frac{1}{2} \times \text{base} \times \text{height} = \frac{1}{2} \times \frac{1}{2} \times \frac{1}{2} = \frac{1}{8}$$
+
+**What is $P(\text{dart lands on exactly } (0.5, 0.3))$?**
+
+A single point has zero area, so $P = 0$. This is the key insight: in continuous models, individual outcomes have zero probability, but *regions* have positive probability.
+
+```{python}
 import matplotlib.pyplot as plt
 import numpy as np
 
-# A made-up "list of all reals in [0, 1]" — five rows, six digits each
-# (in reality the list would be infinite and the digits would go on
-# forever; we truncate for the picture).
-rows = [
-    [3, 1, 4, 1, 5, 9],
-    [2, 7, 1, 8, 2, 8],
-    [1, 4, 1, 4, 2, 1],
-    [0, 5, 7, 7, 2, 1],
-    [9, 2, 5, 6, 5, 3],
-]
+fig, axes = plt.subplots(1, 2, figsize=(11, 5))
 
-n_rows = len(rows)
-n_cols = len(rows[0])
+# Left: P(x + y <= 0.5)
+ax = axes[0]
+ax.set_xlim(-0.05, 1.05)
+ax.set_ylim(-0.05, 1.05)
+ax.add_patch(plt.Polygon([[0,0],[0.5,0],[0,0.5]], color='steelblue', alpha=0.5, label='Event: x+y ≤ 0.5'))
+ax.add_patch(plt.Rectangle([0,0], 1, 1, fill=False, edgecolor='black', linewidth=2))
+ax.set_xlabel('x (Romeo delay)')
+ax.set_ylabel('y')
+ax.set_title(r'$P(x + y \leq 0.5) = \frac{1}{8}$', fontsize=13)
+ax.legend()
+ax.set_aspect('equal')
 
-# Build the diagonal-flipped number r*: differ from row n in position n.
-flip = lambda d: 8 if d <= 4 else 1
-r_star = [flip(rows[i][i]) for i in range(n_rows)]
-
-fig, ax = plt.subplots(figsize=(8, 4.5))
-ax.set_xlim(-0.5, n_cols + 1.0)
-ax.set_ylim(-2.0, n_rows + 0.5)
-ax.invert_yaxis()
-ax.axis("off")
-
-# Header row: column indices d_1, d_2, ...
-for j in range(n_cols):
-    ax.text(j + 1, -0.3, f"$d_{j+1}$", ha="center", va="center",
-            fontsize=12, color="grey")
-
-# The list of reals
-for i, row in enumerate(rows):
-    ax.text(0, i, f"$r_{i+1} = 0.$", ha="right", va="center", fontsize=13)
-    for j, digit in enumerate(row):
-        is_diag = (i == j)
-        ax.text(j + 1, i, str(digit), ha="center", va="center",
-                fontsize=14,
-                color="white" if is_diag else "black",
-                fontweight="bold" if is_diag else "normal",
-                bbox=dict(
-                    boxstyle="round,pad=0.25",
-                    facecolor="#c0392b" if is_diag else "white",
-                    edgecolor="#c0392b" if is_diag else "lightgrey",
-                ))
-
-# Separator
-ax.plot([-0.3, n_cols + 0.5], [n_rows - 0.5, n_rows - 0.5],
-        color="black", lw=1)
-
-# r*: built by flipping the diagonal
-ax.text(0, n_rows + 0.2, r"$r^\star = 0.$", ha="right", va="center",
-        fontsize=13, fontweight="bold")
-for j, digit in enumerate(r_star):
-    ax.text(j + 1, n_rows + 0.2, str(digit), ha="center", va="center",
-            fontsize=14, fontweight="bold", color="white",
-            bbox=dict(boxstyle="round,pad=0.25",
-                      facecolor="#27ae60", edgecolor="#27ae60"))
-
-ax.text(n_cols + 0.6, n_rows + 0.2,
-        r"differs from $r_n$ in position $n$",
-        ha="left", va="center", fontsize=11, color="#27ae60", style="italic")
+# Right: simulation to verify
+ax2 = axes[1]
+np.random.seed(42)
+N = 5000
+x = np.random.uniform(0, 1, N)
+y = np.random.uniform(0, 1, N)
+in_event = (x + y) <= 0.5
+ax2.scatter(x[~in_event], y[~in_event], c='lightgray', s=2, alpha=0.5)
+ax2.scatter(x[in_event], y[in_event], c='steelblue', s=2, alpha=0.7)
+ax2.set_title(f'Monte Carlo estimate: {in_event.mean():.4f} (true = 0.1250)', fontsize=11)
+ax2.set_xlabel('x')
+ax2.set_ylabel('y')
+ax2.set_aspect('equal')
 
 plt.tight_layout()
 plt.show()
 ```
 
-**"But you only showed five numbers — how is this a proof?"** This is
-the right question to ask. The list is supposed to be *infinite*, and
-we obviously can't write down infinitely many entries. So how does the
-argument generalise?
+### The 4-Step Procedure
 
-The trick is that **the proof is not about a particular list — it's
-about *any* list**. We never construct the list ourselves. The
-opponent does (or claims they could). All we provide is a **recipe**
-that, applied to *any* list, produces a number missing from it. The
-recipe is one short sentence:
-
-> *"For each $n$, the $n$-th digit of $r^\star$ is different from the
-> $n$-th digit of $r_n$."*
-
-Notice what this recipe needs to know: just the $n$-th digit of the
-$n$-th row, for every $n$. Whatever list you hand me — five rows or
-five trillion — the same recipe applies.
-
-Now suppose someone says: *"You stopped at row 5. Maybe $r^\star$ is at
-row 1,000,000 of the real list."* My reply: if $r^\star = r_{1{,}000{,}000}$,
-they must agree in *every* decimal position — including the
-1,000,000-th. But by the recipe, the 1,000,000-th digit of $r^\star$ is
-*defined* to differ from the 1,000,000-th digit of $r_{1{,}000{,}000}$.
-So they can't be equal. The same argument works for *any* row number,
-no matter how large — because the disagreement at row $n$ is built into
-the construction *for every $n$*, not checked one by one. That's the
-crucial move: a single finite recipe handles infinitely many cases
-simultaneously.
-
-So the worked example with five rows is just a **visual aid** — you can
-see the geometry of the diagonal in a small case. The real proof works
-on the infinite case because the recipe doesn't depend on the list's
-length. It works for *any* list, including the imagined infinite one.
-
-::: {.callout-note collapse="true"}
-## ▶ Why doesn't this argument also "disprove" $\mathbb{Q}$?
-
-You might wonder: couldn't we apply the same diagonal trick to a list
-of rationals $q_1, q_2, q_3, \ldots$ and conclude that $\mathbb{Q}$ is
-also uncountable? But we just showed $\mathbb{Q}$ *is* countable
-(zigzag), so something must rescue us.
-
-Here's the rescue. The diagonal recipe builds $r^\star$ digit by
-digit. The result is a real number — but with no guarantee that its
-decimal expansion is eventually periodic. **Infinite non-repeating
-decimals are irrational.** So the constructed $r^\star$ is generally
-not a rational at all.
-
-That means: when the opponent's list is supposed to contain every
-*rational*, our $r^\star$ being missing from it is *not* a
-contradiction — $r^\star$ was never required to be on a list of
-rationals in the first place.
-
-When the opponent's list is supposed to contain every *real*, our
-$r^\star$ being missing **is** a contradiction — because $r^\star$ is
-a real, by construction (any decimal expansion defines a real).
-
-That asymmetry — *"diagonalising a list of rationals escapes
-$\mathbb{Q}$, but diagonalising a list of reals stays inside
-$\mathbb{R}$"* — is the entire reason the argument works for one and
-not the other.
-:::
-
-This means there are **at least two genuinely different sizes of
-infinity**: the countable (the rooms in Hilbert's Hotel) and the
-uncountable (the real line). It also means probability theory on
-$\mathbb{R}$ is fundamentally different from probability on a
-finite set — which is why we'll need calculus, integration, and
-measure theory once we get to continuous distributions.
-
-That's all the measure theory we need for now. Welcome to the deep end.
-:::
-
-With that distinction in hand, a small caveat about events is worth
-knowing — though we won't use it directly. So far we've said *"event =
-subset of $\Omega$"* without worrying about it. For finite or
-countable sample spaces (dice, coins, integers) that's exactly right.
-For uncountable sample spaces — like the real line — every individual point still has probability zero, and probabilities are assigned to intervals and regions instead. This is all you need to work with continuous probability. The deeper question of *which* subsets of the real line can be assigned a probability at all belongs to measure theory, a topic beyond the scope of this book.
-
-### Probability law: the three axioms
-
-A **probability law** $P$ is a function from events to numbers that
-satisfies three axioms:
-
-::: {.callout-important}
-## The Kolmogorov axioms
-
-For any events $A, B$ in a sample space $\Omega$:
-
-- **(A1) Non-negativity.** $\;\;P(A) \ge 0$.
-- **(A2) Normalization.** $\;\;P(\Omega) = 1$.
-- **(A3) Additivity.** If $A$ and $B$ are disjoint ($A \cap B =
-  \emptyset$), then
-  $$ P(A \cup B) = P(A) + P(B). $$
-
-  More generally, for a countably infinite sequence of pairwise disjoint
-  events $A_1, A_2, \ldots$:
-  $$ P\!\left(\bigcup_{i=1}^{\infty} A_i\right) = \sum_{i=1}^{\infty} P(A_i). $$
-:::
-
-Three axioms. That's the whole foundation. Everything else in probability
-theory — every formula, every theorem, every proof — follows from these
-three.
-
-Let's verify them on our dice.
-
-```{python}
-# For fair dice, each of the 36 outcomes has probability 1/36.
-# We define the probability law as: for any event E, P(E) = |E| / 36.
-
-def P(event):
-    return len(event) / 36
-
-# (A1) Non-negativity — trivially true since |event| ≥ 0
-print(f"(A1) P(A) = {P(A):.4f} ≥ 0 ✓")
-
-# (A2) Normalization
-print(f"(A2) P(Ω) = {P(omega)} = 1 ✓")
-
-# (A3) Additivity. Pick two disjoint events.
-# E = "sum is 7", F = "sum is 11" — these can't both happen.
-E = {(d1, d2) for d1, d2 in omega if d1 + d2 == 7}
-F = {(d1, d2) for d1, d2 in omega if d1 + d2 == 11}
-print(f"     E ∩ F = {E & F} (disjoint ✓)")
-print(f"     P(E) + P(F) = {P(E):.4f} + {P(F):.4f} = {P(E) + P(F):.4f}")
-print(f"     P(E ∪ F)    = {P(E | F):.4f}")
-print(f"     Equal ✓")
-```
-
-That's it. The rest of probability theory is just consequences of these
-three rules.
-
-::: {.callout-note collapse="true"}
-## ▶ Show the math — Useful consequences of the axioms
-
-From the three axioms alone, we can derive a long list of useful facts.
-Here are the most-used ones, with proofs.
-
-**1. $P(\emptyset) = 0$.**
-
-*Proof.* $\Omega = \Omega \cup \emptyset$ and these are disjoint, so by
-(A3): $P(\Omega) = P(\Omega) + P(\emptyset)$, which gives $P(\emptyset)
-= 0$. $\blacksquare$
-
-**2. Complement rule: $P(A^c) = 1 - P(A)$.**
-
-*Proof.* $A$ and $A^c$ are disjoint and $A \cup A^c = \Omega$. By (A3):
-$P(A) + P(A^c) = P(\Omega) = 1$. Rearranging gives the claim.
-$\blacksquare$
-
-**3. Upper bound: $P(A) \le 1$.**
-
-*Proof.* From (2), $P(A) = 1 - P(A^c) \le 1$ since $P(A^c) \ge 0$ by
-(A1). $\blacksquare$
-
-**4. Monotonicity: if $A \subseteq B$, then $P(A) \le P(B)$.**
-
-*Proof.* Write $B$ as a disjoint union: $B = A \cup (B \cap A^c)$. By
-(A3): $P(B) = P(A) + P(B \cap A^c) \ge P(A)$, since
-$P(B \cap A^c) \ge 0$. $\blacksquare$
-
-**5. Inclusion–exclusion (two events):**
-
-$$
-P(A \cup B) = P(A) + P(B) - P(A \cap B).
-$$
-
-*Proof.* Decompose $A \cup B$ into three disjoint pieces:
-$$
-A \cup B = (A \cap B^c) \;\sqcup\; (A^c \cap B) \;\sqcup\; (A \cap B).
-$$
-
-Apply (A3) and rearrange. $\blacksquare$
-
-**6. Union bound (Boole's inequality):**
-
-$$
-P(A \cup B) \le P(A) + P(B), \qquad
-P\!\left(\bigcup_i A_i\right) \le \sum_i P(A_i).
-$$
-
-*Proof.* For two events, this is (5) plus $P(A \cap B) \ge 0$. The
-general case follows by induction on the number of events (and a small
-extra argument for countable unions). $\blacksquare$
-
-The union bound looks weak — it just throws away the intersection — but
-it's used constantly in machine learning theory because it requires no
-assumptions about how the events relate to each other.
-:::
-
----
-
-## Sequential experiments and tree diagrams
-
-Many real experiments unfold **in stages**. You don't roll all your dice
-at once — you roll the first, see what happens, then roll the second.
-You don't measure all your sensor outputs at once — readings come in
-over time. You don't read an email and decide it's spam in a single
-glance — you check the sender, then the subject line, then the body.
-
-For these step-by-step experiments, the cleanest representation is a
-**tree diagram**. Each branch from a node represents a possible outcome
-at that stage; each path from root to leaf is one complete sequence of
-outcomes. The set of all leaves is the sample space.
-
-Let's draw one. We'll use the simplest sequential experiment that's
-still interesting: **flipping a fair coin three times**.
-
-```{python}
-import matplotlib.pyplot as plt
-from matplotlib.patches import FancyArrowPatch
-
-fig, ax = plt.subplots(figsize=(11, 6))
-
-# Each level's x positions and labels
-def draw_tree(ax):
-    # Layout: stage in y, paths in x
-    # Stage 0 (root) at y=3, then stage 1 at y=2, stage 2 at y=1, stage 3 at y=0
-    nodes = {
-        "root": (4, 3),
-        "H":   (2, 2),  "T":   (6, 2),
-        "HH":  (1, 1),  "HT":  (3, 1),  "TH":  (5, 1),  "TT":  (7, 1),
-        "HHH": (0.5, 0), "HHT": (1.5, 0),
-        "HTH": (2.5, 0), "HTT": (3.5, 0),
-        "THH": (4.5, 0), "THT": (5.5, 0),
-        "TTH": (6.5, 0), "TTT": (7.5, 0),
-    }
-    edges = [
-        ("root", "H"), ("root", "T"),
-        ("H", "HH"), ("H", "HT"), ("T", "TH"), ("T", "TT"),
-        ("HH", "HHH"), ("HH", "HHT"), ("HT", "HTH"), ("HT", "HTT"),
-        ("TH", "THH"), ("TH", "THT"), ("TT", "TTH"), ("TT", "TTT"),
-    ]
-
-    # Draw edges first (under nodes)
-    for a, b in edges:
-        ax.plot([nodes[a][0], nodes[b][0]], [nodes[a][1], nodes[b][1]],
-                color="#94a3b8", lw=1.5, zorder=1)
-
-    # Draw nodes
-    for name, (x, y) in nodes.items():
-        if name == "root":
-            ax.scatter(x, y, s=600, c="#1f2937", zorder=3)
-            ax.annotate("start", xy=(x, y+0.18), ha="center", fontsize=10, color="#1f2937")
-        elif len(name) == 3:
-            # Leaf — colour by number of heads
-            n_heads = name.count("H")
-            shades = ["#fef3c7", "#fde68a", "#fcd34d", "#f59e0b"]
-            ax.scatter(x, y, s=900, c=shades[n_heads],
-                       edgecolor="#92400e", linewidth=1.5, zorder=3)
-            ax.annotate(name, xy=(x, y), ha="center", va="center",
-                        fontsize=10, fontweight="bold", color="#78350f", zorder=4)
-        else:
-            ax.scatter(x, y, s=600, c="white", edgecolor="#475569",
-                       linewidth=1.5, zorder=3)
-            ax.annotate(name, xy=(x, y), ha="center", va="center",
-                        fontsize=9, color="#1f2937", zorder=4)
-
-    # Stage labels on the left
-    for stage_y, label in [(3, "Start"), (2, "Toss 1"), (1, "Toss 2"), (0, "Toss 3")]:
-        ax.annotate(label, xy=(-0.4, stage_y), ha="right", va="center",
-                    fontsize=10, color="#475569", style="italic")
-
-    ax.set_xlim(-1, 8.5)
-    ax.set_ylim(-0.5, 3.5)
-    ax.axis("off")
-    ax.set_title("Tree diagram: three coin tosses → 8 leaf outcomes",
-                 fontsize=12, pad=10)
-
-draw_tree(ax)
-plt.tight_layout()
-plt.show()
-```
-
-A few things this picture makes obvious:
-
-- **Sample space is the leaves.**
-  $\Omega = \{\text{HHH, HHT, HTH, HTT, THH, THT, TTH, TTT}\}$, so
-  $|\Omega| = 2^3 = 8$. (More generally: $2^n$ leaves for $n$ tosses.)
-
-- **Events are sets of leaves.** "Exactly 2 heads" =
-  $\{\text{HHT, HTH, THH}\}$ (the medium-shaded leaves above).
-  "At least 1 head" = all leaves except $\{\text{TTT}\}$.
-
-- **Probabilities follow paths.** Each branch in a fair coin tree is
-  taken with probability $1/2$, and the probability of reaching a
-  specific leaf is the product along the path: $(1/2)(1/2)(1/2) = 1/8$.
-  Multiply along branches; add across branches.
-
-Let's verify by computing some probabilities directly from the tree:
-
-```{python}
-from itertools import product
-
-# Generate all leaves
-leaves = list(product("HT", repeat=3))
-print(f"Sample space size: {len(leaves)}")
-print(f"All leaves: {[''.join(l) for l in leaves]}")
-
-# Each leaf has probability (1/2)^3 = 1/8 since each toss is independent
-# (we'll formalise 'independence' next chapter; for now treat the tree
-# as visual evidence)
-p_leaf = 1 / 8
-
-# Event A: exactly 2 heads
-event_A = [l for l in leaves if l.count("H") == 2]
-print(f"\nP(exactly 2 heads) = {len(event_A)}/8 = {len(event_A)/8}")
-print(f"  leaves: {[''.join(l) for l in event_A]}")
-
-# Event B: at least 1 head
-event_B = [l for l in leaves if l.count("H") >= 1]
-print(f"\nP(at least 1 head) = {len(event_B)}/8 = {len(event_B)/8}")
-
-# Event C: all three are the same
-event_C = [l for l in leaves if l.count("H") in (0, 3)]
-print(f"\nP(all same) = {len(event_C)}/8 = {len(event_C)/8}")
-```
-
-Trees aren't just pictures — they're a **systematic way to enumerate**
-sequential outcomes without missing any or double-counting. Whenever a
-problem can be described as "first this happens, then that, then…",
-draw the tree first. The math becomes obvious.
+Tsitsiklis's systematic approach to any probability problem:
 
 ::: {.callout-tip}
-## Why we'll keep coming back to trees
+## 4-Step Procedure for Probability Problems
 
-Trees are the natural picture for **conditional probability** (the next
-chapter). The branches into a node from above are the conditioning;
-the branches out are the conditional probabilities given that you've
-arrived. Bayes' rule is just "go up the tree and re-weight". We'll
-build up to that — but the tree you just drew is the seed.
+1. **Specify the sample space $\Omega$** — what are all possible outcomes?
+2. **Specify the probability law** — which law applies? Does it satisfy the axioms?
+3. **Identify the event of interest** — translate the word problem into a subset of $\Omega$. **Draw a picture**.
+4. **Calculate** — use the law and the axioms to get the number.
+
+Steps 1–3 are the setup. Step 4 is the arithmetic. Most errors happen in steps 1–3.
 :::
 
 ---
 
-## Tying it together: simulating the dice
+## 8. Countable Additivity and the $1 = 0$ Paradox
 
-We've defined a model: $\Omega$, events, probability law. **Stage 1
-done.** Now we do **Stage 2** (analysis) and check it against
-simulation.
+### Infinite Discrete Sample Spaces
 
-> *Question.* What's the probability that the sum of two dice is 7?
+Some experiments have infinitely many possible outcomes.
 
-Let's compute it three ways and watch them agree.
+**Example**: Toss a fair coin until the first heads appears. The number of tosses is the outcome.
 
-::: {.callout-important}
-## The classical probability formula
+$$\Omega = \{1, 2, 3, \ldots\}, \quad P(n) = \frac{1}{2^n}$$
 
-When all outcomes in a finite sample space are **equally likely**, the
-probability of any event $A$ is simply
+Check normalization:
+$$\sum_{n=1}^{\infty} \frac{1}{2^n} = \frac{1/2}{1 - 1/2} = 1 \checkmark$$
 
-$$
-P(A) \;=\; \frac{|A|}{|\Omega|} \;=\; \frac{\text{number of outcomes in } A}{\text{total number of outcomes}}.
-$$
+What is the probability the outcome is even? Let $A = \{2, 4, 6, \ldots\}$:
 
-This is sometimes called the **discrete uniform probability law**, and
-it's the workhorse formula behind half the probability problems you'll
-ever solve. It reduces probability to a counting problem — which is why
-combinatorics (Part II of the book) gets so useful, so quickly.
-
-For our two dice, every outcome has probability $1/36$, so $P(\text{sum}=7)
-= |A|/36$. We just need to count the cells.
-:::
-
-**Way 1 — Counting (analytical).**
+$$P(A) = \sum_{k=1}^{\infty} P(2k) = \sum_{k=1}^{\infty} \left(\frac{1}{2}\right)^{2k} = \sum_{k=1}^{\infty} \frac{1}{4^k} = \frac{1/4}{1 - 1/4} = \frac{1}{3}$$
 
 ```{python}
-# By the equally-likely-outcomes formula
-event_sum_7 = {(d1, d2) for d1, d2 in omega if d1 + d2 == 7}
-p_analytical = len(event_sum_7) / 36
-print(f"Analytical P(sum=7) = {len(event_sum_7)}/36 = {p_analytical:.6f}")
-print(f"                    = {p_analytical:.4%}")
+# Verify by simulation
+import numpy as np
+
+np.random.seed(0)
+n_trials = 100_000
+outcomes = []
+for _ in range(n_trials):
+    tosses = 0
+    while True:
+        tosses += 1
+        if np.random.random() < 0.5:  # heads
+            break
+    outcomes.append(tosses)
+
+outcomes = np.array(outcomes)
+p_even = np.mean(outcomes % 2 == 0)
+print(f"P(even) by simulation: {p_even:.4f}")
+print(f"P(even) by formula:    {1/3:.4f}")
 ```
 
-**Way 2 — Simulation (frequentist).**
+This works because the Countable Additivity Axiom lets us sum probabilities over an infinite *sequence* of disjoint events.
+
+### Why "Countable" and Not "Uncountable"?
+
+Here is the crucial point. Consider the unit square where probability = area. The square is the union of **all its individual points**:
+
+$$\Omega = \bigcup_{(x,y) \in [0,1]^2} \{(x, y)\}$$
+
+Each individual point has area (probability) = 0. If we could apply additivity to this *uncountable* union:
+
+$$P(\Omega) = \sum_{\text{all points}} 0 = 0$$
+
+But $P(\Omega) = 1$ by the Normalization Axiom. We get $1 = 0$ — a contradiction.
+
+The resolution: the unit square is **uncountable**. Its points cannot be arranged in a sequence. The Countable Additivity Axiom only applies to sequences — it does not apply here. Individual points in a continuous model simply cannot be added up to give the probability of a region; you need area (and eventually, integration).
+
+This is exactly why the distinction between countable and uncountable sets matters for probability.
+
+---
+
+## 9. Interpretations of Probability
+
+The axioms tell us the *rules* for probability — but what does $P(A) = 0.7$ actually *mean*?
+
+### The Frequency Interpretation
+
+Probability is the fraction of times an event occurs in a very large number of repetitions.
+
+> "A fair coin has $P(H) = 0.5$ because, over millions of tosses, the fraction of heads converges to $\frac{1}{2}$."
+
+This is intuitive and scientific. In fact, this convergence is a *theorem* within probability theory — the **Law of Large Numbers** — not a definition. The frequency interpretation is what that theorem says.
 
 ```{python}
-# Roll a million pairs of dice and count the fraction with sum = 7.
-n_rolls = 1_000_000
-d1 = rng.integers(1, 7, size=n_rolls)
-d2 = rng.integers(1, 7, size=n_rolls)
-sums = d1 + d2
+import numpy as np
+import matplotlib.pyplot as plt
 
-p_empirical = (sums == 7).mean()
-print(f"Empirical P(sum=7)  = {p_empirical:.6f}  (from {n_rolls:,} rolls)")
-```
+np.random.seed(42)
+n = 10_000
+tosses = np.random.choice([0, 1], size=n)  # 0=T, 1=H
+running_freq = np.cumsum(tosses) / np.arange(1, n + 1)
 
-**Way 3 — Picture (where you can just *see* the answer).**
-
-```{python}
-# Visualize the 6×6 grid. Highlight outcomes whose sum is 7.
-fig, ax = plt.subplots(figsize=(5.5, 5.5))
-for d1 in range(1, 7):
-    for d2 in range(1, 7):
-        is_7 = (d1 + d2 == 7)
-        color = "#3b82f6" if is_7 else "#e5e7eb"
-        ax.scatter(d1, d2, s=900, c=color, edgecolor="white", linewidth=2)
-        ax.annotate(f"{d1+d2}", xy=(d1, d2), ha="center", va="center",
-                    fontsize=11, color="white" if is_7 else "#374151",
-                    fontweight="bold")
-
-ax.set_xticks(range(1, 7))
-ax.set_yticks(range(1, 7))
-ax.set_xlabel("Die 1")
-ax.set_ylabel("Die 2")
-ax.set_title("Each cell shows the sum.  Blue = sum is 7.\n6/36 cells highlighted.")
-ax.set_xlim(0.5, 6.5)
-ax.set_ylim(0.5, 6.5)
-ax.set_aspect("equal")
-ax.grid(False)
+plt.figure(figsize=(10, 4))
+plt.semilogx(np.arange(1, n + 1), running_freq, color='steelblue', lw=1.5)
+plt.axhline(0.5, color='red', linestyle='--', label='True P(H) = 0.5')
+plt.xlabel('Number of tosses')
+plt.ylabel('Running frequency of heads')
+plt.title('Frequency converges to probability — the Law of Large Numbers')
+plt.legend()
+plt.grid(True, alpha=0.3)
 plt.tight_layout()
 plt.show()
 ```
 
-Six cells out of thirty-six are blue. $6/36 = 1/6 \approx 0.1667$. The
-analytical answer, the simulation, and the picture all agree.
+**Where it runs out of road**: Some events cannot be repeated. What is the probability that the Iliad and the Odyssey were written by the same person? There is only one historical record. Frequency makes no sense here.
 
-That triangulation — formula, simulation, picture — is the working style
-we'll use for the entire book. Whenever you're unsure of an answer:
-**simulate it. Picture it. Then prove it.**
+### The Subjective Interpretation
+
+Probability is a numerical measure of your *degree of belief* about an uncertain outcome — even for one-time events.
+
+> "I believe there is a 70% chance the drug will work for this patient."
+
+This is the nurse's implicit statement when she agreed to bet that the drug would work. It is not based on frequencies — it is based on knowledge, experience, and judgment.
+
+A useful way to make this precise: if you would accept a bet where you win $W$ if $A$ occurs and lose $L$ if it doesn't, your subjective probability for $A$ satisfies:
+
+$$p \ge \frac{L}{W + L}$$
+
+**Where it runs out of road**: Different people have different beliefs. Whose probability is "correct"? The subjectivist says: it depends on the person, and the axioms ensure their beliefs are internally consistent.
+
+### Probability vs. Statistics
+
+These two interpretations reveal something important: probability theory and statistics are complementary.
+
+```
+Real World  →  (Statistics: inference)  →  Probabilistic Model
+                                                    ↓
+                                          (Probability: analysis)
+                                                    ↓
+Real World  ←  (Predictions / decisions)  ←  Results
+```
+
+- **Statistics** uses data to build and refine models (moving from observations to model).
+- **Probability** uses the model to derive predictions (moving from model to conclusions).
+
+The quality of your predictions depends on the quality of your model. Probability theory ensures the *logic* is correct. Statistics ensures the *model* is grounded in reality.
 
 ---
 
-## Three things you should take away
+## 10. The Bonferroni Inequality
 
-1. **Probability has two interpretations and one math.** Frequentist
-   probability is a long-run frequency; subjective probability is a
-   degree of belief. They argue about Stage 1 (modelling). They agree on
-   Stage 2 (the math).
+The Union Bound says: if two events are each unlikely, their union (at least one occurs) is also unlikely. The Bonferroni Inequality is the mirror image: if two events are each *very likely*, their intersection (both occur) is also likely.
 
-2. **Every probability calculation rests on three things** — sample
-   space, events, axioms. Specify the first two carefully; the third is
-   non-negotiable. Most "paradoxes" come from being sloppy about $\Omega$.
+::: {.callout-important}
+## Bonferroni Inequality
 
-3. **Simulation is your safety net.** When in doubt, write a population,
-   simulate it, count what's in each bucket. The closed-form answers in
-   the rest of this book are descriptions of those counts.
+For any two events $A_1$ and $A_2$:
+$$P(A_1 \cap A_2) \ge P(A_1) + P(A_2) - 1$$
+
+More generally, for $n$ events:
+$$P\!\left(\bigcap_{i=1}^n A_i\right) \ge \sum_{i=1}^n P(A_i) - (n - 1)$$
+:::
+
+**Proof (two events)**:
+
+By De Morgan's Law: $(A_1 \cap A_2)^c = A_1^c \cup A_2^c$.
+
+By the Union Bound: $P(A_1^c \cup A_2^c) \le P(A_1^c) + P(A_2^c) = (1 - P(A_1)) + (1 - P(A_2))$.
+
+Therefore: $1 - P(A_1 \cap A_2) \le 2 - P(A_1) - P(A_2)$, which gives the result. $\blacksquare$
+
+**Example**: A system requires two components to both work. Component 1 works with probability 0.95, component 2 with probability 0.90. The Bonferroni Inequality gives:
+
+$$P(\text{both work}) \ge 0.95 + 0.90 - 1 = 0.85$$
+
+The exact answer (if independent) is $0.95 \times 0.90 = 0.855$ — so the bound is tight.
+
+```{python}
+p1, p2 = 0.95, 0.90
+bonferroni_lower = p1 + p2 - 1
+exact = p1 * p2  # assuming independence
+
+print(f"Bonferroni lower bound: {bonferroni_lower:.4f}")
+print(f"Exact (if independent): {exact:.4f}")
+print(f"Gap: {exact - bonferroni_lower:.4f}")
+```
 
 ---
 
-## Exercises
+## 11. Exercises
 
-1. **Build a sample space.** Define $\Omega$ for the experiment "draw
-   one card from a standard 52-card deck". Then describe the following
-   events as subsets:
-   (a) the card is a heart;
-   (b) the card is a face card (J, Q, K);
-   (c) the card is a red ace.
-   Compute $P(\cdot)$ for each, assuming all cards are equally likely.
+**1. Sample space design.** A bag contains 3 red balls and 2 blue balls. You draw two balls *without* replacement.
 
-2. **Frequentist limit.** Modify the coin-convergence simulation above
-   to use a *biased* coin with $p = 0.3$. Plot the running frequency.
-   How many flips do you need before the frequency is within 0.01 of
-   the true value? Run it 5 times — does the answer vary?
+(a) Define a sample space that tracks which specific balls are drawn and in what order.
+(b) Define a simpler sample space that only tracks the colours (not which specific ball).
+(c) Which sample space would you use to answer: "What is the probability both balls are red?"
+(d) Compute that probability.
 
-3. **Check an axiom.** Pick any two events from the dice example
-   (e.g. $E$ = "sum is even" and $F$ = "first die is odd"). Verify
-   inclusion–exclusion: compute $P(E)$, $P(F)$, $P(E \cap F)$, and
-   $P(E \cup F)$ separately, and check that $P(E \cup F) = P(E) + P(F)
-   - P(E \cap F)$.
+**2. Axiom verification.** For the two-roll 4-sided die experiment with the Discrete Uniform Law:
+
+(a) Let $A$ = "sum is 5", $B$ = "first roll is 2". Find $P(A)$, $P(B)$, $P(A \cap B)$, $P(A \cup B)$.
+(b) Verify the inclusion-exclusion formula numerically.
+(c) Find $P(A^c)$ and verify it equals $1 - P(A)$.
+
+**3. Continuous probability.** A point $(x, y)$ is chosen uniformly at random from the unit square $[0,1]^2$.
+
+(a) Find $P(x^2 + y^2 \le 1)$ — the probability the point falls inside the unit circle. (Hint: what fraction of the square does the quarter-circle occupy?)
+(b) Write a Monte Carlo simulation to estimate this probability.
+(c) What famous constant does your answer approximate?
+
+**4. Countable additivity.** A biased coin has $P(\text{heads}) = p$ on each toss. You toss until the first heads.
+
+(a) Write down $P(n)$ — the probability the first heads appears on toss $n$.
+(b) Verify that $\sum_{n=1}^{\infty} P(n) = 1$ (use the geometric series formula).
+(c) Find the probability the experiment ends on an **odd** toss.
+
+**5. Bonferroni in engineering.** A message is sent through 3 independent communication channels. Each channel delivers the message correctly with probability 0.8. The message is successfully received if **all three** channels deliver it correctly.
+
+(a) Use the Bonferroni Inequality to find a lower bound on $P(\text{success})$.
+(b) Compute the exact probability (using independence).
+(c) How tight is the bound?
+
+---
+
+## 12. Math Refresher
+
+This section reviews the mathematical background needed throughout the probability chapters. It is placed here deliberately — after you have seen probability in action, the *reason* for each tool is clearer. Return to any subsection when you need it.
+
+---
+
+### 12.1 Set Theory
+
+**Definitions and notation**
+
+A **set** is a collection of distinct elements. We write $x \in S$ if $x$ is an element of $S$, and $x \notin S$ if it is not.
+
+Sets can be specified by listing: $S = \{1, 2, 3\}$, or by property: $S = \{x \in \mathbb{R} \mid \cos(x) > 0\}$.
+
+Special sets:
+
+- **Universal set** $\Omega$: all objects under consideration (the sample space in probability).
+- **Empty set** $\emptyset$: the set containing no elements.
+- **Complement** $S^c$: everything in $\Omega$ not in $S$.
+
+**Subsets and equality**
+
+$S \subseteq T$ means every element of $S$ is also in $T$. Two sets are equal ($S = T$) iff $S \subseteq T$ and $T \subseteq S$.
+
+**Operations**
+
+| Operation | Symbol | Definition |
+|---|---|---|
+| Union | $S \cup T$ | $\{x \mid x \in S \text{ or } x \in T\}$ |
+| Intersection | $S \cap T$ | $\{x \mid x \in S \text{ and } x \in T\}$ |
+| Complement | $S^c$ | $\{x \in \Omega \mid x \notin S\}$ |
+| Difference | $S \setminus T$ | $S \cap T^c$ |
+
+For infinite collections: $\bigcup_{n=1}^\infty S_n = \{x \mid x \in S_n \text{ for some } n\}$ and $\bigcap_{n=1}^\infty S_n = \{x \mid x \in S_n \text{ for all } n\}$.
+
+**Algebraic properties**
+
+- Commutativity: $S \cup T = T \cup S$, $S \cap T = T \cap S$
+- Associativity: $(S \cup T) \cup U = S \cup (T \cup U)$
+- Distributivity: $S \cap (T \cup U) = (S \cap T) \cup (S \cap U)$
+- Identity: $S \cup \emptyset = S$, $S \cap \Omega = S$
+- Domination: $S \cup \Omega = \Omega$, $S \cap \emptyset = \emptyset$
+- Double complement: $(S^c)^c = S$
+
+---
+
+### 12.2 De Morgan's Laws
+
+These laws convert between unions and intersections via complements. They are used constantly in probability when it is easier to compute the complement of an event.
+
+$$\boxed{(S \cap T)^c = S^c \cup T^c}$$
+
+$$\boxed{(S \cup T)^c = S^c \cap T^c}$$
+
+**Intuition for the first law**: "Not (both $S$ and $T$)" is the same as "not $S$, or not $T$."
+
+**General form** (infinite collections):
+
+$$\left(\bigcap_n S_n\right)^c = \bigcup_n S_n^c \qquad \left(\bigcup_n S_n\right)^c = \bigcap_n S_n^c$$
+
+**Key use in probability**: To find $P(A \cap B)$, sometimes it is easier to find $P((A \cap B)^c) = P(A^c \cup B^c)$ and subtract from 1. De Morgan's makes this switch legal.
+
+---
+
+### 12.3 Sequences and Convergence
+
+A **sequence** is a function from the positive integers to some set: $a_1, a_2, a_3, \ldots$ We write $\{a_i\}_{i=1}^\infty$ or simply $\{a_i\}$.
+
+**Convergence**: A sequence $\{a_i\}$ converges to $a$ if the values get arbitrarily close to $a$ and stay there:
+
+$$\lim_{i \to \infty} a_i = a \quad \Longleftrightarrow \quad \forall \epsilon > 0,\ \exists i_0 : |a_i - a| < \epsilon \text{ for all } i \ge i_0$$
+
+**Key properties** (if $a_i \to a$ and $b_i \to b$):
+
+- $a_i + b_i \to a + b$
+- $a_i \cdot b_i \to a \cdot b$
+- $g(a_i) \to g(a)$ for any continuous function $g$
+
+**Monotone convergence**: A non-decreasing, bounded sequence always converges. This is why the partial sums of a non-negative series always have a well-defined limit (possibly $\infty$).
+
+**Squeeze theorem**: If $x_i \le a_i \le y_i$ and $x_i \to a$ and $y_i \to a$, then $a_i \to a$.
+
+---
+
+### 12.4 Infinite Series
+
+An **infinite series** is the limit of its partial sums:
+
+$$\sum_{i=1}^\infty a_i = \lim_{n \to \infty} \sum_{i=1}^n a_i$$
+
+**Non-negative series**: If $a_i \ge 0$, the partial sums are non-decreasing, so the limit always exists (it may be $\infty$). For probability, we need it to be finite and equal to 1.
+
+**Absolute convergence**: A series $\sum a_i$ is absolutely convergent if $\sum |a_i| < \infty$. Absolute convergence guarantees:
+
+1. The series converges to a finite value.
+2. The value is the same regardless of the order in which terms are added.
+
+In probability models, absolute convergence is the standard assumption that makes all manipulations safe.
+
+---
+
+### 12.5 The Geometric Series
+
+$$\sum_{i=0}^\infty \alpha^i = \frac{1}{1 - \alpha} \qquad \text{for } |\alpha| < 1$$
+
+**Derivation** (algebraic trick): Let $S = 1 + \alpha + \alpha^2 + \cdots$. Then $\alpha S = \alpha + \alpha^2 + \cdots$, so $S - \alpha S = 1$, giving $S = \frac{1}{1-\alpha}$.
+
+**Useful variation** (starting at $i = k$):
+$$\sum_{i=k}^\infty \alpha^i = \frac{\alpha^k}{1 - \alpha}$$
+
+This series appears constantly in probability — any time you count "the number of trials until the first success."
+
+**Example**: For the coin-toss problem, $P(\text{even}) = \sum_{k=1}^\infty (1/2)^{2k} = \sum_{k=1}^\infty (1/4)^k = \frac{1/4}{1 - 1/4} = \frac{1}{3}$.
+
+---
+
+### 12.6 Double Series
+
+When summing over two indices $i$ and $j$, you can sum row by row or column by column. If the series is absolutely convergent, the order does not matter:
+
+$$\sum_{i=1}^\infty \sum_{j=1}^\infty a_{ij} = \sum_{j=1}^\infty \sum_{i=1}^\infty a_{ij}$$
+
+**Triangular sums**: Summing over the region $j \le i$ can be done two ways:
+
+$$\sum_{i=1}^\infty \sum_{j=1}^i a_{ij} = \sum_{j=1}^\infty \sum_{i=j}^\infty a_{ij}$$
+
+This identity is used frequently when computing expectations and joint probabilities of discrete random variables.
+
+---
+
+### 12.7 Countable and Uncountable Sets
+
+A set is **countable** if its elements can be put in a one-to-one correspondence with the positive integers — equivalently, if they can be arranged in a sequence $s_1, s_2, s_3, \ldots$
+
+**Examples of countable sets:**
+
+- The positive integers $\{1, 2, 3, \ldots\}$ — trivially.
+- The integers $\mathbb{Z}$ — arrange as $0, 1, -1, 2, -2, 3, -3, \ldots$
+- Pairs of positive integers — zigzag diagonally through the grid.
+- The rational numbers $\mathbb{Q}$ — list by denominator, skip duplicates.
+
+A set is **uncountable** if it is infinite but *cannot* be arranged in a sequence.
+
+**Examples of uncountable sets:**
+
+- Any interval $[a, b]$ with $a < b$ on the real line.
+- The real numbers $\mathbb{R}$.
+- The plane $\mathbb{R}^2$, space $\mathbb{R}^3$, etc.
+
+**Why this matters for probability:**
+
+| Sample space type | How to assign probability | Model type |
+|---|---|---|
+| Finite | Assign $p_i \ge 0$ to each outcome, sum = 1 | Discrete |
+| Countably infinite | Same, using an infinite sum | Discrete |
+| Uncountably infinite | Assign probability to regions (area/length/volume) | Continuous |
+
+The Countable Additivity Axiom works for sequences. It fails for uncountable collections — which is why continuous models require integration, not summation.
+
+---
+
+### 12.8 Cantor's Diagonal Argument
+
+**Claim**: The unit interval $(0, 1)$ is uncountable.
+
+**Proof by contradiction**: Suppose all real numbers in $(0,1)$ whose decimal expansions contain only the digits 3 and 4 could be listed in a sequence $x_1, x_2, x_3, \ldots$
+
+Write them out:
+
+$$x_1 = 0.\mathbf{3}4334\ldots$$
+$$x_2 = 0.4\mathbf{4}343\ldots$$
+$$x_3 = 0.33\mathbf{3}44\ldots$$
+$$x_4 = 0.443\mathbf{4}3\ldots$$
+
+Construct a new number $y$ by looking at the diagonal (bolded digits) and flipping each: if the diagonal digit is 3, write 4; if it is 4, write 3.
+
+From the example above: $y = 0.4344\ldots$
+
+Now: $y$ differs from $x_1$ in the 1st digit, from $x_2$ in the 2nd digit, from $x_n$ in the $n$-th digit — so $y \ne x_n$ for every $n$. Yet $y$ consists only of 3s and 4s, so it belongs in our set. **Contradiction** — the list was supposed to contain everything, but $y$ is missing.
+
+Therefore no such list can exist. The set is uncountable. $\blacksquare$
+
+The same argument applies to the full real line, establishing that $\mathbb{R}$ is uncountably infinite — a fundamentally larger kind of infinity than the integers or rationals.
