@@ -487,14 +487,13 @@ A useful mental model for how the two fields relate:
 
 ```{mermaid}
 flowchart LR
-    RW1["🌍 Real World\n(observations / data)"]
+    RW["🌍 Real World"]
     PM["📐 Probabilistic Model"]
     R["📊 Results"]
-    RW2["🌍 Real World\n(predictions / decisions)"]
 
-    RW1 -->|"Statistics: inference"| PM
-    PM  -->|"Probability: analysis"| R
-    R   -->|"Predictions / decisions"| RW2
+    RW -->|"Statistics: inference"| PM
+    PM -->|"Probability: analysis"| R
+    R  -->|"Predictions / decisions"| RW
 ```
 
 ---
