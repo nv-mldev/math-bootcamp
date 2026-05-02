@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>14&nbsp; Vectors and Dot Product – Math for Machine Learning</title>
+<title>29&nbsp; Vectors and Dot Product – Math for Machine Learning</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -69,7 +69,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../chapters/linear_algebra/norms.html" rel="next">
-<link href="../../chapters/probability/exercises.html" rel="prev">
+<link href="../../chapters/statistics/exercises.html" rel="prev">
 <link href="../../figures/cover.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -330,7 +330,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/linear_algebra/vectors.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../../chapters/linear_algebra/vectors.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Vectors and Dot Product</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/linear_algebra/vectors.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../../chapters/linear_algebra/vectors.html"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Vectors and Dot Product</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -457,7 +457,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Linear Algebra</span></a>
+ <span class="menu-text">Statistics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -465,38 +465,92 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/linear_algebra/vectors.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Vectors and Dot Product</span></span></a>
+  <a href="../../chapters/statistics/eda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/linear_algebra/norms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Norms and Similarity</span></span></a>
+  <a href="../../chapters/statistics/distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Distributions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/linear_algebra/orthogonality.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Orthogonality and Projection</span></span></a>
+  <a href="../../chapters/statistics/pmf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Probability Mass Functions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/linear_algebra/transforms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Linear Transforms</span></span></a>
+  <a href="../../chapters/statistics/cdf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Cumulative Distribution Functions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/linear_algebra/applied_images.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Linear Algebra Applied — Images as Vectors</span></span></a>
+  <a href="../../chapters/statistics/modeling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Modeling Distributions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/linear_algebra/exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Exercises — Linear Algebra Track</span></span></a>
+  <a href="../../chapters/statistics/pdf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Probability Density Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/statistics/relationships.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Relationships Between Variables</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/statistics/estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Estimation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/statistics/hypothesis_testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/statistics/least_squares.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Linear Least Squares</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/statistics/regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/statistics/time_series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Time Series Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/statistics/survival.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Survival Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/statistics/analytic_methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Analytic Methods</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/statistics/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Exercises — Across the Statistics Track</span></span></a>
   </div>
 </li>
       </ul>
@@ -504,7 +558,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Statistics</span></a>
+ <span class="menu-text">Linear Algebra</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -512,92 +566,38 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/eda.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis</span></span></a>
+  <a href="../../chapters/linear_algebra/vectors.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Vectors and Dot Product</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/distributions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Distributions</span></span></a>
+  <a href="../../chapters/linear_algebra/norms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Norms and Similarity</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/pmf.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Probability Mass Functions</span></span></a>
+  <a href="../../chapters/linear_algebra/orthogonality.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Orthogonality and Projection</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/cdf.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Cumulative Distribution Functions</span></span></a>
+  <a href="../../chapters/linear_algebra/transforms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Linear Transforms</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/modeling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Modeling Distributions</span></span></a>
+  <a href="../../chapters/linear_algebra/applied_images.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Linear Algebra Applied — Images as Vectors</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/pdf.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Probability Density Functions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/relationships.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Relationships Between Variables</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/estimation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Estimation</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/hypothesis_testing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/least_squares.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Linear Least Squares</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Regression</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/time_series.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Time Series Analysis</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/survival.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Survival Analysis</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/analytic_methods.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Analytic Methods</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Exercises — Across the Statistics Track</span></span></a>
+  <a href="../../chapters/linear_algebra/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Exercises — Linear Algebra Track</span></span></a>
   </div>
 </li>
       </ul>
@@ -612,13 +612,13 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#learning-objective" id="toc-learning-objective" class="nav-link active" data-scroll-target="#learning-objective"><span class="header-section-number">14.1</span> Learning objective</a></li>
-  <li><a href="#pixels-as-vectors" id="toc-pixels-as-vectors" class="nav-link" data-scroll-target="#pixels-as-vectors"><span class="header-section-number">14.2</span> Pixels as vectors</a></li>
-  <li><a href="#patches-as-points-in-pixel-space" id="toc-patches-as-points-in-pixel-space" class="nav-link" data-scroll-target="#patches-as-points-in-pixel-space"><span class="header-section-number">14.3</span> Patches as points in pixel space</a></li>
-  <li><a href="#dot-product" id="toc-dot-product" class="nav-link" data-scroll-target="#dot-product"><span class="header-section-number">14.4</span> Dot product</a></li>
-  <li><a href="#dot-product-in-action" id="toc-dot-product-in-action" class="nav-link" data-scroll-target="#dot-product-in-action"><span class="header-section-number">14.5</span> Dot product in action</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">14.6</span> Exercises</a></li>
-  <li><a href="#glossary" id="toc-glossary" class="nav-link" data-scroll-target="#glossary"><span class="header-section-number">14.7</span> Glossary</a></li>
+  <li><a href="#learning-objective" id="toc-learning-objective" class="nav-link active" data-scroll-target="#learning-objective"><span class="header-section-number">29.1</span> Learning objective</a></li>
+  <li><a href="#pixels-as-vectors" id="toc-pixels-as-vectors" class="nav-link" data-scroll-target="#pixels-as-vectors"><span class="header-section-number">29.2</span> Pixels as vectors</a></li>
+  <li><a href="#patches-as-points-in-pixel-space" id="toc-patches-as-points-in-pixel-space" class="nav-link" data-scroll-target="#patches-as-points-in-pixel-space"><span class="header-section-number">29.3</span> Patches as points in pixel space</a></li>
+  <li><a href="#dot-product" id="toc-dot-product" class="nav-link" data-scroll-target="#dot-product"><span class="header-section-number">29.4</span> Dot product</a></li>
+  <li><a href="#dot-product-in-action" id="toc-dot-product-in-action" class="nav-link" data-scroll-target="#dot-product-in-action"><span class="header-section-number">29.5</span> Dot product in action</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">29.6</span> Exercises</a></li>
+  <li><a href="#glossary" id="toc-glossary" class="nav-link" data-scroll-target="#glossary"><span class="header-section-number">29.7</span> Glossary</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nv-mldev/math-bootcamp/edit/main/chapters/linear_algebra/vectors.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nv-mldev/math-bootcamp/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -626,9 +626,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/linear_algebra/vectors.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../../chapters/linear_algebra/vectors.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Vectors and Dot Product</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/linear_algebra/vectors.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../../chapters/linear_algebra/vectors.html"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Vectors and Dot Product</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Vectors and Dot Product</span></h1>
+<h1 class="title"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Vectors and Dot Product</span></h1>
 </div>
 
 
@@ -645,13 +645,13 @@ window.Quarto = {
 </header>
 
 
-<section id="learning-objective" class="level2" data-number="14.1">
-<h2 data-number="14.1" class="anchored" data-anchor-id="learning-objective"><span class="header-section-number">14.1</span> Learning objective</h2>
+<section id="learning-objective" class="level2" data-number="29.1">
+<h2 data-number="29.1" class="anchored" data-anchor-id="learning-objective"><span class="header-section-number">29.1</span> Learning objective</h2>
 <p>Understand how image patches become vectors, and how the dot product measures agreement between two patches — the foundation for all normalised template matching.</p>
 <hr>
 </section>
-<section id="pixels-as-vectors" class="level2" data-number="14.2">
-<h2 data-number="14.2" class="anchored" data-anchor-id="pixels-as-vectors"><span class="header-section-number">14.2</span> Pixels as vectors</h2>
+<section id="pixels-as-vectors" class="level2" data-number="29.2">
+<h2 data-number="29.2" class="anchored" data-anchor-id="pixels-as-vectors"><span class="header-section-number">29.2</span> Pixels as vectors</h2>
 <p>An image patch is a 2D grid of pixel values. For math, we <strong>flatten</strong> it into a 1D vector — just a list of numbers. A 3 × 3 patch with 9 pixels becomes a point in <strong>9-dimensional space</strong>.</p>
 <p>This is not an abstraction — it is literally how OpenCV’s template matching works internally. It flattens the template and each scene patch into vectors, then compares them.</p>
 <p>Once we see patches as vectors, all of linear algebra applies:</p>
@@ -661,7 +661,7 @@ window.Quarto = {
 <li><strong>Contrast change</strong> = scaling the vector (stretching it longer or shorter).</li>
 </ul>
 <p>For visualisation we use <strong>3-pixel patches</strong> (3D space) so we can actually plot them. Everything generalises to any number of pixels.</p>
-<div id="d5c41e73" class="cell" data-execution_count="1">
+<div id="ffc8a95c" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mpl_toolkits.mplot3d <span class="im">import</span> Axes3D  <span class="co"># noqa: F401  needed for 3D projection</span></span>
@@ -691,7 +691,7 @@ Flattened       : [ 50. 125. 200.  50. 125. 200.  50. 125. 200.]
 This vector is a point in 9-dimensional space.</code></pre>
 </div>
 </div>
-<div id="0f6a0d74" class="cell" data-execution_count="2">
+<div id="18068cf1" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].imshow(patch, cmap<span class="op">=</span><span class="st">"gray"</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">255</span>)</span>
@@ -726,10 +726,10 @@ This vector is a point in 9-dimensional space.</code></pre>
 </div>
 <hr>
 </section>
-<section id="patches-as-points-in-pixel-space" class="level2" data-number="14.3">
-<h2 data-number="14.3" class="anchored" data-anchor-id="patches-as-points-in-pixel-space"><span class="header-section-number">14.3</span> Patches as points in pixel space</h2>
+<section id="patches-as-points-in-pixel-space" class="level2" data-number="29.3">
+<h2 data-number="29.3" class="anchored" data-anchor-id="patches-as-points-in-pixel-space"><span class="header-section-number">29.3</span> Patches as points in pixel space</h2>
 <p>Three different 3-pixel patches occupy different positions in 3D pixel-value space:</p>
-<div id="3cdce156" class="cell" data-execution_count="3">
+<div id="ad005dd1" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>patch_a <span class="op">=</span> np.array([<span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>])     <span class="co"># dark → bright</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>patch_b <span class="op">=</span> np.array([<span class="dv">200</span>, <span class="dv">100</span>, <span class="dv">50</span>])     <span class="co"># bright → dark (reversed)</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>patch_c <span class="op">=</span> np.array([<span class="dv">150</span>, <span class="dv">150</span>, <span class="dv">150</span>])    <span class="co"># flat grey (no pattern)</span></span>
@@ -762,8 +762,8 @@ This vector is a point in 9-dimensional space.</code></pre>
 </div>
 <hr>
 </section>
-<section id="dot-product" class="level2" data-number="14.4">
-<h2 data-number="14.4" class="anchored" data-anchor-id="dot-product"><span class="header-section-number">14.4</span> Dot product</h2>
+<section id="dot-product" class="level2" data-number="29.4">
+<h2 data-number="29.4" class="anchored" data-anchor-id="dot-product"><span class="header-section-number">29.4</span> Dot product</h2>
 <p>The dot product of two vectors answers: <strong>how much do these two vectors point in the same direction?</strong></p>
 <p>For image patches, it tells you how much two patches “agree” — pixel by pixel, do they go bright in the same places and dark in the same places?</p>
 <p>For <span class="math inline">\vec a = [a_1, \ldots, a_n]</span> and <span class="math inline">\vec b = [b_1, \ldots, b_n]</span>:</p>
@@ -779,9 +779,9 @@ This vector is a point in 9-dimensional space.</code></pre>
 <p>where <span class="math inline">\theta</span> is the angle between the two vectors. This connects the algebraic formula (multiply and sum) to geometry (angles). Next chapter uses this to derive cosine similarity.</p>
 <hr>
 </section>
-<section id="dot-product-in-action" class="level2" data-number="14.5">
-<h2 data-number="14.5" class="anchored" data-anchor-id="dot-product-in-action"><span class="header-section-number">14.5</span> Dot product in action</h2>
-<div id="7f75ec4d" class="cell" data-execution_count="4">
+<section id="dot-product-in-action" class="level2" data-number="29.5">
+<h2 data-number="29.5" class="anchored" data-anchor-id="dot-product-in-action"><span class="header-section-number">29.5</span> Dot product in action</h2>
+<div id="802bdc86" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>template       <span class="op">=</span> np.array([ <span class="dv">50</span>, <span class="dv">150</span>, <span class="dv">250</span>], dtype<span class="op">=</span><span class="bu">float</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>similar_patch  <span class="op">=</span> np.array([ <span class="dv">60</span>, <span class="dv">140</span>, <span class="dv">230</span>], dtype<span class="op">=</span><span class="bu">float</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>opposite_patch <span class="op">=</span> np.array([<span class="dv">250</span>, <span class="dv">150</span>,  <span class="dv">50</span>], dtype<span class="op">=</span><span class="bu">float</span>)</span>
@@ -810,7 +810,7 @@ Higher dot product (81500 &gt; 47500) = more agreement.
 But raw dot product also depends on magnitude — fixed in the next chapter.</code></pre>
 </div>
 </div>
-<div id="77404f6e" class="cell" data-execution_count="5">
+<div id="032eb359" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">4</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">6</span>))</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> row, (patch, name, dot) <span class="kw">in</span> <span class="bu">enumerate</span>([</span>
@@ -852,8 +852,8 @@ But raw dot product also depends on magnitude — fixed in the next chapter.</co
 <p>A higher dot product means more agreement between two patches. However, the <strong>raw dot product also depends on the magnitude</strong> of both vectors — a brighter patch produces a larger dot product even with the same pattern. Normalising fixes this — next chapter.</p>
 <hr>
 </section>
-<section id="exercises" class="level2" data-number="14.6">
-<h2 data-number="14.6" class="anchored" data-anchor-id="exercises"><span class="header-section-number">14.6</span> Exercises</h2>
+<section id="exercises" class="level2" data-number="29.6">
+<h2 data-number="29.6" class="anchored" data-anchor-id="exercises"><span class="header-section-number">29.6</span> Exercises</h2>
 <ol type="1">
 <li>Compute the dot product of <span class="math inline">[1, 2, 3]</span> and <span class="math inline">[4, 5, 6]</span> by hand, then check with <code>np.dot</code>.</li>
 <li>Generate two 3 × 3 patches that look identical to the eye but have very different dot products. What’s different?</li>
@@ -862,8 +862,8 @@ But raw dot product also depends on magnitude — fixed in the next chapter.</co
 </ol>
 <hr>
 </section>
-<section id="glossary" class="level2" data-number="14.7">
-<h2 data-number="14.7" class="anchored" data-anchor-id="glossary"><span class="header-section-number">14.7</span> Glossary</h2>
+<section id="glossary" class="level2" data-number="29.7">
+<h2 data-number="29.7" class="anchored" data-anchor-id="glossary"><span class="header-section-number">29.7</span> Glossary</h2>
 <p><strong>vector</strong> — ordered list of numbers; geometrically, a point or an arrow from the origin.</p>
 <p><strong>flatten</strong> — reshape a 2D grid into a 1D list, preserving values.</p>
 <p><strong>dot product</strong> — element-wise multiply and sum; <span class="math inline">\vec a \cdot \vec b = \sum a_i b_i</span>.</p>
@@ -1290,13 +1290,13 @@ But raw dot product also depends on magnitude — fixed in the next chapter.</co
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../chapters/probability/exercises.html" class="pagination-link" aria-label="Exercises — Probability Track">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Exercises — Probability Track</span></span>
+      <a href="../../chapters/statistics/exercises.html" class="pagination-link" aria-label="Exercises — Across the Statistics Track">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Exercises — Across the Statistics Track</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../../chapters/linear_algebra/norms.html" class="pagination-link" aria-label="Norms and Similarity">
-        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Norms and Similarity</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Norms and Similarity</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

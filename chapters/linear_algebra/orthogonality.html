@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>16&nbsp; Orthogonality and Projection – Math for Machine Learning</title>
+<title>31&nbsp; Orthogonality and Projection – Math for Machine Learning</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -330,7 +330,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/linear_algebra/vectors.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../../chapters/linear_algebra/orthogonality.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Orthogonality and Projection</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/linear_algebra/vectors.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../../chapters/linear_algebra/orthogonality.html"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Orthogonality and Projection</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -457,7 +457,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Linear Algebra</span></a>
+ <span class="menu-text">Statistics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -465,38 +465,92 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/linear_algebra/vectors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Vectors and Dot Product</span></span></a>
+  <a href="../../chapters/statistics/eda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/linear_algebra/norms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Norms and Similarity</span></span></a>
+  <a href="../../chapters/statistics/distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Distributions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/linear_algebra/orthogonality.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Orthogonality and Projection</span></span></a>
+  <a href="../../chapters/statistics/pmf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Probability Mass Functions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/linear_algebra/transforms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Linear Transforms</span></span></a>
+  <a href="../../chapters/statistics/cdf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Cumulative Distribution Functions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/linear_algebra/applied_images.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Linear Algebra Applied — Images as Vectors</span></span></a>
+  <a href="../../chapters/statistics/modeling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Modeling Distributions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/linear_algebra/exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Exercises — Linear Algebra Track</span></span></a>
+  <a href="../../chapters/statistics/pdf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Probability Density Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/statistics/relationships.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Relationships Between Variables</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/statistics/estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Estimation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/statistics/hypothesis_testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/statistics/least_squares.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Linear Least Squares</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/statistics/regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/statistics/time_series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Time Series Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/statistics/survival.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Survival Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/statistics/analytic_methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Analytic Methods</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/statistics/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Exercises — Across the Statistics Track</span></span></a>
   </div>
 </li>
       </ul>
@@ -504,7 +558,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Statistics</span></a>
+ <span class="menu-text">Linear Algebra</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -512,92 +566,38 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/eda.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis</span></span></a>
+  <a href="../../chapters/linear_algebra/vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Vectors and Dot Product</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/distributions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Distributions</span></span></a>
+  <a href="../../chapters/linear_algebra/norms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Norms and Similarity</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/pmf.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Probability Mass Functions</span></span></a>
+  <a href="../../chapters/linear_algebra/orthogonality.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Orthogonality and Projection</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/cdf.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Cumulative Distribution Functions</span></span></a>
+  <a href="../../chapters/linear_algebra/transforms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Linear Transforms</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/modeling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Modeling Distributions</span></span></a>
+  <a href="../../chapters/linear_algebra/applied_images.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Linear Algebra Applied — Images as Vectors</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/pdf.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Probability Density Functions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/relationships.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Relationships Between Variables</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/estimation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Estimation</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/hypothesis_testing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/least_squares.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Linear Least Squares</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Regression</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/time_series.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Time Series Analysis</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/survival.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Survival Analysis</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/analytic_methods.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Analytic Methods</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Exercises — Across the Statistics Track</span></span></a>
+  <a href="../../chapters/linear_algebra/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Exercises — Linear Algebra Track</span></span></a>
   </div>
 </li>
       </ul>
@@ -612,16 +612,16 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#learning-objective" id="toc-learning-objective" class="nav-link active" data-scroll-target="#learning-objective"><span class="header-section-number">16.1</span> Learning objective</a></li>
-  <li><a href="#orthogonality" id="toc-orthogonality" class="nav-link" data-scroll-target="#orthogonality"><span class="header-section-number">16.2</span> Orthogonality</a></li>
-  <li><a href="#orthogonal-projection" id="toc-orthogonal-projection" class="nav-link" data-scroll-target="#orthogonal-projection"><span class="header-section-number">16.3</span> Orthogonal projection</a></li>
-  <li><a href="#mean-subtraction-is-orthogonal-projection" id="toc-mean-subtraction-is-orthogonal-projection" class="nav-link" data-scroll-target="#mean-subtraction-is-orthogonal-projection"><span class="header-section-number">16.4</span> Mean subtraction is orthogonal projection</a></li>
-  <li><a href="#decomposition-in-code" id="toc-decomposition-in-code" class="nav-link" data-scroll-target="#decomposition-in-code"><span class="header-section-number">16.5</span> Decomposition in code</a></li>
-  <li><a href="#brightness-offset-only-moves-the-brightness-component" id="toc-brightness-offset-only-moves-the-brightness-component" class="nav-link" data-scroll-target="#brightness-offset-only-moves-the-brightness-component"><span class="header-section-number">16.6</span> Brightness offset only moves the brightness component</a></li>
-  <li><a href="#visualising-the-split" id="toc-visualising-the-split" class="nav-link" data-scroll-target="#visualising-the-split"><span class="header-section-number">16.7</span> Visualising the split</a></li>
-  <li><a href="#pearson-correlation-as-a-normalised-dot-product" id="toc-pearson-correlation-as-a-normalised-dot-product" class="nav-link" data-scroll-target="#pearson-correlation-as-a-normalised-dot-product"><span class="header-section-number">16.8</span> Pearson correlation as a normalised dot product</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">16.9</span> Exercises</a></li>
-  <li><a href="#glossary" id="toc-glossary" class="nav-link" data-scroll-target="#glossary"><span class="header-section-number">16.10</span> Glossary</a></li>
+  <li><a href="#learning-objective" id="toc-learning-objective" class="nav-link active" data-scroll-target="#learning-objective"><span class="header-section-number">31.1</span> Learning objective</a></li>
+  <li><a href="#orthogonality" id="toc-orthogonality" class="nav-link" data-scroll-target="#orthogonality"><span class="header-section-number">31.2</span> Orthogonality</a></li>
+  <li><a href="#orthogonal-projection" id="toc-orthogonal-projection" class="nav-link" data-scroll-target="#orthogonal-projection"><span class="header-section-number">31.3</span> Orthogonal projection</a></li>
+  <li><a href="#mean-subtraction-is-orthogonal-projection" id="toc-mean-subtraction-is-orthogonal-projection" class="nav-link" data-scroll-target="#mean-subtraction-is-orthogonal-projection"><span class="header-section-number">31.4</span> Mean subtraction is orthogonal projection</a></li>
+  <li><a href="#decomposition-in-code" id="toc-decomposition-in-code" class="nav-link" data-scroll-target="#decomposition-in-code"><span class="header-section-number">31.5</span> Decomposition in code</a></li>
+  <li><a href="#brightness-offset-only-moves-the-brightness-component" id="toc-brightness-offset-only-moves-the-brightness-component" class="nav-link" data-scroll-target="#brightness-offset-only-moves-the-brightness-component"><span class="header-section-number">31.6</span> Brightness offset only moves the brightness component</a></li>
+  <li><a href="#visualising-the-split" id="toc-visualising-the-split" class="nav-link" data-scroll-target="#visualising-the-split"><span class="header-section-number">31.7</span> Visualising the split</a></li>
+  <li><a href="#pearson-correlation-as-a-normalised-dot-product" id="toc-pearson-correlation-as-a-normalised-dot-product" class="nav-link" data-scroll-target="#pearson-correlation-as-a-normalised-dot-product"><span class="header-section-number">31.8</span> Pearson correlation as a normalised dot product</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">31.9</span> Exercises</a></li>
+  <li><a href="#glossary" id="toc-glossary" class="nav-link" data-scroll-target="#glossary"><span class="header-section-number">31.10</span> Glossary</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nv-mldev/math-bootcamp/edit/main/chapters/linear_algebra/orthogonality.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nv-mldev/math-bootcamp/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -629,9 +629,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/linear_algebra/vectors.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../../chapters/linear_algebra/orthogonality.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Orthogonality and Projection</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/linear_algebra/vectors.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../../chapters/linear_algebra/orthogonality.html"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Orthogonality and Projection</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Orthogonality and Projection</span></h1>
+<h1 class="title"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Orthogonality and Projection</span></h1>
 </div>
 
 
@@ -648,13 +648,13 @@ window.Quarto = {
 </header>
 
 
-<section id="learning-objective" class="level2" data-number="16.1">
-<h2 data-number="16.1" class="anchored" data-anchor-id="learning-objective"><span class="header-section-number">16.1</span> Learning objective</h2>
+<section id="learning-objective" class="level2" data-number="31.1">
+<h2 data-number="31.1" class="anchored" data-anchor-id="learning-objective"><span class="header-section-number">31.1</span> Learning objective</h2>
 <p>Understand orthogonality as the independence of two vector directions, and show that <strong>mean subtraction is exactly orthogonal projection</strong> onto the <span class="math inline">[1, 1, \ldots, 1]</span> brightness direction — making brightness and pattern independent components.</p>
 <hr>
 </section>
-<section id="orthogonality" class="level2" data-number="16.2">
-<h2 data-number="16.2" class="anchored" data-anchor-id="orthogonality"><span class="header-section-number">16.2</span> Orthogonality</h2>
+<section id="orthogonality" class="level2" data-number="31.2">
+<h2 data-number="31.2" class="anchored" data-anchor-id="orthogonality"><span class="header-section-number">31.2</span> Orthogonality</h2>
 <p>Two vectors are <strong>orthogonal</strong> (perpendicular) when their dot product is zero:</p>
 <p><span class="math display">
 \vec a \cdot \vec b \;=\; 0
@@ -670,8 +670,8 @@ window.Quarto = {
 <p>Any scalar multiple of <span class="math inline">[1, 1, \ldots, 1]</span> is a flat grey image. Mean subtraction removes exactly this component.</p>
 <hr>
 </section>
-<section id="orthogonal-projection" class="level2" data-number="16.3">
-<h2 data-number="16.3" class="anchored" data-anchor-id="orthogonal-projection"><span class="header-section-number">16.3</span> Orthogonal projection</h2>
+<section id="orthogonal-projection" class="level2" data-number="31.3">
+<h2 data-number="31.3" class="anchored" data-anchor-id="orthogonal-projection"><span class="header-section-number">31.3</span> Orthogonal projection</h2>
 <p><strong>Orthogonal projection</strong> splits a vector into two perpendicular parts:</p>
 <p><span class="math display">
 \vec v \;=\; \underbrace{\operatorname{proj}_{\vec u} \vec v}_{\text{component along } \vec u}
@@ -683,8 +683,8 @@ window.Quarto = {
 </span></p>
 <hr>
 </section>
-<section id="mean-subtraction-is-orthogonal-projection" class="level2" data-number="16.4">
-<h2 data-number="16.4" class="anchored" data-anchor-id="mean-subtraction-is-orthogonal-projection"><span class="header-section-number">16.4</span> Mean subtraction is orthogonal projection</h2>
+<section id="mean-subtraction-is-orthogonal-projection" class="level2" data-number="31.4">
+<h2 data-number="31.4" class="anchored" data-anchor-id="mean-subtraction-is-orthogonal-projection"><span class="header-section-number">31.4</span> Mean subtraction is orthogonal projection</h2>
 <p>Let <span class="math inline">\vec u = [1, 1, \ldots, 1]</span> with <span class="math inline">n</span> elements. Its unit vector is:</p>
 <p><span class="math display">
 \hat u \;=\; \frac{[1, 1, \ldots, 1]}{\sqrt n}
@@ -701,9 +701,9 @@ window.Quarto = {
 <p><strong>Consequence:</strong> a brightness offset only changes the brightness component, not the pattern component. After mean subtraction, patterns are identical regardless of uniform lighting shifts.</p>
 <hr>
 </section>
-<section id="decomposition-in-code" class="level2" data-number="16.5">
-<h2 data-number="16.5" class="anchored" data-anchor-id="decomposition-in-code"><span class="header-section-number">16.5</span> Decomposition in code</h2>
-<div id="e14eac8c" class="cell" data-execution_count="1">
+<section id="decomposition-in-code" class="level2" data-number="31.5">
+<h2 data-number="31.5" class="anchored" data-anchor-id="decomposition-in-code"><span class="header-section-number">31.5</span> Decomposition in code</h2>
+<div id="53e40064" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -745,9 +745,9 @@ brightness · pattern = +0.000000e+00
 </div>
 <hr>
 </section>
-<section id="brightness-offset-only-moves-the-brightness-component" class="level2" data-number="16.6">
-<h2 data-number="16.6" class="anchored" data-anchor-id="brightness-offset-only-moves-the-brightness-component"><span class="header-section-number">16.6</span> Brightness offset only moves the brightness component</h2>
-<div id="dc1e97a1" class="cell" data-execution_count="2">
+<section id="brightness-offset-only-moves-the-brightness-component" class="level2" data-number="31.6">
+<h2 data-number="31.6" class="anchored" data-anchor-id="brightness-offset-only-moves-the-brightness-component"><span class="header-section-number">31.6</span> Brightness offset only moves the brightness component</h2>
+<div id="8da96c81" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>shifted <span class="op">=</span> template <span class="op">+</span> <span class="fl">50.0</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>b1, p1 <span class="op">=</span> decompose(template)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>b2, p2 <span class="op">=</span> decompose(shifted)</span>
@@ -776,9 +776,9 @@ Pattern unchanged? True</code></pre>
 <p>That’s the whole point of mean subtraction: the brightness component absorbs any uniform offset, and the pattern component is invariant to it.</p>
 <hr>
 </section>
-<section id="visualising-the-split" class="level2" data-number="16.7">
-<h2 data-number="16.7" class="anchored" data-anchor-id="visualising-the-split"><span class="header-section-number">16.7</span> Visualising the split</h2>
-<div id="e4e06220" class="cell" data-execution_count="3">
+<section id="visualising-the-split" class="level2" data-number="31.7">
+<h2 data-number="31.7" class="anchored" data-anchor-id="visualising-the-split"><span class="header-section-number">31.7</span> Visualising the split</h2>
+<div id="1b2bc7f7" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> row, (vec, label) <span class="kw">in</span> <span class="bu">enumerate</span>([(template, <span class="st">"template"</span>),</span>
@@ -809,13 +809,13 @@ Pattern unchanged? True</code></pre>
 <p>The pattern bars are identical between the two rows. Only the brightness bars change.</p>
 <hr>
 </section>
-<section id="pearson-correlation-as-a-normalised-dot-product" class="level2" data-number="16.8">
-<h2 data-number="16.8" class="anchored" data-anchor-id="pearson-correlation-as-a-normalised-dot-product"><span class="header-section-number">16.8</span> Pearson correlation as a normalised dot product</h2>
+<section id="pearson-correlation-as-a-normalised-dot-product" class="level2" data-number="31.8">
+<h2 data-number="31.8" class="anchored" data-anchor-id="pearson-correlation-as-a-normalised-dot-product"><span class="header-section-number">31.8</span> Pearson correlation as a normalised dot product</h2>
 <p>Once you’ve subtracted the mean from both signals, the cosine similarity of the residuals is exactly <strong>Pearson’s correlation coefficient</strong> <span class="math inline">r</span>. That’s why every classical similarity score that “handles brightness changes” — <code>TM_CCOEFF_NORMED</code> in OpenCV, the NCC denoising in BM3D, the score in cross-correlation tracking — is, under the hood: subtract the mean, normalise, take the dot product.</p>
 <hr>
 </section>
-<section id="exercises" class="level2" data-number="16.9">
-<h2 data-number="16.9" class="anchored" data-anchor-id="exercises"><span class="header-section-number">16.9</span> Exercises</h2>
+<section id="exercises" class="level2" data-number="31.9">
+<h2 data-number="31.9" class="anchored" data-anchor-id="exercises"><span class="header-section-number">31.9</span> Exercises</h2>
 <ol type="1">
 <li>For <span class="math inline">\vec v = [4, 8, 12]</span>, compute brightness and pattern components. Verify orthogonality.</li>
 <li>Show by simulation that for any random <span class="math inline">\vec v</span>, the pattern component sums to zero.</li>
@@ -824,8 +824,8 @@ Pattern unchanged? True</code></pre>
 </ol>
 <hr>
 </section>
-<section id="glossary" class="level2" data-number="16.10">
-<h2 data-number="16.10" class="anchored" data-anchor-id="glossary"><span class="header-section-number">16.10</span> Glossary</h2>
+<section id="glossary" class="level2" data-number="31.10">
+<h2 data-number="31.10" class="anchored" data-anchor-id="glossary"><span class="header-section-number">31.10</span> Glossary</h2>
 <p><strong>orthogonal</strong> — perpendicular; dot product = 0.</p>
 <p><strong>projection</strong> — component of one vector along another.</p>
 <p><strong>mean subtraction</strong> — subtracting the per-vector mean from each element.</p>
@@ -1254,12 +1254,12 @@ Pattern unchanged? True</code></pre>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../../chapters/linear_algebra/norms.html" class="pagination-link" aria-label="Norms and Similarity">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Norms and Similarity</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Norms and Similarity</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../../chapters/linear_algebra/transforms.html" class="pagination-link" aria-label="Linear Transforms">
-        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Linear Transforms</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Linear Transforms</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

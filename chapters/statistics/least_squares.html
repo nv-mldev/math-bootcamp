@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>29&nbsp; Linear Least Squares – Math for Machine Learning</title>
+<title>23&nbsp; Linear Least Squares – Math for Machine Learning</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -330,7 +330,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/statistics/eda.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../chapters/statistics/least_squares.html"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Linear Least Squares</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/statistics/eda.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../chapters/statistics/least_squares.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Linear Least Squares</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -457,7 +457,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Linear Algebra</span></a>
+ <span class="menu-text">Statistics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -465,38 +465,92 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/linear_algebra/vectors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Vectors and Dot Product</span></span></a>
+  <a href="../../chapters/statistics/eda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/linear_algebra/norms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Norms and Similarity</span></span></a>
+  <a href="../../chapters/statistics/distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Distributions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/linear_algebra/orthogonality.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Orthogonality and Projection</span></span></a>
+  <a href="../../chapters/statistics/pmf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Probability Mass Functions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/linear_algebra/transforms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Linear Transforms</span></span></a>
+  <a href="../../chapters/statistics/cdf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Cumulative Distribution Functions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/linear_algebra/applied_images.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Linear Algebra Applied — Images as Vectors</span></span></a>
+  <a href="../../chapters/statistics/modeling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Modeling Distributions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/linear_algebra/exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Exercises — Linear Algebra Track</span></span></a>
+  <a href="../../chapters/statistics/pdf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Probability Density Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/statistics/relationships.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Relationships Between Variables</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/statistics/estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Estimation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/statistics/hypothesis_testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/statistics/least_squares.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Linear Least Squares</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/statistics/regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/statistics/time_series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Time Series Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/statistics/survival.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Survival Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/statistics/analytic_methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Analytic Methods</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/statistics/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Exercises — Across the Statistics Track</span></span></a>
   </div>
 </li>
       </ul>
@@ -504,7 +558,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Statistics</span></a>
+ <span class="menu-text">Linear Algebra</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -512,92 +566,38 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/eda.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis</span></span></a>
+  <a href="../../chapters/linear_algebra/vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Vectors and Dot Product</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/distributions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Distributions</span></span></a>
+  <a href="../../chapters/linear_algebra/norms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Norms and Similarity</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/pmf.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Probability Mass Functions</span></span></a>
+  <a href="../../chapters/linear_algebra/orthogonality.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Orthogonality and Projection</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/cdf.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Cumulative Distribution Functions</span></span></a>
+  <a href="../../chapters/linear_algebra/transforms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Linear Transforms</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/modeling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Modeling Distributions</span></span></a>
+  <a href="../../chapters/linear_algebra/applied_images.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Linear Algebra Applied — Images as Vectors</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/pdf.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Probability Density Functions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/relationships.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Relationships Between Variables</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/estimation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Estimation</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/hypothesis_testing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/least_squares.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Linear Least Squares</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Regression</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/time_series.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Time Series Analysis</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/survival.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Survival Analysis</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/analytic_methods.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Analytic Methods</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../chapters/statistics/exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Exercises — Across the Statistics Track</span></span></a>
+  <a href="../../chapters/linear_algebra/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Exercises — Linear Algebra Track</span></span></a>
   </div>
 </li>
       </ul>
@@ -612,15 +612,15 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-question" id="toc-the-question" class="nav-link active" data-scroll-target="#the-question"><span class="header-section-number">29.1</span> The question</a></li>
-  <li><a href="#the-least-squares-fit" id="toc-the-least-squares-fit" class="nav-link" data-scroll-target="#the-least-squares-fit"><span class="header-section-number">29.2</span> The least squares fit</a></li>
-  <li><a href="#fit-on-nsfg" id="toc-fit-on-nsfg" class="nav-link" data-scroll-target="#fit-on-nsfg"><span class="header-section-number">29.3</span> Fit on NSFG</a></li>
-  <li><a href="#residuals-and-r2" id="toc-residuals-and-r2" class="nav-link" data-scroll-target="#residuals-and-r2"><span class="header-section-number">29.4</span> Residuals and <span class="math inline">R^2</span></a></li>
-  <li><a href="#bootstrap-confidence-interval-for-the-slope" id="toc-bootstrap-confidence-interval-for-the-slope" class="nav-link" data-scroll-target="#bootstrap-confidence-interval-for-the-slope"><span class="header-section-number">29.5</span> Bootstrap confidence interval for the slope</a></li>
-  <li><a href="#visualising-it" id="toc-visualising-it" class="nav-link" data-scroll-target="#visualising-it"><span class="header-section-number">29.6</span> Visualising it</a></li>
-  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation"><span class="header-section-number">29.7</span> Interpretation</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">29.8</span> Exercises</a></li>
-  <li><a href="#glossary" id="toc-glossary" class="nav-link" data-scroll-target="#glossary"><span class="header-section-number">29.9</span> Glossary</a></li>
+  <li><a href="#the-question" id="toc-the-question" class="nav-link active" data-scroll-target="#the-question"><span class="header-section-number">23.1</span> The question</a></li>
+  <li><a href="#the-least-squares-fit" id="toc-the-least-squares-fit" class="nav-link" data-scroll-target="#the-least-squares-fit"><span class="header-section-number">23.2</span> The least squares fit</a></li>
+  <li><a href="#fit-on-nsfg" id="toc-fit-on-nsfg" class="nav-link" data-scroll-target="#fit-on-nsfg"><span class="header-section-number">23.3</span> Fit on NSFG</a></li>
+  <li><a href="#residuals-and-r2" id="toc-residuals-and-r2" class="nav-link" data-scroll-target="#residuals-and-r2"><span class="header-section-number">23.4</span> Residuals and <span class="math inline">R^2</span></a></li>
+  <li><a href="#bootstrap-confidence-interval-for-the-slope" id="toc-bootstrap-confidence-interval-for-the-slope" class="nav-link" data-scroll-target="#bootstrap-confidence-interval-for-the-slope"><span class="header-section-number">23.5</span> Bootstrap confidence interval for the slope</a></li>
+  <li><a href="#visualising-it" id="toc-visualising-it" class="nav-link" data-scroll-target="#visualising-it"><span class="header-section-number">23.6</span> Visualising it</a></li>
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation"><span class="header-section-number">23.7</span> Interpretation</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">23.8</span> Exercises</a></li>
+  <li><a href="#glossary" id="toc-glossary" class="nav-link" data-scroll-target="#glossary"><span class="header-section-number">23.9</span> Glossary</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nv-mldev/math-bootcamp/edit/main/chapters/statistics/least_squares.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nv-mldev/math-bootcamp/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -628,9 +628,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/statistics/eda.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../chapters/statistics/least_squares.html"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Linear Least Squares</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/statistics/eda.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../chapters/statistics/least_squares.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Linear Least Squares</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Linear Least Squares</span></h1>
+<h1 class="title"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Linear Least Squares</span></h1>
 </div>
 
 
@@ -647,16 +647,16 @@ window.Quarto = {
 </header>
 
 
-<section id="the-question" class="level2" data-number="29.1">
-<h2 data-number="29.1" class="anchored" data-anchor-id="the-question"><span class="header-section-number">29.1</span> The question</h2>
+<section id="the-question" class="level2" data-number="23.1">
+<h2 data-number="23.1" class="anchored" data-anchor-id="the-question"><span class="header-section-number">23.1</span> The question</h2>
 <blockquote class="blockquote">
 <p>“If I know how long a pregnancy is, how well can I predict birth weight?”</p>
 </blockquote>
 <p>Correlation (Chapter 7) told us <em>whether</em> two variables are related. Least squares tells us <em>how</em> — by fitting the best straight line through the data.</p>
 <hr>
 </section>
-<section id="the-least-squares-fit" class="level2" data-number="29.2">
-<h2 data-number="29.2" class="anchored" data-anchor-id="the-least-squares-fit"><span class="header-section-number">29.2</span> The least squares fit</h2>
+<section id="the-least-squares-fit" class="level2" data-number="23.2">
+<h2 data-number="23.2" class="anchored" data-anchor-id="the-least-squares-fit"><span class="header-section-number">23.2</span> The least squares fit</h2>
 <p>We want a line <span class="math inline">\hat{y} = \alpha + \beta x</span> that best fits the data. “Best” means minimising the sum of squared errors:</p>
 <p><span class="math display">
 \text{SSE} \;=\; \sum_{i=1}^n (y_i - \hat{y}_i)^2
@@ -673,9 +673,9 @@ window.Quarto = {
 <p>The line always passes through <span class="math inline">(\bar{x}, \bar{y})</span>.</p>
 <hr>
 </section>
-<section id="fit-on-nsfg" class="level2" data-number="29.3">
-<h2 data-number="29.3" class="anchored" data-anchor-id="fit-on-nsfg"><span class="header-section-number">29.3</span> Fit on NSFG</h2>
-<div id="a5734a6c" class="cell" data-execution_count="1">
+<section id="fit-on-nsfg" class="level2" data-number="23.3">
+<h2 data-number="23.3" class="anchored" data-anchor-id="fit-on-nsfg"><span class="header-section-number">23.3</span> Fit on NSFG</h2>
+<div id="858dbc24" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys, os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -715,8 +715,8 @@ At 39 weeks : 7.418 lbs</code></pre>
 </div>
 <hr>
 </section>
-<section id="residuals-and-r2" class="level2" data-number="29.4">
-<h2 data-number="29.4" class="anchored" data-anchor-id="residuals-and-r2"><span class="header-section-number">29.4</span> Residuals and <span class="math inline">R^2</span></h2>
+<section id="residuals-and-r2" class="level2" data-number="23.4">
+<h2 data-number="23.4" class="anchored" data-anchor-id="residuals-and-r2"><span class="header-section-number">23.4</span> Residuals and <span class="math inline">R^2</span></h2>
 <p>A <strong>residual</strong> is the difference between observed and predicted:</p>
 <p><span class="math display">
 e_i \;=\; y_i - \hat{y}_i
@@ -733,7 +733,7 @@ e_i \;=\; y_i - \hat{y}_i
 R^2 \;=\; 1 - \frac{\text{SSE}}{\text{SST}},
 \qquad \text{SST} = \sum (y_i - \bar{y})^2
 </span></p>
-<div id="b300937c" class="cell" data-execution_count="2">
+<div id="1b8fe60d" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compute_residuals(x, y, alpha, beta):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> y <span class="op">-</span> (alpha <span class="op">+</span> beta <span class="op">*</span> x)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -761,10 +761,10 @@ Mean residual   : 0.000000  (should be ≈ 0)</code></pre>
 <p>Pregnancy length explains about 19 % of birth-weight variance — not a great fit. Most of the variation comes from other factors.</p>
 <hr>
 </section>
-<section id="bootstrap-confidence-interval-for-the-slope" class="level2" data-number="29.5">
-<h2 data-number="29.5" class="anchored" data-anchor-id="bootstrap-confidence-interval-for-the-slope"><span class="header-section-number">29.5</span> Bootstrap confidence interval for the slope</h2>
+<section id="bootstrap-confidence-interval-for-the-slope" class="level2" data-number="23.5">
+<h2 data-number="23.5" class="anchored" data-anchor-id="bootstrap-confidence-interval-for-the-slope"><span class="header-section-number">23.5</span> Bootstrap confidence interval for the slope</h2>
 <p>Is <span class="math inline">\hat{\beta}</span> statistically meaningful? Bootstrap (Chapter 8) the slope, then read off the 2.5th and 97.5th percentile of the bootstrap distribution.</p>
-<div id="c1dc9583" class="cell" data-execution_count="3">
+<div id="2d10b1c6" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>n_boot <span class="op">=</span> <span class="dv">2000</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>boot_slopes <span class="op">=</span> []</span>
@@ -785,9 +785,9 @@ Mean residual   : 0.000000  (should be ≈ 0)</code></pre>
 <p>Both bounds are positive — longer pregnancy reliably means a heavier baby.</p>
 <hr>
 </section>
-<section id="visualising-it" class="level2" data-number="29.6">
-<h2 data-number="29.6" class="anchored" data-anchor-id="visualising-it"><span class="header-section-number">29.6</span> Visualising it</h2>
-<div id="d16542c5" class="cell" data-execution_count="4">
+<section id="visualising-it" class="level2" data-number="23.6">
+<h2 data-number="23.6" class="anchored" data-anchor-id="visualising-it"><span class="header-section-number">23.6</span> Visualising it</h2>
+<div id="65a22cb3" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fitted <span class="op">=</span> alpha <span class="op">+</span> beta <span class="op">*</span> x</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">9</span>))</span>
@@ -844,8 +844,8 @@ Mean residual   : 0.000000  (should be ≈ 0)</code></pre>
 </div>
 <hr>
 </section>
-<section id="interpretation" class="level2" data-number="29.7">
-<h2 data-number="29.7" class="anchored" data-anchor-id="interpretation"><span class="header-section-number">29.7</span> Interpretation</h2>
+<section id="interpretation" class="level2" data-number="23.7">
+<h2 data-number="23.7" class="anchored" data-anchor-id="interpretation"><span class="header-section-number">23.7</span> Interpretation</h2>
 <ul>
 <li><span class="math inline">\beta</span> is the <strong>slope</strong>: each additional week of pregnancy adds <span class="math inline">\beta</span> pounds.</li>
 <li><span class="math inline">\alpha</span> is the <strong>intercept</strong>: predicted weight at 0 weeks (not meaningful — extrapolation).</li>
@@ -853,8 +853,8 @@ Mean residual   : 0.000000  (should be ≈ 0)</code></pre>
 <p>The intercept is only meaningful within the range of observed data. <strong>Extrapolating</strong> a linear model far outside the data range is almost always wrong.</p>
 <hr>
 </section>
-<section id="exercises" class="level2" data-number="29.8">
-<h2 data-number="29.8" class="anchored" data-anchor-id="exercises"><span class="header-section-number">29.8</span> Exercises</h2>
+<section id="exercises" class="level2" data-number="23.8">
+<h2 data-number="23.8" class="anchored" data-anchor-id="exercises"><span class="header-section-number">23.8</span> Exercises</h2>
 <ol type="1">
 <li>Fit a line predicting birth weight from pregnancy length. Report <span class="math inline">\hat{\alpha}</span>, <span class="math inline">\hat{\beta}</span>, <span class="math inline">R^2</span>.</li>
 <li>Plot the scatter with the fitted line.</li>
@@ -864,8 +864,8 @@ Mean residual   : 0.000000  (should be ≈ 0)</code></pre>
 </ol>
 <hr>
 </section>
-<section id="glossary" class="level2" data-number="29.9">
-<h2 data-number="29.9" class="anchored" data-anchor-id="glossary"><span class="header-section-number">29.9</span> Glossary</h2>
+<section id="glossary" class="level2" data-number="23.9">
+<h2 data-number="23.9" class="anchored" data-anchor-id="glossary"><span class="header-section-number">23.9</span> Glossary</h2>
 <p><strong>least squares</strong> — minimise <span class="math inline">\sum (y_i - \hat{y}_i)^2</span>.</p>
 <p><strong>slope</strong> — change in <span class="math inline">y</span> per unit change in <span class="math inline">x</span>.</p>
 <p><strong>intercept</strong> — predicted <span class="math inline">y</span> when <span class="math inline">x = 0</span>.</p>
@@ -1297,12 +1297,12 @@ Mean residual   : 0.000000  (should be ≈ 0)</code></pre>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../../chapters/statistics/hypothesis_testing.html" class="pagination-link" aria-label="Hypothesis Testing">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../../chapters/statistics/regression.html" class="pagination-link" aria-label="Regression">
-        <span class="nav-page-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Regression</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Regression</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
