@@ -64,9 +64,11 @@ A set is a collection of distinct objects, considered as an object in its own ri
 
 \end{definitionboxbreak}
 
+Before we go further, there is one property of sets that turns out to be surprisingly important for probability: \textbf{how big} the set is. Not just finite versus infinite, but \textit{what kind} of infinite. As we will see shortly, the type of infinity of your sample space determines which mathematical tools you can use to assign probabilities. For finite or ``listable'' (countably infinite) sample spaces, you can assign a probability to each individual outcome and simply add them up. But for sample spaces like the real number line, where outcomes are so dense they cannot be listed, this approach completely breaks down --- individual outcomes end up with zero probability, and you must reason about intervals and areas instead. This distinction between \textbf{countable} and \textbf{uncountable} infinity is the foundation that separates discrete probability from continuous probability.
+
 \newcommand{\circled}[1]{\tikz[baseline=(char.base)]{
             \node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
-            
+
 \begin{keyconceptboxbreak}{Countable Infinity vs. Uncountably Infinite Sets}
 
     \headingB{Countably Infinite Sets:}
@@ -688,7 +690,7 @@ Since there are 16 equally likely outcomes, the probability of any single outcom
 
 
 \subsection{Continuous Models}
-Probabilistic models with continuous sample spaces differ from their discrete counterparts in that the probabilities of the single-element events may not be sufficient to characterize the probability law. In fact, in continuous sample spaces, single-element events typically have zero probability.
+Recall from earlier that the real numbers form an \textbf{uncountably infinite} set --- they cannot be arranged into any list. This is precisely why continuous probability requires a fundamentally different approach. Unlike discrete models where we assign probabilities to individual outcomes and add them up, in a continuous sample space every single outcome has probability zero. The only meaningful quantities are probabilities of \textit{intervals} and \textit{regions}. Probabilistic models with continuous sample spaces differ from their discrete counterparts in that the probabilities of the single-element events may not be sufficient to characterize the probability law. In fact, in continuous sample spaces, single-element events typically have zero probability.
 
 
 
