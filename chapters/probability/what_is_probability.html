@@ -795,7 +795,7 @@ window.Quarto = {
 <p>The outcome is a pair <span class="math inline">(i, j)</span> where <span class="math inline">i</span> is the first roll and <span class="math inline">j</span> is the second.</p>
 <p><span class="math display">\Omega = \{(i, j) \mid i, j \in \{1, 2, 3, 4\}\}</span></p>
 <p>This gives <span class="math inline">4 \times 4 = 16</span> outcomes. We can represent them on a grid:</p>
-<div id="daca3ccd" class="cell" data-execution_count="1">
+<div id="8595b0e7" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -829,7 +829,7 @@ window.Quarto = {
 <h3 data-number="3.3.4" class="anchored" data-anchor-id="sequential-experiments-and-tree-diagrams"><span class="header-section-number">3.3.4</span> Sequential Experiments and Tree Diagrams</h3>
 <p>When an experiment has multiple stages, a <strong>tree diagram</strong> makes the sample space visible.</p>
 <p><strong>Example: Flipping a coin three times.</strong></p>
-<div id="b3bf455a" class="cell" data-execution_count="2">
+<div id="540dd7d3" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.patches <span class="im">as</span> mpatches</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1055,7 +1055,7 @@ window.Quarto = {
 <h3 data-number="3.6.7" class="anchored" data-anchor-id="union-bound-booles-inequality"><span class="header-section-number">3.6.7</span> Union Bound (Boole’s Inequality)</h3>
 <p><span class="math display">P(A \cup B) \le P(A) + P(B)</span></p>
 <p>This follows immediately from inclusion-exclusion since <span class="math inline">P(A \cap B) \ge 0</span>. It is useful when you want a quick upper bound and computing <span class="math inline">P(A \cap B)</span> is hard.</p>
-<div id="325f14ab" class="cell" data-execution_count="3">
+<div id="9aec88df" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify all properties numerically on the 4-sided die example</span></span>
@@ -1108,7 +1108,7 @@ P(A) + P(B) = 0.4375  (union bound ≥ P(A ∪ B) ✓)</code></pre>
 </div>
 <p><strong>Under the Discrete Uniform Law, probability becomes a counting problem.</strong> To find <span class="math inline">P(A)</span>, you count.</p>
 <p><strong>Example: Two rolls of a 4-sided die</strong> (<span class="math inline">n = 16</span>, all equally likely).</p>
-<div id="c24c50a7" class="cell" data-execution_count="4">
+<div id="fd0e8a46" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>omega <span class="op">=</span> {(i, j) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">5</span>) <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">5</span>)}</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">len</span>(omega)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1159,7 +1159,7 @@ P(minimum = 2)   = 5/16 = 0.3125</code></pre>
 <p><span class="math display">\text{Area} = \frac{1}{2} \times \text{base} \times \text{height} = \frac{1}{2} \times \frac{1}{2} \times \frac{1}{2} = \frac{1}{8}</span></p>
 <p><strong>What is <span class="math inline">P(\text{dart lands on exactly } (0.5, 0.3))</span>?</strong></p>
 <p>A single point has zero area, so <span class="math inline">P = 0</span>. This is the key insight: in continuous models, individual outcomes have zero probability, but <em>regions</em> have positive probability.</p>
-<div id="a22e72e0" class="cell" data-execution_count="5">
+<div id="d7ca392c" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1236,7 +1236,7 @@ P(minimum = 2)   = 5/16 = 0.3125</code></pre>
 <p>Check normalization: <span class="math display">\sum_{n=1}^{\infty} \frac{1}{2^n} = \frac{1/2}{1 - 1/2} = 1 \checkmark</span></p>
 <p>What is the probability the outcome is even? Let <span class="math inline">A = \{2, 4, 6, \ldots\}</span>:</p>
 <p><span class="math display">P(A) = \sum_{k=1}^{\infty} P(2k) = \sum_{k=1}^{\infty} \left(\frac{1}{2}\right)^{2k} = \sum_{k=1}^{\infty} \frac{1}{4^k} = \frac{1/4}{1 - 1/4} = \frac{1}{3}</span></p>
-<div id="8e679828" class="cell" data-execution_count="6">
+<div id="96bb1b49" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify by simulation</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1284,7 +1284,7 @@ P(even) by formula:    0.3333</code></pre>
 <p>“A fair coin has <span class="math inline">P(H) = 0.5</span> because, over millions of tosses, the fraction of heads converges to <span class="math inline">\frac{1}{2}</span>.”</p>
 </blockquote>
 <p>This is intuitive and scientific. In fact, this convergence is a <em>theorem</em> within probability theory — the <strong>Law of Large Numbers</strong> — not a definition. The frequency interpretation is what that theorem says.</p>
-<div id="8c4b3be3" class="cell" data-execution_count="7">
+<div id="8e7e24a0" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1364,7 +1364,7 @@ Real World  ←  (Predictions / decisions)  ←  Results</code></pre>
 <p><strong>Example</strong>: A system requires two components to both work. Component 1 works with probability 0.95, component 2 with probability 0.90. The Bonferroni Inequality gives:</p>
 <p><span class="math display">P(\text{both work}) \ge 0.95 + 0.90 - 1 = 0.85</span></p>
 <p>The exact answer (if independent) is <span class="math inline">0.95 \times 0.90 = 0.855</span> — so the bound is tight.</p>
-<div id="eef0f427" class="cell" data-execution_count="8">
+<div id="52f47a01" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>p1, p2 <span class="op">=</span> <span class="fl">0.95</span>, <span class="fl">0.90</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>bonferroni_lower <span class="op">=</span> p1 <span class="op">+</span> p2 <span class="op">-</span> <span class="dv">1</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>exact <span class="op">=</span> p1 <span class="op">*</span> p2  <span class="co"># assuming independence</span></span>
