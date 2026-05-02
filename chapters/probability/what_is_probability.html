@@ -956,7 +956,7 @@ window.Quarto = {
 <p>The verbal sentence “at least one is a boy” is the <em>same</em> in both stories, but it was <em>generated</em> by two different experiments. The sample space follows the experiment, not the sentence.</p>
 <p>Two models, two different answers. <strong>Nobody has done arithmetic yet.</strong> The argument is happening at Stage 1.</p>
 <p>We can confirm Model A’s answer by simulation — pick the model and the math falls out.</p>
-<div id="349e51d1" class="cell" data-execution_count="1">
+<div id="37ef4764" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model A: simulate many two-child families. Each child is independently</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># B or G with probability 1/2. Among families with AT LEAST ONE boy, what</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># fraction have TWO boys?</span></span>
@@ -980,7 +980,7 @@ window.Quarto = {
 Theoretical answer: 1/3 ≈ 0.3333</code></pre>
 </div>
 </div>
-<div id="fc19eb6b" class="cell" data-execution_count="2">
+<div id="703838c7" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model B: simulate the same families, but now we 'meet' a uniformly random</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># child from each family. Condition on the child we met being a boy, and ask</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># whether the OTHER child is also a boy.</span></span>
@@ -1027,7 +1027,7 @@ Theoretical answer: 1/2 ≈ 0.5000</code></pre>
 </blockquote>
 <p>This is intuitive for things you can repeat. <em>“This coin lands heads with probability 0.5”</em> means: if you flip it enough times, the fraction landing heads will get arbitrarily close to 0.5.</p>
 <p>Let’s actually watch that happen.</p>
-<div id="4c57f378" class="cell" data-execution_count="3">
+<div id="ca55c9cf" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1201,7 +1201,7 @@ p \;\ge\; \frac{L}{W + L}.
 <section id="concrete-problem-rolling-two-dice" class="level3" data-number="3.5.1">
 <h3 data-number="3.5.1" class="anchored" data-anchor-id="concrete-problem-rolling-two-dice"><span class="header-section-number">3.5.1</span> Concrete problem: rolling two dice</h3>
 <p>Throughout the rest of this chapter, we’ll use a single running example. You roll two ordinary six-sided dice. We’ll define everything against this.</p>
-<div id="c46dce55" class="cell" data-execution_count="4">
+<div id="f387de4a" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Enumerate all 36 outcomes</span></span>
@@ -1246,7 +1246,7 @@ First few: [(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6)]</code></pre>
 </div>
 </div>
 <p>The third point is subtle. The same experiment — rolling two dice — can be modelled with very different sample spaces depending on how much detail we keep. Let’s compare three of them.</p>
-<div id="6a46194b" class="cell" data-execution_count="5">
+<div id="700b7eae" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Three different sample spaces for the SAME experiment: rolling two dice.</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># --- (A) Too coarse: record only the SUM of the two dice. ---</span></span>
@@ -1307,7 +1307,7 @@ First few: [(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6)]</code></pre>
 <section id="events" class="level3" data-number="3.5.3">
 <h3 data-number="3.5.3" class="anchored" data-anchor-id="events"><span class="header-section-number">3.5.3</span> Events</h3>
 <p>An <strong>event</strong> is just a subset of <span class="math inline">\Omega</span>. Some examples for our two dice:</p>
-<div id="1c961c6a" class="cell" data-execution_count="6">
+<div id="ba9a046b" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>omega <span class="op">=</span> <span class="bu">set</span>(outcomes)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {(d1, d2) <span class="cf">for</span> d1, d2 <span class="kw">in</span> omega <span class="cf">if</span> d1 <span class="op">+</span> d2 <span class="op">==</span> <span class="dv">7</span>}        <span class="co"># sum is 7</span></span>
@@ -1327,7 +1327,7 @@ D = sum ≥ 10        (6 outcomes): [(4, 6), (5, 5), (5, 6), (6, 4), (6, 5), (6,
 </div>
 </div>
 <p>Because events are sets, you can combine them with set operations. Combining events gives you new events:</p>
-<div id="9799160b" class="cell" data-execution_count="7">
+<div id="5511139e" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum is 7 OR doubles</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>A_or_B <span class="op">=</span> A <span class="op">|</span> B          <span class="co"># set union  → "A or B"</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum is 7 AND first die is 6  → exactly one roll: (6, 1)</span></span>
@@ -1398,7 +1398,7 @@ A ∩ B   ('sum is 7 AND doubles'):          0 outcomes  →  set()  (empty set 
 <p>This is what mathematicians mean by <strong>countably infinite</strong>: a set is countable if you can put its elements in 1-to-1 correspondence with the natural numbers <span class="math inline">\{1, 2, 3, \ldots\}</span>. The integers <span class="math inline">\mathbb{Z}</span> are countable. Even the algebraic numbers are countable. The <em>rationals</em> are countable too — and the way Cantor showed this is the warm-up for the diagonal argument we’ll see in a moment.</p>
 <p><strong>Warm-up: <span class="math inline">\mathbb{Q}</span> fits in Hilbert’s Hotel (Cantor’s zigzag).</strong> Lay out every positive rational <span class="math inline">p/q</span> in a 2D grid: row <span class="math inline">p</span>, column <span class="math inline">q</span>. The grid contains <em>every</em> positive rational somewhere — even duplicates like <span class="math inline">2/4 = 1/2</span> — but it’s a 2D infinity, so naively it looks “bigger” than <span class="math inline">\mathbb{N}</span>.</p>
 <p>Cantor’s trick: walk through the grid along anti-diagonals (the lines where <span class="math inline">p + q</span> is constant). Skip any fraction you’ve already seen in lowest terms. Number each new fraction as you go: 1, 2, 3, …. Every rational eventually gets a number, so the rationals can be put in 1-to-1 correspondence with <span class="math inline">\mathbb{N}</span>. They fit.</p>
-<div id="06d55e78" class="cell" data-execution_count="8">
+<div id="a8b32497" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> gcd</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1483,7 +1483,7 @@ A ∩ B   ('sum is 7 AND doubles'):          0 outcomes  →  set()  (empty set 
 <p><strong>The punchline: the reals don’t fit.</strong> Hilbert’s Hotel <strong>cannot</strong> accommodate the <strong>real numbers</strong> <span class="math inline">\mathbb{R}</span>. Cantor proved this in 1891 with his famous <strong>diagonal argument</strong>: assume you have a list of all reals between 0 and 1; construct a new real that differs from the <span class="math inline">n</span>-th entry in its <span class="math inline">n</span>-th decimal digit; this new real is on the list (we said the list was complete) but cannot be on the list (it differs from every entry). Contradiction. So no list exists.</p>
 <p>The same diagonal geometry that <em>succeeded</em> for <span class="math inline">\mathbb{Q}</span> now <em>fails</em> for <span class="math inline">\mathbb{R}</span>. For <span class="math inline">\mathbb{Q}</span>, walking the diagonals <em>enumerated</em> every fraction. For <span class="math inline">\mathbb{R}</span>, walking the diagonal of any attempted list lets us <em>escape</em> it — build a real that’s missing.</p>
 <p>The picture below shows it in action. The boxed digits along the diagonal — <span class="math inline">d_{11}, d_{22}, d_{33}, \ldots</span> — are read off the supposed list. The new number <span class="math inline">r^\star</span> at the bottom is built by flipping each diagonal digit (we use the rule “if it’s <span class="math inline">\le 4</span>, change to 8; otherwise change to 1”). Whatever row you point to, <span class="math inline">r^\star</span> differs from it <em>in at least one position</em> — so <span class="math inline">r^\star</span> cannot be on the list. But the list was supposed to contain <em>every</em> real in <span class="math inline">[0, 1]</span>. Contradiction.</p>
-<div id="5d28f4b0" class="cell" data-execution_count="9">
+<div id="d3752369" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1592,116 +1592,7 @@ A ∩ B   ('sum is 7 AND doubles'):          0 outcomes  →  set()  (empty set 
 </div>
 </div>
 </div>
-<p>With that distinction in hand, a small caveat about events is worth knowing — though we won’t use it directly. So far we’ve said <em>“event = subset of <span class="math inline">\Omega</span>”</em> without worrying about it. For finite or countable sample spaces (dice, coins, integers) that’s exactly right. For <em>uncountable</em> sample spaces — like the real line — it turns out you can’t safely call every subset an event. The fix is a small piece of formal machinery called a <strong><span class="math inline">\sigma</span>-algebra</strong>. The next callout unpacks why; it’s optional.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>▶ The fine print: why “event = subset” eventually breaks
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-18" class="callout-18-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>The setup.</strong> A probability law <span class="math inline">P</span> assigns a number to every event. We’ve been saying “event = subset of <span class="math inline">\Omega</span>”. For finite or countable <span class="math inline">\Omega</span>, that’s fine — every subset is allowed.</p>
-<p>For <em>uncountable</em> <span class="math inline">\Omega</span> (like <span class="math inline">[0, 1]</span> or <span class="math inline">\mathbb{R}</span>), the question is whether we can still assign a probability to every subset. The surprising answer is <strong>no</strong> — some subsets break the axioms.</p>
-<p><strong>Why it breaks (the Vitali set).</strong> Imagine picking a number uniformly at random from <span class="math inline">[0, 1]</span>. In 1905, Vitali constructed a subset <span class="math inline">V \subset [0, 1]</span> with two properties:</p>
-<ul>
-<li>Infinitely many “shifted copies” of <span class="math inline">V</span> are pairwise <strong>disjoint</strong> and together cover <span class="math inline">[0, 1]</span>.</li>
-<li>All copies have the <em>same</em> probability — call it <span class="math inline">p</span> — because the experiment is uniform and they’re just shifts of each other.</li>
-</ul>
-<p>Apply additivity (axiom A3, <em>probability of a disjoint union = sum of probabilities</em>):</p>
-<p><span class="math display">
-1 \;=\; P([0, 1]) \;=\; \sum_{i=1}^{\infty} P(V_i) \;=\; \sum_{i=1}^{\infty} p.
-</span></p>
-<p>The right side is the same number <span class="math inline">p</span> added infinitely many times:</p>
-<ul>
-<li>if <span class="math inline">p = 0</span> → the sum is <span class="math inline">0</span>, not <span class="math inline">1</span> ✗</li>
-<li>if <span class="math inline">p &gt; 0</span> → the sum is infinite, not <span class="math inline">1</span> ✗</li>
-</ul>
-<p><strong>No value of <span class="math inline">p</span> works.</strong> The set <span class="math inline">V</span> simply cannot have a probability without breaking additivity.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>▶ How the Vitali construction actually works — step by step
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-17" class="callout-17-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>The argument above says “infinitely many shifted copies cover <span class="math inline">[0,1]</span>” without showing why. Here is the actual mechanism.</p>
-<p><strong>Step 1 — Equivalence classes on <span class="math inline">[0, 1]</span>.</strong> Define a relation: <span class="math inline">x \sim y</span> iff <span class="math inline">x - y \in \mathbb{Q}</span>.</p>
-<ul>
-<li><span class="math inline">0.3 \sim 0.5</span> because <span class="math inline">0.5 - 0.3 = \tfrac{1}{5}</span> ✓</li>
-<li><span class="math inline">0.3 \not\sim (\pi - 3)</span> because <span class="math inline">(\pi - 3) - 0.3 = \pi - 3.3</span> is irrational ✗</li>
-</ul>
-<p>This partitions <span class="math inline">[0,1]</span> into disjoint <strong>equivalence classes</strong> — each class collects numbers that all differ from one another by a rational. The class of <span class="math inline">0</span> is <span class="math inline">\mathbb{Q} \cap [0,1]</span>; the class of <span class="math inline">\pi - 3</span> is <span class="math inline">\{\pi - 3 + q : q \in \mathbb{Q},\; \pi - 3 + q \in [0,1]\}</span>. There are uncountably many classes.</p>
-<p><strong>Step 2 — Build <span class="math inline">V</span> (here the Axiom of Choice enters).</strong> Pick exactly one representative from each equivalence class and collect them into <span class="math inline">V</span>. You cannot write <span class="math inline">V</span> down explicitly — AC guarantees the selection exists but gives no formula. By construction, any two distinct elements of <span class="math inline">V</span> differ by an <em>irrational</em> (they came from different classes).</p>
-<p><strong>Step 3 — The shifted copies.</strong> Let <span class="math inline">\mathbb{Q}_0 = \mathbb{Q} \cap [-1, 1]</span> — countably many rationals. For each <span class="math inline">q_i \in \mathbb{Q}_0</span> define</p>
-<p><span class="math display">V_i \;=\; V + q_i \;=\; \{v + q_i : v \in V\}.</span></p>
-<p><strong>Step 4 — The <span class="math inline">V_i</span> are pairwise disjoint.</strong> Suppose <span class="math inline">x \in V_i \cap V_j</span>, so <span class="math inline">x = v + q_i = v' + q_j</span> for some <span class="math inline">v, v' \in V</span>. Then <span class="math inline">v - v' = q_j - q_i \in \mathbb{Q}</span>. But two distinct elements of <span class="math inline">V</span> differ by an irrational — contradiction. So <span class="math inline">v = v'</span> and <span class="math inline">q_i = q_j</span>, meaning <span class="math inline">i = j</span>. Hence different shifts never overlap.</p>
-<p><strong>Step 5 — The <span class="math inline">V_i</span> cover <span class="math inline">[0, 1]</span>.</strong> Take any <span class="math inline">x \in [0,1]</span>. It belongs to exactly one equivalence class, whose representative <span class="math inline">v \in V</span> satisfies <span class="math inline">x - v = q</span> for some rational <span class="math inline">q</span>. Since <span class="math inline">x, v \in [0,1]</span>, we have <span class="math inline">q \in [-1, 1]</span>, so <span class="math inline">q = q_i</span> for some <span class="math inline">i</span>, giving <span class="math inline">x = v + q_i \in V_i</span>.</p>
-<p><strong>Step 6 — The contradiction.</strong> The <span class="math inline">V_i</span> are countably many, pairwise disjoint, and their union contains <span class="math inline">[0,1]</span>. By monotonicity and countable additivity:</p>
-<p><span class="math display">1 \;\le\; P\!\left(\bigcup_{i} V_i\right) \;=\; \sum_{i=1}^{\infty} P(V_i) \;=\; \sum_{i=1}^{\infty} p.</span></p>
-<p>Translation-invariance (shifting doesn’t change length) forces every <span class="math inline">P(V_i) = p</span>. If <span class="math inline">p = 0</span> the sum is <span class="math inline">0 \not\ge 1</span>; if <span class="math inline">p &gt; 0</span> the sum is <span class="math inline">\infty</span>. Neither works — so <span class="math inline">V</span> cannot be assigned any probability without breaking the axioms.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Piece</th>
-<th>Role</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Equivalence classes</td>
-<td>Partition <span class="math inline">[0,1]</span> into “rational-difference families”</td>
-</tr>
-<tr class="even">
-<td>The set <span class="math inline">V</span></td>
-<td>One representative per family — requires Axiom of Choice</td>
-</tr>
-<tr class="odd">
-<td>Shifts <span class="math inline">V + q_i</span></td>
-<td>Countably many translated copies, one per rational in <span class="math inline">[-1,1]</span></td>
-</tr>
-<tr class="even">
-<td>Pairwise disjoint</td>
-<td>Two elements of <span class="math inline">V</span> differ by an irrational; <span class="math inline">q_j - q_i</span> is rational</td>
-</tr>
-<tr class="odd">
-<td>Cover <span class="math inline">[0,1]</span></td>
-<td>Every <span class="math inline">x</span> equals its <span class="math inline">V</span>-representative plus a rational shift</td>
-</tr>
-<tr class="even">
-<td>Contradiction</td>
-<td>Translation-invariance + additivity force <span class="math inline">p = 0</span> and <span class="math inline">p &gt; 0</span> simultaneously</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<p><strong>The fix.</strong> We restrict the events to a <strong><span class="math inline">\sigma</span>-algebra</strong> <span class="math inline">\mathcal{F}</span> — a collection of “well-behaved” subsets that:</p>
-<ol type="1">
-<li>contains <span class="math inline">\Omega</span>,</li>
-<li>is <strong>closed under complements</strong> (if <span class="math inline">A \in \mathcal{F}</span>, then <span class="math inline">A^c \in \mathcal{F}</span>),</li>
-<li>is <strong>closed under countable unions</strong> (if <span class="math inline">A_1, A_2, \ldots \in \mathcal{F}</span>, then <span class="math inline">\bigcup_i A_i \in \mathcal{F}</span>).</li>
-</ol>
-<p>These three properties guarantee that the natural operations — <em>and</em>, <em>or</em>, <em>not</em>, countable disjoint unions — keep producing valid events. The Vitali set is <em>outside</em> any reasonable <span class="math inline">\sigma</span>-algebra, so we never have to assign it a probability.</p>
-<p>For the real line, the standard choice is the <strong>Borel <span class="math inline">\sigma</span>-algebra</strong>, generated by all open intervals. Every set you’d construct without exotic machinery (intervals, unions of intervals, complements, limits) is in it.</p>
-<p><strong>Why we don’t fuss about it in this book.</strong> The Vitali set requires the <strong>Axiom of Choice</strong> to construct — you can’t write down its elements. In every probability model you’ll meet (Normal, Uniform, Beta, …), every set you’d ever care about is already a valid event. Treat <em>“event = subset of <span class="math inline">\Omega</span>”</em> as your working definition and trust that the measure-theoretic fine print holds. If you go on to a formal probability course (Billingsley, Durrett), this is where the careful version lives.</p>
-</div>
-</div>
-</div>
+<p>With that distinction in hand, a small caveat about events is worth knowing — though we won’t use it directly. So far we’ve said <em>“event = subset of <span class="math inline">\Omega</span>”</em> without worrying about it. For finite or countable sample spaces (dice, coins, integers) that’s exactly right. For uncountable sample spaces — like the real line — every individual point still has probability zero, and probabilities are assigned to intervals and regions instead. This is all you need to work with continuous probability. The deeper question of <em>which</em> subsets of the real line can be assigned a probability at all belongs to measure theory, a topic beyond the scope of this book.</p>
 </section>
 <section id="probability-law-the-three-axioms" class="level3" data-number="3.5.4">
 <h3 data-number="3.5.4" class="anchored" data-anchor-id="probability-law-the-three-axioms"><span class="header-section-number">3.5.4</span> Probability law: the three axioms</h3>
@@ -1728,7 +1619,7 @@ A ∩ B   ('sum is 7 AND doubles'):          0 outcomes  →  set()  (empty set 
 </div>
 <p>Three axioms. That’s the whole foundation. Everything else in probability theory — every formula, every theorem, every proof — follows from these three.</p>
 <p>Let’s verify them on our dice.</p>
-<div id="ccbe31cc" class="cell" data-execution_count="10">
+<div id="6185ee10" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For fair dice, each of the 36 outcomes has probability 1/36.</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># We define the probability law as: for any event E, P(E) = |E| / 36.</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1760,7 +1651,7 @@ A ∩ B   ('sum is 7 AND doubles'):          0 outcomes  →  set()  (empty set 
 </div>
 <p>That’s it. The rest of probability theory is just consequences of these three rules.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1769,7 +1660,7 @@ A ∩ B   ('sum is 7 AND doubles'):          0 outcomes  →  set()  (empty set 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>From the three axioms alone, we can derive a long list of useful facts. Here are the most-used ones, with proofs.</p>
 <p><strong>1. <span class="math inline">P(\emptyset) = 0</span>.</strong></p>
@@ -1807,7 +1698,7 @@ P\!\left(\bigcup_i A_i\right) \le \sum_i P(A_i).
 <p>Many real experiments unfold <strong>in stages</strong>. You don’t roll all your dice at once — you roll the first, see what happens, then roll the second. You don’t measure all your sensor outputs at once — readings come in over time. You don’t read an email and decide it’s spam in a single glance — you check the sender, then the subject line, then the body.</p>
 <p>For these step-by-step experiments, the cleanest representation is a <strong>tree diagram</strong>. Each branch from a node represents a possible outcome at that stage; each path from root to leaf is one complete sequence of outcomes. The set of all leaves is the sample space.</p>
 <p>Let’s draw one. We’ll use the simplest sequential experiment that’s still interesting: <strong>flipping a fair coin three times</strong>.</p>
-<div id="2c5ac0c2" class="cell" data-execution_count="11">
+<div id="1af6e8f5" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.patches <span class="im">import</span> FancyArrowPatch</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1886,7 +1777,7 @@ P\!\left(\bigcup_i A_i\right) \le \sum_i P(A_i).
 <li><p><strong>Probabilities follow paths.</strong> Each branch in a fair coin tree is taken with probability <span class="math inline">1/2</span>, and the probability of reaching a specific leaf is the product along the path: <span class="math inline">(1/2)(1/2)(1/2) = 1/8</span>. Multiply along branches; add across branches.</p></li>
 </ul>
 <p>Let’s verify by computing some probabilities directly from the tree:</p>
-<div id="4c9c25af" class="cell" data-execution_count="12">
+<div id="bba42996" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> product</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate all leaves</span></span>
@@ -1966,7 +1857,7 @@ P(A) \;=\; \frac{|A|}{|\Omega|} \;=\; \frac{\text{number of outcomes in } A}{\te
 </div>
 </div>
 <p><strong>Way 1 — Counting (analytical).</strong></p>
-<div id="1ff00362" class="cell" data-execution_count="13">
+<div id="634e37f8" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># By the equally-likely-outcomes formula</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>event_sum_7 <span class="op">=</span> {(d1, d2) <span class="cf">for</span> d1, d2 <span class="kw">in</span> omega <span class="cf">if</span> d1 <span class="op">+</span> d2 <span class="op">==</span> <span class="dv">7</span>}</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>p_analytical <span class="op">=</span> <span class="bu">len</span>(event_sum_7) <span class="op">/</span> <span class="dv">36</span></span>
@@ -1978,7 +1869,7 @@ P(A) \;=\; \frac{|A|}{|\Omega|} \;=\; \frac{\text{number of outcomes in } A}{\te
 </div>
 </div>
 <p><strong>Way 2 — Simulation (frequentist).</strong></p>
-<div id="1ff5083d" class="cell" data-execution_count="14">
+<div id="bb524194" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Roll a million pairs of dice and count the fraction with sum = 7.</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>n_rolls <span class="op">=</span> <span class="dv">1_000_000</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>d1 <span class="op">=</span> rng.integers(<span class="dv">1</span>, <span class="dv">7</span>, size<span class="op">=</span>n_rolls)</span>
@@ -1992,7 +1883,7 @@ P(A) \;=\; \frac{|A|}{|\Omega|} \;=\; \frac{\text{number of outcomes in } A}{\te
 </div>
 </div>
 <p><strong>Way 3 — Picture (where you can just <em>see</em> the answer).</strong></p>
-<div id="d3147028" class="cell" data-execution_count="15">
+<div id="8de3b3b0" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the 6×6 grid. Highlight outcomes whose sum is 7.</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="fl">5.5</span>, <span class="fl">5.5</span>))</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> d1 <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">7</span>):</span>

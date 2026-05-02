@@ -675,7 +675,7 @@ F(x) \;=\; \frac{\text{number of values} \leq x}{n}
 </section>
 <section id="building-a-cdf-from-scratch" class="level2" data-number="17.3">
 <h2 data-number="17.3" class="anchored" data-anchor-id="building-a-cdf-from-scratch"><span class="header-section-number">17.3</span> Building a CDF from scratch</h2>
-<div id="5d565938" class="cell" data-execution_count="1">
+<div id="f735fcb5" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys, os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -744,7 +744,7 @@ F(x) \;=\; \frac{\text{number of values} \leq x}{n}
 <li>75th percentile = <strong>third quartile</strong> (Q3)</li>
 <li>IQR = Q3 − Q1 = the middle 50% of the data</li>
 </ul>
-<div id="a8967665" class="cell" data-execution_count="2">
+<div id="3dcd0fdd" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"── Birth Weight: Percentile Summary ─────────────────────"</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> label, cdf <span class="kw">in</span> [(<span class="st">"All babies"</span>, wgt_cdf_all),</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                   (<span class="st">"First babies"</span>, wgt_cdf_first),</span>
@@ -782,7 +782,7 @@ F(x) \;=\; \frac{\text{number of values} \leq x}{n}
 <section id="comparing-cdfs" class="level2" data-number="17.5">
 <h2 data-number="17.5" class="anchored" data-anchor-id="comparing-cdfs"><span class="header-section-number">17.5</span> Comparing CDFs</h2>
 <p>The real power of the CDF: <strong>two CDFs on the same plot tell the whole story</strong>. For pregnancy length, plot first vs other on one axis. If the curves are nearly identical, the difference between groups is tiny.</p>
-<div id="9143fa21" class="cell" data-execution_count="3">
+<div id="9ad16136" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"── Where Does a Specific Weight Rank? ───────────────────"</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> w <span class="kw">in</span> [<span class="fl">6.0</span>, <span class="fl">7.0</span>, <span class="fl">7.5</span>, <span class="fl">8.0</span>, <span class="fl">9.0</span>, <span class="fl">10.0</span>]:</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"  A baby weighing </span><span class="sc">{</span>w<span class="sc">:.1f}</span><span class="ss"> lbs is at the "</span></span>
@@ -802,7 +802,7 @@ F(x) \;=\; \frac{\text{number of values} \leq x}{n}
 <section id="generating-data-from-a-cdf" class="level2" data-number="17.6">
 <h2 data-number="17.6" class="anchored" data-anchor-id="generating-data-from-a-cdf"><span class="header-section-number">17.6</span> Generating data from a CDF</h2>
 <p>A useful trick: if <span class="math inline">U</span> is a uniform random number between 0 and 1, then <span class="math inline">F^{-1}(U)</span> has the same distribution as the original data. This lets us <strong>simulate new data</strong> that matches an observed distribution — the foundation of bootstrap (Chapter 8).</p>
-<div id="044560f8" class="cell" data-execution_count="4">
+<div id="0af1f806" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>synthetic <span class="op">=</span> wgt_cdf_all.sample(<span class="dv">1000</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>synthetic_cdf <span class="op">=</span> Cdf(synthetic)</span>
@@ -854,7 +854,7 @@ Synthetic median : 7.375 lbs</code></pre>
 </section>
 <section id="visualising-it" class="level2" data-number="17.8">
 <h2 data-number="17.8" class="anchored" data-anchor-id="visualising-it"><span class="header-section-number">17.8</span> Visualising it</h2>
-<div id="3a07bebd" class="cell" data-execution_count="5">
+<div id="7daf538d" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">4</span>))</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. CDF with quartile annotations</span></span>
