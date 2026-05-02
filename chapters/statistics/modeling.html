@@ -744,7 +744,7 @@ f(x; x_m, \alpha) \;=\; \frac{\alpha x_m^\alpha}{x^{\alpha+1}},
 </section>
 <section id="fitting-models-to-nsfg-birth-weight" class="level2" data-number="24.6">
 <h2 data-number="24.6" class="anchored" data-anchor-id="fitting-models-to-nsfg-birth-weight"><span class="header-section-number">24.6</span> Fitting models to NSFG birth weight</h2>
-<div id="191a34dc" class="cell" data-execution_count="1">
+<div id="255db935" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys, os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -788,7 +788,7 @@ f(x; x_m, \alpha) \;=\; \frac{\alpha x_m^\alpha}{x^{\alpha+1}},
 </section>
 <section id="lognormal-fit" class="level2" data-number="24.7">
 <h2 data-number="24.7" class="anchored" data-anchor-id="lognormal-fit"><span class="header-section-number">24.7</span> Lognormal fit</h2>
-<div id="2b2c6c57" class="cell" data-execution_count="2">
+<div id="00c781b8" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>log_weights <span class="op">=</span> np.log(weights)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>mu_log    <span class="op">=</span> log_weights.mean()</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>sigma_log <span class="op">=</span> log_weights.std()</span>
@@ -810,7 +810,7 @@ f(x; x_m, \alpha) \;=\; \frac{\alpha x_m^\alpha}{x^{\alpha+1}},
 <h2 data-number="24.8" class="anchored" data-anchor-id="goodness-of-fit-the-ks-test"><span class="header-section-number">24.8</span> Goodness of fit — the KS test</h2>
 <p>The <strong>Kolmogorov–Smirnov</strong> test asks: is the data consistent with a given distribution? It computes <span class="math inline">D = \max | F_{\text{empirical}}(x) -
 F_{\text{model}}(x)|</span>. Small <span class="math inline">D</span>, large <span class="math inline">p</span> → the model is plausible.</p>
-<div id="f5ce30df" class="cell" data-execution_count="3">
+<div id="80cc7220" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ks_norm,    p_norm    <span class="op">=</span> stats.kstest(weights, <span class="st">"norm"</span>,    args<span class="op">=</span>(mu_hat, sigma_hat))</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ks_lognorm, p_lognorm <span class="op">=</span> stats.kstest(weights, <span class="st">"lognorm"</span>,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                                     args<span class="op">=</span>(sigma_log, <span class="dv">0</span>, np.exp(mu_log)))</span>
@@ -827,7 +827,7 @@ Lognormal : D=0.1241   p=0.0000</code></pre>
 </section>
 <section id="visualising-it" class="level2" data-number="24.9">
 <h2 data-number="24.9" class="anchored" data-anchor-id="visualising-it"><span class="header-section-number">24.9</span> Visualising it</h2>
-<div id="51bf8008" class="cell" data-execution_count="4">
+<div id="e3897d48" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> normal_probability_plot_data(values: np.ndarray):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(values)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    sorted_data <span class="op">=</span> np.sort(values)</span>
