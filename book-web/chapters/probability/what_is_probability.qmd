@@ -450,12 +450,29 @@ By accepting, the nurse reveals she believes the drug works with probability at 
 
 $$p \ge \frac{L}{W + L}$$
 
+::: {.callout-note}
+## Deriving the threshold $p \ge \frac{L}{W+L}$
+
+A rational person accepts a bet only if its **expected profit is non-negative**. For a bet that pays \$W on a win and costs \$L on a loss:
+
+$$E[\text{profit}] = p \cdot W + (1 - p) \cdot (-L) \ge 0$$
+
+Expand and collect:
+
+$$pW - L + pL \ge 0 \implies p(W + L) \ge L \implies p \ge \frac{L}{W + L}$$
+
+**Check with the nurse's bet** ($W = 1$, $L = 2$):
+$$p \ge \frac{2}{1 + 2} = \frac{2}{3} \approx 67\% \checkmark$$
+
+**Intuition**: the threshold is the fraction of the total stake that you stand to lose. The bigger the loss relative to the win, the more confident you need to be before it is worth taking the bet.
+:::
+
 ::: {.callout-tip collapse="true"}
-## ▶ Where does the formula $p \ge L/(W+L)$ come from?
+## ▶ Historical note
 
 - **Christiaan Huygens (1657)** introduced **expected value** in *De Ratiociniis in Ludo Aleae* — the formula $E[\text{profit}] = pW - (1-p)L$ comes from his definition.
 - **Jakob Bernoulli (1713)** proved the **Law of Large Numbers**, justifying the rule across many bets.
-- **Daniel Bernoulli (1738)** pointed out in the *St. Petersburg paradox* that real people maximise **expected utility**, not expected money — losing \$2 hurts more than gaining \$2 helps.
+- **Daniel Bernoulli (1738)** pointed out in the *St. Petersburg paradox* that real people maximise **expected utility**, not expected money — losing \$2 hurts more than gaining \$2 helps, so in practice you need higher confidence than the break-even threshold.
 :::
 
 This view works for one-shot events, historical claims, personal beliefs — anywhere repetition is impossible.
