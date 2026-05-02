@@ -32,14 +32,6 @@ book:
         - chapters/probability/applied_sensors.qmd
         - chapters/probability/stochastic_processes.qmd
         - chapters/probability/exercises.qmd
-    - part: "Linear Algebra"
-      chapters:
-        - chapters/linear_algebra/vectors.qmd
-        - chapters/linear_algebra/norms.qmd
-        - chapters/linear_algebra/orthogonality.qmd
-        - chapters/linear_algebra/transforms.qmd
-        - chapters/linear_algebra/applied_images.qmd
-        - chapters/linear_algebra/exercises.qmd
     - part: "Statistics"
       chapters:
         - chapters/statistics/eda.qmd
@@ -57,6 +49,14 @@ book:
         - chapters/statistics/survival.qmd
         - chapters/statistics/analytic_methods.qmd
         - chapters/statistics/exercises.qmd
+    - part: "Linear Algebra"
+      chapters:
+        - chapters/linear_algebra/vectors.qmd
+        - chapters/linear_algebra/norms.qmd
+        - chapters/linear_algebra/orthogonality.qmd
+        - chapters/linear_algebra/transforms.qmd
+        - chapters/linear_algebra/applied_images.qmd
+        - chapters/linear_algebra/exercises.qmd
 
 bibliography: references.bib
 
