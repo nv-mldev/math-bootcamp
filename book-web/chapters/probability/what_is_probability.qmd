@@ -485,12 +485,16 @@ Both views obey the same axioms — the mathematics is identical. We will use wh
 
 A useful mental model for how the two fields relate:
 
-```
-Real World  →  (Statistics: inference)  →  Probabilistic Model
-                                                   ↓
-                                         (Probability: analysis)
-                                                   ↓
-Real World  ←  (Predictions / decisions)  ←  Results
+```{mermaid}
+flowchart LR
+    RW1["🌍 Real World\n(observations / data)"]
+    PM["📐 Probabilistic Model"]
+    R["📊 Results"]
+    RW2["🌍 Real World\n(predictions / decisions)"]
+
+    RW1 -->|"Statistics: inference"| PM
+    PM  -->|"Probability: analysis"| R
+    R   -->|"Predictions / decisions"| RW2
 ```
 
 ---
