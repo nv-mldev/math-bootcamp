@@ -1158,6 +1158,51 @@ The right side is the same number $p$ added infinitely many times:
 **No value of $p$ works.** The set $V$ simply cannot have a probability
 without breaking additivity.
 
+::: {.callout-tip collapse="true"}
+## ▶ How the Vitali construction actually works — step by step
+
+The argument above says "infinitely many shifted copies cover $[0,1]$" without showing why. Here is the actual mechanism.
+
+**Step 1 — Equivalence classes on $[0, 1]$.**
+Define a relation: $x \sim y$ iff $x - y \in \mathbb{Q}$.
+
+- $0.3 \sim 0.5$ because $0.5 - 0.3 = \tfrac{1}{5}$ ✓
+- $0.3 \not\sim (\pi - 3)$ because $(\pi - 3) - 0.3 = \pi - 3.3$ is irrational ✗
+
+This partitions $[0,1]$ into disjoint **equivalence classes** — each class collects numbers that all differ from one another by a rational. The class of $0$ is $\mathbb{Q} \cap [0,1]$; the class of $\pi - 3$ is $\{\pi - 3 + q : q \in \mathbb{Q},\; \pi - 3 + q \in [0,1]\}$. There are uncountably many classes.
+
+**Step 2 — Build $V$ (here the Axiom of Choice enters).**
+Pick exactly one representative from each equivalence class and collect them into $V$. You cannot write $V$ down explicitly — AC guarantees the selection exists but gives no formula. By construction, any two distinct elements of $V$ differ by an *irrational* (they came from different classes).
+
+**Step 3 — The shifted copies.**
+Let $\mathbb{Q}_0 = \mathbb{Q} \cap [-1, 1]$ — countably many rationals. For each $q_i \in \mathbb{Q}_0$ define
+
+$$V_i \;=\; V + q_i \;=\; \{v + q_i : v \in V\}.$$
+
+**Step 4 — The $V_i$ are pairwise disjoint.**
+Suppose $x \in V_i \cap V_j$, so $x = v + q_i = v' + q_j$ for some $v, v' \in V$. Then $v - v' = q_j - q_i \in \mathbb{Q}$. But two distinct elements of $V$ differ by an irrational — contradiction. So $v = v'$ and $q_i = q_j$, meaning $i = j$. Hence different shifts never overlap.
+
+**Step 5 — The $V_i$ cover $[0, 1]$.**
+Take any $x \in [0,1]$. It belongs to exactly one equivalence class, whose representative $v \in V$ satisfies $x - v = q$ for some rational $q$. Since $x, v \in [0,1]$, we have $q \in [-1, 1]$, so $q = q_i$ for some $i$, giving $x = v + q_i \in V_i$.
+
+**Step 6 — The contradiction.**
+The $V_i$ are countably many, pairwise disjoint, and their union contains $[0,1]$. By monotonicity and countable additivity:
+
+$$1 \;\le\; P\!\left(\bigcup_{i} V_i\right) \;=\; \sum_{i=1}^{\infty} P(V_i) \;=\; \sum_{i=1}^{\infty} p.$$
+
+Translation-invariance (shifting doesn't change length) forces every $P(V_i) = p$. If $p = 0$ the sum is $0 \not\ge 1$; if $p > 0$ the sum is $\infty$. Neither works — so $V$ cannot be assigned any probability without breaking the axioms.
+
+| Piece | Role |
+|---|---|
+| Equivalence classes | Partition $[0,1]$ into "rational-difference families" |
+| The set $V$ | One representative per family — requires Axiom of Choice |
+| Shifts $V + q_i$ | Countably many translated copies, one per rational in $[-1,1]$ |
+| Pairwise disjoint | Two elements of $V$ differ by an irrational; $q_j - q_i$ is rational |
+| Cover $[0,1]$ | Every $x$ equals its $V$-representative plus a rational shift |
+| Contradiction | Translation-invariance + additivity force $p = 0$ and $p > 0$ simultaneously |
+
+:::
+
 **The fix.** We restrict the events to a **$\sigma$-algebra** $\mathcal{F}$
 — a collection of "well-behaved" subsets that:
 
