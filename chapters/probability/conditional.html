@@ -688,7 +688,7 @@ window.Quarto = {
 <li><strong>Elimination</strong>: every outcome <em>not</em> in <span class="math inline">B</span> becomes impossible.</li>
 <li><strong>Re-normalisation</strong>: the remaining outcomes in <span class="math inline">B</span> must now sum to probability 1, so their relative weights are preserved but scaled up.</li>
 </ol>
-<div id="e7c0e892" class="cell" data-execution_count="1">
+<div id="4eece851" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.patches <span class="im">as</span> mpatches</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -782,7 +782,7 @@ window.Quarto = {
 <h2 data-number="4.4" class="anchored" data-anchor-id="a-worked-example-the-4-sided-die"><span class="header-section-number">4.4</span> 3. A Worked Example: The 4-Sided Die</h2>
 <p>Roll a 4-sided die twice. Sample space: 16 equally likely outcomes.</p>
 <p><strong>Event <span class="math inline">B</span></strong>: the minimum of the two rolls is exactly 2. <span class="math display">B = \{(2,2),(2,3),(2,4),(3,2),(4,2)\}, \quad P(B) = \frac{5}{16}</span></p>
-<div id="c7a995c6" class="cell" data-execution_count="2">
+<div id="1616d152" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>omega <span class="op">=</span> {(i, j) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">5</span>) <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">5</span>)}</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">len</span>(omega)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -798,7 +798,7 @@ P(B) = 5/16 = 0.3125</code></pre>
 <p>If the minimum is 2, the maximum cannot be 1 — they would both have to be 1, but then the minimum would be 1, not 2.</p>
 <p><span class="math display">P(M=1 \mid Z=2) = \frac{P(\{M=1\} \cap B)}{P(B)} = \frac{0}{5/16} = 0</span></p>
 <p><strong>Question B</strong>: <span class="math inline">P(\max = 3 \mid \min = 2)</span></p>
-<div id="cbbbe8f2" class="cell" data-execution_count="3">
+<div id="7e9baa38" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Method 1: formal formula</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {(i, j) <span class="cf">for</span> i, j <span class="kw">in</span> omega <span class="cf">if</span> <span class="bu">max</span>(i, j) <span class="op">==</span> <span class="dv">3</span>}</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>A_and_B <span class="op">=</span> A <span class="op">&amp;</span> B</span>
@@ -846,7 +846,7 @@ P(max=3 | min=2) = 2/5 = 0.4000</code></pre>
 <p>A standard deck has 52 cards. Draw 3 cards without replacement. What is the probability all three are aces?</p>
 <p>Let <span class="math inline">A_i</span> = “the <span class="math inline">i</span>-th card is an ace.”</p>
 <p><span class="math display">P(A_1 \cap A_2 \cap A_3) = P(A_1) \cdot P(A_2 \mid A_1) \cdot P(A_3 \mid A_1 \cap A_2)</span> <span class="math display">= \frac{4}{52} \cdot \frac{3}{51} \cdot \frac{2}{50} = \frac{24}{132600} \approx 0.000181</span></p>
-<div id="6110da5b" class="cell" data-execution_count="4">
+<div id="6d91440f" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Analytical</span></span>
@@ -886,7 +886,7 @@ Simulation:  0.000166</code></pre>
 <li><span class="math inline">P(\text{detect} \mid \text{no plane}) = 0.10</span> — false alarms</li>
 </ul></li>
 </ul>
-<div id="839e81fc" class="cell" data-execution_count="5">
+<div id="749f2e4c" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.patches <span class="im">as</span> mpatches</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -959,7 +959,7 @@ Simulation:  0.000166</code></pre>
 </div>
 </div>
 <p>The key numbers from this model:</p>
-<div id="e1f9897e" class="cell" data-execution_count="6">
+<div id="9c076748" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Stage probabilities</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>P_A  <span class="op">=</span> <span class="fl">0.05</span>   <span class="co"># plane present</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>P_Ac <span class="op">=</span> <span class="fl">0.95</span>   <span class="co"># no plane</span></span>
@@ -999,7 +999,7 @@ P(no plane AND detect) = 0.0950</code></pre>
 <p><strong>Interpretation</strong>: <span class="math inline">P(B)</span> is a weighted average of the conditional probabilities <span class="math inline">P(B \mid A_i)</span>, weighted by how likely each scenario <span class="math inline">A_i</span> is.</p>
 </div>
 </div>
-<div id="ef9779f1" class="cell" data-execution_count="7">
+<div id="a28a7431" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Total probability of radar detection</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>P_D <span class="op">=</span> P_A_and_D <span class="op">+</span> P_Ac_and_D</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P(detect) = P(A)·P(D|A) + P(Aᶜ)·P(D|Aᶜ)"</span>)</span>
@@ -1040,7 +1040,7 @@ P(no plane AND detect) = 0.0950</code></pre>
 </div>
 </div>
 <p><strong>Bayes’ Rule is not a new theorem</strong> — it is just the definition of conditional probability, with the numerator expanded by the Multiplication Rule and the denominator by the Total Probability Theorem.</p>
-<div id="f7d91aa4" class="cell" data-execution_count="8">
+<div id="a7ff018d" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bayes' Rule: P(plane | detection)</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>P_A_given_D <span class="op">=</span> P_A_and_D <span class="op">/</span> P_D</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P(plane | detect) = P(A∩D) / P(D)"</span>)</span>
@@ -1054,7 +1054,7 @@ P(no plane AND detect) = 0.0950</code></pre>
 </div>
 <p><strong>The paradox of low priors</strong>: even though the radar is 99% accurate at detecting real planes and has only a 10% false alarm rate, when it goes off there is only a <strong>34% chance</strong> a plane is actually there.</p>
 <p>Why? Because planes are rare (<span class="math inline">P = 5\%</span>). The large pool of “no plane” situations generates many false alarms even at 10% — far outnumbering the true detections.</p>
-<div id="6757a391" class="cell" data-execution_count="9">
+<div id="4434241a" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">5</span>))</span>
@@ -1103,7 +1103,7 @@ P(no plane AND detect) = 0.0950</code></pre>
 <li><span class="math inline">P(\text{positive} \mid \text{no disease}) = 0.05</span> — false positive rate</li>
 </ul>
 <p>You test positive. What is <span class="math inline">P(\text{disease} \mid \text{positive})</span>?</p>
-<div id="64569fbc" class="cell" data-execution_count="10">
+<div id="dfe89cbb" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>P_disease     <span class="op">=</span> <span class="fl">0.01</span>   <span class="co"># prior: 1% of population has it</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>P_pos_given_D <span class="op">=</span> <span class="fl">0.95</span>   <span class="co"># sensitivity</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>P_pos_given_H <span class="op">=</span> <span class="fl">0.05</span>   <span class="co"># false positive rate (H = healthy)</span></span>
@@ -1121,7 +1121,7 @@ P(no plane AND detect) = 0.0950</code></pre>
 P(disease | positive) = 0.1610  (16.1%)</code></pre>
 </div>
 </div>
-<div id="72bbab09" class="cell" data-execution_count="11">
+<div id="12df913d" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualise with a frequency tree (natural frequencies approach)</span></span>

@@ -690,7 +690,7 @@ window.Quarto = {
 </section>
 <section id="fitting-it-with-statsmodels" class="level2" data-number="24.5">
 <h2 data-number="24.5" class="anchored" data-anchor-id="fitting-it-with-statsmodels"><span class="header-section-number">24.5</span> Fitting it with statsmodels</h2>
-<div id="72dab958" class="cell" data-execution_count="1">
+<div id="0db654d4" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys, os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -733,7 +733,7 @@ window.Quarto = {
 </section>
 <section id="coefficients-in-the-multiple-model" class="level2" data-number="24.6">
 <h2 data-number="24.6" class="anchored" data-anchor-id="coefficients-in-the-multiple-model"><span class="header-section-number">24.6</span> Coefficients in the multiple model</h2>
-<div id="ee84d264" class="cell" data-execution_count="2">
+<div id="ad1cf0ba" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(m2.summary().tables[<span class="dv">1</span>])</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> var, label <span class="kw">in</span> [(<span class="st">"prglngth"</span>, <span class="st">"Pregnancy length"</span>),</span>
@@ -772,7 +772,7 @@ birthord       0.0112      0.014      0.828      0.408      -0.015       0.038
 p \;=\; \frac{1}{1 + e^{-(\alpha + \beta_1 x_1 + \beta_2 x_2)}}
 </span></p>
 <p>This is the <strong>sigmoid function</strong> — the same one used in neural networks. The coefficient transformation <span class="math inline">e^{\hat{\beta}_j}</span> is the <strong>odds ratio</strong> for variable <span class="math inline">j</span>.</p>
-<div id="161ea74b" class="cell" data-execution_count="3">
+<div id="54824c4e" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>m_logit <span class="op">=</span> smf.logit(<span class="st">"preterm ~ agepreg + birthord"</span>, data<span class="op">=</span>df).fit(disp<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Preterm rate in data : </span><span class="sc">{</span>df[<span class="st">'preterm'</span>]<span class="sc">.</span>mean()<span class="op">*</span><span class="dv">100</span><span class="sc">:.1f}</span><span class="ss"> %"</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
@@ -808,7 +808,7 @@ p \;=\; \frac{1}{1 + e^{-(\alpha + \beta_1 x_1 + \beta_2 x_2)}}
 </section>
 <section id="visualising-it" class="level2" data-number="24.9">
 <h2 data-number="24.9" class="anchored" data-anchor-id="visualising-it"><span class="header-section-number">24.9</span> Visualising it</h2>
-<div id="86312e1c" class="cell" data-execution_count="4">
+<div id="8256bbc6" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">9</span>))</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Simple vs multiple line</span></span>

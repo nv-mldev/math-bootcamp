@@ -721,7 +721,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>_column(1)      str12      caseid     %12s    "RESPONDENT ID NUMBER"
 _column(13)     byte       pregordr   %2f     "PREGNANCY ORDER (NUMBER)"</code></pre>
 <p>Each line tells us a column’s start position (1-indexed), Stata type, name, the number of bytes it occupies (<code>%12s</code>, <code>%2f</code>), and a label. The trailing letter — <code>s</code> or <code>f</code> — separates strings from numerics.</p>
-<div id="f36a5c87" class="cell" data-execution_count="1">
+<div id="c89a7274" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> gzip</span>
@@ -811,7 +811,7 @@ _column(13)     byte       pregordr   %2f     "PREGNANCY ORDER (NUMBER)"</code><
 <section id="birth-weight-as-pounds-ounces" class="level3" data-number="14.6.2">
 <h3 data-number="14.6.2" class="anchored" data-anchor-id="birth-weight-as-pounds-ounces"><span class="header-section-number">14.6.2</span> Birth weight as pounds + ounces</h3>
 <p><code>birthwgt_lb</code> and <code>birthwgt_oz</code> are recorded as two separate integer columns. We combine them into a single float <code>totalwgt_lb</code>.</p>
-<div id="4cfc04d8" class="cell" data-execution_count="2">
+<div id="33b3f6da" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"agepreg"</span>] <span class="op">=</span> df[<span class="st">"agepreg"</span>] <span class="op">/</span> <span class="fl">100.0</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"birthwgt_lb"</span> <span class="kw">in</span> df.columns <span class="kw">and</span> <span class="st">"birthwgt_oz"</span> <span class="kw">in</span> df.columns:</span>
@@ -832,7 +832,7 @@ _column(13)     byte       pregordr   %2f     "PREGNANCY ORDER (NUMBER)"</code><
 <section id="filter-to-live-births" class="level2" data-number="14.7">
 <h2 data-number="14.7" class="anchored" data-anchor-id="filter-to-live-births"><span class="header-section-number">14.7</span> Filter to live births</h2>
 <p><code>outcome == 1</code> means live birth. Everything else (induced abortion, stillbirth, miscarriage, etc.) is a different question and we exclude it when studying birth weight and pregnancy length.</p>
-<div id="1ceaaf5a" class="cell" data-execution_count="3">
+<div id="cb51503f" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>live <span class="op">=</span> df[df[<span class="st">"outcome"</span>] <span class="op">==</span> <span class="dv">1</span>].copy()</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Live births: </span><span class="sc">{</span><span class="bu">len</span>(live)<span class="sc">:,}</span><span class="ss"> of </span><span class="sc">{</span><span class="bu">len</span>(df)<span class="sc">:,}</span><span class="ss"> total pregnancies "</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>      <span class="ss">f"(</span><span class="sc">{</span><span class="bu">len</span>(live)<span class="op">/</span><span class="bu">len</span>(df)<span class="op">*</span><span class="dv">100</span><span class="sc">:.1f}</span><span class="ss">%)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -851,7 +851,7 @@ _column(13)     byte       pregordr   %2f     "PREGNANCY ORDER (NUMBER)"</code><
 <li>Mean pregnancy length (live births): ~38.6 weeks</li>
 </ul>
 <p>If our numbers don’t match, something went wrong in loading or filtering.</p>
-<div id="125e664e" class="cell" data-execution_count="4">
+<div id="bb508412" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  Total pregnancies : </span><span class="sc">{</span><span class="bu">len</span>(df)<span class="sc">:,}</span><span class="ss">      (expected ~13,593)"</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  Live births       : </span><span class="sc">{</span><span class="bu">len</span>(live)<span class="sc">:,}</span><span class="ss">      (expected ~9,148)"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  Mean prglngth     : </span><span class="sc">{</span>live[<span class="st">'prglngth'</span>]<span class="sc">.</span>mean()<span class="sc">:.3f}</span><span class="ss"> weeks  (expected ~38.6)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -878,7 +878,7 @@ _column(13)     byte       pregordr   %2f     "PREGNANCY ORDER (NUMBER)"</code><
 </section>
 <section id="split-by-birth-order" class="level2" data-number="14.9">
 <h2 data-number="14.9" class="anchored" data-anchor-id="split-by-birth-order"><span class="header-section-number">14.9</span> Split by birth order</h2>
-<div id="897b6e79" class="cell" data-execution_count="5">
+<div id="455cbebd" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>first <span class="op">=</span> live[live[<span class="st">"birthord"</span>] <span class="op">==</span> <span class="dv">1</span>]</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>other <span class="op">=</span> live[live[<span class="st">"birthord"</span>] <span class="op">&gt;</span> <span class="dv">1</span>]</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -893,7 +893,7 @@ _column(13)     byte       pregordr   %2f     "PREGNANCY ORDER (NUMBER)"</code><
 </section>
 <section id="the-first-baby-effect" class="level2" data-number="14.10">
 <h2 data-number="14.10" class="anchored" data-anchor-id="the-first-baby-effect"><span class="header-section-number">14.10</span> The First-Baby Effect</h2>
-<div id="a737f3c4" class="cell" data-execution_count="6">
+<div id="7be4585f" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>mean_first <span class="op">=</span> first[<span class="st">"prglngth"</span>].mean()</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>mean_other <span class="op">=</span> other[<span class="st">"prglngth"</span>].mean()</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>diff_weeks <span class="op">=</span> mean_first <span class="op">-</span> mean_other</span>
@@ -916,7 +916,7 @@ Difference                           : 0.078 weeks = 13.1 hours</code></pre>
 </section>
 <section id="visual-first-look" class="level2" data-number="14.11">
 <h2 data-number="14.11" class="anchored" data-anchor-id="visual-first-look"><span class="header-section-number">14.11</span> Visual first look</h2>
-<div id="2764e548" class="cell" data-execution_count="7">
+<div id="8bcf6839" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">4</span>))</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Pregnancy length: first vs other</span></span>
