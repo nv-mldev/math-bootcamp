@@ -661,7 +661,7 @@ window.Quarto = {
 <li><strong>Contrast change</strong> = scaling the vector (stretching it longer or shorter).</li>
 </ul>
 <p>For visualisation we use <strong>3-pixel patches</strong> (3D space) so we can actually plot them. Everything generalises to any number of pixels.</p>
-<div id="52ce5f61" class="cell" data-execution_count="1">
+<div id="0885fb71" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mpl_toolkits.mplot3d <span class="im">import</span> Axes3D  <span class="co"># noqa: F401  needed for 3D projection</span></span>
@@ -691,7 +691,7 @@ Flattened       : [ 50. 125. 200.  50. 125. 200.  50. 125. 200.]
 This vector is a point in 9-dimensional space.</code></pre>
 </div>
 </div>
-<div id="c58a62ca" class="cell" data-execution_count="2">
+<div id="25393090" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].imshow(patch, cmap<span class="op">=</span><span class="st">"gray"</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">255</span>)</span>
@@ -729,7 +729,7 @@ This vector is a point in 9-dimensional space.</code></pre>
 <section id="patches-as-points-in-pixel-space" class="level2" data-number="29.3">
 <h2 data-number="29.3" class="anchored" data-anchor-id="patches-as-points-in-pixel-space"><span class="header-section-number">29.3</span> Patches as points in pixel space</h2>
 <p>Three different 3-pixel patches occupy different positions in 3D pixel-value space:</p>
-<div id="d9188f93" class="cell" data-execution_count="3">
+<div id="3aa706c1" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>patch_a <span class="op">=</span> np.array([<span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>])     <span class="co"># dark → bright</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>patch_b <span class="op">=</span> np.array([<span class="dv">200</span>, <span class="dv">100</span>, <span class="dv">50</span>])     <span class="co"># bright → dark (reversed)</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>patch_c <span class="op">=</span> np.array([<span class="dv">150</span>, <span class="dv">150</span>, <span class="dv">150</span>])    <span class="co"># flat grey (no pattern)</span></span>
@@ -781,7 +781,7 @@ This vector is a point in 9-dimensional space.</code></pre>
 </section>
 <section id="dot-product-in-action" class="level2" data-number="29.5">
 <h2 data-number="29.5" class="anchored" data-anchor-id="dot-product-in-action"><span class="header-section-number">29.5</span> Dot product in action</h2>
-<div id="2c01a143" class="cell" data-execution_count="4">
+<div id="288aa74b" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>template       <span class="op">=</span> np.array([ <span class="dv">50</span>, <span class="dv">150</span>, <span class="dv">250</span>], dtype<span class="op">=</span><span class="bu">float</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>similar_patch  <span class="op">=</span> np.array([ <span class="dv">60</span>, <span class="dv">140</span>, <span class="dv">230</span>], dtype<span class="op">=</span><span class="bu">float</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>opposite_patch <span class="op">=</span> np.array([<span class="dv">250</span>, <span class="dv">150</span>,  <span class="dv">50</span>], dtype<span class="op">=</span><span class="bu">float</span>)</span>
@@ -810,7 +810,7 @@ Higher dot product (81500 &gt; 47500) = more agreement.
 But raw dot product also depends on magnitude — fixed in the next chapter.</code></pre>
 </div>
 </div>
-<div id="b6a76acd" class="cell" data-execution_count="5">
+<div id="898c0344" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">4</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">6</span>))</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> row, (patch, name, dot) <span class="kw">in</span> <span class="bu">enumerate</span>([</span>
