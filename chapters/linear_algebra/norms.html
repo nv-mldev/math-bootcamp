@@ -664,7 +664,7 @@ window.Quarto = {
 \|\vec v\|^2 \;=\; \vec v \cdot \vec v \;=\; \sum v_i^2
 </span></p>
 <p>This is why the L2 norm is also called the <strong>energy</strong> — total “power” in the pixel values.</p>
-<div id="d842e94f" class="cell" data-execution_count="1">
+<div id="4c3537fc" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -697,7 +697,7 @@ Same pattern, different brightness → different L2 norms.</code></pre>
 </span></p>
 <p>For image patches, this operation <strong>removes brightness</strong> (the length) and keeps only the <strong>pattern</strong> (the direction). Two patches with the same pattern but different brightness produce the <strong>same unit vector</strong>.</p>
 <p>All normalised patches lie on the unit sphere. Patches with the same pattern map to the same point on that sphere regardless of brightness.</p>
-<div id="1b45e003" class="cell" data-execution_count="2">
+<div id="16259c54" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> unit(v):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> v <span class="op">/</span> np.linalg.norm(v)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -760,7 +760,7 @@ Are unit versions equal?  False</code></pre>
 </tr>
 </tbody>
 </table>
-<div id="7d0d3508" class="cell" data-execution_count="3">
+<div id="66105e67" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cosine_similarity(a, b):</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.dot(a, b) <span class="op">/</span> (np.linalg.norm(a) <span class="op">*</span> np.linalg.norm(b))</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -788,7 +788,7 @@ Are unit versions equal?  False</code></pre>
 <section id="the-blind-spot-brightness-offset" class="level2" data-number="30.5">
 <h2 data-number="30.5" class="anchored" data-anchor-id="the-blind-spot-brightness-offset"><span class="header-section-number">30.5</span> The blind spot — brightness offset</h2>
 <p>A <strong>brightness offset</strong> (<span class="math inline">T + b</span>) shifts every pixel by the same constant. This pushes the vector toward the <span class="math inline">[1, 1, \ldots, 1]</span> direction, changing the angle — so cosine similarity gives the wrong answer.</p>
-<div id="5c5de1bb" class="cell" data-execution_count="4">
+<div id="7b6517e3" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>shifted <span class="op">=</span> template <span class="op">+</span> <span class="dv">50</span>      <span class="co"># brightness offset</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"cos(template, template + 50) = </span><span class="sc">{</span>cosine_similarity(template, shifted)<span class="sc">:+.4f}</span><span class="ss">"</span>)</span>
@@ -803,7 +803,7 @@ Are unit versions equal?  False</code></pre>
 </section>
 <section id="visualising-it" class="level2" data-number="30.6">
 <h2 data-number="30.6" class="anchored" data-anchor-id="visualising-it"><span class="header-section-number">30.6</span> Visualising it</h2>
-<div id="3e3a37d5" class="cell" data-execution_count="5">
+<div id="16afd95f" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ts <span class="op">=</span> [</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Template"</span>,                template),</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"× 1.5 (contrast)"</span>,        brighter),</span>
