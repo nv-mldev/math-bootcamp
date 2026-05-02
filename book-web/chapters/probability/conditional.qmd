@@ -6,273 +6,524 @@ execute:
   cache: true
 ---
 
-## The question
+## Why Conditional Probability?
 
-A rapid test for some disease is described as **95% accurate**.
+A rapid test for a disease is described as **95% accurate**. You take the test. It comes back **positive**. How worried should you be?
 
-You take the test. It comes back **positive**.
+Most people say: 95% chance I have it. The correct answer — which we will derive — might be closer to 9%. The difference is dramatic, and it comes entirely from ignoring one piece of information: *how common is the disease in the first place?*
 
-How worried should you be?
+This is the central insight of conditional probability. **Probabilities are not static — they must be revised when new information arrives.** The three tools that make this precise are:
 
-If you said "95% chance I have it", you're wrong. The right answer might
-surprise you. To get there, we need *conditional probability* — the math of
-**updating what you believe in light of new information**.
+1. **The Multiplication Rule** — probability of a sequence of events
+2. **The Total Probability Theorem** — breaking a complex event into simpler scenarios
+3. **Bayes' Rule** — working backwards from observed evidence to hidden causes
 
-We'll build the answer in three steps:
-
-1. Write a tiny simulation that mirrors the real situation.
-2. Look at the numbers it produces and notice the pattern.
-3. *Then* introduce the formula — at which point it'll feel like the
-   simulation is just executing the formula, not the other way around.
-
-::: {.callout-note collapse="true"}
-## ▶ Show the math — Why this section matters
-
-Conditional probability is the door to **everything important** in
-probability that comes after: Bayes' rule, independence, Markov chains,
-likelihood, Bayesian inference, every probabilistic ML model. If you only
-deeply learn one section in this chapter, this is the one.
-:::
+These three tools, combined, are the foundation of *inference* — the entire field of reasoning from data to conclusions.
 
 ---
 
-## Step 1 — Simulate the test
+## 1. Revised Beliefs
 
-Imagine a population of 100,000 people. We need three numbers to define
-the world:
+### The Intuition
 
-| What                                   | Value | Meaning                                     |
-|----------------------------------------|-------|---------------------------------------------|
-| **Disease prevalence**                 | 1%    | Out of 100,000 people, 1,000 actually sick. |
-| **True-positive rate** (sensitivity)   | 95%   | Sick people test positive 95% of the time.  |
-| **True-negative rate** (specificity)   | 95%   | Healthy people test negative 95% of the time. |
+Imagine a town registry of 1000 residents. You pick one at random.
 
-That second + third number is what "95% accurate" usually means in
-advertising. The first number — prevalence — is the one nobody mentions,
-and it's the one that matters most.
+- *Before any information*: $P(\text{person is under 18}) \approx 0.25$.
+- *New information*: the person is married.
+- *After the information*: $P(\text{person is under 18} \mid \text{married})$ is now much smaller — perhaps 0.01.
 
-Let's run it:
+The new information did not change the world. It changed *what we know* about it, which forces a revision of our probability. Conditional probability is the formal machinery for this revision.
+
+### Shrinking the Sample Space
+
+When we learn that event $B$ has occurred, two things happen:
+
+1. **Elimination**: every outcome *not* in $B$ becomes impossible.
+2. **Re-normalisation**: the remaining outcomes in $B$ must now sum to probability 1, so their relative weights are preserved but scaled up.
+
+```{python}
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+import numpy as np
+
+fig, axes = plt.subplots(1, 2, figsize=(11, 5))
+
+# Left: original sample space with 12 equally likely outcomes
+ax = axes[0]
+np.random.seed(0)
+xs = np.random.uniform(0.1, 0.9, 12)
+ys = np.random.uniform(0.1, 0.9, 12)
+
+# Mark 6 as "in B" and 2 of those as "in A ∩ B"
+in_B = [False]*12
+in_AB = [False]*12
+for i in [1, 3, 5, 7, 9, 11]:
+    in_B[i] = True
+for i in [3, 7]:
+    in_AB[i] = True
+
+for i, (x, y) in enumerate(zip(xs, ys)):
+    color = 'steelblue' if in_AB[i] else ('lightcoral' if in_B[i] else 'lightgray')
+    ax.scatter(x, y, c=color, s=160, zorder=3, edgecolors='black', linewidths=0.8)
+
+ellipse_B = mpatches.Ellipse((0.55, 0.5), 0.65, 0.75, angle=15,
+                               fill=False, edgecolor='red', linewidth=2, linestyle='--')
+ax.add_patch(ellipse_B)
+ax.text(0.88, 0.82, 'B', fontsize=14, color='red', fontweight='bold')
+ax.set_xlim(0, 1); ax.set_ylim(0, 1)
+ax.set_title('Original model: 12 equally likely outcomes\nBlue = A∩B, Red = B only, Gray = outside B',
+             fontsize=10)
+ax.axis('off')
+
+# Right: conditional model — only B remains
+ax2 = axes[1]
+xs_B = [xs[i] for i in range(12) if in_B[i]]
+ys_B = [ys[i] for i in range(12) if in_B[i]]
+in_AB_B = [in_AB[i] for i in range(12) if in_B[i]]
+
+for x, y, ab in zip(xs_B, ys_B, in_AB_B):
+    color = 'steelblue' if ab else 'lightcoral'
+    ax2.scatter(x, y, c=color, s=160, zorder=3, edgecolors='black', linewidths=0.8)
+
+ax2.set_xlim(0, 1); ax2.set_ylim(0, 1)
+ax2.set_title('Conditional model given B:\nOnly 6 outcomes remain, each with prob 1/6\nP(A|B) = 2/6 = 1/3',
+              fontsize=10)
+ax2.axis('off')
+
+plt.suptitle('Conditioning = shrinking the sample space', fontsize=12, fontweight='bold')
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+## 2. The Definition
+
+::: {.callout-important}
+## Conditional Probability
+
+The **conditional probability** of event $A$ given that event $B$ has occurred is:
+
+$$P(A \mid B) = \frac{P(A \cap B)}{P(B)}$$
+
+**Requirements**: $P(B) > 0$. (We cannot condition on something that cannot happen.)
+
+**This is a definition, not a theorem.** We choose this formula because it captures the intuition of restricting attention to the outcomes inside $B$ and rescaling.
+:::
+
+**Sanity checks:**
+
+- $P(B \mid B) = \frac{P(B \cap B)}{P(B)} = 1$ — if we know $B$ occurred, it is certain. ✓
+- $P(\emptyset \mid B) = \frac{P(\emptyset)}{P(B)} = 0$ — the impossible event stays impossible. ✓
+- $P(\Omega \mid B) = \frac{P(B)}{P(B)} = 1$ — something must happen. ✓
+
+**The conditional probability law $P(\cdot \mid B)$ is itself a valid probability law** — it satisfies all three Kolmogorov axioms. This means every theorem we proved from the axioms (complement rule, inclusion-exclusion, union bound, etc.) holds for conditional probabilities too.
+
+---
+
+## 3. A Worked Example: The 4-Sided Die
+
+Roll a 4-sided die twice. Sample space: 16 equally likely outcomes.
+
+**Event $B$**: the minimum of the two rolls is exactly 2.
+$$B = \{(2,2),(2,3),(2,4),(3,2),(4,2)\}, \quad P(B) = \frac{5}{16}$$
+
+```{python}
+omega = {(i, j) for i in range(1, 5) for j in range(1, 5)}
+n = len(omega)
+
+B = {(i, j) for i, j in omega if min(i, j) == 2}
+print(f"B = {sorted(B)}")
+print(f"P(B) = {len(B)}/{n} = {len(B)/n:.4f}")
+```
+
+**Question A**: $P(\max = 1 \mid \min = 2)$
+
+If the minimum is 2, the maximum cannot be 1 — they would both have to be 1, but then the minimum would be 1, not 2.
+
+$$P(M=1 \mid Z=2) = \frac{P(\{M=1\} \cap B)}{P(B)} = \frac{0}{5/16} = 0$$
+
+**Question B**: $P(\max = 3 \mid \min = 2)$
+
+```{python}
+# Method 1: formal formula
+A = {(i, j) for i, j in omega if max(i, j) == 3}
+A_and_B = A & B
+print(f"A ∩ B (max=3 AND min=2) = {sorted(A_and_B)}")
+print(f"P(A ∩ B) = {len(A_and_B)}/{n}")
+print(f"P(max=3 | min=2) = {len(A_and_B)/n:.4f} / {len(B)/n:.4f} = {len(A_and_B)/len(B):.4f}")
+
+# Method 2: directly count within B
+outcomes_in_B_with_max3 = [(i,j) for i,j in B if max(i,j) == 3]
+print(f"\nMethod 2 (count within B): {outcomes_in_B_with_max3}")
+print(f"P(max=3 | min=2) = {len(outcomes_in_B_with_max3)}/{len(B)} = {len(outcomes_in_B_with_max3)/len(B):.4f}")
+```
+
+Both methods give $\frac{2}{5}$. Method 2 makes the intuition concrete: once we know $B$ occurred, we live in a new universe of 5 outcomes, and 2 of them have maximum = 3.
+
+---
+
+## 4. The Multiplication Rule
+
+Rearranging the definition of conditional probability gives:
+
+$$P(A \cap B) = P(B) \cdot P(A \mid B) = P(A) \cdot P(B \mid A)$$
+
+This is the **Multiplication Rule** for two events. It extends to any number of events:
+
+::: {.callout-important}
+## General Multiplication Rule
+
+$$P(A_1 \cap A_2 \cap \cdots \cap A_n) = P(A_1) \cdot P(A_2 \mid A_1) \cdot P(A_3 \mid A_1 \cap A_2) \cdots P(A_n \mid A_1 \cap \cdots \cap A_{n-1})$$
+:::
+
+**Tree diagram interpretation**: each factor is the probability of one branch, given all previous branches were taken. To get the probability of a leaf (a complete outcome), **multiply along the path**.
+
+### Example: Drawing Cards Without Replacement
+
+A standard deck has 52 cards. Draw 3 cards without replacement. What is the probability all three are aces?
+
+Let $A_i$ = "the $i$-th card is an ace."
+
+$$P(A_1 \cap A_2 \cap A_3) = P(A_1) \cdot P(A_2 \mid A_1) \cdot P(A_3 \mid A_1 \cap A_2)$$
+$$= \frac{4}{52} \cdot \frac{3}{51} \cdot \frac{2}{50} = \frac{24}{132600} \approx 0.000181$$
 
 ```{python}
 import numpy as np
 
-rng = np.random.default_rng(seed=42)
+# Analytical
+p_analytical = (4/52) * (3/51) * (2/50)
+print(f"Analytical: {p_analytical:.6f}")
 
-population = 100_000
-prevalence = 0.01            # 1% of people are actually sick
-sensitivity = 0.95           # P(test+ | sick)
-specificity = 0.95           # P(test- | healthy)
+# Simulation
+np.random.seed(42)
+n_trials = 500_000
+deck = np.array([1]*4 + [0]*48)  # 1 = ace, 0 = non-ace
+count = 0
+for _ in range(n_trials):
+    draw = np.random.choice(deck, size=3, replace=False)
+    if draw.sum() == 3:
+        count += 1
 
-# Simulate who is actually sick
-is_sick = rng.random(population) < prevalence
-
-# Simulate test results — different probabilities depending on truth
-test_positive = np.where(
-    is_sick,
-    rng.random(population) < sensitivity,    # sick: 95% chance of +
-    rng.random(population) < (1 - specificity)  # healthy: 5% chance of +
-)
-
-print(f"Total people simulated:        {population:,}")
-print(f"Actually sick:                 {is_sick.sum():,}")
-print(f"Tested positive:               {test_positive.sum():,}")
-print(f"Tested positive AND sick:      {(test_positive & is_sick).sum():,}")
+print(f"Simulation:  {count / n_trials:.6f}")
 ```
 
-Look at those last two lines. **Most people who tested positive are not
-actually sick.** Let's compute the answer to our original question:
+---
+
+## 5. Multi-Stage Models: Radar Detection
+
+Conditional probabilities are the natural building blocks of multi-stage experiments. Consider a radar system:
+
+- **Stage 1** (reality): Is a plane present?
+  - $P(\text{plane}) = 0.05$, $P(\text{no plane}) = 0.95$
+
+- **Stage 2** (radar response): Does the radar detect something?
+  - $P(\text{detect} \mid \text{plane}) = 0.99$ — hits
+  - $P(\text{detect} \mid \text{no plane}) = 0.10$ — false alarms
 
 ```{python}
-n_positive = test_positive.sum()
-n_positive_and_sick = (test_positive & is_sick).sum()
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
 
-p_sick_given_positive = n_positive_and_sick / n_positive
+fig, ax = plt.subplots(figsize=(12, 6))
+ax.axis('off')
 
-print(f"P(sick | tested positive) = {p_sick_given_positive:.1%}")
+# Node positions
+nodes = {
+    'root': (0.1, 0.5),
+    'plane': (0.35, 0.75),
+    'no_plane': (0.35, 0.25),
+    'detect_p': (0.65, 0.88),
+    'miss_p': (0.65, 0.62),
+    'detect_np': (0.65, 0.38),
+    'miss_np': (0.65, 0.12),
+}
+
+labels = {
+    'root': 'Start',
+    'plane': 'Plane\nP=0.05',
+    'no_plane': 'No Plane\nP=0.95',
+    'detect_p': 'Detect\nP(D|A)=0.99',
+    'miss_p': 'Miss\nP(M|A)=0.01',
+    'detect_np': 'Detect\nP(D|Aᶜ)=0.10',
+    'miss_np': 'No detect\nP(N|Aᶜ)=0.90',
+}
+
+leaf_probs = {
+    'detect_p': f'P(A∩D) = 0.05×0.99 = {0.05*0.99:.4f}',
+    'miss_p':   f'P(A∩M) = 0.05×0.01 = {0.05*0.01:.4f}',
+    'detect_np':f'P(Aᶜ∩D) = 0.95×0.10 = {0.95*0.10:.4f}',
+    'miss_np':  f'P(Aᶜ∩N) = 0.95×0.90 = {0.95*0.90:.4f}',
+}
+
+colors = {
+    'root': 'lightblue', 'plane': 'lightyellow', 'no_plane': 'lightyellow',
+    'detect_p': 'lightgreen', 'miss_p': 'lightsalmon',
+    'detect_np': 'lightsalmon', 'miss_np': 'lightgreen',
+}
+
+edges = [
+    ('root', 'plane'), ('root', 'no_plane'),
+    ('plane', 'detect_p'), ('plane', 'miss_p'),
+    ('no_plane', 'detect_np'), ('no_plane', 'miss_np'),
+]
+
+for a, b in edges:
+    ax.annotate('', xy=nodes[b], xytext=nodes[a],
+                arrowprops=dict(arrowstyle='->', color='gray', lw=1.5))
+
+for k, (x, y) in nodes.items():
+    ax.text(x, y, labels[k], ha='center', va='center', fontsize=9,
+            bbox=dict(boxstyle='round', facecolor=colors[k], alpha=0.9))
+
+for k, prob_text in leaf_probs.items():
+    x, y = nodes[k]
+    ax.text(x + 0.18, y, prob_text, ha='left', va='center',
+            fontsize=8.5, color='darkblue')
+
+ax.set_title('Radar detection: multi-stage tree diagram\n'
+             'Each leaf probability = product along its path', fontsize=11)
+plt.tight_layout()
+plt.show()
 ```
 
-About **16%** — not 95%. If you tested positive on this 95%-accurate test
-for a 1%-prevalence disease, your odds of actually being sick are roughly
-*one in six*.
-
-That should feel deeply wrong on first read. Let's see why it's right.
-
----
-
-## Step 2 — Stare at the table
-
-The simulation gave us four kinds of people. Let's count each:
+The key numbers from this model:
 
 ```{python}
-import pandas as pd
+# Stage probabilities
+P_A  = 0.05   # plane present
+P_Ac = 0.95   # no plane
 
-table = pd.crosstab(
-    pd.Series(is_sick, name="actually sick").map({True: "sick", False: "healthy"}),
-    pd.Series(test_positive, name="test result").map({True: "positive", False: "negative"}),
-    margins=True, margins_name="total"
-)
-print(table)
+P_D_given_A  = 0.99  # detect | plane
+P_D_given_Ac = 0.10  # detect | no plane (false alarm)
+
+# Multiplication rule: leaf probabilities
+P_A_and_D  = P_A  * P_D_given_A
+P_Ac_and_D = P_Ac * P_D_given_Ac
+
+print(f"P(plane AND detect)    = {P_A_and_D:.4f}")
+print(f"P(no plane AND detect) = {P_Ac_and_D:.4f}")
 ```
 
-The **positive** column has two kinds of people in it:
-
-- **True positives** — actually sick, correctly flagged. (~950 people)
-- **False positives** — actually healthy, but the test misfired. (~5,000 people)
-
-Even though the false-positive *rate* is small (5%), it's applied to the
-*huge* healthy population (99,000). Five percent of a huge group dwarfs
-ninety-five percent of a tiny group. So the positive column is dominated
-by healthy people.
-
-Conditional probability is just **restricting attention to one
-column** (or one row) of this table:
-
-> "What fraction of the *positive column* is actually sick?"
->
-> $\;\;\;\;= \dfrac{\text{true positives}}{\text{all positives}}$
->
-> $\;\;\;\;\approx \dfrac{950}{950 + 5000} \approx 16\%.$
-
-That's it. That's the whole idea. Nothing to memorise yet — we just
-counted.
-
 ---
 
-## Step 3 — Now the formula
+## 6. Total Probability Theorem
 
-Let $S$ = "actually sick" and $T$ = "tested positive". The phrase "given
-that the test was positive" is conditional probability, written
-$P(S \mid T)$. It's defined as:
+The radar example shows a general pattern. If $A_1, A_2, \ldots, A_n$ **partition** $\Omega$ (disjoint, exhaustive, each with $P(A_i) > 0$), then any event $B$ can be broken into pieces:
 
-$$
-P(S \mid T) \;=\; \frac{P(S \cap T)}{P(T)}
-$$
+$$B = (B \cap A_1) \cup (B \cap A_2) \cup \cdots \cup (B \cap A_n)$$
 
-Look at the simulation again:
+Since the pieces are disjoint, additivity gives:
 
-- $P(S \cap T)$ — fraction of the *whole table* that is both sick and
-  positive: $950 / 100{,}000$
-- $P(T)$ — fraction of the whole table that is positive:
-  $5950 / 100{,}000$
-- Their ratio: $950 / 5950 \approx 16\%$ ✓
+::: {.callout-important}
+## Total Probability Theorem
 
-The 100,000 cancels. **Restricting to a column is exactly what dividing
-by $P(T)$ does.** The formula is just bookkeeping for the table you've
-already seen.
+$$P(B) = \sum_{i=1}^n P(A_i) \cdot P(B \mid A_i)$$
 
-::: {.callout-note collapse="true"}
-## ▶ Show the math — Formal definition and where it comes from
-
-**Definition.** For events $A$ and $B$ with $P(B) > 0$:
-
-$$
-P(A \mid B) \;\triangleq\; \frac{P(A \cap B)}{P(B)}.
-$$
-
-**Why this is well-defined.** The function $Q(A) = P(A \mid B)$, viewed
-as a function of $A$ on the same sample space $\Omega$, is itself a
-probability measure:
-
-1. $Q(A) \ge 0$ for every event $A$, because $P(A \cap B) \ge 0$ and
-   $P(B) > 0$.
-2. $Q(\Omega) = P(\Omega \cap B)/P(B) = P(B)/P(B) = 1$.
-3. **Countable additivity.** For disjoint events $A_1, A_2, \ldots$:
-
-$$
-Q\!\left(\bigcup_i A_i\right) \;=\; \frac{P\!\left(\bigcup_i A_i \cap B\right)}{P(B)}
-\;=\; \frac{\sum_i P(A_i \cap B)}{P(B)} \;=\; \sum_i Q(A_i),
-$$
-
-using countable additivity of $P$ on the disjoint sets $A_i \cap B$.
-
-So all three Kolmogorov axioms hold for $Q$. Conditioning on $B$ produces
-a new probability measure that lives on the *same* sample space but
-treats $B$ as the new "universe" — events outside $B$ get probability
-zero, and events inside $B$ are rescaled so they sum to one.
-
-**Why $P(B) > 0$.** If $P(B) = 0$, the ratio is undefined. Conditioning
-on probability-zero events is possible in measure theory (via regular
-conditional distributions) but requires more machinery. For everything
-in this book, $P(B) > 0$ is enforced.
+**Interpretation**: $P(B)$ is a weighted average of the conditional probabilities $P(B \mid A_i)$, weighted by how likely each scenario $A_i$ is.
 :::
 
----
+```{python}
+# Total probability of radar detection
+P_D = P_A_and_D + P_Ac_and_D
+print(f"P(detect) = P(A)·P(D|A) + P(Aᶜ)·P(D|Aᶜ)")
+print(f"         = {P_A}×{P_D_given_A} + {P_Ac}×{P_D_given_Ac}")
+print(f"         = {P_A_and_D:.4f} + {P_Ac_and_D:.4f}")
+print(f"         = {P_D:.4f}")
+```
 
-## Why the result was so counterintuitive
-
-Most people, asked "what's the probability you're sick given a positive
-test?", silently substitute the *reverse* question: **"what's the
-probability of testing positive given that you're sick?"** That second
-quantity is the sensitivity — 95%.
-
-These two probabilities, $P(S \mid T)$ and $P(T \mid S)$, are very
-different in general. Confusing them is so common it has a name —
-**the prosecutor's fallacy** — and it shows up in courtrooms, medical
-decision-making, and basically every bad statistics-in-the-news story
-you'll ever read.
-
-The trick that converts one to the other is **Bayes' rule**, which is
-what the next section is about. But you've already seen its essence: it's
-the formula that re-weights your belief by the prevalence (the *prior*).
+14.45% of the time the radar goes off — mostly due to false alarms, because planes are rare.
 
 ---
 
-## Three things you should take away
+## 7. Bayes' Rule
 
-1. **Conditional probability is restriction.** "Given $B$" means
-   "restrict the universe to $B$, then re-normalise." The table makes this
-   visible; the formula encodes it.
+We now have all the pieces. Given that the radar *detected* something, what is the probability a plane is actually there?
 
-2. **The denominator matters more than the numerator.** Small false-positive
-   rates against large healthy populations can swamp small true-positive
-   counts against tiny sick populations. Always ask: "what's the base rate?"
+This is inference: observing an *effect* (radar signal) and reasoning about its *cause* (plane or not).
 
-3. **You can simulate first and derive second.** This is going to be the
-   pattern for the rest of the chapter. When a probability question feels
-   slippery, write down a population, simulate it, count what's in each
-   bucket. The formulas are descriptions of those counts.
+::: {.callout-important}
+## Bayes' Rule
 
-::: {.callout-tip collapse="true"}
-## ▶ Show the math — Bayes' rule, briefly
+Given a partition $A_1, \ldots, A_n$ of $\Omega$ and an observed event $B$:
 
-Once you have $P(A \mid B) = P(A \cap B)/P(B)$, swap $A$ and $B$:
+$$P(A_i \mid B) = \frac{P(A_i) \cdot P(B \mid A_i)}{\displaystyle\sum_{j=1}^n P(A_j) \cdot P(B \mid A_j)}$$
 
-$$
-P(B \mid A) = \frac{P(A \cap B)}{P(A)}.
-$$
-
-Solving the first equation for $P(A \cap B)$ and substituting:
-
-$$
-P(A \mid B) \;=\; \frac{P(B \mid A)\, P(A)}{P(B)}.
-$$
-
-That's Bayes' rule. In our example: $A = S$ (sick), $B = T$ (positive
-test):
-
-$$
-P(S \mid T) \;=\; \frac{P(T \mid S)\, P(S)}{P(T)}
-\;=\; \frac{0.95 \times 0.01}{0.0595} \;\approx\; 0.16.
-$$
-
-The $0.0595$ in the denominator comes from the **law of total
-probability**:
-$P(T) = P(T \mid S)\,P(S) + P(T \mid S^c)\,P(S^c) = 0.95 \cdot 0.01 + 0.05 \cdot 0.99$.
+- $P(A_i)$ — **prior**: belief about scenario $A_i$ before observing $B$
+- $P(B \mid A_i)$ — **likelihood**: how probable is $B$ under scenario $A_i$
+- $P(A_i \mid B)$ — **posterior**: revised belief after observing $B$
 :::
 
+**Bayes' Rule is not a new theorem** — it is just the definition of conditional probability, with the numerator expanded by the Multiplication Rule and the denominator by the Total Probability Theorem.
+
+```{python}
+# Bayes' Rule: P(plane | detection)
+P_A_given_D = P_A_and_D / P_D
+print(f"P(plane | detect) = P(A∩D) / P(D)")
+print(f"                  = {P_A_and_D:.4f} / {P_D:.4f}")
+print(f"                  = {P_A_given_D:.4f}  ({P_A_given_D*100:.1f}%)")
+```
+
+**The paradox of low priors**: even though the radar is 99% accurate at detecting real planes and has only a 10% false alarm rate, when it goes off there is only a **34% chance** a plane is actually there.
+
+Why? Because planes are rare ($P = 5\%$). The large pool of "no plane" situations generates many false alarms even at 10% — far outnumbering the true detections.
+
+```{python}
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+
+# Left: visualise the populations
+labels_pie = ['True detection\n(plane + alarm)', 'False alarm\n(no plane + alarm)']
+sizes = [P_A_and_D, P_Ac_and_D]
+colors = ['steelblue', 'lightcoral']
+axes[0].pie(sizes, labels=labels_pie, colors=colors, autopct='%1.1f%%',
+            startangle=90, textprops={'fontsize': 10})
+axes[0].set_title(f'Composition of all radar alarms\n'
+                  f'P(plane | alarm) = {P_A_given_D:.2f}', fontsize=11)
+
+# Right: posterior vs prior for different prior values
+priors = np.linspace(0.01, 0.5, 200)
+posteriors = (priors * P_D_given_A) / (priors * P_D_given_A + (1 - priors) * P_D_given_Ac)
+axes[1].plot(priors, posteriors, color='steelblue', lw=2)
+axes[1].axhline(0.5, color='gray', linestyle='--', alpha=0.5)
+axes[1].axvline(0.05, color='red', linestyle='--', alpha=0.7, label='Our case (P=0.05)')
+axes[1].scatter([0.05], [P_A_given_D], color='red', zorder=5)
+axes[1].set_xlabel('Prior P(plane)', fontsize=11)
+axes[1].set_ylabel('Posterior P(plane | detect)', fontsize=11)
+axes[1].set_title('Effect of prior on posterior\n(how rare the event is matters enormously)',
+                  fontsize=10)
+axes[1].legend()
+axes[1].grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+```
+
 ---
 
-## Exercises
+## 8. Back to the Medical Test
 
-1. **Vary the prevalence.** Re-run the simulation with prevalence
-   $= 50\%$ (a coin-flip baseline). What's $P(\text{sick} \mid +)$ now?
-   Why does the answer change so dramatically?
+Now we can answer the opening question properly.
 
-2. **Improve the test.** Keep prevalence at 1%, but raise specificity to
-   99.9%. What does $P(\text{sick} \mid +)$ become? Which knob moves the
-   answer faster — sensitivity or specificity? Why?
+A disease affects 1% of the population. A test is 95% accurate:
 
-3. **The reverse question.** From the simulation output, compute
-   $P(\text{tested positive} \mid \text{sick})$ directly. Confirm it's
-   close to 0.95. Notice that this is *not* the same as the answer in
-   step 3.
+- $P(\text{positive} \mid \text{disease}) = 0.95$ — sensitivity
+- $P(\text{positive} \mid \text{no disease}) = 0.05$ — false positive rate
+
+You test positive. What is $P(\text{disease} \mid \text{positive})$?
+
+```{python}
+P_disease     = 0.01   # prior: 1% of population has it
+P_pos_given_D = 0.95   # sensitivity
+P_pos_given_H = 0.05   # false positive rate (H = healthy)
+
+# Total probability of testing positive
+P_pos = P_disease * P_pos_given_D + (1 - P_disease) * P_pos_given_H
+print(f"P(positive) = {P_disease}×{P_pos_given_D} + {1-P_disease}×{P_pos_given_H} = {P_pos:.4f}")
+
+# Bayes: posterior
+P_D_given_pos = (P_disease * P_pos_given_D) / P_pos
+print(f"\nP(disease | positive) = {P_D_given_pos:.4f}  ({P_D_given_pos*100:.1f}%)")
+```
+
+```{python}
+import matplotlib.pyplot as plt
+
+# Visualise with a frequency tree (natural frequencies approach)
+fig, ax = plt.subplots(figsize=(10, 6))
+ax.axis('off')
+
+population = 10000
+has_disease = int(population * P_disease)       # 100
+no_disease  = population - has_disease          # 9900
+
+true_pos  = int(has_disease * P_pos_given_D)    # 95
+false_neg = has_disease - true_pos              # 5
+false_pos = int(no_disease * P_pos_given_H)     # 495
+true_neg  = no_disease - false_pos              # 9405
+
+text = (
+    f"Population of {population:,} people\n"
+    f"├── {has_disease} have disease\n"
+    f"│   ├── {true_pos} test POSITIVE  ← true positives\n"
+    f"│   └── {false_neg} test negative  (missed)\n"
+    f"└── {no_disease:,} don't have disease\n"
+    f"    ├── {false_pos} test POSITIVE  ← false positives\n"
+    f"    └── {true_neg:,} test negative  (correct)\n\n"
+    f"Among all who test positive: {true_pos} + {false_pos} = {true_pos + false_pos}\n"
+    f"Of those, only {true_pos} actually have disease\n\n"
+    f"P(disease | positive) = {true_pos}/{true_pos + false_pos} = {true_pos/(true_pos+false_pos):.3f} ≈ {P_D_given_pos*100:.0f}%"
+)
+
+ax.text(0.05, 0.95, text, transform=ax.transAxes, fontsize=12,
+        verticalalignment='top', fontfamily='monospace',
+        bbox=dict(boxstyle='round', facecolor='lightyellow', alpha=0.8))
+ax.set_title('Natural frequency tree: why a positive test is less scary than it seems',
+             fontsize=12)
+plt.tight_layout()
+plt.show()
+```
+
+Out of 10,000 people who take the test, 590 test positive — but only 95 of them actually have the disease. That is **16%**, not 95%.
+
+The result is so counterintuitive because the false positives (495) swamp the true positives (95). The disease is rare, so the large healthy population produces many false alarms even at a 5% false positive rate.
+
+---
+
+## 9. Conditional Probability Satisfies the Axioms
+
+A key fact: for any fixed event $B$ with $P(B) > 0$, the function $Q(A) = P(A \mid B)$ is itself a valid probability law. It satisfies:
+
+- **Non-negativity**: $P(A \mid B) = \frac{P(A \cap B)}{P(B)} \ge 0$ since both numerator and denominator are non-negative. ✓
+- **Normalization**: $P(\Omega \mid B) = \frac{P(\Omega \cap B)}{P(B)} = \frac{P(B)}{P(B)} = 1$. ✓
+- **Additivity**: if $A_1 \cap A_2 = \emptyset$, then $(A_1 \cap B) \cap (A_2 \cap B) = \emptyset$, so $P(A_1 \cup A_2 \mid B) = P(A_1 \mid B) + P(A_2 \mid B)$. ✓
+
+This means every theorem derived from the axioms — complement rule, monotonicity, inclusion-exclusion, union bound — holds for conditional probabilities too, simply by replacing $P(\cdot)$ with $P(\cdot \mid B)$ everywhere.
+
+---
+
+## 10. Exercises
+
+**1. Conditional probability from a table.** A company has 200 employees:
+
+|  | Promoted | Not promoted |
+|---|---|---|
+| Male | 40 | 80 |
+| Female | 30 | 50 |
+
+A randomly chosen employee is selected.
+
+(a) What is $P(\text{promoted})$?
+(b) What is $P(\text{promoted} \mid \text{female})$?
+(c) What is $P(\text{female} \mid \text{promoted})$?
+(d) Is promotion independent of gender? (Hint: check whether $P(\text{promoted} \mid \text{female}) = P(\text{promoted})$.)
+
+**2. Multiplication rule.** A bag has 5 red balls and 3 blue balls. Draw 3 balls without replacement.
+
+(a) Use the multiplication rule to find $P(\text{all three red})$.
+(b) Use the multiplication rule to find $P(\text{first red, second blue, third red})$.
+(c) Verify (a) by direct counting: how many ways to choose 3 red balls from 5, divided by total ways to choose 3 balls from 8?
+
+**3. Total probability theorem.** A factory has two machines. Machine A produces 60% of output and has a 3% defect rate. Machine B produces 40% and has a 5% defect rate.
+
+(a) Use the Total Probability Theorem to find $P(\text{defective})$.
+(b) Write a simulation to verify your answer.
+
+**4. Bayes' Rule.** Using the factory setup from Exercise 3, a randomly chosen item is found to be defective.
+
+(a) What is $P(\text{made by Machine A} \mid \text{defective})$?
+(b) What is $P(\text{made by Machine B} \mid \text{defective})$?
+(c) Interpret: even though Machine B has a higher defect rate, why might the answer to (a) be large?
+
+**5. Medical testing — varying the prior.** Using the medical test example (95% sensitivity, 5% false positive rate):
+
+(a) Compute $P(\text{disease} \mid \text{positive})$ for disease prevalences of 1%, 5%, 10%, and 50%.
+(b) Plot the posterior probability as a function of prior prevalence.
+(c) At what prevalence does a positive test result in a 50% posterior probability of disease?
+
+**6. Sequential Bayes.** You take the medical test *twice* (independently). Both come back positive.
+
+(a) Treat the first test result as establishing a new prior. Apply Bayes' Rule a second time to find $P(\text{disease} \mid \text{two positives})$.
+(b) Write a simulation to verify.
+(c) Compare with the result from a single positive test.
