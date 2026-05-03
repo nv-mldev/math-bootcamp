@@ -702,7 +702,7 @@ Bin [40, 41):  ████████          612 pregnancies</code></pre>
 </section>
 <section id="setup-reuse-the-cleaned-nsfg-data" class="level2" data-number="16.4">
 <h2 data-number="16.4" class="anchored" data-anchor-id="setup-reuse-the-cleaned-nsfg-data"><span class="header-section-number">16.4</span> Setup — reuse the cleaned NSFG data</h2>
-<div id="f0dd6b52" class="cell" data-execution_count="1">
+<div id="524a9ada" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -723,7 +723,7 @@ Bin [40, 41):  ████████          612 pregnancies</code></pre>
 <section id="building-a-histogram-from-scratch" class="level2" data-number="16.5">
 <h2 data-number="16.5" class="anchored" data-anchor-id="building-a-histogram-from-scratch"><span class="header-section-number">16.5</span> Building a histogram from scratch</h2>
 <p>We do this manually first, so you see what <code>np.histogram</code> does internally.</p>
-<div id="194aa507" class="cell" data-execution_count="2">
+<div id="3016f8b8" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_histogram(values: np.ndarray, bins: np.ndarray) <span class="op">-&gt;</span> <span class="bu">dict</span>[<span class="bu">float</span>, <span class="bu">int</span>]:</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Count how many values fall in each bin. Returns {bin_left_edge: count}."""</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    counts: <span class="bu">dict</span>[<span class="bu">float</span>, <span class="bu">int</span>] <span class="op">=</span> {b: <span class="dv">0</span> <span class="cf">for</span> b <span class="kw">in</span> bins[:<span class="op">-</span><span class="dv">1</span>]}</span>
@@ -832,7 +832,7 @@ Bin [40, 41):  ████████          612 pregnancies</code></pre>
 </div>
 </div>
 </div>
-<div id="8f067534" class="cell" data-execution_count="3">
+<div id="1bfffd2d" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mean(values: np.ndarray) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    v <span class="op">=</span> values[<span class="op">~</span>np.isnan(values)]</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> v.<span class="bu">sum</span>() <span class="op">/</span> <span class="bu">len</span>(v)</span>
@@ -882,7 +882,7 @@ s_{\text{pooled}} \;=\; \sqrt{\frac{(n_1 - 1) s_1^2 + (n_2 - 1) s_2^2}{n_1 + n_2
 <li><span class="math inline">|d| \approx 0.5</span> → medium effect</li>
 <li><span class="math inline">|d| &gt; 0.8</span> → large effect</li>
 </ul>
-<div id="574da1ae" class="cell" data-execution_count="4">
+<div id="c0116737" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cohens_d(group1: np.ndarray, group2: np.ndarray) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    g1 <span class="op">=</span> group1[<span class="op">~</span>np.isnan(group1)]</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    g2 <span class="op">=</span> group2[<span class="op">~</span>np.isnan(group2)]</span>
@@ -937,7 +937,7 @@ Cohen's d (birth weight)     : -0.0707  (small)</code></pre>
 </section>
 <section id="visualising-it" class="level2" data-number="16.10">
 <h2 data-number="16.10" class="anchored" data-anchor-id="visualising-it"><span class="header-section-number">16.10</span> Visualising it</h2>
-<div id="d7a4e7b8" class="cell" data-execution_count="5">
+<div id="c31d0270" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">4</span>))</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Pregnancy length, normalised, side-by-side</span></span>
