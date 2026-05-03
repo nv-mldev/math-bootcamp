@@ -4,6 +4,7 @@ jupyter: python3
 execute:
   echo: true
   cache: true
+number-sections: false
 ---
 
 ## Why Probability? {.unnumbered}
