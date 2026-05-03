@@ -717,7 +717,7 @@ K \;=\; X_1 + X_2 + \cdots + X_n, \quad X_i \sim \text{Bernoulli}(p)
 </section>
 <section id="build-the-pmf-term-by-term" class="level2" data-number="6.4">
 <h2 data-number="6.4" class="anchored" data-anchor-id="build-the-pmf-term-by-term"><span class="header-section-number">6.4</span> Build the PMF term by term</h2>
-<div id="3e82f4c2" class="cell" data-execution_count="1">
+<div id="baf8c8bd" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> binom</span>
@@ -781,7 +781,7 @@ n = 1000, \quad p = 0.005
 </section>
 <section id="how-shape-changes-with-n-and-p" class="level2" data-number="6.6">
 <h2 data-number="6.6" class="anchored" data-anchor-id="how-shape-changes-with-n-and-p"><span class="header-section-number">6.6</span> How shape changes with <span class="math inline">n</span> and <span class="math inline">p</span></h2>
-<div id="3ff24e55" class="cell" data-execution_count="2">
+<div id="9bf8f552" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">8</span>))</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>p_fixed <span class="op">=</span> <span class="fl">0.7</span></span>
@@ -821,7 +821,7 @@ n = 1000, \quad p = 0.005
 <section id="simulation-repeated-windows" class="level2" data-number="6.7">
 <h2 data-number="6.7" class="anchored" data-anchor-id="simulation-repeated-windows"><span class="header-section-number">6.7</span> Simulation — repeated windows</h2>
 <p>Simulating many 1-second windows is the empirical version of the formula. Each simulated window is one independent set of <span class="math inline">n</span> Bernoulli trials.</p>
-<div id="4fd36f15" class="cell" data-execution_count="3">
+<div id="2db2a95b" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>n_phot <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>qe <span class="op">=</span> <span class="fl">0.7</span></span>
@@ -839,7 +839,7 @@ n = 1000, \quad p = 0.005
   Std  : 4.56   (theory 4.58)</code></pre>
 </div>
 </div>
-<div id="ab9fed11" class="cell" data-execution_count="4">
+<div id="20484fb6" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>k_values <span class="op">=</span> np.arange(electron_counts.<span class="bu">min</span>(), electron_counts.<span class="bu">max</span>() <span class="op">+</span> <span class="dv">1</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>theoretical <span class="op">=</span> binom.pmf(k_values, n_phot, qe)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
