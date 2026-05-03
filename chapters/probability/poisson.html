@@ -811,7 +811,7 @@ P(k \mid \lambda) \;=\; \frac{\lambda^k \, e^{-\lambda}}{k!}
 </section>
 <section id="watching-binomial-poisson" class="level2" data-number="7.6">
 <h2 data-number="7.6" class="anchored" data-anchor-id="watching-binomial-poisson"><span class="header-section-number">7.6</span> Watching Binomial → Poisson</h2>
-<div id="bc95517b" class="cell" data-execution_count="1">
+<div id="03436b7c" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> binom, poisson</span>
@@ -860,7 +860,7 @@ P(k \mid \lambda) \;=\; \frac{\lambda^k \, e^{-\lambda}}{k!}
 <section id="back-to-the-bearing" class="level2" data-number="7.7">
 <h2 data-number="7.7" class="anchored" data-anchor-id="back-to-the-bearing"><span class="header-section-number">7.7</span> Back to the bearing</h2>
 <p>For the healthy bearing with <span class="math inline">\lambda = 3</span> clicks/hour:</p>
-<div id="682e1dff" class="cell" data-execution_count="2">
+<div id="c750486f" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>lam <span class="op">=</span> <span class="dv">3</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Expected count       : </span><span class="sc">{</span>lam<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Standard deviation   : </span><span class="sc">{</span>np<span class="sc">.</span>sqrt(lam)<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
@@ -879,7 +879,7 @@ P(&gt;= 10 clicks)      : 0.001102</code></pre>
 <section id="poisson-noise-along-a-gradient" class="level2" data-number="7.8">
 <h2 data-number="7.8" class="anchored" data-anchor-id="poisson-noise-along-a-gradient"><span class="header-section-number">7.8</span> Poisson noise along a gradient</h2>
 <p>The variance-equals-mean property has a direct consequence for sensors: in a brightness gradient, dark pixels are <em>relatively</em> noisier than bright pixels.</p>
-<div id="4c32b00a" class="cell" data-execution_count="3">
+<div id="2f49ee76" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">0</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>pixel_positions <span class="op">=</span> np.arange(<span class="dv">200</span>)</span>
