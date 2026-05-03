@@ -694,7 +694,7 @@ S_n \;\sim\; \mathcal{N}(n\mu, \, n\sigma^2)
 </section>
 <section id="clt-in-action-sums-of-non-gaussian-variables" class="level2" data-number="9.4">
 <h2 data-number="9.4" class="anchored" data-anchor-id="clt-in-action-sums-of-non-gaussian-variables"><span class="header-section-number">9.4</span> CLT in action — sums of non-Gaussian variables</h2>
-<div id="294b6add" class="cell" data-execution_count="1">
+<div id="d81b8301" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm, kstest</span>
@@ -766,7 +766,7 @@ S_n \;\sim\; \mathcal{N}(n\mu, \, n\sigma^2)
 <section id="convergence-rate" class="level2" data-number="9.7">
 <h2 data-number="9.7" class="anchored" data-anchor-id="convergence-rate"><span class="header-section-number">9.7</span> Convergence rate</h2>
 <p>Convergence to Normal is fast for some distributions and slow for others. The rate depends on the <strong>skewness</strong> of the original distribution.</p>
-<div id="4ee9ae65" class="cell" data-execution_count="2">
+<div id="e85b9d63" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>n_values <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">50</span>, <span class="dv">100</span>]</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dist_fns <span class="op">=</span> {</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Uniform"</span>:         <span class="kw">lambda</span> s: np.random.uniform(<span class="dv">0</span>, <span class="dv">1</span>, s),</span>

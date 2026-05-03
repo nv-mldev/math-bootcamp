@@ -675,7 +675,7 @@ y_1, y_2, \ldots, y_T
 <section id="building-a-yearly-series-from-nsfg" class="level2" data-number="26.3">
 <h2 data-number="26.3" class="anchored" data-anchor-id="building-a-yearly-series-from-nsfg"><span class="header-section-number">26.3</span> Building a yearly series from NSFG</h2>
 <p>NSFG encodes pregnancy end date as <code>datend</code> (century-month format — months since January 1900). We convert to year and aggregate.</p>
-<div id="4c8fc2a7" class="cell" data-execution_count="1">
+<div id="2886d935" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys, os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -749,7 +749,7 @@ y_1, y_2, \ldots, y_T
 \hat{y}_t \;=\; \alpha + \beta t
 </span></p>
 <p>This models a <strong>linear trend</strong> — a consistent upward or downward drift.</p>
-<div id="5e953e3b" class="cell" data-execution_count="2">
+<div id="7ca3692e" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> least_squares(x, y):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    cov <span class="op">=</span> np.mean((x <span class="op">-</span> x.mean()) <span class="op">*</span> (y <span class="op">-</span> y.mean()))</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    var <span class="op">=</span> np.mean((x <span class="op">-</span> x.mean()) <span class="op">**</span> <span class="dv">2</span>)</span>
@@ -781,7 +781,7 @@ Trend        : increasing (+0.057 lbs / decade)</code></pre>
 \text{MA}_k(t) \;=\; \frac{1}{k}\sum_{i=0}^{k-1} y_{t-i}
 </span></p>
 <p>Larger windows are smoother but less responsive. This is a <strong>low-pass filter</strong> — it passes slow (long-term) changes and blocks fast (short-term) noise.</p>
-<div id="ff01e64e" class="cell" data-execution_count="3">
+<div id="04410860" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> moving_average(values, window):</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(values)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    ma <span class="op">=</span> np.empty(n <span class="op">-</span> window <span class="op">+</span> <span class="dv">1</span>)</span>
@@ -813,7 +813,7 @@ Trend        : increasing (+0.057 lbs / decade)</code></pre>
 <li>ACF decays slowly → <strong>non-stationary</strong> (trend or long memory)</li>
 <li>ACF shows periodic pattern → <strong>seasonal</strong> effects</li>
 </ul>
-<div id="ff8c84a4" class="cell" data-execution_count="4">
+<div id="834e7d87" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> autocorrelation(values, max_lag<span class="op">=</span><span class="dv">10</span>):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(values)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    mean <span class="op">=</span> values.mean()</span>
@@ -852,7 +852,7 @@ Trend        : increasing (+0.057 lbs / decade)</code></pre>
 \hat{y}_{T+h} \;=\; \alpha + \beta(T + h)
 </span></p>
 <p>But the further ahead we predict, the more uncertainty accumulates. Always report a prediction interval, not a point estimate.</p>
-<div id="fe975721" class="cell" data-execution_count="5">
+<div id="e13ce76c" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>n_boot <span class="op">=</span> <span class="dv">2000</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>boot_slopes <span class="op">=</span> []</span>
@@ -879,7 +879,7 @@ Trend        : increasing (+0.057 lbs / decade)</code></pre>
 </section>
 <section id="visualising-it" class="level2" data-number="26.8">
 <h2 data-number="26.8" class="anchored" data-anchor-id="visualising-it"><span class="header-section-number">26.8</span> Visualising it</h2>
-<div id="c6c4971b" class="cell" data-execution_count="6">
+<div id="401776b1" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">9</span>))</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Series, trend, MA</span></span>
