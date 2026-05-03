@@ -11,7 +11,7 @@ execute:
 Every day you make decisions under uncertainty. Will the bridge hold? Is this email spam? Will the drug work? Will it rain? You cannot know the answer with certainty — but you are not helpless. You can reason carefully about the likelihood of different outcomes, and that reasoning is what probability theory formalises.
 
 ::: {.callout-note}
-## A conversation at a hospital
+## A conversation at a hospital {.unnumbered}
 
 > **Relative:** Nurse, what is the probability the drug will work?
 >
@@ -53,7 +53,7 @@ What's surprising is that probability is **young**. Mathematicians had been doin
 Click any name to read more.
 
 ::: {.callout-tip collapse="true"}
-## ▶ **Gerolamo Cardano** (1501–1576) — the gambling doctor
+## ▶ **Gerolamo Cardano** (1501–1576) — the gambling doctor {.unnumbered}
 
 ::: {layout="[1,3]"}
 ![](../../figures/history/cardano.jpg){width="180px"}
@@ -76,7 +76,7 @@ CC BY 4.0.*</small>
 :::
 
 ::: {.callout-tip collapse="true"}
-## ▶ **Blaise Pascal & Pierre de Fermat** (1654) — letters that founded a field
+## ▶ **Blaise Pascal & Pierre de Fermat** (1654) — letters that founded a field {.unnumbered}
 
 ::: {layout-ncol="2"}
 ![Blaise Pascal (1623–1662)](../../figures/history/pascal.jpg){width="220px"}
@@ -106,7 +106,7 @@ public domain).*</small>
 :::
 
 ::: {.callout-tip collapse="true"}
-## ▶ **Jacob Bernoulli** (1654–1705) — the law of large numbers
+## ▶ **Jacob Bernoulli** (1654–1705) — the law of large numbers {.unnumbered}
 
 ::: {layout="[1,3]"}
 ![](../../figures/history/bernoulli.jpg){width="180px"}
@@ -130,7 +130,7 @@ public domain).*</small>
 :::
 
 ::: {.callout-tip collapse="true"}
-## ▶ **Thomas Bayes** (1701–1761) — the rule that runs modern AI
+## ▶ **Thomas Bayes** (1701–1761) — the rule that runs modern AI {.unnumbered}
 
 ::: {layout="[1,3]"}
 ![](../../figures/history/bayes.png){width="180px"}
@@ -160,7 +160,7 @@ CC BY-SA 4.0).*</small>
 :::
 
 ::: {.callout-tip collapse="true"}
-## ▶ **Pierre-Simon Laplace** (1749–1827) — the great consolidator
+## ▶ **Pierre-Simon Laplace** (1749–1827) — the great consolidator {.unnumbered}
 
 ::: {layout="[1,3]"}
 ![](../../figures/history/laplace.jpg){width="180px"}
@@ -188,7 +188,7 @@ public domain).*</small>
 :::
 
 ::: {.callout-tip collapse="true"}
-## ▶ **Andrey Kolmogorov** (1903–1987) — the axioms
+## ▶ **Andrey Kolmogorov** (1903–1987) — the axioms {.unnumbered}
 
 Until 1933, probability was a working subject without a formal
 foundation. Different mathematicians used different definitions; the
@@ -211,7 +211,7 @@ portraits.*</small>
 :::
 
 ::: {.callout-tip collapse="true"}
-## ▶ **Claude Shannon** (1916–2001) — the bridge to machine learning
+## ▶ **Claude Shannon** (1916–2001) — the bridge to machine learning {.unnumbered}
 
 A telephone engineer at Bell Labs, Shannon noticed something nobody
 else had: **information itself can be measured probabilistically**. His
@@ -241,7 +241,7 @@ That's roughly four centuries of work, ending 75 years ago. The subject is still
 There are really **two stages** to applying probability to a real problem:
 
 ::: {.callout-tip}
-## Two Stages of Probabilistic Modelling
+## Two Stages of Probabilistic Modelling {.unnumbered}
 
 - **Stage 1 — Modelling (art).** Decide on a sample space and a
   probability law. There are no rigid rules here. Reasonable people will
@@ -364,7 +364,7 @@ The simulations agree with the theory **for whichever model you
 chose**. The math is not in dispute. The model is.
 
 ::: {.callout-tip}
-## The lesson
+## The lesson {.unnumbered}
 
 When someone claims a probability problem has a "right" answer and a
 "wrong" answer, your first job is *not* to do the calculation. It's to
@@ -422,7 +422,7 @@ about that limit. The behaviour you see in the animation — the convergence —
 is the empirical content of the claim.
 
 ::: {.callout-note collapse="true"}
-## ▶ Show the math — The Law of Large Numbers, briefly
+## ▶ Show the math — The Law of Large Numbers, briefly {.unnumbered}
 
 If $X_1, X_2, \ldots$ are independent flips of the same coin (each $X_i = 1$ with probability $p$, 0 otherwise), the sample mean $\bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i$ satisfies $\bar{X}_n \to p$ as $n \to \infty$. Both the **weak law** (convergence in probability) and the **strong law** (almost-sure convergence) make this rigorous. A full proof uses Chebyshev's inequality — we return to it in the limit theorems chapter.
 :::
@@ -445,7 +445,7 @@ By accepting, the nurse reveals she believes the drug works with probability at 
 The subjectivist says:
 
 ::: {.callout-note}
-## Deriving the threshold $p \ge \frac{L}{W+L}$
+## Deriving the threshold $p \ge \frac{L}{W+L}$ {.unnumbered}
 
 A rational person accepts a bet only if its **expected profit is non-negative**. For a bet that pays \$W on a win and costs \$L on a loss:
 
@@ -462,7 +462,7 @@ $$p \ge \frac{2}{1 + 2} = \frac{2}{3} \approx 67\% \checkmark$$
 :::
 
 ::: {.callout-tip collapse="true"}
-## ▶ Historical note
+## ▶ Historical note {.unnumbered}
 
 - **Christiaan Huygens (1657)** introduced **expected value** in *De Ratiociniis in Ludo Aleae* — the formula $E[\text{profit}] = pW - (1-p)L$ comes from his definition.
 - **Jakob Bernoulli (1713)** proved the **Law of Large Numbers**, justifying the rule across many bets.
@@ -497,7 +497,7 @@ flowchart LR
 ### Definition
 
 ::: {.callout-important}
-## Sample Space
+## Sample Space {.unnumbered}
 The **sample space** $\Omega$ is the set of all possible outcomes of an experiment. Each element of $\Omega$ is called an **outcome**.
 
 For $\Omega$ to be valid, the outcomes must satisfy two properties:
@@ -508,7 +508,7 @@ For $\Omega$ to be valid, the outcomes must satisfy two properties:
 **Summary**: At the end of the experiment, you can point to one — and exactly one — outcome in $\Omega$.
 :::
 
-### The Granularity Principle
+### The Granularity Principle {.unnumbered}
 
 How much detail should a sample space contain? The answer depends on the questions you want to answer.
 
@@ -523,7 +523,7 @@ $$\Omega = \{(H, \text{rain}),\ (H, \text{no rain}),\ (T, \text{rain}),\ (T, \te
 Option B is not wrong — it is still mutually exclusive and collectively exhaustive. But it includes weather information that is irrelevant to the coin. Option A is the right choice unless you believe weather affects the coin's outcome.
 
 ::: {.callout-tip}
-## The Granularity Principle
+## The Granularity Principle {.unnumbered}
 Include details that are **relevant** to the questions you want to answer. Exclude details that are irrelevant — they only add complexity without improving the model.
 :::
 
@@ -568,7 +568,7 @@ What does each one let us ask?
 - **Sample space (B) — ordered pairs.** Can answer every question we actually care about and nothing more. **This is the right level of detail.**
 
 ::: {.callout-tip}
-## Choosing the sample space is part of modelling
+## Choosing the sample space is part of modelling {.unnumbered}
 
 There is no "the" sample space for an experiment. There is the sample
 space *you choose* for the questions you want to answer. This is the
@@ -576,7 +576,7 @@ clearest example of Stage 1 (modelling = art) at work.
 :::
 
 ::: {.callout-warning}
-## Why mutual exclusivity matters
+## Why mutual exclusivity matters {.unnumbered}
 
 Compare these two attempted sample spaces for a single die roll:
 
@@ -650,7 +650,7 @@ That's the entire grammar. Set union for "or", set intersection for
 from set theory.
 
 ::: {.callout-note collapse="true"}
-## ▶ Show the math — Set algebra and De Morgan's laws
+## ▶ Show the math — Set algebra and De Morgan's laws {.unnumbered}
 
 For any events $A$, $B$, $C \subseteq \Omega$, the following identities
 hold and are used constantly:
@@ -705,7 +705,7 @@ The set operations (union, intersection, complement) work exactly as before — 
 One surprise: the diagonal $C$ is a valid event but has **probability zero** — a line has no area. We'll make this precise once we have integration. For now, the key point is that on a continuous space, a single outcome (one point) always has probability zero. Probability concentrates on regions, not points.
 
 ::: {.callout-note}
-## A note on continuous events
+## A note on continuous events {.unnumbered}
 
 For continuous sample spaces, a deep mathematical result shows that not
 every *conceivable* subset can be assigned a probability without
@@ -761,7 +761,7 @@ A few things this picture makes obvious:
   equally-likely formula $P(A) = |A|/|\Omega|$.
 
 ::: {.callout-note}
-## Why do we get 1/8 per leaf?
+## Why do we get 1/8 per leaf? {.unnumbered}
 
 With 8 equally likely outcomes and a fair coin, $P(\text{any single leaf}) = \frac{1}{8}$.
 
@@ -801,7 +801,7 @@ problem can be described as "first this happens, then that, then…",
 draw the tree first. The math becomes obvious.
 
 ::: {.callout-tip}
-## Why we'll keep coming back to trees
+## Why we'll keep coming back to trees {.unnumbered}
 
 Trees are the natural picture for **conditional probability** (the next
 chapter). The branches into a node from above are the conditioning;
@@ -826,7 +826,7 @@ Think about it intuitively:
 These three intuitions are the **axioms** — the minimum set of rules needed for a consistent and useful theory of probability.
 
 ::: {.callout-important}
-## The Kolmogorov Axioms
+## The Kolmogorov Axioms {.unnumbered}
 
 A **probability law** $P$ is a function that assigns a number $P(A)$ to every event $A \subseteq \Omega$, satisfying:
 
@@ -873,7 +873,7 @@ $$P(\text{toss 1}) + P(\text{toss 2}) + P(\text{toss 3}) + \cdots = 1$$
 For this to work, we extend the additivity axiom:
 
 ::: {.callout-important}
-## Countable Additivity
+## Countable Additivity {.unnumbered}
 
 If $A_1, A_2, A_3, \ldots$ is an infinite sequence of pairwise disjoint events, then:
 $$P\!\left(\bigcup_{i=1}^{\infty} A_i\right) = \sum_{i=1}^{\infty} P(A_i)$$
@@ -888,7 +888,7 @@ The word **sequence** here is critical — we need the events to be arrangeable 
 From just the three axioms, we can derive every useful property of probability:
 
 ::: {.callout-note collapse="true"}
-## ▶ Show the math — Useful consequences of the axioms
+## ▶ Show the math — Useful consequences of the axioms {.unnumbered}
 
 **1. $P(\emptyset) = 0$.**
 
@@ -947,7 +947,7 @@ print(f"P(A) + P(B) - P(A ∩ B) = {P_check(A_ev) + P_check(B_ev) - P_check(A_ev
 The axioms tell us *what conditions* a probability law must satisfy — they do not tell us *which* law to use. The simplest and most common choice for a finite sample space is to treat all outcomes as equally likely.
 
 ::: {.callout-important}
-## The Classical Probability Formula (Discrete Uniform Law)
+## The Classical Probability Formula (Discrete Uniform Law) {.unnumbered}
 
 When all outcomes in a finite sample space are **equally likely**, the probability of any event $A$ is simply
 
@@ -995,7 +995,7 @@ That triangulation — formula, simulation, picture — is the working style we'
 For a continuous sample space, individual outcomes have zero probability. Instead, we assign probability to *regions*, and the natural choice is that probability equals area (or length, or volume).
 
 ::: {.callout-important}
-## Continuous Uniform Law
+## Continuous Uniform Law {.unnumbered}
 
 For a sample space that is a region of area 1:
 $$P(A) = \text{Area}(A)$$
@@ -1124,7 +1124,7 @@ This is exactly why the distinction between countable and uncountable sets matte
 The Union Bound says: if two events are each unlikely, their union (at least one occurs) is also unlikely. The Bonferroni Inequality is the mirror image: if two events are each *very likely*, their intersection (both occur) is also likely.
 
 ::: {.callout-important}
-## Bonferroni Inequality
+## Bonferroni Inequality {.unnumbered}
 
 For any two events $A_1$ and $A_2$:
 $$P(A_1 \cap A_2) \ge P(A_1) + P(A_2) - 1$$
