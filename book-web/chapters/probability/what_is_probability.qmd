@@ -561,29 +561,6 @@ The same experiment can be modelled with very different sample spaces depending 
 </video>
 ```
 
-The **sample space** $\Omega$ is the set of all possible outcomes of an
-experiment. For two dice:
-
-# --- (A) Too coarse: record only the SUM of the two dice. ---
-omega_A = list(range(2, 13))
-print(f"(A) Sum of the two dice:")
-print(f"    Ω = {omega_A}")
-print(f"    |Ω| = {len(omega_A)}  (eleven possible sums: 2, 3, ..., 12)")
-print()
-
-# --- (B) The natural one: record the ORDERED PAIR (die1, die2). ---
-omega_B = outcomes
-print(f"(B) Ordered pair (first die, second die):")
-print(f"    Ω = {{(1,1), (1,2), ..., (6,6)}}")
-print(f"    |Ω| = {len(omega_B)}  (six choices for each die: 6 x 6 = 36)")
-print()
-
-# --- (C) Too fine: ordered pair PLUS colour of each die PLUS the rotation
-# angle each die came to rest at. Infinitely many possibilities.
-print("(C) Ordered pair + colour + rotation angle on landing:")
-print("    |Ω| is effectively infinite — and useless for our questions.")
-```
-
 What does each one let us ask?
 
 - **Sample space (A) — sums only.** Good for *"what's the probability the sum is 7?"*. But it **cannot** answer *"was the first die a 6?"* — that information has been thrown away.
@@ -615,49 +592,6 @@ A working sample space must let you point at exactly one outcome after
 the experiment runs. No ambiguity.
 :::
 
-### Sequential Experiments and Tree Diagrams
-
-When an experiment has multiple stages, a **tree diagram** makes the sample space visible.
-
-Many real experiments unfold **in stages**. You don't roll all your dice at once — you roll the first, see what happens, then roll the second. For these step-by-step experiments, the cleanest representation is a **tree diagram**. Each branch from a node represents a possible outcome at that stage; each path from root to leaf is one complete sequence of outcomes. The set of all leaves is the sample space.
-
-# --- (B) The natural one: record the ORDERED PAIR (die1, die2). ---
-# Each die has 6 faces, so there are 6 x 6 = 36 ordered pairs.
-omega_B = outcomes
-print(f"(B) Ordered pair (first die, second die):")
-print(f"    Ω = {{(1,1), (1,2), ..., (6,6)}}")
-print(f"    |Ω| = {len(omega_B)}  (six choices for each die: 6 x 6 = 36)")
-print()
-
-# --- (C) Too fine: ordered pair PLUS colour of each die PLUS the rotation
-# angle each die came to rest at. Infinitely many possibilities, none
-# of which help us answer dice questions. We won't enumerate it.
-print("(C) Ordered pair + colour + rotation angle on landing:")
-print("    |Ω| is effectively infinite — and useless for our questions.")
-```
-
-What does each one let us ask?
-
-- **Sample space (A) — sums only.** Good for *"what's the probability
-  the sum is 7?"*. But it **cannot** answer *"was the first die a 6?"*
-  — that information has been thrown away. The sum 7 could have come
-  from $(1,6), (2,5), (3,4), (4,3), (5,2)$ or $(6,1)$, and (A) doesn't
-  remember which.
-- **Sample space (C) — pairs + colour + rotation angle.** Can answer
-  everything (including questions nobody asked, like *"did the red die
-  land at exactly 47°?"*). The extra detail makes the model harder to
-  work with and adds no value.
-- **Sample space (B) — ordered pairs.** Can answer every question we
-  actually care about (sum, individual die values, parity, max, min,
-  …) and nothing more. **This is the right level of detail.**
-
-::: {.callout-tip}
-## Choosing the sample space is part of modelling
-
-There is no "the" sample space for an experiment. There is the sample
-space *you choose* for the questions you want to answer. This is the
-clearest example of Stage 1 (modelling = art) at work.
-:::
 
 ### Events on a discrete sample space
 
@@ -746,7 +680,7 @@ Here $(x, y)$ is the landing position measured with infinite precision. There ar
 
 ```{=html}
 <video controls width="100%" style="max-width:640px; display:block; margin:1em auto;">
-  <source src="../figures/animations/videos/continuous_sample_space.mp4" type="video/mp4">
+  <source src="../../figures/animations/videos/continuous_sample_space.mp4" type="video/mp4">
 </video>
 ```
 
@@ -780,120 +714,10 @@ define. The details are in
 [Appendix A: Foundations of Modern Probability](appendix_foundations.qmd).
 :::
 
-### The Rules of the Game: Kolmogorov's Axioms
-
-A **probability law** $P$ is a function from events to numbers that
-satisfies three axioms:
-
-::: {.callout-important}
-## The Kolmogorov axioms
-
-For any events $A, B$ in a sample space $\Omega$:
-
-- **(A1) Non-negativity.** $\;\;P(A) \ge 0$.
-- **(A2) Normalization.** $\;\;P(\Omega) = 1$.
-- **(A3) Additivity.** If $A$ and $B$ are disjoint ($A \cap B =
-  \emptyset$), then
-  $$ P(A \cup B) = P(A) + P(B). $$
-
-  More generally, for a countably infinite sequence of pairwise disjoint
-  events $A_1, A_2, \ldots$:
-  $$ P\!\left(\bigcup_{i=1}^{\infty} A_i\right) = \sum_{i=1}^{\infty} P(A_i). $$
-:::
-
-Three axioms. That's the whole foundation. Everything else in probability
-theory — every formula, every theorem, every proof — follows from these
-three.
-
-Let's verify them on our dice.
-
-```{python}
-# For fair dice, each of the 36 outcomes has probability 1/36.
-# We define the probability law as: for any event E, P(E) = |E| / 36.
-
-def P(event):
-    return len(event) / 36
-
-# (A1) Non-negativity — trivially true since |event| ≥ 0
-print(f"(A1) P(A) = {P(A):.4f} ≥ 0 ✓")
-
-# (A2) Normalization
-print(f"(A2) P(Ω) = {P(omega)} = 1 ✓")
-
-# (A3) Additivity. Pick two disjoint events.
-# E = "sum is 7", F = "sum is 11" — these can't both happen.
-E = {(d1, d2) for d1, d2 in omega if d1 + d2 == 7}
-F = {(d1, d2) for d1, d2 in omega if d1 + d2 == 11}
-print(f"     E ∩ F = {E & F} (disjoint ✓)")
-print(f"     P(E) + P(F) = {P(E):.4f} + {P(F):.4f} = {P(E) + P(F):.4f}")
-print(f"     P(E ∪ F)    = {P(E | F):.4f}")
-print(f"     Equal ✓")
-```
-
-That's it. The rest of probability theory is just consequences of these
-three rules.
-
-::: {.callout-note collapse="true"}
-## ▶ Show the math — Useful consequences of the axioms
-
-From the three axioms alone, we can derive a long list of useful facts.
-Here are the most-used ones, with proofs.
-
-**1. $P(\emptyset) = 0$.**
-
-*Proof.* $\Omega = \Omega \cup \emptyset$ and these are disjoint, so by
-(A3): $P(\Omega) = P(\Omega) + P(\emptyset)$, which gives $P(\emptyset)
-= 0$. $\blacksquare$
-
-**2. Complement rule: $P(A^c) = 1 - P(A)$.**
-
-*Proof.* $A$ and $A^c$ are disjoint and $A \cup A^c = \Omega$. By (A3):
-$P(A) + P(A^c) = P(\Omega) = 1$. Rearranging gives the claim.
-$\blacksquare$
-
-**3. Upper bound: $P(A) \le 1$.**
-
-*Proof.* From (2), $P(A) = 1 - P(A^c) \le 1$ since $P(A^c) \ge 0$ by
-(A1). $\blacksquare$
-
-**4. Monotonicity: if $A \subseteq B$, then $P(A) \le P(B)$.**
-
-*Proof.* Write $B$ as a disjoint union: $B = A \cup (B \cap A^c)$. By
-(A3): $P(B) = P(A) + P(B \cap A^c) \ge P(A)$, since
-$P(B \cap A^c) \ge 0$. $\blacksquare$
-
-**5. Inclusion–exclusion (two events):**
-
-$$
-P(A \cup B) = P(A) + P(B) - P(A \cap B).
-$$
-
-*Proof.* Decompose $A \cup B$ into three disjoint pieces:
-$$
-A \cup B = (A \cap B^c) \;\sqcup\; (A^c \cap B) \;\sqcup\; (A \cap B).
-$$
-
-Apply (A3) and rearrange. $\blacksquare$
-
-**6. Union bound (Boole's inequality):**
-
-$$
-P(A \cup B) \le P(A) + P(B), \qquad
-P\!\left(\bigcup_i A_i\right) \le \sum_i P(A_i).
-$$
-
-*Proof.* For two events, this is (5) plus $P(A \cap B) \ge 0$. The
-general case follows by induction on the number of events (and a small
-extra argument for countable unions). $\blacksquare$
-
-The union bound looks weak — it just throws away the intersection — but
-it's used constantly in machine learning theory because it requires no
-assumptions about how the events relate to each other.
-:::
 
 ---
 
-## Sequential experiments and tree diagrams
+## 4. Sequential Experiments and Tree Diagrams
 
 Many real experiments unfold **in stages**. You don't roll all your dice
 at once — you roll the first, see what happens, then roll the second.
@@ -981,301 +805,7 @@ the branches out are the conditional probabilities given that you've
 arrived. Bayes' rule is just "go up the tree and re-weight".
 :::
 
-### Continuous Sample Spaces
 
-Some experiments have outcomes that take any value in a continuous range.
-
-**Example: Throwing a dart at a unit square.**
-
-$$\Omega = \{(x, y) \mid 0 \le x \le 1,\ 0 \le y \le 1\}$$
-
-Here $(x, y)$ is the position where the dart lands, measured with infinite precision. There are uncountably many possible outcomes — you cannot list them. This is a **continuous** sample space.
-
----
-
-## 4. Events
-
-In a continuous sample space, asking "what is the probability of landing on exactly the point $(0.5, 0.3)$?" leads to trouble — there are infinitely many points, so if each had positive probability, the total would be infinite. The solution is to assign probabilities to *regions*, not individual points.
-
-::: {.callout-important}
-## Event
-An **event** is any subset $A \subseteq \Omega$ of the sample space. We say event $A$ **occurs** if the outcome of the experiment is an element of $A$.
-:::
-
-**Examples for two-dice rolls:**
-
-```{python}
-omega = set(outcomes)
-
-A = {(d1, d2) for d1, d2 in omega if d1 + d2 == 7}        # sum is 7
-B = {(d1, d2) for d1, d2 in omega if d1 == d2}            # doubles
-C = {(d1, d2) for d1, d2 in omega if d1 == 6}             # first die is 6
-D = {(d1, d2) for d1, d2 in omega if d1 + d2 >= 10}       # sum ≥ 10
-
-print(f"A = sum is 7        ({len(A)} outcomes): {sorted(A)}")
-print(f"B = doubles         ({len(B)} outcomes): {sorted(B)}")
-print(f"C = first die is 6  ({len(C)} outcomes): {sorted(C)}")
-print(f"D = sum ≥ 10        ({len(D)} outcomes): {sorted(D)}")
-```
-
-### Set Operations on Events
-
-Because events are sets, you can combine them with set operations:
-
-| Operation | Symbol | Meaning |
-|---|---|---|
-| Complement | $A^c$ | $A$ does not occur |
-| Union | $A \cup B$ | $A$ or $B$ (or both) occur |
-| Intersection | $A \cap B$ | Both $A$ and $B$ occur |
-| Disjoint | $A \cap B = \emptyset$ | $A$ and $B$ cannot both occur |
-
-```{python}
-A_or_B = A | B          # "A or B"
-A_and_C = A & C         # "A and C"
-A_not_B = A - B         # "A but not B"
-A_and_B = A & B         # "A and B" — should be empty
-
-print(f"A ∪ B   ('sum is 7 OR doubles'):           {len(A_or_B)} outcomes")
-print(f"A ∩ C   ('sum is 7 AND first die is 6'):   {len(A_and_C)} outcomes  →  {A_and_C}")
-print(f"A \\ B   ('sum is 7 but not doubles'):      {len(A_not_B)} outcomes")
-print(f"A ∩ B   ('sum is 7 AND doubles'):          {len(A_and_B)} outcomes  →  {A_and_B}  (empty set ∅)")
-```
-
-- `A ∩ C` gives the single roll `(6, 1)` — the first die is 6 *and* the sum is 7.
-- `A ∩ B` *is* empty, because no double $(k, k)$ sums to 7 (we'd need $2k = 7$, but $k$ must be a whole number from 1 to 6). When two events cannot happen together, they are **disjoint** or **mutually exclusive**.
-
-::: {.callout-note collapse="true"}
-## ▶ Show the math — Set algebra and De Morgan's laws
-
-For any events $A$, $B$, $C \subseteq \Omega$:
-
-**Commutative.** $A \cup B = B \cup A$, $\;\; A \cap B = B \cap A$.
-
-**Associative.**
-$(A \cup B) \cup C = A \cup (B \cup C)$,
-$\;\; (A \cap B) \cap C = A \cap (B \cap C)$.
-
-**Distributive.**
-$A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$,
-$\;\; A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$.
-
-**De Morgan's laws** (the most-used one in proofs):
-
-$$
-(A \cup B)^c = A^c \cap B^c, \qquad (A \cap B)^c = A^c \cup B^c.
-$$
-
-In words: "not (A or B)" = "(not A) and (not B)", and the dual.
-:::
-
-Before we go further, a quick detour into something we'll lean on shortly: the difference between **countable** and **uncountable** sets. The integers and rationals are *countable* (you can list them); the real numbers are *uncountable* (you cannot). The next callout makes this concrete with one of the most beautiful proofs in all of mathematics.
-
-::: {.callout-tip collapse="true"}
-## ▶ Different sizes of infinity: Hilbert's Hotel and Cantor's diagonal
-
-If "countable vs uncountable" sounds vague, here's the picture that makes it concrete.
-
-**Hilbert's Hotel** has infinitely many rooms — one for each natural number — and they're all full. A new guest arrives. Can the manager fit them in?
-
-Yes! Move the guest in room 1 to room 2. Move room 2 to room 3. In general, move room $n$ to room $n+1$. Room 1 is now free. The new guest checks in.
-
-What if **infinitely many** new guests arrive? Still fine. Move every current guest from room $n$ to room $2n$. All odd-numbered rooms are now empty.
-
-This is what mathematicians mean by **countably infinite**: a set is countable if you can put its elements in 1-to-1 correspondence with the natural numbers $\{1, 2, 3, \ldots\}$. The integers $\mathbb{Z}$ are countable. Even the rationals are countable — and the way Cantor showed this is the warm-up for the diagonal argument below.
-
-**Warm-up: $\mathbb{Q}$ fits in Hilbert's Hotel (Cantor's zigzag).**
-Lay out every positive rational $p/q$ in a 2D grid: row $p$, column $q$. The grid contains *every* positive rational somewhere — but it's a 2D infinity, so naively it looks "bigger" than $\mathbb{N}$.
-
-Cantor's trick: walk through the grid along anti-diagonals (the lines where $p + q$ is constant). Skip any fraction you've already seen in lowest terms. Number each new fraction as you go: 1, 2, 3, …. Every rational eventually gets a number, so the rationals can be put in 1-to-1 correspondence with $\mathbb{N}$. They fit.
-
-```{python}
-#| fig-cap: "Cantor's zigzag enumeration of the positive rationals. Walking along anti-diagonals of the (p, q) grid, we visit every fraction p/q. Numbers in green show the visit order, skipping fractions already seen in lowest terms (greyed out). Every rational eventually gets a position — so Q is countable."
-import matplotlib.pyplot as plt
-from math import gcd
-
-max_pq = 5
-visit_order = {}
-seen_values = set()
-counter = 0
-for s in range(2, 2 * max_pq + 1):
-    for p in range(1, s):
-        q = s - p
-        if p > max_pq or q > max_pq:
-            continue
-        g = gcd(p, q)
-        reduced = (p // g, q // g)
-        if reduced in seen_values:
-            visit_order[(p, q)] = None
-        else:
-            counter += 1
-            visit_order[(p, q)] = counter
-            seen_values.add(reduced)
-
-fig, ax = plt.subplots(figsize=(7.5, 6))
-ax.set_xlim(0.3, max_pq + 1.0)
-ax.set_ylim(0.3, max_pq + 0.7)
-ax.invert_yaxis()
-ax.axis("off")
-
-for q in range(1, max_pq + 1):
-    ax.text(q, 0.6, f"$q = {q}$", ha="center", va="center",
-            fontsize=11, color="grey")
-for p in range(1, max_pq + 1):
-    ax.text(0.5, p, f"$p = {p}$", ha="right", va="center",
-            fontsize=11, color="grey")
-
-for (p, q), pos in visit_order.items():
-    is_visited = pos is not None
-    label = f"$\\frac{{{p}}}{{{q}}}$"
-    if is_visited:
-        ax.text(q, p, label, ha="center", va="center", fontsize=14,
-                color="black", fontweight="bold",
-                bbox=dict(boxstyle="round,pad=0.3",
-                          facecolor="white", edgecolor="#27ae60", lw=1.5))
-        ax.text(q + 0.32, p - 0.32, str(pos), ha="center", va="center",
-                fontsize=10, color="#27ae60", fontweight="bold")
-    else:
-        ax.text(q, p, label, ha="center", va="center", fontsize=12,
-                color="lightgrey")
-
-path = sorted(
-    [(pos, p, q) for (p, q), pos in visit_order.items() if pos is not None],
-    key=lambda t: t[0],
-)
-for k in range(len(path) - 1):
-    _, p1, q1 = path[k]
-    _, p2, q2 = path[k + 1]
-    ax.annotate("", xy=(q2, p2), xytext=(q1, p1),
-                arrowprops=dict(arrowstyle="->", color="#27ae60",
-                                lw=1.0, alpha=0.5))
-
-ax.set_title("Cantor's zigzag: every positive rational gets a number",
-             fontsize=12)
-plt.tight_layout()
-plt.show()
-```
-
-So the rationals — even though they form a 2D infinity — *fit* in Hilbert's Hotel.
-
-**The punchline: the reals don't fit.** Hilbert's Hotel **cannot** accommodate the **real numbers** $\mathbb{R}$. Cantor proved this in 1891 with his famous **diagonal argument**: assume you have a list of all reals between 0 and 1; construct a new real that differs from the $n$-th entry in its $n$-th decimal digit; this new real is on the list (we said the list was complete) but cannot be on the list (it differs from every entry). Contradiction. So no list exists.
-
-The picture below shows it in action:
-
-```{python}
-#| fig-cap: "Cantor's diagonal argument: r* differs from every row in the diagonal position, so r* cannot be on the list — yet the list was supposed to contain every real in [0, 1]."
-import matplotlib.pyplot as plt
-import numpy as np
-
-rows = [
-    [3, 1, 4, 1, 5, 9],
-    [2, 7, 1, 8, 2, 8],
-    [1, 4, 1, 4, 2, 1],
-    [0, 5, 7, 7, 2, 1],
-    [9, 2, 5, 6, 5, 3],
-]
-
-n_rows = len(rows)
-n_cols = len(rows[0])
-
-flip = lambda d: 8 if d <= 4 else 1
-r_star = [flip(rows[i][i]) for i in range(n_rows)]
-
-fig, ax = plt.subplots(figsize=(8, 4.5))
-ax.set_xlim(-0.5, n_cols + 1.0)
-ax.set_ylim(-2.0, n_rows + 0.5)
-ax.invert_yaxis()
-ax.axis("off")
-
-for j in range(n_cols):
-    ax.text(j + 1, -0.3, f"$d_{j+1}$", ha="center", va="center",
-            fontsize=12, color="grey")
-
-for i, row in enumerate(rows):
-    ax.text(0, i, f"$r_{i+1} = 0.$", ha="right", va="center", fontsize=13)
-    for j, digit in enumerate(row):
-        is_diag = (i == j)
-        ax.text(j + 1, i, str(digit), ha="center", va="center",
-                fontsize=14,
-                color="white" if is_diag else "black",
-                fontweight="bold" if is_diag else "normal",
-                bbox=dict(
-                    boxstyle="round,pad=0.25",
-                    facecolor="#c0392b" if is_diag else "white",
-                    edgecolor="#c0392b" if is_diag else "lightgrey",
-                ))
-
-ax.plot([-0.3, n_cols + 0.5], [n_rows - 0.5, n_rows - 0.5],
-        color="black", lw=1)
-
-ax.text(0, n_rows + 0.2, r"$r^\star = 0.$", ha="right", va="center",
-        fontsize=13, fontweight="bold")
-for j, digit in enumerate(r_star):
-    ax.text(j + 1, n_rows + 0.2, str(digit), ha="center", va="center",
-            fontsize=14, fontweight="bold", color="white",
-            bbox=dict(boxstyle="round,pad=0.25",
-                      facecolor="#27ae60", edgecolor="#27ae60"))
-
-ax.text(n_cols + 0.6, n_rows + 0.2,
-        r"differs from $r_n$ in position $n$",
-        ha="left", va="center", fontsize=11, color="#27ae60", style="italic")
-
-plt.tight_layout()
-plt.show()
-```
-
-**"But you only showed five numbers — how is this a proof?"** This is the right question. The list is supposed to be *infinite*, and we obviously can't write down infinitely many entries. The trick is that **the proof is not about a particular list — it's about *any* list**. The recipe is one short sentence:
-
-> *"For each $n$, the $n$-th digit of $r^\star$ is different from the $n$-th digit of $r_n$."*
-
-Whatever list you hand me — five rows or five trillion — the same recipe applies. The same argument works for *any* row number, because the disagreement at row $n$ is built into the construction *for every $n$* simultaneously. The five-row picture is just a visual aid.
-
-::: {.callout-note collapse="true"}
-## ▶ Why doesn't this argument also "disprove" $\mathbb{Q}$?
-
-You might wonder: couldn't we apply the same diagonal trick to a list of rationals? But we just showed $\mathbb{Q}$ *is* countable (zigzag), so something must rescue us.
-
-The rescue: the diagonal recipe builds $r^\star$ digit by digit. The result is a real number — but with no guarantee that its decimal expansion is eventually periodic. **Infinite non-repeating decimals are irrational.** So the constructed $r^\star$ is generally not rational at all.
-
-When the opponent's list is supposed to contain every *rational*, our $r^\star$ being missing is *not* a contradiction — $r^\star$ was never required to be on a list of rationals.
-
-When the opponent's list is supposed to contain every *real*, our $r^\star$ being missing **is** a contradiction — because $r^\star$ is a real, by construction.
-
-That asymmetry is the entire reason the argument works for one and not the other.
-:::
-
-This means there are **at least two genuinely different sizes of infinity**: the countable (the rooms in Hilbert's Hotel) and the uncountable (the real line). It also means probability theory on $\mathbb{R}$ is fundamentally different from probability on a finite set — which is why we'll need calculus, integration, and measure theory once we get to continuous distributions.
-:::
-
-With that distinction in hand, a small caveat about events is worth knowing. For finite or countable sample spaces (dice, coins, integers) every subset is a valid event. For *uncountable* sample spaces — like the real line — it turns out you can't safely call every subset an event. The fix is a formal object called a **$\sigma$-algebra** (see the callout below — it's optional).
-
-::: {.callout-note collapse="true"}
-## ▶ The fine print: why "event = subset" eventually breaks
-
-**The setup.** A probability law $P$ assigns a number to every event.
-For *uncountable* $\Omega$ (like $[0, 1]$ or $\mathbb{R}$), the question
-is whether we can still assign a probability to every subset. The
-surprising answer is **no** — some subsets break the axioms.
-
-**Why it breaks (the Vitali set).** Imagine picking a number uniformly
-at random from $[0, 1]$. In 1905, Vitali constructed a subset
-$V \subset [0, 1]$ such that infinitely many "shifted copies" of $V$ are pairwise disjoint and together cover $[0, 1]$, while all copies have the same probability $p$ (by translation-invariance).
-
-Apply countable additivity:
-$$1 = P([0, 1]) = \sum_{i=1}^{\infty} P(V_i) = \sum_{i=1}^{\infty} p.$$
-
-- if $p = 0$ → the sum is $0$, not $1$ ✗
-- if $p > 0$ → the sum is infinite, not $1$ ✗
-
-**No value of $p$ works.** The set $V$ simply cannot have a probability without breaking additivity.
-
-**The fix.** We restrict the events to a **$\sigma$-algebra** $\mathcal{F}$ — a collection of "well-behaved" subsets closed under complements and countable unions. The Vitali set is *outside* any reasonable $\sigma$-algebra, so we never have to assign it a probability.
-
-For the real line, the standard choice is the **Borel $\sigma$-algebra**, generated by all open intervals. Every set you'd construct without exotic machinery is in it.
-
-**Why we don't fuss about it in this book.** The Vitali set requires the **Axiom of Choice** to construct — you can't write down its elements. In every probability model you'll meet, every set you'd ever care about is already a valid event. Treat *"event = subset of $\Omega$"* as your working definition and trust that the measure-theoretic fine print holds.
-:::
-
----
 
 ## 5. Probability Laws and Axioms
 
@@ -1676,7 +1206,7 @@ This section reviews the mathematical background needed throughout the probabili
 
 ---
 
-### 13.1 Set Theory
+### 12.1 Set Theory
 
 **Definitions and notation**
 
@@ -1716,7 +1246,7 @@ For infinite collections: $\bigcup_{n=1}^\infty S_n = \{x \mid x \in S_n \text{ 
 
 ---
 
-### 13.2 De Morgan's Laws
+### 12.2 De Morgan's Laws
 
 These laws convert between unions and intersections via complements. They are used constantly in probability when it is easier to compute the complement of an event.
 
@@ -1734,7 +1264,7 @@ $$\left(\bigcap_n S_n\right)^c = \bigcup_n S_n^c \qquad \left(\bigcup_n S_n\righ
 
 ---
 
-### 13.3 Sequences and Convergence
+### 12.3 Sequences and Convergence
 
 A **sequence** is a function from the positive integers to some set: $a_1, a_2, a_3, \ldots$
 
@@ -1754,7 +1284,7 @@ $$\lim_{i \to \infty} a_i = a \quad \Longleftrightarrow \quad \forall \epsilon >
 
 ---
 
-### 13.4 Infinite Series
+### 12.4 Infinite Series
 
 An **infinite series** is the limit of its partial sums:
 
@@ -1771,7 +1301,7 @@ In probability models, absolute convergence is the standard assumption that make
 
 ---
 
-### 13.5 The Geometric Series
+### 12.5 The Geometric Series
 
 $$\sum_{i=0}^\infty \alpha^i = \frac{1}{1 - \alpha} \qquad \text{for } |\alpha| < 1$$
 
@@ -1786,7 +1316,7 @@ This series appears constantly in probability — any time you count "the number
 
 ---
 
-### 13.6 Double Series
+### 12.6 Double Series
 
 When summing over two indices $i$ and $j$, you can sum row by row or column by column. If the series is absolutely convergent, the order does not matter:
 
@@ -1800,7 +1330,7 @@ This identity is used frequently when computing expectations and joint probabili
 
 ---
 
-### 13.7 Countable and Uncountable Sets
+### 12.7 Countable and Uncountable Sets
 
 A set is **countable** if its elements can be put in a one-to-one correspondence with the positive integers — equivalently, if they can be arranged in a sequence $s_1, s_2, s_3, \ldots$
 
@@ -1831,7 +1361,7 @@ The Countable Additivity Axiom works for sequences. It fails for uncountable col
 
 ---
 
-### 13.8 Cantor's Diagonal Argument
+### 12.8 Cantor's Diagonal Argument
 
 **Claim**: The unit interval $(0, 1)$ is uncountable.
 
