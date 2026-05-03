@@ -710,7 +710,7 @@ N\!\left(\mu_1 - \mu_2, \frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}\right)
 <section id="watching-the-clt-happen" class="level2" data-number="28.5">
 <h2 data-number="28.5" class="anchored" data-anchor-id="watching-the-clt-happen"><span class="header-section-number">28.5</span> Watching the CLT happen</h2>
 <p>Birth weight is left-skewed (premature babies). Draw samples of increasing size and watch the sampling distribution converge to normal.</p>
-<div id="37eac974" class="cell" data-execution_count="1">
+<div id="7b0ae4f3" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys, os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -765,7 +765,7 @@ t \;=\; \frac{\bar{x}_1 - \bar{x}_2}
 {\sqrt{s_1^2/n_1 + s_2^2/n_2}}
 </span></p>
 <p>with Welch–Satterthwaite degrees of freedom. Under <span class="math inline">H_0</span>, this follows a t-distribution.</p>
-<div id="67da926b" class="cell" data-execution_count="2">
+<div id="998e48bf" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> two_sample_ttest(g1, g2):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    n1, n2 <span class="op">=</span> <span class="bu">len</span>(g1), <span class="bu">len</span>(g2)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    m1, m2 <span class="op">=</span> g1.mean(), g2.mean()</span>
@@ -811,7 +811,7 @@ Permutation p-value : 0.1730</code></pre>
 <p><span class="math display">
 \text{CI}_{95\%} \;=\; \bar{x} \pm 1.96 \cdot \frac{s}{\sqrt n}
 </span></p>
-<div id="b6efaf6b" class="cell" data-execution_count="3">
+<div id="1df32236" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">len</span>(weights)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>mean_w <span class="op">=</span> weights.mean()</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>se_w   <span class="op">=</span> weights.std() <span class="op">/</span> np.sqrt(n)</span>
@@ -843,7 +843,7 @@ Bootstrap 95% CI    : [7.2631, 7.3233]</code></pre>
 t \;=\; \frac{r\sqrt{n - 2}}{\sqrt{1 - r^2}}
 \;\sim\; t_{n - 2}
 </span></p>
-<div id="4c7a1f3e" class="cell" data-execution_count="4">
+<div id="a88d879d" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mask <span class="op">=</span> (<span class="op">~</span>live[<span class="st">"agepreg"</span>].isna()) <span class="op">&amp;</span> (<span class="op">~</span>live[<span class="st">"totalwgt_lb"</span>].isna())</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>sub <span class="op">=</span> live.loc[mask, [<span class="st">"agepreg"</span>, <span class="st">"totalwgt_lb"</span>]]</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>sub <span class="op">=</span> sub[(sub[<span class="st">"totalwgt_lb"</span>] <span class="op">&gt;</span> <span class="dv">0</span>) <span class="op">&amp;</span> (sub[<span class="st">"totalwgt_lb"</span>] <span class="op">&lt;</span> <span class="dv">20</span>)]</span>
@@ -867,7 +867,7 @@ p-value      : 0.000000</code></pre>
 </section>
 <section id="visualising-it" class="level2" data-number="28.9">
 <h2 data-number="28.9" class="anchored" data-anchor-id="visualising-it"><span class="header-section-number">28.9</span> Visualising it</h2>
-<div id="8ddc70c4" class="cell" data-execution_count="5">
+<div id="6fb1fd66" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">9</span>))</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. CLT</span></span>
