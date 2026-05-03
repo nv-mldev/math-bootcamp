@@ -6,7 +6,7 @@ execute:
   cache: true
 ---
 
-## Why Probability?
+## Why Probability? {.unnumbered}
 
 Every day you make decisions under uncertainty. Will the bridge hold? Is this email spam? Will the drug work? Will it rain? You cannot know the answer with certainty — but you are not helpless. You can reason carefully about the likelihood of different outcomes, and that reasoning is what probability theory formalises.
 
@@ -46,7 +46,7 @@ Probability is not just an academic tool. It is the language of uncertainty — 
 
 ---
 
-## A short history
+## A short history {.unnumbered}
 
 What's surprising is that probability is **young**. Mathematicians had been doing calculus and geometry for centuries before anyone took randomness seriously enough to write equations about it. The story of how probability became a real subject is short, dramatic, and full of gamblers, monks, astronomers, and one telephone engineer who quietly changed the world.
 
@@ -236,7 +236,7 @@ That's roughly four centuries of work, ending 75 years ago. The subject is still
 
 ---
 
-## The two-stage framework
+## The two-stage framework {.unnumbered}
 
 There are really **two stages** to applying probability to a real problem:
 
@@ -259,7 +259,7 @@ The discipline of this chapter is to make Stage 1 explicit before
 calculating anything.
 :::
 
-### Why the Model Matters: The Two-Child Puzzle
+### Why the Model Matters: The Two-Child Puzzle {.unnumbered}
 
 Abstract claims about "Stage 1 vs Stage 2" only land once you've watched
 two clever people disagree about a real problem. Here's one. It's
@@ -1159,7 +1159,7 @@ print(f"Gap: {exact - bonferroni_lower:.4f}")
 
 ---
 
-## Three things you should take away
+## Three things you should take away {.unnumbered}
 
 1. **Probability has two interpretations and one math.** Frequentist probability is a long-run frequency; subjective probability is a degree of belief. They argue about Stage 1 (modelling). They agree on Stage 2 (the math).
 
