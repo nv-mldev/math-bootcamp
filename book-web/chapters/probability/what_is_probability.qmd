@@ -593,6 +593,10 @@ the experiment runs. No ambiguity.
 :::
 
 
+---
+
+## 4. Events
+
 ### Events on a discrete sample space
 
 An **event** is just a subset of $\Omega$. Some examples for our two
@@ -717,7 +721,7 @@ define. The details are in
 
 ---
 
-## 4. Sequential Experiments and Tree Diagrams
+## 5. Sequential Experiments and Tree Diagrams
 
 Many real experiments unfold **in stages**. You don't roll all your dice
 at once — you roll the first, see what happens, then roll the second.
@@ -807,7 +811,7 @@ arrived. Bayes' rule is just "go up the tree and re-weight".
 
 
 
-## 5. Probability Laws and Axioms
+## 6. Probability Laws and Axioms
 
 ### Motivation
 
@@ -879,7 +883,7 @@ The word **sequence** here is critical — we need the events to be arrangeable 
 
 ---
 
-## 6. Derived Properties of Probability
+## 7. Derived Properties of Probability
 
 From just the three axioms, we can derive every useful property of probability:
 
@@ -938,7 +942,7 @@ print(f"P(A) + P(B) - P(A ∩ B) = {P_check(A_ev) + P_check(B_ev) - P_check(A_ev
 
 ---
 
-## 7. The Discrete Uniform Law
+## 8. The Discrete Uniform Law
 
 The axioms tell us *what conditions* a probability law must satisfy — they do not tell us *which* law to use. The simplest and most common choice for a finite sample space is to treat all outcomes as equally likely.
 
@@ -986,7 +990,7 @@ That triangulation — formula, simulation, picture — is the working style we'
 
 ---
 
-## 8. The Continuous Uniform Law
+## 9. The Continuous Uniform Law
 
 For a continuous sample space, individual outcomes have zero probability. Instead, we assign probability to *regions*, and the natural choice is that probability equals area (or length, or volume).
 
@@ -1058,7 +1062,7 @@ Steps 1–3 are the setup. Step 4 is the arithmetic. Most errors happen in steps
 
 ---
 
-## 9. Countable Additivity and the $1 = 0$ Paradox
+## 10. Countable Additivity and the $1 = 0$ Paradox
 
 ### Infinite Discrete Sample Spaces
 
@@ -1115,7 +1119,7 @@ This is exactly why the distinction between countable and uncountable sets matte
 
 ---
 
-## 10. The Bonferroni Inequality
+## 11. The Bonferroni Inequality
 
 The Union Bound says: if two events are each unlikely, their union (at least one occurs) is also unlikely. The Bonferroni Inequality is the mirror image: if two events are each *very likely*, their intersection (both occur) is also likely.
 
@@ -1165,7 +1169,7 @@ print(f"Gap: {exact - bonferroni_lower:.4f}")
 
 ---
 
-## 11. Exercises
+## 12. Exercises
 
 **1. Build a sample space.** Define $\Omega$ for the experiment "draw one card from a standard 52-card deck". Then describe the following events as subsets:
    (a) the card is a heart;
@@ -1200,13 +1204,13 @@ print(f"Gap: {exact - bonferroni_lower:.4f}")
 
 ---
 
-## 12. Math Refresher
+## 13. Math Refresher
 
 This section reviews the mathematical background needed throughout the probability chapters. It is placed here deliberately — after you have seen probability in action, the *reason* for each tool is clearer. Return to any subsection when you need it.
 
 ---
 
-### 12.1 Set Theory
+### 13.1 Set Theory
 
 **Definitions and notation**
 
@@ -1246,7 +1250,7 @@ For infinite collections: $\bigcup_{n=1}^\infty S_n = \{x \mid x \in S_n \text{ 
 
 ---
 
-### 12.2 De Morgan's Laws
+### 13.2 De Morgan's Laws
 
 These laws convert between unions and intersections via complements. They are used constantly in probability when it is easier to compute the complement of an event.
 
@@ -1264,7 +1268,7 @@ $$\left(\bigcap_n S_n\right)^c = \bigcup_n S_n^c \qquad \left(\bigcup_n S_n\righ
 
 ---
 
-### 12.3 Sequences and Convergence
+### 13.3 Sequences and Convergence
 
 A **sequence** is a function from the positive integers to some set: $a_1, a_2, a_3, \ldots$
 
@@ -1284,7 +1288,7 @@ $$\lim_{i \to \infty} a_i = a \quad \Longleftrightarrow \quad \forall \epsilon >
 
 ---
 
-### 12.4 Infinite Series
+### 13.4 Infinite Series
 
 An **infinite series** is the limit of its partial sums:
 
@@ -1301,7 +1305,7 @@ In probability models, absolute convergence is the standard assumption that make
 
 ---
 
-### 12.5 The Geometric Series
+### 13.5 The Geometric Series
 
 $$\sum_{i=0}^\infty \alpha^i = \frac{1}{1 - \alpha} \qquad \text{for } |\alpha| < 1$$
 
@@ -1316,7 +1320,7 @@ This series appears constantly in probability — any time you count "the number
 
 ---
 
-### 12.6 Double Series
+### 13.6 Double Series
 
 When summing over two indices $i$ and $j$, you can sum row by row or column by column. If the series is absolutely convergent, the order does not matter:
 
@@ -1330,7 +1334,7 @@ This identity is used frequently when computing expectations and joint probabili
 
 ---
 
-### 12.7 Countable and Uncountable Sets
+### 13.7 Countable and Uncountable Sets
 
 A set is **countable** if its elements can be put in a one-to-one correspondence with the positive integers — equivalently, if they can be arranged in a sequence $s_1, s_2, s_3, \ldots$
 
@@ -1361,7 +1365,7 @@ The Countable Additivity Axiom works for sequences. It fails for uncountable col
 
 ---
 
-### 12.8 Cantor's Diagonal Argument
+### 13.8 Cantor's Diagonal Argument
 
 **Claim**: The unit interval $(0, 1)$ is uncountable.
 
