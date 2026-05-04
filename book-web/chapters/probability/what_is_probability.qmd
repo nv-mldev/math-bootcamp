@@ -593,6 +593,19 @@ A working sample space must let you point at exactly one outcome after
 the experiment runs. No ambiguity.
 :::
 
+### Continuous Sample Spaces
+
+Some experiments have outcomes that take any value in a continuous range. Throwing a dart at a unit square gives:
+
+$$\Omega = \{(x, y) \mid 0 \le x \le 1,\ 0 \le y \le 1\}$$
+
+Here $(x, y)$ is the landing position measured with infinite precision. There are uncountably many possible outcomes — you cannot list them.
+
+```{=html}
+<video controls width="100%" style="max-width:640px; display:block; margin:1em auto;">
+  <source src="../../figures/animations/videos/continuous_sample_space.mp4" type="video/mp4">
+</video>
+```
 
 ---
 
@@ -674,20 +687,6 @@ $$
 
 In words: "not (A or B)" = "(not A) and (not B)", and the dual.
 :::
-
-### Continuous Sample Spaces
-
-Some experiments have outcomes that take any value in a continuous range. Throwing a dart at a unit square gives:
-
-$$\Omega = \{(x, y) \mid 0 \le x \le 1,\ 0 \le y \le 1\}$$
-
-Here $(x, y)$ is the landing position measured with infinite precision. There are uncountably many possible outcomes — you cannot list them.
-
-```{=html}
-<video controls width="100%" style="max-width:640px; display:block; margin:1em auto;">
-  <source src="../../figures/animations/videos/continuous_sample_space.mp4" type="video/mp4">
-</video>
-```
 
 ### Events on a Continuous Sample Space
 
