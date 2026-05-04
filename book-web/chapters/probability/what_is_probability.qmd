@@ -1050,7 +1050,7 @@ plt.show()
 ### The 4-Step Procedure
 
 ::: {.callout-tip}
-## 4-Step Procedure for Probability Problems
+## 4-Step Procedure for Probability Problems {.unnumbered}
 
 1. **Specify the sample space $\Omega$** — what are all possible outcomes?
 2. **Specify the probability law** — which law applies? Does it satisfy the axioms?

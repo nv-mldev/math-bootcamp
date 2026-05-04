@@ -68,7 +68,7 @@ format:
       dark: darkly
     toc: true
     number-sections: true
-    number-depth: 2
+    number-depth: 3
     code-copy: true
     code-overflow: wrap
     html-math-method: katex
