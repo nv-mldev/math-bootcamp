@@ -707,7 +707,7 @@ E[\bar{X}] = \mu, \qquad
 </section>
 <section id="standard-error-in-nsfg" class="level2" data-number="22.4">
 <h2 data-number="22.4" class="anchored" data-anchor-id="standard-error-in-nsfg"><span class="header-section-number">22.4</span> Standard error in NSFG</h2>
-<div id="cb170ad9" class="cell" data-execution_count="1">
+<div id="422b1e33" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys, os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -734,7 +734,7 @@ SE = σ/√n = 0.0153 lbs</code></pre>
 </section>
 <section id="biased-vs-unbiased-variance-a-simulation" class="level2" data-number="22.5">
 <h2 data-number="22.5" class="anchored" data-anchor-id="biased-vs-unbiased-variance-a-simulation"><span class="header-section-number">22.5</span> Biased vs unbiased variance — a simulation</h2>
-<div id="72dc1bbb" class="cell" data-execution_count="2">
+<div id="e64c3fec" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sample_size <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>n_simulations <span class="op">=</span> <span class="dv">10_000</span></span>
@@ -766,7 +766,7 @@ Bias 1/(n-1)               : -0.0129</code></pre>
 </section>
 <section id="se-shrinks-as-σn" class="level2" data-number="22.6">
 <h2 data-number="22.6" class="anchored" data-anchor-id="se-shrinks-as-σn"><span class="header-section-number">22.6</span> SE shrinks as σ/√n</h2>
-<div id="4e8c6506" class="cell" data-execution_count="3">
+<div id="6ddea052" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sample_sizes <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">50</span>, <span class="dv">200</span>, <span class="dv">1000</span>]</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sampling <span class="op">=</span> {}</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  </span><span class="sc">{</span><span class="st">'n'</span><span class="sc">:&gt;6}</span><span class="ss">  </span><span class="sc">{</span><span class="st">'SE (analytic)'</span><span class="sc">:&gt;15}</span><span class="ss">  </span><span class="sc">{</span><span class="st">'SE (simulated)'</span><span class="sc">:&gt;15}</span><span class="ss">"</span>)</span>
@@ -792,7 +792,7 @@ Bias 1/(n-1)               : -0.0129</code></pre>
 <p>Not all estimation errors are random. <strong>Bias</strong> is a systematic error that doesn’t average away with more data.</p>
 <p>The class size paradox is a clean example: sampling students oversamples large classes, so the estimate of mean class size is biased upward — taking more data makes it more <em>precise</em> but not more <em>accurate</em>.</p>
 <p>NSFG uses <strong>survey weights</strong> (<code>finalwgt</code>) to correct for deliberate oversampling of minority groups. If you ignore the weights, your estimates of national statistics will be biased.</p>
-<div id="c8c94e13" class="cell" data-execution_count="4">
+<div id="40115bf2" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> live[[<span class="st">"totalwgt_lb"</span>, <span class="st">"finalwgt"</span>]].dropna()</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[(df[<span class="st">"totalwgt_lb"</span>] <span class="op">&gt;</span> <span class="dv">0</span>) <span class="op">&amp;</span> (df[<span class="st">"totalwgt_lb"</span>] <span class="op">&lt;</span> <span class="dv">20</span>)]</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -819,7 +819,7 @@ Difference      : +0.0883 lbs</code></pre>
 <li>Compute the statistic for each sample</li>
 <li>The standard deviation of the <span class="math inline">B</span> estimates is the bootstrap SE</li>
 </ol>
-<div id="b6e15d4a" class="cell" data-execution_count="5">
+<div id="d7c88e8a" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> bootstrap_se(data, statistic, n_boot<span class="op">=</span><span class="dv">2000</span>):</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    estimates <span class="op">=</span> [statistic(np.random.choice(data, size<span class="op">=</span><span class="bu">len</span>(data), replace<span class="op">=</span><span class="va">True</span>))</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                 <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(n_boot)]</span>
@@ -843,7 +843,7 @@ Analytic SE for mean: 0.0153</code></pre>
 </section>
 <section id="visualising-it" class="level2" data-number="22.9">
 <h2 data-number="22.9" class="anchored" data-anchor-id="visualising-it"><span class="header-section-number">22.9</span> Visualising it</h2>
-<div id="1ba1c250" class="cell" data-execution_count="6">
+<div id="dfec01f7" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">9</span>))</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. biased vs unbiased</span></span>

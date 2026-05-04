@@ -709,7 +709,7 @@ window.Quarto = {
 </section>
 <section id="decomposition-in-code" class="level2" data-number="32.5">
 <h2 data-number="32.5" class="anchored" data-anchor-id="decomposition-in-code"><span class="header-section-number">32.5</span> Decomposition in code</h2>
-<div id="54c10df2" class="cell" data-execution_count="1">
+<div id="6354825e" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -753,7 +753,7 @@ brightness · pattern = +0.000000e+00
 </section>
 <section id="brightness-offset-only-moves-the-brightness-component" class="level2" data-number="32.6">
 <h2 data-number="32.6" class="anchored" data-anchor-id="brightness-offset-only-moves-the-brightness-component"><span class="header-section-number">32.6</span> Brightness offset only moves the brightness component</h2>
-<div id="30d02e18" class="cell" data-execution_count="2">
+<div id="d3371393" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>shifted <span class="op">=</span> template <span class="op">+</span> <span class="fl">50.0</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>b1, p1 <span class="op">=</span> decompose(template)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>b2, p2 <span class="op">=</span> decompose(shifted)</span>
@@ -784,7 +784,7 @@ Pattern unchanged? True</code></pre>
 </section>
 <section id="visualising-the-split" class="level2" data-number="32.7">
 <h2 data-number="32.7" class="anchored" data-anchor-id="visualising-the-split"><span class="header-section-number">32.7</span> Visualising the split</h2>
-<div id="de0e6827" class="cell" data-execution_count="3">
+<div id="f9fa73c2" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> row, (vec, label) <span class="kw">in</span> <span class="bu">enumerate</span>([(template, <span class="st">"template"</span>),</span>
