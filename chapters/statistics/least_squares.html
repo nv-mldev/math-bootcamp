@@ -681,7 +681,7 @@ window.Quarto = {
 </section>
 <section id="fit-on-nsfg" class="level2" data-number="24.3">
 <h2 data-number="24.3" class="anchored" data-anchor-id="fit-on-nsfg"><span class="header-section-number">24.3</span> Fit on NSFG</h2>
-<div id="d2f0a116" class="cell" data-execution_count="1">
+<div id="45fd23ef" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys, os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -739,7 +739,7 @@ e_i \;=\; y_i - \hat{y}_i
 R^2 \;=\; 1 - \frac{\text{SSE}}{\text{SST}},
 \qquad \text{SST} = \sum (y_i - \bar{y})^2
 </span></p>
-<div id="eff3dc01" class="cell" data-execution_count="2">
+<div id="1c094eaa" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compute_residuals(x, y, alpha, beta):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> y <span class="op">-</span> (alpha <span class="op">+</span> beta <span class="op">*</span> x)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -770,7 +770,7 @@ Mean residual   : 0.000000  (should be ≈ 0)</code></pre>
 <section id="bootstrap-confidence-interval-for-the-slope" class="level2" data-number="24.5">
 <h2 data-number="24.5" class="anchored" data-anchor-id="bootstrap-confidence-interval-for-the-slope"><span class="header-section-number">24.5</span> Bootstrap confidence interval for the slope</h2>
 <p>Is <span class="math inline">\hat{\beta}</span> statistically meaningful? Bootstrap (Chapter 8) the slope, then read off the 2.5th and 97.5th percentile of the bootstrap distribution.</p>
-<div id="12468e51" class="cell" data-execution_count="3">
+<div id="26783976" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>n_boot <span class="op">=</span> <span class="dv">2000</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>boot_slopes <span class="op">=</span> []</span>
@@ -793,7 +793,7 @@ Mean residual   : 0.000000  (should be ≈ 0)</code></pre>
 </section>
 <section id="visualising-it" class="level2" data-number="24.6">
 <h2 data-number="24.6" class="anchored" data-anchor-id="visualising-it"><span class="header-section-number">24.6</span> Visualising it</h2>
-<div id="0096c608" class="cell" data-execution_count="4">
+<div id="d5af350f" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fitted <span class="op">=</span> alpha <span class="op">+</span> beta <span class="op">*</span> x</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">9</span>))</span>

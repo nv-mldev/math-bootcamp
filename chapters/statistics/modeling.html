@@ -622,7 +622,7 @@ window.Quarto = {
   <li><a href="#the-exponential-distribution" id="toc-the-exponential-distribution" class="nav-link" data-scroll-target="#the-exponential-distribution"><span class="header-section-number">19.2</span> The exponential distribution</a></li>
   <li><a href="#the-normal-distribution" id="toc-the-normal-distribution" class="nav-link" data-scroll-target="#the-normal-distribution"><span class="header-section-number">19.3</span> The normal distribution</a>
   <ul class="collapse">
-  <li><a href="#normal-probability-plot" id="toc-normal-probability-plot" class="nav-link" data-scroll-target="#normal-probability-plot"><span class="header-section-number">19.3.1</span> Normal probability plot</a></li>
+  <li><a href="#normal-probability-plot" id="toc-normal-probability-plot" class="nav-link" data-scroll-target="#normal-probability-plot">Normal probability plot</a></li>
   </ul></li>
   <li><a href="#the-lognormal-distribution" id="toc-the-lognormal-distribution" class="nav-link" data-scroll-target="#the-lognormal-distribution"><span class="header-section-number">19.4</span> The lognormal distribution</a></li>
   <li><a href="#the-pareto-distribution" id="toc-the-pareto-distribution" class="nav-link" data-scroll-target="#the-pareto-distribution"><span class="header-section-number">19.5</span> The Pareto distribution</a></li>
@@ -714,8 +714,8 @@ f(x; \mu, \sigma) \;=\; \frac{1}{\sigma\sqrt{2\pi}}
 <li>99.7 % within 3<span class="math inline">\sigma</span></li>
 </ul>
 <p><strong>In NSFG:</strong> birth weight is approximately normal. Many measurement errors are normal (by the Central Limit Theorem).</p>
-<section id="normal-probability-plot" class="level3" data-number="19.3.1">
-<h3 data-number="19.3.1" class="anchored" data-anchor-id="normal-probability-plot"><span class="header-section-number">19.3.1</span> Normal probability plot</h3>
+<section id="normal-probability-plot" class="level3">
+<h3 class="anchored" data-anchor-id="normal-probability-plot">Normal probability plot</h3>
 <p>Plot the data against what you’d expect if it were perfectly normal:</p>
 <ol type="1">
 <li>Sort your data <span class="math inline">x_1 \leq x_2 \leq \ldots \leq x_n</span></li>
@@ -750,7 +750,7 @@ f(x; x_m, \alpha) \;=\; \frac{\alpha x_m^\alpha}{x^{\alpha+1}},
 </section>
 <section id="fitting-models-to-nsfg-birth-weight" class="level2" data-number="19.6">
 <h2 data-number="19.6" class="anchored" data-anchor-id="fitting-models-to-nsfg-birth-weight"><span class="header-section-number">19.6</span> Fitting models to NSFG birth weight</h2>
-<div id="7a8f1501" class="cell" data-execution_count="1">
+<div id="4c6ebae2" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys, os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -794,7 +794,7 @@ f(x; x_m, \alpha) \;=\; \frac{\alpha x_m^\alpha}{x^{\alpha+1}},
 </section>
 <section id="lognormal-fit" class="level2" data-number="19.7">
 <h2 data-number="19.7" class="anchored" data-anchor-id="lognormal-fit"><span class="header-section-number">19.7</span> Lognormal fit</h2>
-<div id="4d3bc593" class="cell" data-execution_count="2">
+<div id="ad2df11d" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>log_weights <span class="op">=</span> np.log(weights)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>mu_log    <span class="op">=</span> log_weights.mean()</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>sigma_log <span class="op">=</span> log_weights.std()</span>
@@ -816,7 +816,7 @@ f(x; x_m, \alpha) \;=\; \frac{\alpha x_m^\alpha}{x^{\alpha+1}},
 <h2 data-number="19.8" class="anchored" data-anchor-id="goodness-of-fit-the-ks-test"><span class="header-section-number">19.8</span> Goodness of fit — the KS test</h2>
 <p>The <strong>Kolmogorov–Smirnov</strong> test asks: is the data consistent with a given distribution? It computes <span class="math inline">D = \max | F_{\text{empirical}}(x) -
 F_{\text{model}}(x)|</span>. Small <span class="math inline">D</span>, large <span class="math inline">p</span> → the model is plausible.</p>
-<div id="a0bedeb8" class="cell" data-execution_count="3">
+<div id="cf9e75ab" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ks_norm,    p_norm    <span class="op">=</span> stats.kstest(weights, <span class="st">"norm"</span>,    args<span class="op">=</span>(mu_hat, sigma_hat))</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ks_lognorm, p_lognorm <span class="op">=</span> stats.kstest(weights, <span class="st">"lognorm"</span>,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                                     args<span class="op">=</span>(sigma_log, <span class="dv">0</span>, np.exp(mu_log)))</span>
@@ -833,7 +833,7 @@ Lognormal : D=0.1241   p=0.0000</code></pre>
 </section>
 <section id="visualising-it" class="level2" data-number="19.9">
 <h2 data-number="19.9" class="anchored" data-anchor-id="visualising-it"><span class="header-section-number">19.9</span> Visualising it</h2>
-<div id="96c8a07d" class="cell" data-execution_count="4">
+<div id="45a0d13d" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> normal_probability_plot_data(values: np.ndarray):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(values)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    sorted_data <span class="op">=</span> np.sort(values)</span>

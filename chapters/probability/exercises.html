@@ -585,19 +585,19 @@ window.Quarto = {
   <ul>
   <li><a href="#exercise-1-binomial-poisson-convergence-quantitative" id="toc-exercise-1-binomial-poisson-convergence-quantitative" class="nav-link active" data-scroll-target="#exercise-1-binomial-poisson-convergence-quantitative"><span class="header-section-number">13.1</span> Exercise 1 — Binomial → Poisson convergence (quantitative)</a>
   <ul class="collapse">
-  <li><a href="#steps" id="toc-steps" class="nav-link" data-scroll-target="#steps"><span class="header-section-number">13.1.1</span> Steps</a></li>
+  <li><a href="#steps" id="toc-steps" class="nav-link" data-scroll-target="#steps">Steps</a></li>
   </ul></li>
   <li><a href="#exercise-2-variance-stabilising-transform-anscombe" id="toc-exercise-2-variance-stabilising-transform-anscombe" class="nav-link" data-scroll-target="#exercise-2-variance-stabilising-transform-anscombe"><span class="header-section-number">13.2</span> Exercise 2 — Variance-stabilising transform (Anscombe)</a>
   <ul class="collapse">
-  <li><a href="#steps-1" id="toc-steps-1" class="nav-link" data-scroll-target="#steps-1"><span class="header-section-number">13.2.1</span> Steps</a></li>
+  <li><a href="#steps-1" id="toc-steps-1" class="nav-link" data-scroll-target="#steps-1">Steps</a></li>
   </ul></li>
   <li><a href="#exercise-3-build-your-own-noise-budget" id="toc-exercise-3-build-your-own-noise-budget" class="nav-link" data-scroll-target="#exercise-3-build-your-own-noise-budget"><span class="header-section-number">13.3</span> Exercise 3 — Build your own noise budget</a>
   <ul class="collapse">
-  <li><a href="#steps-2" id="toc-steps-2" class="nav-link" data-scroll-target="#steps-2"><span class="header-section-number">13.3.1</span> Steps</a></li>
+  <li><a href="#steps-2" id="toc-steps-2" class="nav-link" data-scroll-target="#steps-2">Steps</a></li>
   </ul></li>
   <li><a href="#exercise-4-clt-convergence-vs-skewness" id="toc-exercise-4-clt-convergence-vs-skewness" class="nav-link" data-scroll-target="#exercise-4-clt-convergence-vs-skewness"><span class="header-section-number">13.4</span> Exercise 4 — CLT convergence vs skewness</a>
   <ul class="collapse">
-  <li><a href="#steps-3" id="toc-steps-3" class="nav-link" data-scroll-target="#steps-3"><span class="header-section-number">13.4.1</span> Steps</a></li>
+  <li><a href="#steps-3" id="toc-steps-3" class="nav-link" data-scroll-target="#steps-3">Steps</a></li>
   </ul></li>
   <li><a href="#exercise-5-variance-equals-mean-poisson" id="toc-exercise-5-variance-equals-mean-poisson" class="nav-link" data-scroll-target="#exercise-5-variance-equals-mean-poisson"><span class="header-section-number">13.5</span> Exercise 5 — Variance equals mean (Poisson)</a></li>
   <li><a href="#exercise-6-the-1sqrt-n-noise-reduction-law" id="toc-exercise-6-the-1sqrt-n-noise-reduction-law" class="nav-link" data-scroll-target="#exercise-6-the-1sqrt-n-noise-reduction-law"><span class="header-section-number">13.6</span> Exercise 6 — The <span class="math inline">1/\sqrt n</span> noise reduction law</a></li>
@@ -635,8 +635,8 @@ window.Quarto = {
 <p>For <span class="math inline">\lambda = 50</span>, compute the maximum absolute difference between <span class="math inline">\text{Binomial}(n, \lambda/n)</span> and <span class="math inline">\text{Poisson}(\lambda)</span> PMFs for <span class="math inline">n \in \{50, 100, 500, 1000, 5000\}</span>. Plot max difference vs <span class="math inline">n</span> on a log–log scale. What is the convergence rate?</p>
 <p><strong>Hint:</strong> use <code>scipy.stats.binom.pmf</code> and <code>scipy.stats.poisson.pmf</code>; evaluate over <span class="math inline">k \in [0, 100]</span>.</p>
 <p><strong>Expected:</strong> approximately <span class="math inline">O(1/n)</span> convergence — the slope on log– log axes should be near <span class="math inline">-1</span>.</p>
-<section id="steps" class="level3" data-number="13.1.1">
-<h3 data-number="13.1.1" class="anchored" data-anchor-id="steps"><span class="header-section-number">13.1.1</span> Steps</h3>
+<section id="steps" class="level3">
+<h3 class="anchored" data-anchor-id="steps">Steps</h3>
 <ol type="1">
 <li>For each <span class="math inline">n</span>, compute both PMFs over the same <span class="math inline">k</span> range.</li>
 <li>Take the maximum absolute difference across all <span class="math inline">k</span>.</li>
@@ -650,8 +650,8 @@ window.Quarto = {
 <h2 data-number="13.2" class="anchored" data-anchor-id="exercise-2-variance-stabilising-transform-anscombe"><span class="header-section-number">13.2</span> Exercise 2 — Variance-stabilising transform (Anscombe)</h2>
 <p>The Poisson distribution has signal-dependent noise (<span class="math inline">\sigma =
 \sqrt\lambda</span>). The <strong>Anscombe transform</strong> <span class="math inline">f(x) = 2\sqrt{x + 3/8}</span> approximately stabilises the variance, making it constant regardless of <span class="math inline">\lambda</span>. This transform is used in fluorescence microscopy and astronomical imaging before applying Gaussian denoisers — it converts Poisson data into a form where standard Gaussian denoising (NLM, BM3D, Wiener) is valid.</p>
-<section id="steps-1" class="level3" data-number="13.2.1">
-<h3 data-number="13.2.1" class="anchored" data-anchor-id="steps-1"><span class="header-section-number">13.2.1</span> Steps</h3>
+<section id="steps-1" class="level3">
+<h3 class="anchored" data-anchor-id="steps-1">Steps</h3>
 <ol type="1">
 <li>Generate Poisson samples for <span class="math inline">\lambda \in \{5, 50, 500\}</span> (10 000 samples each).</li>
 <li>Apply the Anscombe transform to each set.</li>
@@ -674,8 +674,8 @@ window.Quarto = {
 <li>Full well: 11 000 electrons</li>
 <li>Bit depth: 12</li>
 </ul>
-<section id="steps-2" class="level3" data-number="13.3.1">
-<h3 data-number="13.3.1" class="anchored" data-anchor-id="steps-2"><span class="header-section-number">13.3.1</span> Steps</h3>
+<section id="steps-2" class="level3">
+<h3 class="anchored" data-anchor-id="steps-2">Steps</h3>
 <ol type="1">
 <li>Compute the expected electron count per pixel.</li>
 <li>Compute each noise source’s contribution (variance).</li>
@@ -691,8 +691,8 @@ window.Quarto = {
 <section id="exercise-4-clt-convergence-vs-skewness" class="level2" data-number="13.4">
 <h2 data-number="13.4" class="anchored" data-anchor-id="exercise-4-clt-convergence-vs-skewness"><span class="header-section-number">13.4</span> Exercise 4 — CLT convergence vs skewness</h2>
 <p>The CLT convergence rate depends on the <strong>skewness</strong> of the original distribution. Distributions with higher skewness need more samples to converge.</p>
-<section id="steps-3" class="level3" data-number="13.4.1">
-<h3 data-number="13.4.1" class="anchored" data-anchor-id="steps-3"><span class="header-section-number">13.4.1</span> Steps</h3>
+<section id="steps-3" class="level3">
+<h3 class="anchored" data-anchor-id="steps-3">Steps</h3>
 <ol type="1">
 <li>Generate samples from Uniform<span class="math inline">(0, 1)</span>, Exponential<span class="math inline">(1)</span>, and Pareto<span class="math inline">(2, 1)</span> — three distributions with increasing skewness.</li>
 <li>For each, compute the standardised sum of <span class="math inline">n</span> samples for <span class="math inline">n \in \{1, 2, 5, 10, 30, 100\}</span>.</li>
