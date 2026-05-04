@@ -682,7 +682,7 @@ P(X = x) \;=\; \frac{\text{count}(x)}{n}
 </section>
 <section id="building-a-pmf-from-scratch" class="level2" data-number="17.3">
 <h2 data-number="17.3" class="anchored" data-anchor-id="building-a-pmf-from-scratch"><span class="header-section-number">17.3</span> Building a PMF from scratch</h2>
-<div id="7bbe3709" class="cell" data-execution_count="1">
+<div id="c27890e6" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys, os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -744,7 +744,7 @@ Most probable length (other) : 39 wks</code></pre>
 <section id="pmfs-reveal-what-histograms-hide" class="level2" data-number="17.4">
 <h2 data-number="17.4" class="anchored" data-anchor-id="pmfs-reveal-what-histograms-hide"><span class="header-section-number">17.4</span> PMFs reveal what histograms hide</h2>
 <p>When you plot first vs other babies as PMFs, you see something a histogram smooths over: the distributions have subtly different shapes near 39 weeks.</p>
-<div id="9b097a35" class="cell" data-execution_count="2">
+<div id="b39fd7b3" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  </span><span class="sc">{</span><span class="st">'Week'</span><span class="sc">:&gt;4}</span><span class="ss">   </span><span class="sc">{</span><span class="st">'First'</span><span class="sc">:&gt;7}</span><span class="ss">   </span><span class="sc">{</span><span class="st">'Other'</span><span class="sc">:&gt;7}</span><span class="ss">   </span><span class="sc">{</span><span class="st">'Diff'</span><span class="sc">:&gt;8}</span><span class="ss">"</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> week <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">35</span>, <span class="dv">45</span>):</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    f <span class="op">=</span> first_pmf.prob(week)</span>
@@ -806,7 +806,7 @@ Most probable length (other) : 39 wks</code></pre>
 P(X^* = x) \;=\; \frac{x \cdot P(X = x)}{E[X]}
 </span></p>
 <p>This is the <strong>size-biased distribution</strong>, also called the <strong>inspection paradox</strong>.</p>
-<div id="d2aea1e5" class="cell" data-execution_count="3">
+<div id="d355fab8" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate the college from above</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>departments <span class="op">=</span> [<span class="dv">10</span>] <span class="op">*</span> <span class="dv">8</span> <span class="op">+</span> [<span class="dv">100</span>] <span class="op">*</span> <span class="dv">2</span></span>
@@ -826,7 +826,7 @@ Students' view   : 74.3 students (2.7x larger)</code></pre>
 </div>
 </div>
 <p>The same paradox applies to NSFG family size: if you ask mothers how many children they have, you oversample mothers with many children (because large families contribute more respondents).</p>
-<div id="2bb9db20" class="cell" data-execution_count="4">
+<div id="0bcf8339" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> size_biased(pmf: Pmf) <span class="op">-&gt;</span> Pmf:</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    biased <span class="op">=</span> {v: p <span class="op">*</span> v <span class="cf">for</span> v, p <span class="kw">in</span> pmf.d.items()}</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    total <span class="op">=</span> <span class="bu">sum</span>(biased.values())</span>
@@ -851,7 +851,7 @@ A random child 'experiences' a larger family than the average mother reports.</c
 </section>
 <section id="visualising-it" class="level2" data-number="17.7">
 <h2 data-number="17.7" class="anchored" data-anchor-id="visualising-it"><span class="header-section-number">17.7</span> Visualising it</h2>
-<div id="42d50e08" class="cell" data-execution_count="5">
+<div id="30116545" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">4</span>))</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. PMF comparison</span></span>

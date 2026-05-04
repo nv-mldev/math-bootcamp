@@ -586,12 +586,12 @@ window.Quarto = {
   <li><a href="#why-this-page-exists" id="toc-why-this-page-exists" class="nav-link active" data-scroll-target="#why-this-page-exists"><span class="header-section-number">12.1</span> Why this page exists</a></li>
   <li><a href="#outline" id="toc-outline" class="nav-link" data-scroll-target="#outline"><span class="header-section-number">12.2</span> Outline</a>
   <ul class="collapse">
-  <li><a href="#from-random-variable-to-stochastic-process" id="toc-from-random-variable-to-stochastic-process" class="nav-link" data-scroll-target="#from-random-variable-to-stochastic-process">1. From random variable to stochastic process</a></li>
-  <li><a href="#mean-and-variance-over-time" id="toc-mean-and-variance-over-time" class="nav-link" data-scroll-target="#mean-and-variance-over-time">2. Mean and variance over time</a></li>
-  <li><a href="#autocorrelation-are-successive-samples-independent" id="toc-autocorrelation-are-successive-samples-independent" class="nav-link" data-scroll-target="#autocorrelation-are-successive-samples-independent">3. Autocorrelation — are successive samples independent?</a></li>
-  <li><a href="#stationarity" id="toc-stationarity" class="nav-link" data-scroll-target="#stationarity">4. Stationarity</a></li>
-  <li><a href="#power-spectral-density" id="toc-power-spectral-density" class="nav-link" data-scroll-target="#power-spectral-density">5. Power spectral density</a></li>
-  <li><a href="#ergodicity" id="toc-ergodicity" class="nav-link" data-scroll-target="#ergodicity">6. Ergodicity</a></li>
+  <li><a href="#from-random-variable-to-stochastic-process" id="toc-from-random-variable-to-stochastic-process" class="nav-link" data-scroll-target="#from-random-variable-to-stochastic-process"><span class="header-section-number">12.2.1</span> 1. From random variable to stochastic process</a></li>
+  <li><a href="#mean-and-variance-over-time" id="toc-mean-and-variance-over-time" class="nav-link" data-scroll-target="#mean-and-variance-over-time"><span class="header-section-number">12.2.2</span> 2. Mean and variance over time</a></li>
+  <li><a href="#autocorrelation-are-successive-samples-independent" id="toc-autocorrelation-are-successive-samples-independent" class="nav-link" data-scroll-target="#autocorrelation-are-successive-samples-independent"><span class="header-section-number">12.2.3</span> 3. Autocorrelation — are successive samples independent?</a></li>
+  <li><a href="#stationarity" id="toc-stationarity" class="nav-link" data-scroll-target="#stationarity"><span class="header-section-number">12.2.4</span> 4. Stationarity</a></li>
+  <li><a href="#power-spectral-density" id="toc-power-spectral-density" class="nav-link" data-scroll-target="#power-spectral-density"><span class="header-section-number">12.2.5</span> 5. Power spectral density</a></li>
+  <li><a href="#ergodicity" id="toc-ergodicity" class="nav-link" data-scroll-target="#ergodicity"><span class="header-section-number">12.2.6</span> 6. Ergodicity</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nv-mldev/math-bootcamp/edit/main/chapters/probability/stochastic_processes.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nv-mldev/math-bootcamp/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -649,8 +649,8 @@ window.Quarto = {
 <section id="outline" class="level2" data-number="12.2">
 <h2 data-number="12.2" class="anchored" data-anchor-id="outline"><span class="header-section-number">12.2</span> Outline</h2>
 <p>The sections below are placeholders. Each will follow the same applied-first pattern as the rest of the probability series: one concrete sensor scenario → the math needed to describe it → numbers → cross-domain examples.</p>
-<section id="from-random-variable-to-stochastic-process" class="level3">
-<h3 class="anchored" data-anchor-id="from-random-variable-to-stochastic-process">1. From random variable to stochastic process</h3>
+<section id="from-random-variable-to-stochastic-process" class="level3" data-number="12.2.1">
+<h3 data-number="12.2.1" class="anchored" data-anchor-id="from-random-variable-to-stochastic-process"><span class="header-section-number">12.2.1</span> 1. From random variable to stochastic process</h3>
 <ul>
 <li>A stochastic process as a collection of random variables indexed by time: <span class="math inline">\{X(t) : t \in T\}</span></li>
 <li>Two ways to look at one: a single realisation (one waveform) vs the ensemble (the distribution at each <span class="math inline">t</span>)</li>
@@ -658,8 +658,8 @@ window.Quarto = {
 <li>Worked example: vibration sensor stream as a discrete-time process</li>
 </ul>
 </section>
-<section id="mean-and-variance-over-time" class="level3">
-<h3 class="anchored" data-anchor-id="mean-and-variance-over-time">2. Mean and variance over time</h3>
+<section id="mean-and-variance-over-time" class="level3" data-number="12.2.2">
+<h3 data-number="12.2.2" class="anchored" data-anchor-id="mean-and-variance-over-time"><span class="header-section-number">12.2.2</span> 2. Mean and variance over time</h3>
 <ul>
 <li><span class="math inline">\mu(t) = E[X(t)]</span> — the mean function</li>
 <li><span class="math inline">\sigma^2(t) = \operatorname{Var}(X(t))</span> — the variance function</li>
@@ -667,8 +667,8 @@ window.Quarto = {
 <li>Worked example: motor warm-up — the noise floor’s <span class="math inline">\sigma</span> changes over the first 10 minutes</li>
 </ul>
 </section>
-<section id="autocorrelation-are-successive-samples-independent" class="level3">
-<h3 class="anchored" data-anchor-id="autocorrelation-are-successive-samples-independent">3. Autocorrelation — are successive samples independent?</h3>
+<section id="autocorrelation-are-successive-samples-independent" class="level3" data-number="12.2.3">
+<h3 data-number="12.2.3" class="anchored" data-anchor-id="autocorrelation-are-successive-samples-independent"><span class="header-section-number">12.2.3</span> 3. Autocorrelation — are successive samples independent?</h3>
 <ul>
 <li>Definition: <span class="math inline">R_X(t_1, t_2) = E[X(t_1) X(t_2)]</span></li>
 <li>Intuition: how much knowing <span class="math inline">X(t_1)</span> tells you about <span class="math inline">X(t_2)</span></li>
@@ -677,8 +677,8 @@ window.Quarto = {
 <li>Why this matters: many statistical tools (CLT included) assume independent samples; autocorrelation tells you when that assumption is broken</li>
 </ul>
 </section>
-<section id="stationarity" class="level3">
-<h3 class="anchored" data-anchor-id="stationarity">4. Stationarity</h3>
+<section id="stationarity" class="level3" data-number="12.2.4">
+<h3 data-number="12.2.4" class="anchored" data-anchor-id="stationarity"><span class="header-section-number">12.2.4</span> 4. Stationarity</h3>
 <ul>
 <li><strong>Strict stationarity:</strong> the joint distribution of any subset is invariant to time shifts</li>
 <li><strong>Wide-sense stationarity (WSS):</strong> mean is constant in time and the autocorrelation depends only on lag</li>
@@ -686,15 +686,15 @@ window.Quarto = {
 <li>Worked example: a healthy bearing is WSS; a failing bearing isn’t</li>
 </ul>
 </section>
-<section id="power-spectral-density" class="level3">
-<h3 class="anchored" data-anchor-id="power-spectral-density">5. Power spectral density</h3>
+<section id="power-spectral-density" class="level3" data-number="12.2.5">
+<h3 data-number="12.2.5" class="anchored" data-anchor-id="power-spectral-density"><span class="header-section-number">12.2.5</span> 5. Power spectral density</h3>
 <ul>
 <li>Definition: Fourier transform of the autocorrelation function</li>
 <li>Worked example: 1/f noise, white noise, narrowband interference</li>
 </ul>
 </section>
-<section id="ergodicity" class="level3">
-<h3 class="anchored" data-anchor-id="ergodicity">6. Ergodicity</h3>
+<section id="ergodicity" class="level3" data-number="12.2.6">
+<h3 data-number="12.2.6" class="anchored" data-anchor-id="ergodicity"><span class="header-section-number">12.2.6</span> 6. Ergodicity</h3>
 <ul>
 <li>When can you replace ensemble averages with time averages?</li>
 <li>The bridge between “many independent experiments” and “one long recording”</li>

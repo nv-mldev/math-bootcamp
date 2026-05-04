@@ -586,11 +586,11 @@ window.Quarto = {
   <li><a href="#random-variables-and-distributions-recap" id="toc-random-variables-and-distributions-recap" class="nav-link active" data-scroll-target="#random-variables-and-distributions-recap"><span class="header-section-number">11.1</span> 1. Random variables and distributions — recap</a></li>
   <li><a href="#the-distribution-chain-worked-for-the-camera" id="toc-the-distribution-chain-worked-for-the-camera" class="nav-link" data-scroll-target="#the-distribution-chain-worked-for-the-camera"><span class="header-section-number">11.2</span> 2. The distribution chain — worked for the camera</a>
   <ul class="collapse">
-  <li><a href="#bernoulli-one-photon-one-photosite" id="toc-bernoulli-one-photon-one-photosite" class="nav-link" data-scroll-target="#bernoulli-one-photon-one-photosite">Bernoulli — one photon, one photosite</a></li>
-  <li><a href="#binomial-n-photons-one-photosite" id="toc-binomial-n-photons-one-photosite" class="nav-link" data-scroll-target="#binomial-n-photons-one-photosite">Binomial — <span class="math inline">n</span> photons, one photosite</a></li>
-  <li><a href="#poisson-photon-flux-model" id="toc-poisson-photon-flux-model" class="nav-link" data-scroll-target="#poisson-photon-flux-model">Poisson — photon flux model</a></li>
-  <li><a href="#normal-large-count-limit" id="toc-normal-large-count-limit" class="nav-link" data-scroll-target="#normal-large-count-limit">Normal — large-count limit</a></li>
-  <li><a href="#central-limit-theorem-why-sums-are-always-gaussian" id="toc-central-limit-theorem-why-sums-are-always-gaussian" class="nav-link" data-scroll-target="#central-limit-theorem-why-sums-are-always-gaussian">Central Limit Theorem — why sums are always Gaussian</a></li>
+  <li><a href="#bernoulli-one-photon-one-photosite" id="toc-bernoulli-one-photon-one-photosite" class="nav-link" data-scroll-target="#bernoulli-one-photon-one-photosite"><span class="header-section-number">11.2.1</span> Bernoulli — one photon, one photosite</a></li>
+  <li><a href="#binomial-n-photons-one-photosite" id="toc-binomial-n-photons-one-photosite" class="nav-link" data-scroll-target="#binomial-n-photons-one-photosite"><span class="header-section-number">11.2.2</span> Binomial — <span class="math inline">n</span> photons, one photosite</a></li>
+  <li><a href="#poisson-photon-flux-model" id="toc-poisson-photon-flux-model" class="nav-link" data-scroll-target="#poisson-photon-flux-model"><span class="header-section-number">11.2.3</span> Poisson — photon flux model</a></li>
+  <li><a href="#normal-large-count-limit" id="toc-normal-large-count-limit" class="nav-link" data-scroll-target="#normal-large-count-limit"><span class="header-section-number">11.2.4</span> Normal — large-count limit</a></li>
+  <li><a href="#central-limit-theorem-why-sums-are-always-gaussian" id="toc-central-limit-theorem-why-sums-are-always-gaussian" class="nav-link" data-scroll-target="#central-limit-theorem-why-sums-are-always-gaussian"><span class="header-section-number">11.2.5</span> Central Limit Theorem — why sums are always Gaussian</a></li>
   </ul></li>
   <li><a href="#shot-noise-is-irreducible" id="toc-shot-noise-is-irreducible" class="nav-link" data-scroll-target="#shot-noise-is-irreducible"><span class="header-section-number">11.3</span> 3. Shot noise is irreducible</a></li>
   <li><a href="#noise-budget" id="toc-noise-budget" class="nav-link" data-scroll-target="#noise-budget"><span class="header-section-number">11.4</span> 4. Noise budget</a></li>
@@ -640,8 +640,8 @@ window.Quarto = {
 </section>
 <section id="the-distribution-chain-worked-for-the-camera" class="level2" data-number="11.2">
 <h2 data-number="11.2" class="anchored" data-anchor-id="the-distribution-chain-worked-for-the-camera"><span class="header-section-number">11.2</span> 2. The distribution chain — worked for the camera</h2>
-<section id="bernoulli-one-photon-one-photosite" class="level3">
-<h3 class="anchored" data-anchor-id="bernoulli-one-photon-one-photosite">Bernoulli — one photon, one photosite</h3>
+<section id="bernoulli-one-photon-one-photosite" class="level3" data-number="11.2.1">
+<h3 data-number="11.2.1" class="anchored" data-anchor-id="bernoulli-one-photon-one-photosite"><span class="header-section-number">11.2.1</span> Bernoulli — one photon, one photosite</h3>
 <p>Each photon either reaches the photosite or it doesn’t. Probability <span class="math inline">p</span> of detection (= quantum efficiency, QE):</p>
 <p><span class="math display">
 P(X = 1) = p, \qquad P(X = 0) = 1 - p
@@ -649,8 +649,8 @@ P(X = 1) = p, \qquad P(X = 0) = 1 - p
 <p>Mean = <span class="math inline">p</span>, variance = <span class="math inline">p(1 - p)</span>.</p>
 <p><em>Generic version:</em> one event, two outcomes, probability <span class="math inline">p</span> of success.</p>
 </section>
-<section id="binomial-n-photons-one-photosite" class="level3">
-<h3 class="anchored" data-anchor-id="binomial-n-photons-one-photosite">Binomial — <span class="math inline">n</span> photons, one photosite</h3>
+<section id="binomial-n-photons-one-photosite" class="level3" data-number="11.2.2">
+<h3 data-number="11.2.2" class="anchored" data-anchor-id="binomial-n-photons-one-photosite"><span class="header-section-number">11.2.2</span> Binomial — <span class="math inline">n</span> photons, one photosite</h3>
 <p>Count the number detected in <span class="math inline">n</span> independent trials:</p>
 <p><span class="math display">
 P(X = k) \;=\; \binom{n}{k} p^k (1 - p)^{n - k}
@@ -658,8 +658,8 @@ P(X = k) \;=\; \binom{n}{k} p^k (1 - p)^{n - k}
 <p>Mean = <span class="math inline">np</span>, variance = <span class="math inline">np(1 - p)</span>.</p>
 <p><em>Generic version:</em> successes in <span class="math inline">n</span> identical independent trials.</p>
 </section>
-<section id="poisson-photon-flux-model" class="level3">
-<h3 class="anchored" data-anchor-id="poisson-photon-flux-model">Poisson — photon flux model</h3>
+<section id="poisson-photon-flux-model" class="level3" data-number="11.2.3">
+<h3 data-number="11.2.3" class="anchored" data-anchor-id="poisson-photon-flux-model"><span class="header-section-number">11.2.3</span> Poisson — photon flux model</h3>
 <p>When <span class="math inline">n \to \infty</span> and <span class="math inline">p \to 0</span> such that <span class="math inline">np = \lambda</span> stays fixed:</p>
 <p><span class="math display">
 P(X = k) \;=\; \frac{\lambda^k \, e^{-\lambda}}{k!}
@@ -667,8 +667,8 @@ P(X = k) \;=\; \frac{\lambda^k \, e^{-\lambda}}{k!}
 <p>Mean = <span class="math inline">\lambda</span>, variance = <span class="math inline">\lambda</span>. This is the exact model for photon arrivals over an exposure.</p>
 <p><em>Generic version:</em> rare events arriving at rate <span class="math inline">\lambda</span> per window — photons per exposure, shock pulses per second, packet drops per minute.</p>
 </section>
-<section id="normal-large-count-limit" class="level3">
-<h3 class="anchored" data-anchor-id="normal-large-count-limit">Normal — large-count limit</h3>
+<section id="normal-large-count-limit" class="level3" data-number="11.2.4">
+<h3 data-number="11.2.4" class="anchored" data-anchor-id="normal-large-count-limit"><span class="header-section-number">11.2.4</span> Normal — large-count limit</h3>
 <p>When <span class="math inline">\lambda \gg 1</span>, the Poisson distribution converges to a Gaussian:</p>
 <p><span class="math display">
 \text{Poisson}(\lambda) \;\xrightarrow{\lambda \to \infty}\;
@@ -676,8 +676,8 @@ P(X = k) \;=\; \frac{\lambda^k \, e^{-\lambda}}{k!}
 </span></p>
 <p>This is why shot noise is Gaussian in bright conditions.</p>
 </section>
-<section id="central-limit-theorem-why-sums-are-always-gaussian" class="level3">
-<h3 class="anchored" data-anchor-id="central-limit-theorem-why-sums-are-always-gaussian">Central Limit Theorem — why sums are always Gaussian</h3>
+<section id="central-limit-theorem-why-sums-are-always-gaussian" class="level3" data-number="11.2.5">
+<h3 data-number="11.2.5" class="anchored" data-anchor-id="central-limit-theorem-why-sums-are-always-gaussian"><span class="header-section-number">11.2.5</span> Central Limit Theorem — why sums are always Gaussian</h3>
 <p>In a sensor, multiple noise sources add together (shot + read + dark + quantization). Even if each source is non-Gaussian, the CLT says the sum is approximately Gaussian. This is why total sensor noise is well-modelled as Gaussian in almost all practical cases — and the same conclusion holds for a vibration sensor, an audio ADC, or any other measurement front-end.</p>
 <hr>
 </section>
