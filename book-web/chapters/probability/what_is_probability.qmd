@@ -4,7 +4,7 @@ jupyter: python3
 execute:
   echo: true
   cache: true
-number-sections: false
+number-sections: true
 ---
 
 ## Why Probability? {.unnumbered}
@@ -381,7 +381,7 @@ $\Omega$ first. It's a habit worth building.
 
 ---
 
-## 1. The Probabilistic Model
+## The Probabilistic Model
 
 A **probabilistic model** is a mathematical description of an uncertain situation. Every probabilistic model is built in exactly two steps:
 
@@ -392,11 +392,11 @@ This two-step structure is the backbone of everything that follows. But before w
 
 ---
 
-## 2. Interpretations of Probability
+## Interpretations of Probability
 
 The probability axioms (which we will meet in Section 4) tell us the *rules* the numbers must obey. They say nothing about what the numbers *mean*. There are two schools of thought.
 
-### 2.1 The Frequentist View: Probability as Long-Run Frequency
+### The Frequentist View: Probability as Long-Run Frequency
 
 > **The probability of an event is the long-run frequency with which it happens if you could repeat the experiment infinitely many times.**
 
@@ -428,7 +428,7 @@ is the empirical content of the claim.
 If $X_1, X_2, \ldots$ are independent flips of the same coin (each $X_i = 1$ with probability $p$, 0 otherwise), the sample mean $\bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i$ satisfies $\bar{X}_n \to p$ as $n \to \infty$. Both the **weak law** (convergence in probability) and the **strong law** (almost-sure convergence) make this rigorous. A full proof uses Chebyshev's inequality — we return to it in the limit theorems chapter.
 :::
 
-### 2.2 The Subjective View: Probability as Degree of Belief
+### The Subjective View: Probability as Degree of Belief
 
 > **The probability of an event, for a given person at a given time, is revealed by the bets they are willing to take on it.**
 
@@ -474,7 +474,7 @@ This view works for one-shot events, historical claims, personal beliefs — any
 
 **Where it runs out of road**: different people can have different priors and so different probabilities for the same event. Frequentists find this disturbing; subjectivists say it is just honest.
 
-### 2.3 One Math, Two Meanings
+### One Math, Two Meanings
 
 Both views obey the same axioms — the mathematics is identical. We will use whichever interpretation fits the problem. For coin flips and dice, frequentist intuition is sharper. For "how confident is this classifier?", subjective intuition is sharper.
 
@@ -493,9 +493,9 @@ flowchart LR
 
 ---
 
-## 3. The Sample Space
+## The Sample Space
 
-### 3.1 Definition
+### Definition
 
 ::: {.callout-important}
 ## Sample Space {.unnumbered}
@@ -509,7 +509,7 @@ For $\Omega$ to be valid, the outcomes must satisfy two properties:
 **Summary**: At the end of the experiment, you can point to one — and exactly one — outcome in $\Omega$.
 :::
 
-### 3.2 The Granularity Principle
+### The Granularity Principle
 
 How much detail should a sample space contain? The answer depends on the questions you want to answer.
 
@@ -534,7 +534,7 @@ The right level of detail is not always obvious. Consider a clinical trial:
 - **Too much detail**: $\Omega = \{\text{every molecular interaction in every patient}\}$ — impossible to work with.
 - **Right level**: $\Omega = \{\text{no effect},\ \text{mild improvement},\ \text{moderate improvement},\ \text{major improvement},\ \text{adverse reaction}\}$
 
-### 3.3 Discrete Sample Spaces
+### Discrete Sample Spaces
 
 When $\Omega$ contains a finite or countably infinite number of outcomes, we have a **discrete** sample space.
 
@@ -596,9 +596,9 @@ the experiment runs. No ambiguity.
 
 ---
 
-## 4. Events
+## Events
 
-### 4.1 Events on a Discrete Sample Space
+### Events on a Discrete Sample Space
 
 An **event** is just a subset of $\Omega$. Some examples for our two
 dice:
@@ -675,7 +675,7 @@ $$
 In words: "not (A or B)" = "(not A) and (not B)", and the dual.
 :::
 
-### 4.2 Continuous Sample Spaces
+### Continuous Sample Spaces
 
 Some experiments have outcomes that take any value in a continuous range. Throwing a dart at a unit square gives:
 
@@ -689,7 +689,7 @@ Here $(x, y)$ is the landing position measured with infinite precision. There ar
 </video>
 ```
 
-### 4.3 Events on a Continuous Sample Space
+### Events on a Continuous Sample Space
 
 For a discrete $\Omega$ like dice, events are just lists of outcomes: $A = \{(1,6),(2,5),\ldots\}$. That works because $\Omega$ is countable.
 
@@ -722,7 +722,7 @@ define. The details are in
 
 ---
 
-## 5. Sequential Experiments and Tree Diagrams
+## Sequential Experiments and Tree Diagrams
 
 Many real experiments unfold **in stages**. You don't roll all your dice
 at once — you roll the first, see what happens, then roll the second.
@@ -812,9 +812,9 @@ arrived. Bayes' rule is just "go up the tree and re-weight".
 
 
 
-## 6. Probability Laws and Axioms
+## Probability Laws and Axioms
 
-### 6.1 Motivation
+### Motivation
 
 We need a rule that assigns a number $P(A)$ to every event $A$, capturing how likely it is. What properties should such a rule have?
 
@@ -865,7 +865,7 @@ print(f"     P(E ∪ F)    = {P(E | F):.4f}")
 print(f"     Equal ✓")
 ```
 
-### 6.2 Extending Additivity to Infinite Sequences
+### Extending Additivity to Infinite Sequences
 
 The additivity axiom above handles two disjoint events. But many experiments have infinitely many possible stages. Consider tossing a coin until the first heads appears — the number of tosses could be 1, 2, 3, … with no bound. The events "first heads on toss $n$" are mutually exclusive for different $n$, and together they cover all possibilities. We need:
 
@@ -884,7 +884,7 @@ The word **sequence** here is critical — we need the events to be arrangeable 
 
 ---
 
-## 7. Derived Properties of Probability
+## Derived Properties of Probability
 
 From just the three axioms, we can derive every useful property of probability:
 
@@ -943,7 +943,7 @@ print(f"P(A) + P(B) - P(A ∩ B) = {P_check(A_ev) + P_check(B_ev) - P_check(A_ev
 
 ---
 
-## 8. The Discrete Uniform Law
+## The Discrete Uniform Law
 
 The axioms tell us *what conditions* a probability law must satisfy — they do not tell us *which* law to use. The simplest and most common choice for a finite sample space is to treat all outcomes as equally likely.
 
@@ -991,7 +991,7 @@ That triangulation — formula, simulation, picture — is the working style we'
 
 ---
 
-## 9. The Continuous Uniform Law
+## The Continuous Uniform Law
 
 For a continuous sample space, individual outcomes have zero probability. Instead, we assign probability to *regions*, and the natural choice is that probability equals area (or length, or volume).
 
@@ -1048,7 +1048,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-### 9.1 The 4-Step Procedure
+### The 4-Step Procedure
 
 ::: {.callout-tip}
 ## 4-Step Procedure for Probability Problems
@@ -1063,9 +1063,9 @@ Steps 1–3 are the setup. Step 4 is the arithmetic. Most errors happen in steps
 
 ---
 
-## 10. Countable Additivity and the $1 = 0$ Paradox
+## Countable Additivity and the $1 = 0$ Paradox
 
-### 10.1 Infinite Discrete Sample Spaces
+### Infinite Discrete Sample Spaces
 
 Some experiments have infinitely many possible outcomes.
 
@@ -1102,7 +1102,7 @@ print(f"P(even) by formula:    {1/3:.4f}")
 
 This works because the Countable Additivity Axiom lets us sum probabilities over an infinite *sequence* of disjoint events.
 
-### 10.2 Why "Countable" and Not "Uncountable"?
+### Why "Countable" and Not "Uncountable"?
 
 Consider the unit square where probability = area. The square is the union of **all its individual points**:
 
@@ -1120,7 +1120,7 @@ This is exactly why the distinction between countable and uncountable sets matte
 
 ---
 
-## 11. The Bonferroni Inequality
+## The Bonferroni Inequality
 
 The Union Bound says: if two events are each unlikely, their union (at least one occurs) is also unlikely. The Bonferroni Inequality is the mirror image: if two events are each *very likely*, their intersection (both occur) is also likely.
 
@@ -1170,7 +1170,7 @@ print(f"Gap: {exact - bonferroni_lower:.4f}")
 
 ---
 
-## 12. Exercises
+## Exercises
 
 **1. Build a sample space.** Define $\Omega$ for the experiment "draw one card from a standard 52-card deck". Then describe the following events as subsets:
    (a) the card is a heart;
@@ -1205,13 +1205,13 @@ print(f"Gap: {exact - bonferroni_lower:.4f}")
 
 ---
 
-## 13. Math Refresher
+## Math Refresher
 
 This section reviews the mathematical background needed throughout the probability chapters. It is placed here deliberately — after you have seen probability in action, the *reason* for each tool is clearer. Return to any subsection when you need it.
 
 ---
 
-### 13.1 Set Theory
+### Set Theory
 
 **Definitions and notation**
 
@@ -1251,7 +1251,7 @@ For infinite collections: $\bigcup_{n=1}^\infty S_n = \{x \mid x \in S_n \text{ 
 
 ---
 
-### 13.2 De Morgan's Laws
+### De Morgan's Laws
 
 These laws convert between unions and intersections via complements. They are used constantly in probability when it is easier to compute the complement of an event.
 
@@ -1269,7 +1269,7 @@ $$\left(\bigcap_n S_n\right)^c = \bigcup_n S_n^c \qquad \left(\bigcup_n S_n\righ
 
 ---
 
-### 13.3 Sequences and Convergence
+### Sequences and Convergence
 
 A **sequence** is a function from the positive integers to some set: $a_1, a_2, a_3, \ldots$
 
@@ -1289,7 +1289,7 @@ $$\lim_{i \to \infty} a_i = a \quad \Longleftrightarrow \quad \forall \epsilon >
 
 ---
 
-### 13.4 Infinite Series
+### Infinite Series
 
 An **infinite series** is the limit of its partial sums:
 
@@ -1306,7 +1306,7 @@ In probability models, absolute convergence is the standard assumption that make
 
 ---
 
-### 13.5 The Geometric Series
+### The Geometric Series
 
 $$\sum_{i=0}^\infty \alpha^i = \frac{1}{1 - \alpha} \qquad \text{for } |\alpha| < 1$$
 
@@ -1321,7 +1321,7 @@ This series appears constantly in probability — any time you count "the number
 
 ---
 
-### 13.6 Double Series
+### Double Series
 
 When summing over two indices $i$ and $j$, you can sum row by row or column by column. If the series is absolutely convergent, the order does not matter:
 
@@ -1335,7 +1335,7 @@ This identity is used frequently when computing expectations and joint probabili
 
 ---
 
-### 13.7 Countable and Uncountable Sets
+### Countable and Uncountable Sets
 
 A set is **countable** if its elements can be put in a one-to-one correspondence with the positive integers — equivalently, if they can be arranged in a sequence $s_1, s_2, s_3, \ldots$
 
@@ -1366,7 +1366,7 @@ The Countable Additivity Axiom works for sequences. It fails for uncountable col
 
 ---
 
-### 13.8 Cantor's Diagonal Argument
+### Cantor's Diagonal Argument
 
 **Claim**: The unit interval $(0, 1)$ is uncountable.
 
