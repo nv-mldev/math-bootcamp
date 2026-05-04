@@ -695,7 +695,7 @@ h(t) \;=\; \lim_{\Delta t \to 0}
 </section>
 <section id="building-intervals-from-nsfg" class="level2" data-number="27.5">
 <h2 data-number="27.5" class="anchored" data-anchor-id="building-intervals-from-nsfg"><span class="header-section-number">27.5</span> Building intervals from NSFG</h2>
-<div id="c48a9047" class="cell" data-execution_count="1">
+<div id="bcfbcef6" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys, os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -774,7 +774,7 @@ Naive mean (ignoring censored) : 36.66 months</code></pre>
 </span></p>
 <p>where <span class="math inline">d_j</span> is the number of events at <span class="math inline">t_j</span> and <span class="math inline">n_j</span> is the number still at risk just before <span class="math inline">t_j</span>.</p>
 <p>The key trick: censored observations contribute to <span class="math inline">n_j</span> for all times before their censoring, but don’t contribute to <span class="math inline">d_j</span> — they reduce the at-risk count without being counted as events.</p>
-<div id="bd482a68" class="cell" data-execution_count="2">
+<div id="698f73c1" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> kaplan_meier(intervals, censored):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> intervals.copy()</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> np.<span class="bu">any</span>(np.isnan(t)):</span>
@@ -822,7 +822,7 @@ Naive mean (ignoring censored) : 36.66 months</code></pre>
 </section>
 <section id="hazard-from-survival" class="level2" data-number="27.7">
 <h2 data-number="27.7" class="anchored" data-anchor-id="hazard-from-survival"><span class="header-section-number">27.7</span> Hazard from survival</h2>
-<div id="27d5a9a7" class="cell" data-execution_count="3">
+<div id="5c8860da" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hazard_from_survival(times, survival):</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    h_times, h_vals <span class="op">=</span> [], []</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(times)):</span>
@@ -844,7 +844,7 @@ Naive mean (ignoring censored) : 36.66 months</code></pre>
 </section>
 <section id="visualising-it" class="level2" data-number="27.8">
 <h2 data-number="27.8" class="anchored" data-anchor-id="visualising-it"><span class="header-section-number">27.8</span> Visualising it</h2>
-<div id="903e6914" class="cell" data-execution_count="4">
+<div id="81f1e9b9" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">9</span>))</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Naive vs KM</span></span>
