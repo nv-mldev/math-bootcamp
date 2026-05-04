@@ -396,7 +396,7 @@ This two-step structure is the backbone of everything that follows. But before w
 
 The probability axioms (which we will meet in Section 4) tell us the *rules* the numbers must obey. They say nothing about what the numbers *mean*. There are two schools of thought.
 
-### The Frequentist View: Probability as Long-Run Frequency
+### 2.1 The Frequentist View: Probability as Long-Run Frequency
 
 > **The probability of an event is the long-run frequency with which it happens if you could repeat the experiment infinitely many times.**
 
@@ -428,7 +428,7 @@ is the empirical content of the claim.
 If $X_1, X_2, \ldots$ are independent flips of the same coin (each $X_i = 1$ with probability $p$, 0 otherwise), the sample mean $\bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i$ satisfies $\bar{X}_n \to p$ as $n \to \infty$. Both the **weak law** (convergence in probability) and the **strong law** (almost-sure convergence) make this rigorous. A full proof uses Chebyshev's inequality — we return to it in the limit theorems chapter.
 :::
 
-### The Subjective View: Probability as Degree of Belief
+### 2.2 The Subjective View: Probability as Degree of Belief
 
 > **The probability of an event, for a given person at a given time, is revealed by the bets they are willing to take on it.**
 
@@ -474,7 +474,7 @@ This view works for one-shot events, historical claims, personal beliefs — any
 
 **Where it runs out of road**: different people can have different priors and so different probabilities for the same event. Frequentists find this disturbing; subjectivists say it is just honest.
 
-### One Math, Two Meanings
+### 2.3 One Math, Two Meanings
 
 Both views obey the same axioms — the mathematics is identical. We will use whichever interpretation fits the problem. For coin flips and dice, frequentist intuition is sharper. For "how confident is this classifier?", subjective intuition is sharper.
 
@@ -495,7 +495,7 @@ flowchart LR
 
 ## 3. The Sample Space
 
-### Definition
+### 3.1 Definition
 
 ::: {.callout-important}
 ## Sample Space {.unnumbered}
@@ -509,7 +509,7 @@ For $\Omega$ to be valid, the outcomes must satisfy two properties:
 **Summary**: At the end of the experiment, you can point to one — and exactly one — outcome in $\Omega$.
 :::
 
-### The Granularity Principle {.unnumbered}
+### 3.2 The Granularity Principle
 
 How much detail should a sample space contain? The answer depends on the questions you want to answer.
 
@@ -534,7 +534,7 @@ The right level of detail is not always obvious. Consider a clinical trial:
 - **Too much detail**: $\Omega = \{\text{every molecular interaction in every patient}\}$ — impossible to work with.
 - **Right level**: $\Omega = \{\text{no effect},\ \text{mild improvement},\ \text{moderate improvement},\ \text{major improvement},\ \text{adverse reaction}\}$
 
-### Discrete Sample Spaces
+### 3.3 Discrete Sample Spaces
 
 When $\Omega$ contains a finite or countably infinite number of outcomes, we have a **discrete** sample space.
 
@@ -598,7 +598,7 @@ the experiment runs. No ambiguity.
 
 ## 4. Events
 
-### Events on a discrete sample space
+### 4.1 Events on a Discrete Sample Space
 
 An **event** is just a subset of $\Omega$. Some examples for our two
 dice:
@@ -675,7 +675,7 @@ $$
 In words: "not (A or B)" = "(not A) and (not B)", and the dual.
 :::
 
-### Continuous sample spaces
+### 4.2 Continuous Sample Spaces
 
 Some experiments have outcomes that take any value in a continuous range. Throwing a dart at a unit square gives:
 
@@ -689,7 +689,7 @@ Here $(x, y)$ is the landing position measured with infinite precision. There ar
 </video>
 ```
 
-### Events on a continuous sample space
+### 4.3 Events on a Continuous Sample Space
 
 For a discrete $\Omega$ like dice, events are just lists of outcomes: $A = \{(1,6),(2,5),\ldots\}$. That works because $\Omega$ is countable.
 
@@ -814,7 +814,7 @@ arrived. Bayes' rule is just "go up the tree and re-weight".
 
 ## 6. Probability Laws and Axioms
 
-### Motivation
+### 6.1 Motivation
 
 We need a rule that assigns a number $P(A)$ to every event $A$, capturing how likely it is. What properties should such a rule have?
 
@@ -865,7 +865,7 @@ print(f"     P(E ∪ F)    = {P(E | F):.4f}")
 print(f"     Equal ✓")
 ```
 
-### Extending Additivity to Infinite Sequences
+### 6.2 Extending Additivity to Infinite Sequences
 
 The additivity axiom above handles two disjoint events. But many experiments have infinitely many possible stages. Consider tossing a coin until the first heads appears — the number of tosses could be 1, 2, 3, … with no bound. The events "first heads on toss $n$" are mutually exclusive for different $n$, and together they cover all possibilities. We need:
 
@@ -1048,7 +1048,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-### The 4-Step Procedure
+### 9.1 The 4-Step Procedure
 
 ::: {.callout-tip}
 ## 4-Step Procedure for Probability Problems
@@ -1065,7 +1065,7 @@ Steps 1–3 are the setup. Step 4 is the arithmetic. Most errors happen in steps
 
 ## 10. Countable Additivity and the $1 = 0$ Paradox
 
-### Infinite Discrete Sample Spaces
+### 10.1 Infinite Discrete Sample Spaces
 
 Some experiments have infinitely many possible outcomes.
 
@@ -1102,7 +1102,7 @@ print(f"P(even) by formula:    {1/3:.4f}")
 
 This works because the Countable Additivity Axiom lets us sum probabilities over an infinite *sequence* of disjoint events.
 
-### Why "Countable" and Not "Uncountable"?
+### 10.2 Why "Countable" and Not "Uncountable"?
 
 Consider the unit square where probability = area. The square is the union of **all its individual points**:
 
