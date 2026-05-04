@@ -721,7 +721,7 @@ window.Quarto = {
 </section>
 <section id="running-it-on-nsfg" class="level2" data-number="23.5">
 <h2 data-number="23.5" class="anchored" data-anchor-id="running-it-on-nsfg"><span class="header-section-number">23.5</span> Running it on NSFG</h2>
-<div id="25446273" class="cell" data-execution_count="1">
+<div id="bd0b3be9" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys, os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -798,7 +798,7 @@ window.Quarto = {
 </section>
 <section id="birth-weight-goes-the-other-way" class="level2" data-number="23.6">
 <h2 data-number="23.6" class="anchored" data-anchor-id="birth-weight-goes-the-other-way"><span class="header-section-number">23.6</span> Birth weight goes the other way</h2>
-<div id="328af35c" class="cell" data-execution_count="2">
+<div id="7ceed419" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>obs_wgt, p_wgt, null_wgt <span class="op">=</span> permutation_test(first_wgt, other_wgt, diff_means)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Δ mean weight  : </span><span class="sc">{</span>obs_wgt<span class="sc">:+.4f}</span><span class="ss"> lbs    p = </span><span class="sc">{</span>p_wgt<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Cohen's d      : </span><span class="sc">{</span>cohens_d(first_wgt, other_wgt)<span class="sc">:+.4f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -813,7 +813,7 @@ Cohen's d      : -0.0707</code></pre>
 <section id="p-value-vs-sample-size" class="level2" data-number="23.7">
 <h2 data-number="23.7" class="anchored" data-anchor-id="p-value-vs-sample-size"><span class="header-section-number">23.7</span> p-value vs sample size</h2>
 <p>The same tiny effect can be “significant” or not depending purely on n.</p>
-<div id="89a746de" class="cell" data-execution_count="3">
+<div id="c6421a9b" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  </span><span class="sc">{</span><span class="st">'n'</span><span class="sc">:&gt;10}</span><span class="ss">  </span><span class="sc">{</span><span class="st">'p-value'</span><span class="sc">:&gt;10}</span><span class="ss">  </span><span class="sc">{</span><span class="st">'Cohen d'</span><span class="sc">:&gt;10}</span><span class="ss">"</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> frac <span class="kw">in</span> [<span class="fl">0.1</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="fl">1.0</span>]:</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">int</span>(frac <span class="op">*</span> <span class="bu">min</span>(<span class="bu">len</span>(first_prg), <span class="bu">len</span>(other_prg)))</span>
@@ -838,7 +838,7 @@ Cohen's d      : -0.0707</code></pre>
 <section id="type-i-error-simulation" class="level2" data-number="23.8">
 <h2 data-number="23.8" class="anchored" data-anchor-id="type-i-error-simulation"><span class="header-section-number">23.8</span> Type I error simulation</h2>
 <p>If <span class="math inline">H_0</span> is true, how often do we get <span class="math inline">p &lt; 0.05</span>? Exactly 5 % of the time — that is what <span class="math inline">\alpha = 0.05</span> means.</p>
-<div id="7fdcf2e7" class="cell" data-execution_count="4">
+<div id="99f0b0a2" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>n_experiments <span class="op">=</span> <span class="dv">500</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>false_pos <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(n_experiments):</span>
@@ -900,7 +900,7 @@ Cohen's d      : -0.0707</code></pre>
 </section>
 <section id="visualising-it" class="level2" data-number="23.11">
 <h2 data-number="23.11" class="anchored" data-anchor-id="visualising-it"><span class="header-section-number">23.11</span> Visualising it</h2>
-<div id="206256b8" class="cell" data-execution_count="5">
+<div id="95a1cf12" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">4</span>))</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Pregnancy length null</span></span>
