@@ -645,7 +645,7 @@ A_and_B = A & B
 
 print(f"A ∪ B   ('sum is 7 OR doubles'):           {len(A_or_B)} outcomes")
 print(f"A ∩ C   ('sum is 7 AND first die is 6'):   {len(A_and_C)} outcomes  →  {A_and_C}")
-print(f"A \\ B   ('sum is 7 but not doubles'):      {len(A_not_B)} outcomes")
+print(f"A - B   ('sum is 7 but not doubles'):      {len(A_not_B)} outcomes")
 print(f"A ∩ B   ('sum is 7 AND doubles'):          {len(A_and_B)} outcomes  →  {A_and_B}  (empty set ∅)")
 ```
 
@@ -703,6 +703,32 @@ For a continuous $\Omega$ like the unit square, we can't list outcomes — so ev
 The set operations (union, intersection, complement) work exactly as before — the grammar doesn't change, only what the sets look like. Event $A \cup B$ is the region covered by either $A$ or $B$; $A \cap B$ is their overlap.
 
 One surprise: the diagonal $C$ is a valid event but has **probability zero** — a line has no area. We'll make this precise once we have integration. For now, the key point is that on a continuous space, a single outcome (one point) always has probability zero. Probability concentrates on regions, not points.
+
+**Why does a single point have probability zero?**
+
+This is the central idea behind continuous probability, and the dart is the perfect example to see it clearly.
+
+Suppose you throw a dart and it lands at exactly $(0.5, 0.3)$. You might ask: *what is the probability of landing at that exact point?*
+
+The answer is $P(\{(0.5, 0.3)\}) = 0$. Here is why this must be true — not as a definition, but as a logical consequence.
+
+**The squeezing argument.** Enclose the point $(0.5, 0.3)$ in a tiny square of side length $\varepsilon$. Its area is $\varepsilon^2$, so by the uniform law, the probability of landing inside that square is $\varepsilon^2$. The single point $(0.5, 0.3)$ is a *subset* of that square, so:
+
+$$P(\{(0.5, 0.3)\}) \le \varepsilon^2$$
+
+This must hold for *every* $\varepsilon > 0$, no matter how small. The only number that is $\le \varepsilon^2$ for all $\varepsilon > 0$ is $0$. So $P(\{(0.5, 0.3)\}) = 0$.
+
+**The additivity argument.** The unit square contains uncountably many points — more than can ever be listed. If each point had even the tiniest positive probability $p > 0$, then summing over all points would give an infinite total probability, which contradicts $P(\Omega) = 1$. The only consistent assignment is $p = 0$ for every individual point.
+
+**What this does *not* mean.** $P = 0$ does not mean the outcome is impossible. The dart *does* land somewhere — at some specific $(x, y)$. It just means that in a continuous model, individual points carry no probability weight. Probability lives in *regions* (areas), not in isolated points.
+
+This is the key shift from discrete to continuous thinking:
+
+| Discrete (dice) | Continuous (dart) |
+|---|---|
+| Outcomes are listable | Outcomes are uncountable |
+| Each outcome can have $P > 0$ | Each single outcome has $P = 0$ |
+| Probability = sum over outcomes | Probability = area of region |
 
 ::: {.callout-note}
 ## A note on continuous events {.unnumbered}
