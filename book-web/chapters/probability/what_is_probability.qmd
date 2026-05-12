@@ -735,13 +735,13 @@ it's about matching the sample space to the questions you need to answer.
 
 ### Continuous Sample Spaces
 
-Some experiments have outcomes that take any value in a continuous range — a waiting time, a voltage, an angle, a position. The sample space is no longer a list but a continuous region. The key shift is that **individual outcomes have probability zero** — probability is carried by intervals and regions, not by single points.
+Some experiments have outcomes that take any value in a continuous range — a waiting time, a voltage, an angle, a position. The sample space is no longer a list but a **continuous region**.
 
-The two examples below build this intuition from one dimension to two.
+**Example: Spinning a game-show wheel** with numbers from $0$ to $1$. The pointer can land anywhere — the sample space is:
 
----
+$$\Omega = [0, 1]$$
 
-#### Example 1 — Spinning a wheel (one dimension)
+There are uncountably many possible outcomes. You cannot list them. This is a **continuous** sample space.
 
 ```{=html}
 <video controls width="100%" style="max-width:680px; display:block; margin:1em auto;">
@@ -749,78 +749,15 @@ The two examples below build this intuition from one dimension to two.
 </video>
 ```
 
-Imagine a game-show wheel with numbers from $0$ to $1$. When you spin it, the pointer can land
-anywhere in that range. The sample space is $\Omega = [0, 1]$.
+**Example: Two arrival times** — Romeo and Juliet each arrive at a random time in $[0,1]$ hour. The sample space is the unit square:
 
-**Step 1 — Prove that every single point has probability zero.**
+$$\Omega = \{(x, y) \mid 0 \le x \le 1,\ 0 \le y \le 1\}$$
 
-The wheel is **fair**: no position on the rim is special, so every point must be equally likely.
-Call the probability of landing on any single value $c = P(\{x\})$.
+There are uncountably many pairs $(x, y)$ — again, you cannot list them.
 
-Now divide $[0,1]$ into $n$ equal sub-intervals of length $1/n$ each. There are $n$ such
-intervals and they are disjoint and together cover the whole wheel, so by the
-**Normalization** and **Additivity** axioms:
-
-$$P([0,1]) = \sum_{k=0}^{n-1} P\!\left(\left[\tfrac{k}{n}, \tfrac{k+1}{n}\right]\right) = 1$$
-
-Each sub-interval contains infinitely many points, but let's ask: what if we just look at
-$n$ individual points, one from each interval? They are disjoint, so their probabilities add:
-
-$$P(\{x_1, x_2, \ldots, x_n\}) = nc$$
-
-This sum is a subset of $[0,1]$, so it cannot exceed 1:
-
-$$nc \le 1 \implies c \le \frac{1}{n}$$
-
-This must hold for **every** $n = 1, 2, 3, \ldots$ — no matter how large. The only number
-that is $\le 1/n$ for all $n$ is zero. Therefore:
-
-$$\boxed{P(\{x\}) = 0} \quad \text{for every point } x \in [0,1]$$
-
-**Step 2 — So where does probability live? In intervals.**
-
-Since individual points carry zero probability, we need a different unit of measurement.
-The natural choice for a fair wheel is that probability is proportional to the **length**
-of the arc — longer arc, higher probability.
-
-The entire wheel has length 1 and probability 1, so the constant of proportionality is 1:
-
-$$P(a \le X \le b) = b - a$$
-
-This is the only assignment that is (i) consistent with the axioms, (ii) treats all positions
-equally (no position is special), and (iii) gives $P([0,1]) = 1$.
-
-::: {.callout-note}
-## Examples {.unnumbered}
-- $P(0.2 \le X \le 0.5) = 0.3$ — a 30% arc of the wheel
-- $P(0 \le X \le 0.25) = 0.25$ — the left quarter
-- $P(X = 0.5) = 0$ — a single tick mark has zero length, zero probability
+::: {.callout-note appearance="minimal"}
+For now we are only describing *what* the sample space looks like. *How* to assign probabilities to regions of a continuous space requires the axioms, which we introduce in the next section. Once we have those tools, we return to both examples and compute probabilities properly.
 :::
-
-The wheel is a **one-dimensional continuous uniform model**: probability = length of interval.
-
----
-
-#### Example 2 — Romeo and Juliet (two dimensions)
-
-Two arrival times, each uniform on $[0, 1]$, give a **2-D continuous sample space** — the unit square $\Omega = [0,1]^2$. Probability becomes area. We work through this fully in [Events on a Continuous Sample Space](#events-on-a-continuous-sample-space) once we have the event machinery in place.
-
----
-
-**The general pattern: geometric probability.**
-
-Both examples are instances of the **continuous uniform law**: when every point in a region $S$
-is equally likely, the probability of landing in a sub-region $A$ equals the ratio of their
-"sizes":
-
-| Sample space | Size measure | Probability rule |
-|---|---|---|
-| Interval $[a, b]$ | Length | $P(A) = \text{length}(A) / \text{length}(\Omega)$ |
-| Region in $\mathbb{R}^2$ | Area | $P(A) = \text{area}(A) / \text{area}(\Omega)$ |
-| Region in $\mathbb{R}^3$ | Volume | $P(A) = \text{vol}(A) / \text{vol}(\Omega)$ |
-
-The machinery for computing these "sizes" precisely is **integration** — which we will pick up
-in later chapters. For now, geometric reasoning (lengths and areas) is sufficient.
 
 ---
 
@@ -1406,7 +1343,52 @@ That triangulation — formula, simulation, picture — is the working style we'
 
 ## The Continuous Uniform Law
 
-For a continuous sample space, individual outcomes have zero probability. Instead, we assign probability to *regions*, and the natural choice is that probability equals area (or length, or volume).
+For a continuous sample space, individual outcomes have zero probability. Instead, we assign probability to *regions*. But why? And how do we derive the probability rule from the axioms rather than just assert it? The spinning wheel gives the cleanest answer.
+
+### Why single points have probability zero — the spinning wheel proof
+
+Recall the game-show wheel: $\Omega = [0,1]$, fair spin. Call the probability of landing on any single value $c = P(\{x\})$.
+
+**Step 1 — Use the axioms to bound $c$.**
+
+Divide $[0,1]$ into $n$ equal sub-intervals of length $1/n$. They are pairwise disjoint and together cover $\Omega$, so by **Additivity (A3)** and **Normalization (A2)**:
+
+$$\sum_{k=0}^{n-1} P\!\left(\left[\tfrac{k}{n}, \tfrac{k+1}{n}\right]\right) = P([0,1]) = 1$$
+
+Now pick one point $x_k$ from each sub-interval. These $n$ singletons are disjoint, so:
+
+$$P(\{x_1, \ldots, x_n\}) = nc$$
+
+Since $\{x_1,\ldots,x_n\} \subseteq [0,1]$, **Monotonicity** (a consequence of A3 we proved earlier) gives:
+
+$$nc \le P([0,1]) = 1 \implies c \le \frac{1}{n}$$
+
+**Step 2 — Conclude $c = 0$.**
+
+This holds for every $n = 1, 2, 3, \ldots$ The only number that satisfies $c \le 1/n$ for all $n$ is:
+
+$$\boxed{P(\{x\}) = 0} \quad \text{for every } x \in [0,1]$$
+
+**Step 3 — Derive $P([a,b]) = b - a$.**
+
+Since single points carry no probability, probability must live in intervals. The wheel is fair — no position is special — so the probability of an interval can only depend on its **length**. The assignment must satisfy $P([0,1]) = 1$. The unique rule consistent with all three axioms and fairness is:
+
+$$P(a \le X \le b) = b - a$$
+
+::: {.callout-note}
+## Examples {.unnumbered}
+- $P(0.2 \le X \le 0.5) = 0.3$ — a 30% arc of the wheel
+- $P(0 \le X \le 0.25) = 0.25$ — the left quarter
+- $P(X = 0.5) = 0$ — a single tick mark has zero length, zero probability
+:::
+
+The same logic extends to two dimensions (area) and three dimensions (volume):
+
+| Sample space | Size measure | Probability rule |
+|---|---|---|
+| Interval $[a, b]$ | Length | $P(A) = \text{length}(A) / \text{length}(\Omega)$ |
+| Region in $\mathbb{R}^2$ | Area | $P(A) = \text{area}(A) / \text{area}(\Omega)$ |
+| Region in $\mathbb{R}^3$ | Volume | $P(A) = \text{vol}(A) / \text{vol}(\Omega)$ |
 
 ::: {.callout-important}
 ## Continuous Uniform Law {.unnumbered}
