@@ -739,13 +739,7 @@ Some experiments have outcomes that take any value in a continuous range. Throwi
 
 $$\Omega = \{(x, y) \mid 0 \le x \le 1,\ 0 \le y \le 1\}$$
 
-Here $(x, y)$ is the landing position measured with infinite precision. There are uncountably many possible outcomes — you cannot list them.
-
-```{=html}
-<video controls width="100%" style="max-width:640px; display:block; margin:1em auto;">
-  <source src="../../figures/animations/videos/continuous_sample_space.mp4" type="video/mp4">
-</video>
-```
+Here $(x, y)$ is the landing position measured with infinite precision. There are uncountably many possible outcomes — you cannot list them. We will use the dart as our running example throughout this section and the next — the animation and full event analysis appear in [Events on a Continuous Sample Space](#events-on-a-continuous-sample-space) below.
 
 Continuous sample spaces arise naturally whenever an outcome is measured rather than counted:
 a waiting time, a voltage, an angle, a position. The key shift is that **individual outcomes have
@@ -780,6 +774,10 @@ $$P(a \le X \le b) = b - a$$
 :::
 
 The wheel is a **one-dimensional continuous uniform model**: probability = length of interval.
+
+::: {.callout-note appearance="minimal"}
+The argument above — "pick enough points and they exceed total probability 1" — is the key intuition. In the events section below we give two sharper proofs of the same fact for the 2-D dart: a *squeezing* argument and an *additivity* argument.
+:::
 
 ---
 
@@ -997,7 +995,15 @@ $$
 In words: "not (A or B)" = "(not A) and (not B)", and the dual.
 :::
 
-### Events on a Continuous Sample Space
+### Events on a Continuous Sample Space {#events-on-a-continuous-sample-space}
+
+We introduced the dart's sample space $\Omega = [0,1]^2$ above. The animation below shows how that sample space is built and why individual outcomes can't carry probability weight — watch it, then read the formal arguments that follow.
+
+```{=html}
+<video controls width="100%" style="max-width:640px; display:block; margin:1em auto;">
+  <source src="../../figures/animations/videos/continuous_sample_space.mp4" type="video/mp4">
+</video>
+```
 
 For a discrete $\Omega$ like dice, events are just lists of outcomes: $A = \{(1,6),(2,5),\ldots\}$. That works because $\Omega$ is countable.
 
@@ -1015,7 +1021,7 @@ One surprise: the diagonal $C$ is a valid event but has **probability zero** —
 
 **Why does a single point have probability zero?**
 
-This is the central idea behind continuous probability, and the dart is the perfect example to see it clearly.
+For the 1-D spinning wheel we argued informally: if a single value had probability $c > 0$, picking $n > 1/c$ distinct values would push total probability above 1. Here are two sharper, 2-D versions of that same idea for the dart.
 
 Suppose you throw a dart and it lands at exactly $(0.5, 0.3)$. You might ask: *what is the probability of landing at that exact point?*
 
