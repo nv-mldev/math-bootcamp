@@ -1000,7 +1000,7 @@ window.Quarto = {
 <p>The verbal sentence “at least one is a boy” is the <em>same</em> in both stories, but it was <em>generated</em> by two different experiments. The sample space follows the experiment, not the sentence.</p>
 <p>Two models, two different answers. <strong>Nobody has done arithmetic yet.</strong> The argument is happening at Stage 1.</p>
 <p>We can confirm Model A’s answer by simulation — pick the model and the math falls out.</p>
-<div id="c5a7c6ed" class="cell" data-execution_count="1">
+<div id="f28868d2" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model A: simulate many two-child families. Each child is independently</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># B or G with probability 1/2. Among families with AT LEAST ONE boy, what</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># fraction have TWO boys?</span></span>
@@ -1024,7 +1024,7 @@ window.Quarto = {
 Theoretical answer: 1/3 ≈ 0.3333</code></pre>
 </div>
 </div>
-<div id="e70cf9d8" class="cell" data-execution_count="2">
+<div id="c0b579ad" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model B: simulate the same families, but now we 'meet' a uniformly random</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># child from each family. Condition on the child we met being a boy, and ask</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># whether the OTHER child is also a boy.</span></span>
@@ -1139,7 +1139,7 @@ Theoretical answer: 1/2 ≈ 0.5000</code></pre>
 <li>Their assumptions</li>
 </ol>
 <p>— the apparent paradox vanishes. There is no paradox, only ambiguity at Stage 1.</p>
-<div id="6b562c90" class="cell" data-execution_count="3">
+<div id="0e71f9ed" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">99</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1358,7 +1358,7 @@ Analyst 2 (matches my birthday): 0.0759  (theory ≈ 0.0765)</code></pre>
 <p><strong>Example: Rolling two six-sided dice.</strong></p>
 <p>The outcome is a pair <span class="math inline">(d_1, d_2)</span> where <span class="math inline">d_1</span> is the first die and <span class="math inline">d_2</span> is the second.</p>
 <p><span class="math display">\Omega = \{(d_1, d_2) \mid d_1, d_2 \in \{1, 2, 3, 4, 5, 6\}\}, \qquad |\Omega| = 36</span></p>
-<div id="f04ca276" class="cell" data-execution_count="4">
+<div id="fd7d5d03" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1540,8 +1540,11 @@ First few: [(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6)]</code></pre>
 </video>
 <p>Imagine a game-show wheel with numbers from <span class="math inline">0</span> to <span class="math inline">1</span>. When you spin it, the pointer can land anywhere in that range. The sample space is <span class="math inline">\Omega = [0, 1]</span>.</p>
 <p><strong>Why does a single value have probability zero?</strong></p>
-<p>Suppose landing on exactly <span class="math inline">0.5</span> had probability <span class="math inline">c &gt; 0</span>. By symmetry, every other point has the same probability <span class="math inline">c</span>. Pick any <span class="math inline">n &gt; 1/c</span> distinct points — their total probability would exceed <span class="math inline">1</span>, a contradiction. So:</p>
-<p><span class="math display">P(\text{pointer lands on exactly } x) = 0 \quad \text{for every specific } x \in [0,1]</span></p>
+<p>The wheel is <strong>fair</strong> (uniform): the probability of landing in any sub-interval depends only on the <em>length</em> of that interval, not on where it sits. Formally, <span class="math inline">P([a, a+\ell]) = P([b, b+\ell])</span> for all <span class="math inline">a, b, \ell</span> — the probability law is <strong>translation-invariant</strong> on <span class="math inline">[0,1]</span>.</p>
+<p>This forces every individual point to receive the same probability. Call it <span class="math inline">c = P(\{x\})</span> for any <span class="math inline">x \in [0,1]</span>. Now pick any finite collection of <span class="math inline">n</span> distinct points <span class="math inline">x_1, x_2, \ldots, x_n \in [0,1]</span>. These singletons are pairwise disjoint, so by the <strong>Additivity Axiom (A3)</strong>:</p>
+<p><span class="math display">P(\{x_1, x_2, \ldots, x_n\}) = \underbrace{c + c + \cdots + c}_{n \text{ terms}} = nc</span></p>
+<p>But <span class="math inline">P(\{x_1,\ldots,x_n\}) \le P([0,1]) = 1</span> by monotonicity, so <span class="math inline">nc \le 1</span>, i.e.&nbsp;<span class="math inline">c \le 1/n</span>. This must hold for <strong>every</strong> positive integer <span class="math inline">n</span>, so the only consistent value is <span class="math inline">c = 0</span>:</p>
+<p><span class="math display">P(\{x\}) = 0 \quad \text{for every } x \in [0,1]</span></p>
 <p><strong>What to do instead — use intervals.</strong> For a fair wheel the probability of landing in an interval equals its <strong>length</strong>:</p>
 <p><span class="math display">P(a \le X \le b) = b - a</span></p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -1621,7 +1624,7 @@ First few: [(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6)]</code></pre>
 <section id="events-on-a-discrete-sample-space" class="level3" data-number="3.7.1">
 <h3 data-number="3.7.1" class="anchored" data-anchor-id="events-on-a-discrete-sample-space"><span class="header-section-number">3.7.1</span> Events on a Discrete Sample Space</h3>
 <p>An <strong>event</strong> is just a subset of <span class="math inline">\Omega</span>. Some examples for our two dice:</p>
-<div id="77bc33aa" class="cell" data-execution_count="5">
+<div id="d51b18d3" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>omega <span class="op">=</span> <span class="bu">set</span>(outcomes)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {(d1, d2) <span class="cf">for</span> d1, d2 <span class="kw">in</span> omega <span class="cf">if</span> d1 <span class="op">+</span> d2 <span class="op">==</span> <span class="dv">7</span>}        <span class="co"># sum is 7</span></span>
@@ -1641,7 +1644,7 @@ D = sum ≥ 10        (6 outcomes): [(4, 6), (5, 5), (5, 6), (6, 4), (6, 5), (6,
 </div>
 </div>
 <p>Because events are sets, you can combine them with set operations. Combining events gives you new events:</p>
-<div id="3259fe9c" class="cell" data-execution_count="6">
+<div id="f812f037" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum is 7 OR doubles</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>A_or_B <span class="op">=</span> A <span class="op">|</span> B          <span class="co"># set union  → "A or B"</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum is 7 AND first die is 6  → exactly one roll: (6, 1)</span></span>
@@ -1830,7 +1833,7 @@ Figure&nbsp;3.1: Meeting region (green band) and miss regions (red triangles). M
 </div>
 <div id="callout-24" class="callout-24-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="40fefb7b" class="cell" data-execution_count="8">
+<div id="54923a88" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">0</span>)</span>
@@ -1933,7 +1936,7 @@ Theory:  P(meet) = 7/16 = 0.4375</code></pre>
 </div>
 </div>
 <p>Let’s verify by computing some probabilities directly from the tree:</p>
-<div id="6f9b7e59" class="cell" data-execution_count="9">
+<div id="b968de34" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> product</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate all leaves</span></span>
@@ -2014,7 +2017,7 @@ P(all same) = 2/8 = 0.25</code></pre>
 <p><strong>Think of probability as mass.</strong> Imagine spreading 1 kilogram of mass over the sample space. <span class="math inline">P(A)</span> is the mass sitting on top of region <span class="math inline">A</span>. Non-negativity says mass can’t be negative. Normalization says the total mass is 1 kg. Additivity says non-overlapping regions just add their masses.</p>
 <p>Three axioms. That is the entire foundation. Everything else in probability — every formula, theorem, and proof — follows from these three.</p>
 <p>Let’s verify them on our two-dice example.</p>
-<div id="e5d2e64d" class="cell" data-execution_count="10">
+<div id="92d68731" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For fair dice, each of the 36 outcomes has probability 1/36.</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> P(event):</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">len</span>(event) <span class="op">/</span> <span class="dv">36</span></span>
@@ -2095,7 +2098,7 @@ P(all same) = 2/8 = 0.25</code></pre>
 </div>
 </div>
 </div>
-<div id="402ce73f" class="cell" data-execution_count="11">
+<div id="83c4c0be" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify all properties numerically on the dice example</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>omega_set <span class="op">=</span> <span class="bu">set</span>(outcomes)</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">len</span>(omega_set)  <span class="co"># 36</span></span>
@@ -2182,7 +2185,7 @@ P(A) + P(B) - P(A ∩ B) = 0.3333  (inclusion-exclusion ✓)</code></pre>
 </tr>
 </tbody>
 </table>
-<div id="ed3fac21" class="cell" data-execution_count="12">
+<div id="b06c9dfc" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> product</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>omega_3 <span class="op">=</span> <span class="bu">list</span>(product([<span class="st">'H'</span>,<span class="st">'T'</span>], repeat<span class="op">=</span><span class="dv">3</span>))</span>
@@ -2227,7 +2230,7 @@ P(A) \;=\; \frac{|A|}{|\Omega|} \;=\; \frac{\text{number of outcomes in } A}{\te
 </div>
 </div>
 <p><strong>Example: two dice, sum = 7.</strong></p>
-<div id="0ca2c5ee" class="cell" data-execution_count="13">
+<div id="dd9bcf94" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># By the equally-likely-outcomes formula</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>event_sum_7 <span class="op">=</span> {(d1, d2) <span class="cf">for</span> d1, d2 <span class="kw">in</span> omega <span class="cf">if</span> d1 <span class="op">+</span> d2 <span class="op">==</span> <span class="dv">7</span>}</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>p_analytical <span class="op">=</span> <span class="bu">len</span>(event_sum_7) <span class="op">/</span> <span class="dv">36</span></span>
@@ -2239,7 +2242,7 @@ P(A) \;=\; \frac{|A|}{|\Omega|} \;=\; \frac{\text{number of outcomes in } A}{\te
 </div>
 </div>
 <p>Let’s verify by simulation and picture:</p>
-<div id="ee5a6a4a" class="cell" data-execution_count="14">
+<div id="0f32136f" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Roll a million pairs of dice and count the fraction with sum = 7.</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>n_rolls <span class="op">=</span> <span class="dv">1_000_000</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>d1_sim <span class="op">=</span> rng.integers(<span class="dv">1</span>, <span class="dv">7</span>, size<span class="op">=</span>n_rolls)</span>
@@ -2278,7 +2281,7 @@ P(A) \;=\; \frac{|A|}{|\Omega|} \;=\; \frac{\text{number of outcomes in } A}{\te
 <p><strong>What is <span class="math inline">P(x + y \le 0.5)</span>?</strong></p>
 <p>The event is the triangle below the line <span class="math inline">y = 0.5 - x</span>: <span class="math display">\text{Area} = \frac{1}{2} \times \frac{1}{2} \times \frac{1}{2} = \frac{1}{8}</span></p>
 <p><strong>What is <span class="math inline">P(\text{dart lands on exactly } (0.5, 0.3))</span>?</strong> A single point has zero area, so <span class="math inline">P = 0</span>. In continuous models, individual outcomes have zero probability; <em>regions</em> have positive probability.</p>
-<div id="98d66cda" class="cell" data-execution_count="15">
+<div id="be52fafc" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2352,7 +2355,7 @@ P(A) \;=\; \frac{|A|}{|\Omega|} \;=\; \frac{\text{number of outcomes in } A}{\te
 <p>Check normalization: <span class="math display">\sum_{n=1}^{\infty} \frac{1}{2^n} = \frac{1/2}{1 - 1/2} = 1 \checkmark</span></p>
 <p>What is the probability the outcome is even? Let <span class="math inline">A = \{2, 4, 6, \ldots\}</span>:</p>
 <p><span class="math display">P(A) = \sum_{k=1}^{\infty} P(2k) = \sum_{k=1}^{\infty} \left(\frac{1}{2}\right)^{2k} = \sum_{k=1}^{\infty} \frac{1}{4^k} = \frac{1/4}{1 - 1/4} = \frac{1}{3}</span></p>
-<div id="95da5fd4" class="cell" data-execution_count="16">
+<div id="55aaeef8" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">0</span>)</span>
@@ -2413,7 +2416,7 @@ P(even) by formula:    0.3333</code></pre>
 <p><strong>Example</strong>: A system requires two components to both work. Component 1 works with probability 0.95, component 2 with probability 0.90. The Bonferroni Inequality gives:</p>
 <p><span class="math display">P(\text{both work}) \ge 0.95 + 0.90 - 1 = 0.85</span></p>
 <p>The exact answer (if independent) is <span class="math inline">0.95 \times 0.90 = 0.855</span> — so the bound is tight.</p>
-<div id="c2d09735" class="cell" data-execution_count="17">
+<div id="a2a60368" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>p1, p2 <span class="op">=</span> <span class="fl">0.95</span>, <span class="fl">0.90</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>bonferroni_lower <span class="op">=</span> p1 <span class="op">+</span> p2 <span class="op">-</span> <span class="dv">1</span></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>exact <span class="op">=</span> p1 <span class="op">*</span> p2  <span class="co"># assuming independence</span></span>
@@ -2473,7 +2476,7 @@ Gap: 0.0050</code></pre>
 </table>
 <p>Transition matrix: <span class="math inline">P = \begin{pmatrix} 0.8 &amp; 0.2 \\ 0.5 &amp; 0.5 \end{pmatrix}</span></p>
 <p><strong>Steady state.</strong> After many steps, the chain converges to a fixed distribution — regardless of where it started. For this model: approximately <strong>71.4 % Sunny, 28.6 % Rainy</strong> in the long run.</p>
-<div id="301d0525" class="cell" data-execution_count="18">
+<div id="b70b4769" class="cell" data-execution_count="18">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
