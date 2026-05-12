@@ -752,41 +752,52 @@ The two examples below build this intuition from one dimension to two.
 Imagine a game-show wheel with numbers from $0$ to $1$. When you spin it, the pointer can land
 anywhere in that range. The sample space is $\Omega = [0, 1]$.
 
-**Why does a single value have probability zero?**
+**Step 1 — Prove that every single point has probability zero.**
 
-The wheel is **fair** (uniform): the probability of landing in any sub-interval depends only on the
-*length* of that interval, not on where it sits. Formally, $P([a, a+\ell]) = P([b, b+\ell])$
-for all $a, b, \ell$ — the probability law is **translation-invariant** on $[0,1]$.
+The wheel is **fair**: no position on the rim is special, so every point must be equally likely.
+Call the probability of landing on any single value $c = P(\{x\})$.
 
-This forces every individual point to receive the same probability. Call it $c = P(\{x\})$ for
-any $x \in [0,1]$. Now pick any finite collection of $n$ distinct points
-$x_1, x_2, \ldots, x_n \in [0,1]$. These singletons are pairwise disjoint, so by the
-**Additivity Axiom (A3)**:
+Now divide $[0,1]$ into $n$ equal sub-intervals of length $1/n$ each. There are $n$ such
+intervals and they are disjoint and together cover the whole wheel, so by the
+**Normalization** and **Additivity** axioms:
 
-$$P(\{x_1, x_2, \ldots, x_n\}) = \underbrace{c + c + \cdots + c}_{n \text{ terms}} = nc$$
+$$P([0,1]) = \sum_{k=0}^{n-1} P\!\left(\left[\tfrac{k}{n}, \tfrac{k+1}{n}\right]\right) = 1$$
 
-But $P(\{x_1,\ldots,x_n\}) \le P([0,1]) = 1$ by monotonicity, so $nc \le 1$, i.e.\ $c \le 1/n$.
-This must hold for **every** positive integer $n$, so the only consistent value is $c = 0$:
+Each sub-interval contains infinitely many points, but let's ask: what if we just look at
+$n$ individual points, one from each interval? They are disjoint, so their probabilities add:
 
-$$P(\{x\}) = 0 \quad \text{for every } x \in [0,1]$$
+$$P(\{x_1, x_2, \ldots, x_n\}) = nc$$
 
-**What to do instead — use intervals.**  For a fair wheel the probability of landing in an
-interval equals its **length**:
+This sum is a subset of $[0,1]$, so it cannot exceed 1:
+
+$$nc \le 1 \implies c \le \frac{1}{n}$$
+
+This must hold for **every** $n = 1, 2, 3, \ldots$ — no matter how large. The only number
+that is $\le 1/n$ for all $n$ is zero. Therefore:
+
+$$\boxed{P(\{x\}) = 0} \quad \text{for every point } x \in [0,1]$$
+
+**Step 2 — So where does probability live? In intervals.**
+
+Since individual points carry zero probability, we need a different unit of measurement.
+The natural choice for a fair wheel is that probability is proportional to the **length**
+of the arc — longer arc, higher probability.
+
+The entire wheel has length 1 and probability 1, so the constant of proportionality is 1:
 
 $$P(a \le X \le b) = b - a$$
 
+This is the only assignment that is (i) consistent with the axioms, (ii) treats all positions
+equally (no position is special), and (iii) gives $P([0,1]) = 1$.
+
 ::: {.callout-note}
-## Examples
-- $P(0.2 \le X \le 0.5) = 0.3$ — a 30 % slice of the wheel
+## Examples {.unnumbered}
+- $P(0.2 \le X \le 0.5) = 0.3$ — a 30% arc of the wheel
 - $P(0 \le X \le 0.25) = 0.25$ — the left quarter
-- $P(X = 0.5) = 0$ — a single tick mark
+- $P(X = 0.5) = 0$ — a single tick mark has zero length, zero probability
 :::
 
 The wheel is a **one-dimensional continuous uniform model**: probability = length of interval.
-
-::: {.callout-note appearance="minimal"}
-The argument above — "pick enough points and they exceed total probability 1" — is the key intuition. In the events section below we give two sharper proofs of the same fact for the 2-D dart: a *squeezing* argument and an *additivity* argument.
-:::
 
 ---
 
