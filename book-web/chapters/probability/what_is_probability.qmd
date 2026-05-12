@@ -754,11 +754,21 @@ anywhere in that range. The sample space is $\Omega = [0, 1]$.
 
 **Why does a single value have probability zero?**
 
-Suppose landing on exactly $0.5$ had probability $c > 0$. By symmetry, every other point has
-the same probability $c$. Pick any $n > 1/c$ distinct points — their total probability would
-exceed $1$, a contradiction. So:
+The wheel is **fair** (uniform): the probability of landing in any sub-interval depends only on the
+*length* of that interval, not on where it sits. Formally, $P([a, a+\ell]) = P([b, b+\ell])$
+for all $a, b, \ell$ — the probability law is **translation-invariant** on $[0,1]$.
 
-$$P(\text{pointer lands on exactly } x) = 0 \quad \text{for every specific } x \in [0,1]$$
+This forces every individual point to receive the same probability. Call it $c = P(\{x\})$ for
+any $x \in [0,1]$. Now pick any finite collection of $n$ distinct points
+$x_1, x_2, \ldots, x_n \in [0,1]$. These singletons are pairwise disjoint, so by the
+**Additivity Axiom (A3)**:
+
+$$P(\{x_1, x_2, \ldots, x_n\}) = \underbrace{c + c + \cdots + c}_{n \text{ terms}} = nc$$
+
+But $P(\{x_1,\ldots,x_n\}) \le P([0,1]) = 1$ by monotonicity, so $nc \le 1$, i.e.\ $c \le 1/n$.
+This must hold for **every** positive integer $n$, so the only consistent value is $c = 0$:
+
+$$P(\{x\}) = 0 \quad \text{for every } x \in [0,1]$$
 
 **What to do instead — use intervals.**  For a fair wheel the probability of landing in an
 interval equals its **length**:
