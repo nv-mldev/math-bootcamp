@@ -641,18 +641,18 @@ window.Quarto = {
   <li><a href="#discrete-sample-spaces" id="toc-discrete-sample-spaces" class="nav-link" data-scroll-target="#discrete-sample-spaces"><span class="header-section-number">3.6.3</span> Discrete Sample Spaces</a></li>
   <li><a href="#continuous-sample-spaces" id="toc-continuous-sample-spaces" class="nav-link" data-scroll-target="#continuous-sample-spaces"><span class="header-section-number">3.6.4</span> Continuous Sample Spaces</a></li>
   </ul></li>
-  <li><a href="#events" id="toc-events" class="nav-link" data-scroll-target="#events"><span class="header-section-number">3.7</span> Events</a>
+  <li><a href="#probability-laws-and-axioms" id="toc-probability-laws-and-axioms" class="nav-link" data-scroll-target="#probability-laws-and-axioms"><span class="header-section-number">3.7</span> Probability Laws and Axioms</a>
   <ul class="collapse">
-  <li><a href="#events-on-a-discrete-sample-space" id="toc-events-on-a-discrete-sample-space" class="nav-link" data-scroll-target="#events-on-a-discrete-sample-space"><span class="header-section-number">3.7.1</span> Events on a Discrete Sample Space</a></li>
-  <li><a href="#events-on-a-continuous-sample-space" id="toc-events-on-a-continuous-sample-space" class="nav-link" data-scroll-target="#events-on-a-continuous-sample-space"><span class="header-section-number">3.7.2</span> Events on a Continuous Sample Space</a></li>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation"><span class="header-section-number">3.7.1</span> Motivation</a></li>
+  <li><a href="#extending-additivity-to-infinite-sequences" id="toc-extending-additivity-to-infinite-sequences" class="nav-link" data-scroll-target="#extending-additivity-to-infinite-sequences"><span class="header-section-number">3.7.2</span> Extending Additivity to Infinite Sequences</a></li>
   </ul></li>
-  <li><a href="#sequential-experiments-and-tree-diagrams" id="toc-sequential-experiments-and-tree-diagrams" class="nav-link" data-scroll-target="#sequential-experiments-and-tree-diagrams"><span class="header-section-number">3.8</span> Sequential Experiments and Tree Diagrams</a></li>
-  <li><a href="#probability-laws-and-axioms" id="toc-probability-laws-and-axioms" class="nav-link" data-scroll-target="#probability-laws-and-axioms"><span class="header-section-number">3.9</span> Probability Laws and Axioms</a>
+  <li><a href="#derived-properties-of-probability" id="toc-derived-properties-of-probability" class="nav-link" data-scroll-target="#derived-properties-of-probability"><span class="header-section-number">3.8</span> Derived Properties of Probability</a></li>
+  <li><a href="#events" id="toc-events" class="nav-link" data-scroll-target="#events"><span class="header-section-number">3.9</span> Events</a>
   <ul class="collapse">
-  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation"><span class="header-section-number">3.9.1</span> Motivation</a></li>
-  <li><a href="#extending-additivity-to-infinite-sequences" id="toc-extending-additivity-to-infinite-sequences" class="nav-link" data-scroll-target="#extending-additivity-to-infinite-sequences"><span class="header-section-number">3.9.2</span> Extending Additivity to Infinite Sequences</a></li>
+  <li><a href="#events-on-a-discrete-sample-space" id="toc-events-on-a-discrete-sample-space" class="nav-link" data-scroll-target="#events-on-a-discrete-sample-space"><span class="header-section-number">3.9.1</span> Events on a Discrete Sample Space</a></li>
+  <li><a href="#events-on-a-continuous-sample-space" id="toc-events-on-a-continuous-sample-space" class="nav-link" data-scroll-target="#events-on-a-continuous-sample-space"><span class="header-section-number">3.9.2</span> Events on a Continuous Sample Space</a></li>
   </ul></li>
-  <li><a href="#derived-properties-of-probability" id="toc-derived-properties-of-probability" class="nav-link" data-scroll-target="#derived-properties-of-probability"><span class="header-section-number">3.10</span> Derived Properties of Probability</a></li>
+  <li><a href="#sequential-experiments-and-tree-diagrams" id="toc-sequential-experiments-and-tree-diagrams" class="nav-link" data-scroll-target="#sequential-experiments-and-tree-diagrams"><span class="header-section-number">3.10</span> Sequential Experiments and Tree Diagrams</a></li>
   <li><a href="#the-discrete-probability-law" id="toc-the-discrete-probability-law" class="nav-link" data-scroll-target="#the-discrete-probability-law"><span class="header-section-number">3.11</span> The Discrete Probability Law</a></li>
   <li><a href="#the-discrete-uniform-law" id="toc-the-discrete-uniform-law" class="nav-link" data-scroll-target="#the-discrete-uniform-law"><span class="header-section-number">3.12</span> The Discrete Uniform Law</a></li>
   <li><a href="#the-continuous-uniform-law" id="toc-the-continuous-uniform-law" class="nav-link" data-scroll-target="#the-continuous-uniform-law"><span class="header-section-number">3.13</span> The Continuous Uniform Law</a>
@@ -1000,7 +1000,7 @@ window.Quarto = {
 <p>The verbal sentence “at least one is a boy” is the <em>same</em> in both stories, but it was <em>generated</em> by two different experiments. The sample space follows the experiment, not the sentence.</p>
 <p>Two models, two different answers. <strong>Nobody has done arithmetic yet.</strong> The argument is happening at Stage 1.</p>
 <p>We can confirm Model A’s answer by simulation — pick the model and the math falls out.</p>
-<div id="b7bbc9fe" class="cell" data-execution_count="1">
+<div id="33d12f6d" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model A: simulate many two-child families. Each child is independently</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># B or G with probability 1/2. Among families with AT LEAST ONE boy, what</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># fraction have TWO boys?</span></span>
@@ -1024,7 +1024,7 @@ window.Quarto = {
 Theoretical answer: 1/3 ≈ 0.3333</code></pre>
 </div>
 </div>
-<div id="557b6c8f" class="cell" data-execution_count="2">
+<div id="669bfd5f" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model B: simulate the same families, but now we 'meet' a uniformly random</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># child from each family. Condition on the child we met being a boy, and ask</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># whether the OTHER child is also a boy.</span></span>
@@ -1139,7 +1139,7 @@ Theoretical answer: 1/2 ≈ 0.5000</code></pre>
 <li>Their assumptions</li>
 </ol>
 <p>— the apparent paradox vanishes. There is no paradox, only ambiguity at Stage 1.</p>
-<div id="61692a94" class="cell" data-execution_count="3">
+<div id="4ce05ad9" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">99</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1358,7 +1358,7 @@ Analyst 2 (matches my birthday): 0.0759  (theory ≈ 0.0765)</code></pre>
 <p><strong>Example: Rolling two six-sided dice.</strong></p>
 <p>The outcome is a pair <span class="math inline">(d_1, d_2)</span> where <span class="math inline">d_1</span> is the first die and <span class="math inline">d_2</span> is the second.</p>
 <p><span class="math display">\Omega = \{(d_1, d_2) \mid d_1, d_2 \in \{1, 2, 3, 4, 5, 6\}\}, \qquad |\Omega| = 36</span></p>
-<div id="aa1ec8bd" class="cell" data-execution_count="4">
+<div id="03cb416e" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1613,26 +1613,176 @@ First few: [(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6)]</code></pre>
 </table>
 <p>The machinery for computing these “sizes” precisely is <strong>integration</strong> — which we will pick up in later chapters. For now, geometric reasoning (lengths and areas) is sufficient.</p>
 <hr>
+<hr>
 </section>
 </section>
 </section>
-<section id="events" class="level2" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="events"><span class="header-section-number">3.7</span> Events</h2>
-<section id="events-on-a-discrete-sample-space" class="level3" data-number="3.7.1">
-<h3 data-number="3.7.1" class="anchored" data-anchor-id="events-on-a-discrete-sample-space"><span class="header-section-number">3.7.1</span> Events on a Discrete Sample Space</h3>
-<p>An <strong>event</strong> is just a subset of <span class="math inline">\Omega</span>. Some examples for our two dice:</p>
-<div id="791c7ca4" class="cell" data-execution_count="5">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>omega <span class="op">=</span> <span class="bu">set</span>(outcomes)</span>
+<section id="probability-laws-and-axioms" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="probability-laws-and-axioms"><span class="header-section-number">3.7</span> Probability Laws and Axioms</h2>
+<section id="motivation" class="level3" data-number="3.7.1">
+<h3 data-number="3.7.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">3.7.1</span> Motivation</h3>
+<p>We need a rule that assigns a number <span class="math inline">P(A)</span> to every event <span class="math inline">A</span>, capturing how likely it is. What properties should such a rule have?</p>
+<p>Think about it intuitively:</p>
+<ul>
+<li>A likelihood below zero makes no sense — so probabilities must be <strong>non-negative</strong>.</li>
+<li>Something must happen — so the total probability of the entire sample space must be <strong>1</strong>.</li>
+<li>If two events cannot both occur (disjoint events), the probability of either one happening is the <strong>sum</strong> of their individual probabilities.</li>
+</ul>
+<p>These three intuitions are the <strong>axioms</strong> — the minimum set of rules needed for a consistent and useful theory of probability.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>The Kolmogorov Axioms
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <strong>probability law</strong> <span class="math inline">P</span> is a function that assigns a number <span class="math inline">P(A)</span> to every event <span class="math inline">A \subseteq \Omega</span>, satisfying:</p>
+<p><strong>(A1) Non-negativity.</strong> <span class="math inline">P(A) \ge 0</span> for every event <span class="math inline">A</span>.</p>
+<p><strong>(A2) Normalization.</strong> <span class="math inline">P(\Omega) = 1</span>.</p>
+<p><strong>(A3) Additivity.</strong> If <span class="math inline">A</span> and <span class="math inline">B</span> are disjoint (<span class="math inline">A \cap B = \emptyset</span>), then <span class="math display">P(A \cup B) = P(A) + P(B).</span></p>
+</div>
+</div>
+<p><strong>Think of probability as mass.</strong> Imagine spreading 1 kilogram of mass over the sample space. <span class="math inline">P(A)</span> is the mass sitting on top of region <span class="math inline">A</span>. Non-negativity says mass can’t be negative. Normalization says the total mass is 1 kg. Additivity says non-overlapping regions just add their masses.</p>
+<p>Three axioms. That is the entire foundation. Everything else in probability — every formula, theorem, and proof — follows from these three.</p>
+<p>Let’s verify them on our two-dice example.</p>
+<div id="fa17de2f" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {(d1, d2) <span class="cf">for</span> d1, d2 <span class="kw">in</span> omega <span class="cf">if</span> d1 <span class="op">+</span> d2 <span class="op">==</span> <span class="dv">7</span>}        <span class="co"># sum is 7</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> {(d1, d2) <span class="cf">for</span> d1, d2 <span class="kw">in</span> omega <span class="cf">if</span> d1 <span class="op">==</span> d2}            <span class="co"># doubles</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> {(d1, d2) <span class="cf">for</span> d1, d2 <span class="kw">in</span> omega <span class="cf">if</span> d1 <span class="op">==</span> <span class="dv">6</span>}             <span class="co"># first die is 6</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>D <span class="op">=</span> {(d1, d2) <span class="cf">for</span> d1, d2 <span class="kw">in</span> omega <span class="cf">if</span> d1 <span class="op">+</span> d2 <span class="op">&gt;=</span> <span class="dv">10</span>}       <span class="co"># sum ≥ 10</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"A = sum is 7        (</span><span class="sc">{</span><span class="bu">len</span>(A)<span class="sc">}</span><span class="ss"> outcomes): </span><span class="sc">{</span><span class="bu">sorted</span>(A)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"B = doubles         (</span><span class="sc">{</span><span class="bu">len</span>(B)<span class="sc">}</span><span class="ss"> outcomes): </span><span class="sc">{</span><span class="bu">sorted</span>(B)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"C = first die is 6  (</span><span class="sc">{</span><span class="bu">len</span>(C)<span class="sc">}</span><span class="ss"> outcomes): </span><span class="sc">{</span><span class="bu">sorted</span>(C)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"D = sum ≥ 10        (</span><span class="sc">{</span><span class="bu">len</span>(D)<span class="sc">}</span><span class="ss"> outcomes): </span><span class="sc">{</span><span class="bu">sorted</span>(D)<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Two-dice sample space: all 36 ordered pairs</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>outcomes <span class="op">=</span> [(d1, d2) <span class="cf">for</span> d1 <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">7</span>) <span class="cf">for</span> d2 <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">7</span>)]</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>omega <span class="op">=</span> <span class="bu">set</span>(outcomes)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># For fair dice, each of the 36 outcomes has probability 1/36.</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> P(event):</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">len</span>(event) <span class="op">/</span> <span class="dv">36</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {(d1, d2) <span class="cf">for</span> d1, d2 <span class="kw">in</span> omega <span class="cf">if</span> d1 <span class="op">+</span> d2 <span class="op">==</span> <span class="dv">7</span>}   <span class="co"># sum is 7</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co"># (A1) Non-negativity</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"(A1) P(A) = </span><span class="sc">{</span>P(A)<span class="sc">:.4f}</span><span class="ss"> ≥ 0 ✓"</span>)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co"># (A2) Normalization</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"(A2) P(Ω) = </span><span class="sc">{</span>P(omega)<span class="sc">}</span><span class="ss"> = 1 ✓"</span>)</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="co"># (A3) Additivity — pick two disjoint events</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>E <span class="op">=</span> {(d1, d2) <span class="cf">for</span> d1, d2 <span class="kw">in</span> omega <span class="cf">if</span> d1 <span class="op">+</span> d2 <span class="op">==</span> <span class="dv">7</span>}</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>F <span class="op">=</span> {(d1, d2) <span class="cf">for</span> d1, d2 <span class="kw">in</span> omega <span class="cf">if</span> d1 <span class="op">+</span> d2 <span class="op">==</span> <span class="dv">11</span>}</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"     E ∩ F = </span><span class="sc">{</span>E <span class="op">&amp;</span> F<span class="sc">}</span><span class="ss"> (disjoint ✓)"</span>)</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"     P(E) + P(F) = </span><span class="sc">{</span>P(E)<span class="sc">:.4f}</span><span class="ss"> + </span><span class="sc">{</span>P(F)<span class="sc">:.4f}</span><span class="ss"> = </span><span class="sc">{</span>P(E) <span class="op">+</span> P(F)<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"     P(E ∪ F)    = </span><span class="sc">{</span>P(E <span class="op">|</span> F)<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"     Equal ✓"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(A1) P(A) = 0.1667 ≥ 0 ✓
+(A2) P(Ω) = 1.0 = 1 ✓
+     E ∩ F = set() (disjoint ✓)
+     P(E) + P(F) = 0.1667 + 0.0556 = 0.2222
+     P(E ∪ F)    = 0.2222
+     Equal ✓</code></pre>
+</div>
+</div>
+</section>
+<section id="extending-additivity-to-infinite-sequences" class="level3" data-number="3.7.2">
+<h3 data-number="3.7.2" class="anchored" data-anchor-id="extending-additivity-to-infinite-sequences"><span class="header-section-number">3.7.2</span> Extending Additivity to Infinite Sequences</h3>
+<p>The additivity axiom above handles two disjoint events. But many experiments have infinitely many possible stages. Consider tossing a coin until the first heads appears — the number of tosses could be 1, 2, 3, … with no bound. The events “first heads on toss <span class="math inline">n</span>” are mutually exclusive for different <span class="math inline">n</span>, and together they cover all possibilities. We need:</p>
+<p><span class="math display">P(\text{toss 1}) + P(\text{toss 2}) + P(\text{toss 3}) + \cdots = 1</span></p>
+<p>For this to work, we extend the additivity axiom:</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Countable Additivity
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">A_1, A_2, A_3, \ldots</span> is an infinite sequence of pairwise disjoint events, then: <span class="math display">P\!\left(\bigcup_{i=1}^{\infty} A_i\right) = \sum_{i=1}^{\infty} P(A_i)</span></p>
+</div>
+</div>
+<p>The word <strong>sequence</strong> here is critical — we need the events to be arrangeable in a list (countably many). This works for coin tosses, dice rolls, integers. It does <em>not</em> apply to uncountable collections like every individual point in <span class="math inline">[0,1]</span> — we will see why shortly.</p>
+<hr>
+</section>
+</section>
+<section id="derived-properties-of-probability" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="derived-properties-of-probability"><span class="header-section-number">3.8</span> Derived Properties of Probability</h2>
+<p>From just the three axioms, we can derive every useful property of probability:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>▶ Show the math — Useful consequences of the axioms
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>1. <span class="math inline">P(\emptyset) = 0</span>.</strong></p>
+<p><em>Proof.</em> <span class="math inline">\Omega = \Omega \cup \emptyset</span> and these are disjoint, so by (A3): <span class="math inline">P(\Omega) = P(\Omega) + P(\emptyset)</span>, which gives <span class="math inline">P(\emptyset) = 0</span>. <span class="math inline">\blacksquare</span></p>
+<p><strong>2. Complement rule: <span class="math inline">P(A^c) = 1 - P(A)</span>.</strong></p>
+<p><em>Proof.</em> <span class="math inline">A</span> and <span class="math inline">A^c</span> are disjoint and <span class="math inline">A \cup A^c = \Omega</span>. By (A3): <span class="math inline">P(A) + P(A^c) = P(\Omega) = 1</span>. <span class="math inline">\blacksquare</span></p>
+<p><strong>3. Upper bound: <span class="math inline">P(A) \le 1</span>.</strong></p>
+<p><em>Proof.</em> From (2), <span class="math inline">P(A) = 1 - P(A^c) \le 1</span> since <span class="math inline">P(A^c) \ge 0</span> by (A1). <span class="math inline">\blacksquare</span></p>
+<p><strong>4. Monotonicity: if <span class="math inline">A \subseteq B</span>, then <span class="math inline">P(A) \le P(B)</span>.</strong></p>
+<p><em>Proof.</em> Write <span class="math inline">B</span> as a disjoint union: <span class="math inline">B = A \cup (B \cap A^c)</span>. By (A3): <span class="math inline">P(B) = P(A) + P(B \cap A^c) \ge P(A)</span>. <span class="math inline">\blacksquare</span></p>
+<p><strong>5. Inclusion–exclusion (two events):</strong> <span class="math display">P(A \cup B) = P(A) + P(B) - P(A \cap B).</span></p>
+<p><em>Proof.</em> Decompose <span class="math inline">A \cup B</span> into three disjoint pieces: <span class="math display">A \cup B = (A \cap B^c) \;\sqcup\; (A^c \cap B) \;\sqcup\; (A \cap B).</span> Apply (A3) and rearrange. <span class="math inline">\blacksquare</span></p>
+<p><strong>6. Union bound (Boole’s inequality):</strong> <span class="math display">P(A \cup B) \le P(A) + P(B), \qquad P\!\left(\bigcup_i A_i\right) \le \sum_i P(A_i).</span></p>
+<p><em>Proof.</em> For two events, this is (5) plus <span class="math inline">P(A \cap B) \ge 0</span>. <span class="math inline">\blacksquare</span></p>
+<p>The union bound looks weak — it just throws away the intersection — but it’s used constantly in machine learning theory because it requires no assumptions about how the events relate to each other.</p>
+</div>
+</div>
+</div>
+<div id="3ffb134d" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify all properties numerically on the dice example</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>omega_set <span class="op">=</span> <span class="bu">set</span>(outcomes)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">len</span>(omega_set)  <span class="co"># 36</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> P_check(event):</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">len</span>(event) <span class="op">/</span> n</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>A_ev <span class="op">=</span> {(i, j) <span class="cf">for</span> i, j <span class="kw">in</span> omega_set <span class="cf">if</span> i <span class="op">==</span> <span class="dv">1</span>}        <span class="co"># first die = 1</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>B_ev <span class="op">=</span> {(i, j) <span class="cf">for</span> i, j <span class="kw">in</span> omega_set <span class="cf">if</span> i <span class="op">+</span> j <span class="op">&gt;=</span> <span class="dv">10</span>}   <span class="co"># sum &gt;= 10</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P(A) = </span><span class="sc">{</span>P_check(A_ev)<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P(B) = </span><span class="sc">{</span>P_check(B_ev)<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P(A^c) = </span><span class="sc">{</span>P_check(omega_set <span class="op">-</span> A_ev)<span class="sc">:.4f}</span><span class="ss">  (should be 1 - P(A) = </span><span class="sc">{</span><span class="dv">1</span> <span class="op">-</span> P_check(A_ev)<span class="sc">:.4f}</span><span class="ss">)"</span>)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P(A ∩ B) = </span><span class="sc">{</span>P_check(A_ev <span class="op">&amp;</span> B_ev)<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P(A ∪ B) = </span><span class="sc">{</span>P_check(A_ev <span class="op">|</span> B_ev)<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P(A) + P(B) - P(A ∩ B) = </span><span class="sc">{</span>P_check(A_ev) <span class="op">+</span> P_check(B_ev) <span class="op">-</span> P_check(A_ev <span class="op">&amp;</span> B_ev)<span class="sc">:.4f}</span><span class="ss">  (inclusion-exclusion ✓)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>P(A) = 0.1667
+P(B) = 0.1667
+P(A^c) = 0.8333  (should be 1 - P(A) = 0.8333)
+P(A ∩ B) = 0.0000
+P(A ∪ B) = 0.3333
+P(A) + P(B) - P(A ∩ B) = 0.3333  (inclusion-exclusion ✓)</code></pre>
+</div>
+</div>
+<hr>
+<hr>
+</section>
+<section id="events" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="events"><span class="header-section-number">3.9</span> Events</h2>
+<section id="events-on-a-discrete-sample-space" class="level3" data-number="3.9.1">
+<h3 data-number="3.9.1" class="anchored" data-anchor-id="events-on-a-discrete-sample-space"><span class="header-section-number">3.9.1</span> Events on a Discrete Sample Space</h3>
+<p>An <strong>event</strong> is just a subset of <span class="math inline">\Omega</span>. Some examples for our two dice:</p>
+<div id="31ef885d" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>omega <span class="op">=</span> <span class="bu">set</span>(outcomes)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {(d1, d2) <span class="cf">for</span> d1, d2 <span class="kw">in</span> omega <span class="cf">if</span> d1 <span class="op">+</span> d2 <span class="op">==</span> <span class="dv">7</span>}        <span class="co"># sum is 7</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> {(d1, d2) <span class="cf">for</span> d1, d2 <span class="kw">in</span> omega <span class="cf">if</span> d1 <span class="op">==</span> d2}            <span class="co"># doubles</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> {(d1, d2) <span class="cf">for</span> d1, d2 <span class="kw">in</span> omega <span class="cf">if</span> d1 <span class="op">==</span> <span class="dv">6</span>}             <span class="co"># first die is 6</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>D <span class="op">=</span> {(d1, d2) <span class="cf">for</span> d1, d2 <span class="kw">in</span> omega <span class="cf">if</span> d1 <span class="op">+</span> d2 <span class="op">&gt;=</span> <span class="dv">10</span>}       <span class="co"># sum ≥ 10</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"A = sum is 7        (</span><span class="sc">{</span><span class="bu">len</span>(A)<span class="sc">}</span><span class="ss"> outcomes): </span><span class="sc">{</span><span class="bu">sorted</span>(A)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"B = doubles         (</span><span class="sc">{</span><span class="bu">len</span>(B)<span class="sc">}</span><span class="ss"> outcomes): </span><span class="sc">{</span><span class="bu">sorted</span>(B)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"C = first die is 6  (</span><span class="sc">{</span><span class="bu">len</span>(C)<span class="sc">}</span><span class="ss"> outcomes): </span><span class="sc">{</span><span class="bu">sorted</span>(C)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"D = sum ≥ 10        (</span><span class="sc">{</span><span class="bu">len</span>(D)<span class="sc">}</span><span class="ss"> outcomes): </span><span class="sc">{</span><span class="bu">sorted</span>(D)<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>A = sum is 7        (6 outcomes): [(1, 6), (2, 5), (3, 4), (4, 3), (5, 2), (6, 1)]
 B = doubles         (6 outcomes): [(1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6)]
@@ -1641,20 +1791,20 @@ D = sum ≥ 10        (6 outcomes): [(4, 6), (5, 5), (5, 6), (6, 4), (6, 5), (6,
 </div>
 </div>
 <p>Because events are sets, you can combine them with set operations. Combining events gives you new events:</p>
-<div id="9ab17962" class="cell" data-execution_count="6">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum is 7 OR doubles</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>A_or_B <span class="op">=</span> A <span class="op">|</span> B          <span class="co"># set union  → "A or B"</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum is 7 AND first die is 6  → exactly one roll: (6, 1)</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>A_and_C <span class="op">=</span> A <span class="op">&amp;</span> C         <span class="co"># set intersection  → "A and C"</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum is 7 but NOT doubles</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>A_not_B <span class="op">=</span> A <span class="op">-</span> B         <span class="co"># set difference  → "A but not B"</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum is 7 AND doubles  → impossible (no double sums to 7), so empty set</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>A_and_B <span class="op">=</span> A <span class="op">&amp;</span> B</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"A ∪ B   ('sum is 7 OR doubles'):           </span><span class="sc">{</span><span class="bu">len</span>(A_or_B)<span class="sc">}</span><span class="ss"> outcomes"</span>)</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"A ∩ C   ('sum is 7 AND first die is 6'):   </span><span class="sc">{</span><span class="bu">len</span>(A_and_C)<span class="sc">}</span><span class="ss"> outcomes  →  </span><span class="sc">{</span>A_and_C<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"A - B   ('sum is 7 but not doubles'):      </span><span class="sc">{</span><span class="bu">len</span>(A_not_B)<span class="sc">}</span><span class="ss"> outcomes"</span>)</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"A ∩ B   ('sum is 7 AND doubles'):          </span><span class="sc">{</span><span class="bu">len</span>(A_and_B)<span class="sc">}</span><span class="ss"> outcomes  →  </span><span class="sc">{</span>A_and_B<span class="sc">}</span><span class="ss">  (empty set ∅)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="e2672752" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum is 7 OR doubles</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>A_or_B <span class="op">=</span> A <span class="op">|</span> B          <span class="co"># set union  → "A or B"</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum is 7 AND first die is 6  → exactly one roll: (6, 1)</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>A_and_C <span class="op">=</span> A <span class="op">&amp;</span> C         <span class="co"># set intersection  → "A and C"</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum is 7 but NOT doubles</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>A_not_B <span class="op">=</span> A <span class="op">-</span> B         <span class="co"># set difference  → "A but not B"</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum is 7 AND doubles  → impossible (no double sums to 7), so empty set</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>A_and_B <span class="op">=</span> A <span class="op">&amp;</span> B</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"A ∪ B   ('sum is 7 OR doubles'):           </span><span class="sc">{</span><span class="bu">len</span>(A_or_B)<span class="sc">}</span><span class="ss"> outcomes"</span>)</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"A ∩ C   ('sum is 7 AND first die is 6'):   </span><span class="sc">{</span><span class="bu">len</span>(A_and_C)<span class="sc">}</span><span class="ss"> outcomes  →  </span><span class="sc">{</span>A_and_C<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"A - B   ('sum is 7 but not doubles'):      </span><span class="sc">{</span><span class="bu">len</span>(A_not_B)<span class="sc">}</span><span class="ss"> outcomes"</span>)</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"A ∩ B   ('sum is 7 AND doubles'):          </span><span class="sc">{</span><span class="bu">len</span>(A_and_B)<span class="sc">}</span><span class="ss"> outcomes  →  </span><span class="sc">{</span>A_and_B<span class="sc">}</span><span class="ss">  (empty set ∅)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>A ∪ B   ('sum is 7 OR doubles'):           12 outcomes
 A ∩ C   ('sum is 7 AND first die is 6'):   1 outcomes  →  {(6, 1)}
@@ -1669,7 +1819,7 @@ A ∩ B   ('sum is 7 AND doubles'):          0 outcomes  →  set()  (empty set 
 </ul>
 <p>That’s the entire grammar. Set union for “or”, set intersection for “and”, set complement for “not”. Probability theory inherits its grammar from set theory.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1678,7 +1828,7 @@ A ∩ B   ('sum is 7 AND doubles'):          0 outcomes  →  set()  (empty set 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>For any events <span class="math inline">A</span>, <span class="math inline">B</span>, <span class="math inline">C \subseteq \Omega</span>, the following identities hold and are used constantly:</p>
 <p><strong>Commutative.</strong> <span class="math inline">A \cup B = B \cup A</span>, <span class="math inline">\;\; A \cap B = B \cap A</span>.</p>
@@ -1693,8 +1843,8 @@ A ∩ B   ('sum is 7 AND doubles'):          0 outcomes  →  set()  (empty set 
 </div>
 </div>
 </section>
-<section id="events-on-a-continuous-sample-space" class="level3" data-number="3.7.2">
-<h3 data-number="3.7.2" class="anchored" data-anchor-id="events-on-a-continuous-sample-space"><span class="header-section-number">3.7.2</span> Events on a Continuous Sample Space</h3>
+<section id="events-on-a-continuous-sample-space" class="level3" data-number="3.9.2">
+<h3 data-number="3.9.2" class="anchored" data-anchor-id="events-on-a-continuous-sample-space"><span class="header-section-number">3.9.2</span> Events on a Continuous Sample Space</h3>
 <p>We introduced the dart’s sample space <span class="math inline">\Omega = [0,1]^2</span> above. The animation below shows how that sample space is built and why individual outcomes can’t carry probability weight — watch it, then read the formal arguments that follow.</p>
 <video controls="" width="100%" style="max-width:640px; display:block; margin:1em auto;">
   <source src="../../figures/animations/videos/continuous_sample_space.mp4" type="video/mp4">
@@ -1760,7 +1910,7 @@ A ∩ B   ('sum is 7 AND doubles'):          0 outcomes  →  set()  (empty set 
 <p><span class="math display">P(A) = 1 - 2 \times \tfrac{1}{2}(0.75)^2 = 1 - 0.5625 = \boxed{0.4375 = \tfrac{7}{16}}</span></p>
 <p><strong>Romeo and Juliet have a 43.75 % chance of meeting.</strong></p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1769,38 +1919,38 @@ A ∩ B   ('sum is 7 AND doubles'):          0 outcomes  →  set()  (empty set 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div id="callout-26" class="callout-26-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="cell-fig-romeo-juliet" class="cell" data-execution_count="7">
+<div id="cell-fig-romeo-juliet" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">42</span>)</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">2000</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> rng.uniform(<span class="dv">0</span>, <span class="dv">1</span>, n)</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> rng.uniform(<span class="dv">0</span>, <span class="dv">1</span>, n)</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>meet <span class="op">=</span> np.<span class="bu">abs</span>(x <span class="op">-</span> y) <span class="op">&lt;=</span> <span class="fl">0.25</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>band_x <span class="op">=</span> [<span class="dv">0</span>, <span class="fl">0.25</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="fl">0.75</span>, <span class="dv">0</span>, <span class="dv">0</span>]</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>band_y <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">0</span>,   <span class="fl">0.75</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="fl">0.25</span>, <span class="dv">0</span>]</span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>ax.fill(band_x, band_y, color<span class="op">=</span><span class="st">"#2ecc71"</span>, alpha<span class="op">=</span><span class="fl">0.25</span>, label<span class="op">=</span><span class="st">"Meet region"</span>)</span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>ax.fill([<span class="dv">0</span>, <span class="fl">0.75</span>, <span class="dv">0</span>], [<span class="fl">0.25</span>, <span class="dv">1</span>, <span class="dv">1</span>], color<span class="op">=</span><span class="st">"#e74c3c"</span>, alpha<span class="op">=</span><span class="fl">0.25</span>)</span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>ax.fill([<span class="fl">0.25</span>, <span class="dv">1</span>, <span class="dv">1</span>], [<span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.75</span>], color<span class="op">=</span><span class="st">"#e74c3c"</span>, alpha<span class="op">=</span><span class="fl">0.25</span>, label<span class="op">=</span><span class="st">"Miss region"</span>)</span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>ax.plot([<span class="dv">0</span>, <span class="fl">0.75</span>], [<span class="fl">0.25</span>, <span class="dv">1</span>], <span class="st">"k--"</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>ax.plot([<span class="fl">0.25</span>, <span class="dv">1</span>], [<span class="dv">0</span>, <span class="fl">0.75</span>], <span class="st">"k--"</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>idx <span class="op">=</span> rng.choice(n, <span class="dv">400</span>, replace<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>ax.scatter(x[idx][meet[idx]],  y[idx][meet[idx]],  s<span class="op">=</span><span class="dv">8</span>, color<span class="op">=</span><span class="st">"#27ae60"</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>ax.scatter(x[idx][<span class="op">~</span>meet[idx]], y[idx][<span class="op">~</span>meet[idx]], s<span class="op">=</span><span class="dv">8</span>, color<span class="op">=</span><span class="st">"#c0392b"</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="dv">0</span>, <span class="dv">1</span>)<span class="op">;</span> ax.set_ylim(<span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Romeo's arrival time (h)"</span>)<span class="op">;</span> ax.set_ylabel(<span class="st">"Juliet's arrival time (h)"</span>)</span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="ss">f"P(meet) ≈ </span><span class="sc">{</span>meet<span class="sc">.</span>mean()<span class="sc">:.4f}</span><span class="ss">  (theory = 7/16 = 0.4375)"</span>)</span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>ax.legend(loc<span class="op">=</span><span class="st">"upper right"</span>, fontsize<span class="op">=</span><span class="dv">8</span>)</span>
-<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>ax.set_aspect(<span class="st">"equal"</span>)</span>
-<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">42</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">2000</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> rng.uniform(<span class="dv">0</span>, <span class="dv">1</span>, n)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> rng.uniform(<span class="dv">0</span>, <span class="dv">1</span>, n)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>meet <span class="op">=</span> np.<span class="bu">abs</span>(x <span class="op">-</span> y) <span class="op">&lt;=</span> <span class="fl">0.25</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>band_x <span class="op">=</span> [<span class="dv">0</span>, <span class="fl">0.25</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="fl">0.75</span>, <span class="dv">0</span>, <span class="dv">0</span>]</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>band_y <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">0</span>,   <span class="fl">0.75</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="fl">0.25</span>, <span class="dv">0</span>]</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>ax.fill(band_x, band_y, color<span class="op">=</span><span class="st">"#2ecc71"</span>, alpha<span class="op">=</span><span class="fl">0.25</span>, label<span class="op">=</span><span class="st">"Meet region"</span>)</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>ax.fill([<span class="dv">0</span>, <span class="fl">0.75</span>, <span class="dv">0</span>], [<span class="fl">0.25</span>, <span class="dv">1</span>, <span class="dv">1</span>], color<span class="op">=</span><span class="st">"#e74c3c"</span>, alpha<span class="op">=</span><span class="fl">0.25</span>)</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>ax.fill([<span class="fl">0.25</span>, <span class="dv">1</span>, <span class="dv">1</span>], [<span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.75</span>], color<span class="op">=</span><span class="st">"#e74c3c"</span>, alpha<span class="op">=</span><span class="fl">0.25</span>, label<span class="op">=</span><span class="st">"Miss region"</span>)</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>ax.plot([<span class="dv">0</span>, <span class="fl">0.75</span>], [<span class="fl">0.25</span>, <span class="dv">1</span>], <span class="st">"k--"</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>ax.plot([<span class="fl">0.25</span>, <span class="dv">1</span>], [<span class="dv">0</span>, <span class="fl">0.75</span>], <span class="st">"k--"</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>idx <span class="op">=</span> rng.choice(n, <span class="dv">400</span>, replace<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>ax.scatter(x[idx][meet[idx]],  y[idx][meet[idx]],  s<span class="op">=</span><span class="dv">8</span>, color<span class="op">=</span><span class="st">"#27ae60"</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>ax.scatter(x[idx][<span class="op">~</span>meet[idx]], y[idx][<span class="op">~</span>meet[idx]], s<span class="op">=</span><span class="dv">8</span>, color<span class="op">=</span><span class="st">"#c0392b"</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="dv">0</span>, <span class="dv">1</span>)<span class="op">;</span> ax.set_ylim(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Romeo's arrival time (h)"</span>)<span class="op">;</span> ax.set_ylabel(<span class="st">"Juliet's arrival time (h)"</span>)</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="ss">f"P(meet) ≈ </span><span class="sc">{</span>meet<span class="sc">.</span>mean()<span class="sc">:.4f}</span><span class="ss">  (theory = 7/16 = 0.4375)"</span>)</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>ax.legend(loc<span class="op">=</span><span class="st">"upper right"</span>, fontsize<span class="op">=</span><span class="dv">8</span>)</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>ax.set_aspect(<span class="st">"equal"</span>)</span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="fig-romeo-juliet" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -1819,7 +1969,7 @@ Figure&nbsp;3.1: Meeting region (green band) and miss regions (red triangles). M
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1828,18 +1978,18 @@ Figure&nbsp;3.1: Meeting region (green band) and miss regions (red triangles). M
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div id="callout-27" class="callout-27-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="d8068243" class="cell" data-execution_count="8">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">0</span>)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> [<span class="dv">100</span>, <span class="dv">1_000</span>, <span class="dv">10_000</span>, <span class="dv">100_000</span>]:</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> rng.uniform(<span class="dv">0</span>, <span class="dv">1</span>, n)</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> rng.uniform(<span class="dv">0</span>, <span class="dv">1</span>, n)</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    p_hat <span class="op">=</span> np.mean(np.<span class="bu">abs</span>(x <span class="op">-</span> y) <span class="op">&lt;=</span> <span class="fl">0.25</span>)</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"n = </span><span class="sc">{</span>n<span class="sc">:&gt;7,}</span><span class="ss">  →  P̂(meet) = </span><span class="sc">{</span>p_hat<span class="sc">:.4f}</span><span class="ss">   error = </span><span class="sc">{</span><span class="bu">abs</span>(p_hat <span class="op">-</span> <span class="dv">7</span><span class="op">/</span><span class="dv">16</span>)<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Theory:  P(meet) = 7/16 = </span><span class="sc">{</span><span class="dv">7</span><span class="op">/</span><span class="dv">16</span><span class="sc">:.4f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="f11c196c" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">0</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> [<span class="dv">100</span>, <span class="dv">1_000</span>, <span class="dv">10_000</span>, <span class="dv">100_000</span>]:</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> rng.uniform(<span class="dv">0</span>, <span class="dv">1</span>, n)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> rng.uniform(<span class="dv">0</span>, <span class="dv">1</span>, n)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    p_hat <span class="op">=</span> np.mean(np.<span class="bu">abs</span>(x <span class="op">-</span> y) <span class="op">&lt;=</span> <span class="fl">0.25</span>)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"n = </span><span class="sc">{</span>n<span class="sc">:&gt;7,}</span><span class="ss">  →  P̂(meet) = </span><span class="sc">{</span>p_hat<span class="sc">:.4f}</span><span class="ss">   error = </span><span class="sc">{</span><span class="bu">abs</span>(p_hat <span class="op">-</span> <span class="dv">7</span><span class="op">/</span><span class="dv">16</span>)<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Theory:  P(meet) = 7/16 = </span><span class="sc">{</span><span class="dv">7</span><span class="op">/</span><span class="dv">16</span><span class="sc">:.4f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>n =     100  →  P̂(meet) = 0.4900   error = 0.0525
 n =   1,000  →  P̂(meet) = 0.4600   error = 0.0225
@@ -1902,8 +2052,8 @@ Theory:  P(meet) = 7/16 = 0.4375</code></pre>
 </section>
 </section>
 </section>
-<section id="sequential-experiments-and-tree-diagrams" class="level2" data-number="3.8">
-<h2 data-number="3.8" class="anchored" data-anchor-id="sequential-experiments-and-tree-diagrams"><span class="header-section-number">3.8</span> Sequential Experiments and Tree Diagrams</h2>
+<section id="sequential-experiments-and-tree-diagrams" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="sequential-experiments-and-tree-diagrams"><span class="header-section-number">3.10</span> Sequential Experiments and Tree Diagrams</h2>
 <p>Many real experiments unfold <strong>in stages</strong>. You don’t roll all your dice at once — you roll the first, see what happens, then roll the second. You don’t measure all your sensor outputs at once — readings come in over time. You don’t read an email and decide it’s spam in a single glance — you check the sender, then the subject line, then the body.</p>
 <p>For these step-by-step experiments, the cleanest representation is a <strong>tree diagram</strong>. Each branch from a node represents a possible outcome at that stage; each path from root to leaf is one complete sequence of outcomes. The set of all leaves is the sample space.</p>
 <p>Let’s draw one. We’ll use the simplest sequential experiment that’s still interesting: <strong>flipping a fair coin three times</strong>.</p>
@@ -1933,29 +2083,29 @@ Theory:  P(meet) = 7/16 = 0.4375</code></pre>
 </div>
 </div>
 <p>Let’s verify by computing some probabilities directly from the tree:</p>
-<div id="75ee3b06" class="cell" data-execution_count="9">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> product</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate all leaves</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>leaves <span class="op">=</span> <span class="bu">list</span>(product(<span class="st">"HT"</span>, repeat<span class="op">=</span><span class="dv">3</span>))</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Sample space size: </span><span class="sc">{</span><span class="bu">len</span>(leaves)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"All leaves: </span><span class="sc">{</span>[<span class="st">''</span>.join(l) <span class="cf">for</span> l <span class="kw">in</span> leaves]<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 8 equally likely outcomes → each leaf has probability 1/8.</span></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>p_leaf <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> <span class="dv">8</span></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Event A: exactly 2 heads</span></span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>event_A <span class="op">=</span> [l <span class="cf">for</span> l <span class="kw">in</span> leaves <span class="cf">if</span> l.count(<span class="st">"H"</span>) <span class="op">==</span> <span class="dv">2</span>]</span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">P(exactly 2 heads) = </span><span class="sc">{</span><span class="bu">len</span>(event_A)<span class="sc">}</span><span class="ss">/8 = </span><span class="sc">{</span><span class="bu">len</span>(event_A)<span class="op">/</span><span class="dv">8</span><span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  leaves: </span><span class="sc">{</span>[<span class="st">''</span>.join(l) <span class="cf">for</span> l <span class="kw">in</span> event_A]<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Event B: at least 1 head</span></span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>event_B <span class="op">=</span> [l <span class="cf">for</span> l <span class="kw">in</span> leaves <span class="cf">if</span> l.count(<span class="st">"H"</span>) <span class="op">&gt;=</span> <span class="dv">1</span>]</span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">P(at least 1 head) = </span><span class="sc">{</span><span class="bu">len</span>(event_B)<span class="sc">}</span><span class="ss">/8 = </span><span class="sc">{</span><span class="bu">len</span>(event_B)<span class="op">/</span><span class="dv">8</span><span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Event C: all three are the same</span></span>
-<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>event_C <span class="op">=</span> [l <span class="cf">for</span> l <span class="kw">in</span> leaves <span class="cf">if</span> l.count(<span class="st">"H"</span>) <span class="kw">in</span> (<span class="dv">0</span>, <span class="dv">3</span>)]</span>
-<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">P(all same) = </span><span class="sc">{</span><span class="bu">len</span>(event_C)<span class="sc">}</span><span class="ss">/8 = </span><span class="sc">{</span><span class="bu">len</span>(event_C)<span class="op">/</span><span class="dv">8</span><span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="540fed73" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> product</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate all leaves</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>leaves <span class="op">=</span> <span class="bu">list</span>(product(<span class="st">"HT"</span>, repeat<span class="op">=</span><span class="dv">3</span>))</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Sample space size: </span><span class="sc">{</span><span class="bu">len</span>(leaves)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"All leaves: </span><span class="sc">{</span>[<span class="st">''</span>.join(l) <span class="cf">for</span> l <span class="kw">in</span> leaves]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 8 equally likely outcomes → each leaf has probability 1/8.</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>p_leaf <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> <span class="dv">8</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Event A: exactly 2 heads</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>event_A <span class="op">=</span> [l <span class="cf">for</span> l <span class="kw">in</span> leaves <span class="cf">if</span> l.count(<span class="st">"H"</span>) <span class="op">==</span> <span class="dv">2</span>]</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">P(exactly 2 heads) = </span><span class="sc">{</span><span class="bu">len</span>(event_A)<span class="sc">}</span><span class="ss">/8 = </span><span class="sc">{</span><span class="bu">len</span>(event_A)<span class="op">/</span><span class="dv">8</span><span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  leaves: </span><span class="sc">{</span>[<span class="st">''</span>.join(l) <span class="cf">for</span> l <span class="kw">in</span> event_A]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Event B: at least 1 head</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>event_B <span class="op">=</span> [l <span class="cf">for</span> l <span class="kw">in</span> leaves <span class="cf">if</span> l.count(<span class="st">"H"</span>) <span class="op">&gt;=</span> <span class="dv">1</span>]</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">P(at least 1 head) = </span><span class="sc">{</span><span class="bu">len</span>(event_B)<span class="sc">}</span><span class="ss">/8 = </span><span class="sc">{</span><span class="bu">len</span>(event_B)<span class="op">/</span><span class="dv">8</span><span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Event C: all three are the same</span></span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>event_C <span class="op">=</span> [l <span class="cf">for</span> l <span class="kw">in</span> leaves <span class="cf">if</span> l.count(<span class="st">"H"</span>) <span class="kw">in</span> (<span class="dv">0</span>, <span class="dv">3</span>)]</span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">P(all same) = </span><span class="sc">{</span><span class="bu">len</span>(event_C)<span class="sc">}</span><span class="ss">/8 = </span><span class="sc">{</span><span class="bu">len</span>(event_C)<span class="op">/</span><span class="dv">8</span><span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Sample space size: 8
 All leaves: ['HHH', 'HHT', 'HTH', 'HTT', 'THH', 'THT', 'TTH', 'TTT']
@@ -1982,146 +2132,6 @@ P(all same) = 2/8 = 0.25</code></pre>
 <p>Trees are the natural picture for <strong>conditional probability</strong> (the next chapter). The branches into a node from above are the conditioning; the branches out are the conditional probabilities given that you’ve arrived. Bayes’ rule is just “go up the tree and re-weight”.</p>
 </div>
 </div>
-</section>
-<section id="probability-laws-and-axioms" class="level2" data-number="3.9">
-<h2 data-number="3.9" class="anchored" data-anchor-id="probability-laws-and-axioms"><span class="header-section-number">3.9</span> Probability Laws and Axioms</h2>
-<section id="motivation" class="level3" data-number="3.9.1">
-<h3 data-number="3.9.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">3.9.1</span> Motivation</h3>
-<p>We need a rule that assigns a number <span class="math inline">P(A)</span> to every event <span class="math inline">A</span>, capturing how likely it is. What properties should such a rule have?</p>
-<p>Think about it intuitively:</p>
-<ul>
-<li>A likelihood below zero makes no sense — so probabilities must be <strong>non-negative</strong>.</li>
-<li>Something must happen — so the total probability of the entire sample space must be <strong>1</strong>.</li>
-<li>If two events cannot both occur (disjoint events), the probability of either one happening is the <strong>sum</strong> of their individual probabilities.</li>
-</ul>
-<p>These three intuitions are the <strong>axioms</strong> — the minimum set of rules needed for a consistent and useful theory of probability.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>The Kolmogorov Axioms
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>A <strong>probability law</strong> <span class="math inline">P</span> is a function that assigns a number <span class="math inline">P(A)</span> to every event <span class="math inline">A \subseteq \Omega</span>, satisfying:</p>
-<p><strong>(A1) Non-negativity.</strong> <span class="math inline">P(A) \ge 0</span> for every event <span class="math inline">A</span>.</p>
-<p><strong>(A2) Normalization.</strong> <span class="math inline">P(\Omega) = 1</span>.</p>
-<p><strong>(A3) Additivity.</strong> If <span class="math inline">A</span> and <span class="math inline">B</span> are disjoint (<span class="math inline">A \cap B = \emptyset</span>), then <span class="math display">P(A \cup B) = P(A) + P(B).</span></p>
-</div>
-</div>
-<p><strong>Think of probability as mass.</strong> Imagine spreading 1 kilogram of mass over the sample space. <span class="math inline">P(A)</span> is the mass sitting on top of region <span class="math inline">A</span>. Non-negativity says mass can’t be negative. Normalization says the total mass is 1 kg. Additivity says non-overlapping regions just add their masses.</p>
-<p>Three axioms. That is the entire foundation. Everything else in probability — every formula, theorem, and proof — follows from these three.</p>
-<p>Let’s verify them on our two-dice example.</p>
-<div id="d90ea599" class="cell" data-execution_count="10">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For fair dice, each of the 36 outcomes has probability 1/36.</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> P(event):</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">len</span>(event) <span class="op">/</span> <span class="dv">36</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co"># (A1) Non-negativity</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"(A1) P(A) = </span><span class="sc">{</span>P(A)<span class="sc">:.4f}</span><span class="ss"> ≥ 0 ✓"</span>)</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co"># (A2) Normalization</span></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"(A2) P(Ω) = </span><span class="sc">{</span>P(omega)<span class="sc">}</span><span class="ss"> = 1 ✓"</span>)</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="co"># (A3) Additivity — pick two disjoint events</span></span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>E <span class="op">=</span> {(d1, d2) <span class="cf">for</span> d1, d2 <span class="kw">in</span> omega <span class="cf">if</span> d1 <span class="op">+</span> d2 <span class="op">==</span> <span class="dv">7</span>}</span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>F <span class="op">=</span> {(d1, d2) <span class="cf">for</span> d1, d2 <span class="kw">in</span> omega <span class="cf">if</span> d1 <span class="op">+</span> d2 <span class="op">==</span> <span class="dv">11</span>}</span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"     E ∩ F = </span><span class="sc">{</span>E <span class="op">&amp;</span> F<span class="sc">}</span><span class="ss"> (disjoint ✓)"</span>)</span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"     P(E) + P(F) = </span><span class="sc">{</span>P(E)<span class="sc">:.4f}</span><span class="ss"> + </span><span class="sc">{</span>P(F)<span class="sc">:.4f}</span><span class="ss"> = </span><span class="sc">{</span>P(E) <span class="op">+</span> P(F)<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"     P(E ∪ F)    = </span><span class="sc">{</span>P(E <span class="op">|</span> F)<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"     Equal ✓"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>(A1) P(A) = 0.1667 ≥ 0 ✓
-(A2) P(Ω) = 1.0 = 1 ✓
-     E ∩ F = set() (disjoint ✓)
-     P(E) + P(F) = 0.1667 + 0.0556 = 0.2222
-     P(E ∪ F)    = 0.2222
-     Equal ✓</code></pre>
-</div>
-</div>
-</section>
-<section id="extending-additivity-to-infinite-sequences" class="level3" data-number="3.9.2">
-<h3 data-number="3.9.2" class="anchored" data-anchor-id="extending-additivity-to-infinite-sequences"><span class="header-section-number">3.9.2</span> Extending Additivity to Infinite Sequences</h3>
-<p>The additivity axiom above handles two disjoint events. But many experiments have infinitely many possible stages. Consider tossing a coin until the first heads appears — the number of tosses could be 1, 2, 3, … with no bound. The events “first heads on toss <span class="math inline">n</span>” are mutually exclusive for different <span class="math inline">n</span>, and together they cover all possibilities. We need:</p>
-<p><span class="math display">P(\text{toss 1}) + P(\text{toss 2}) + P(\text{toss 3}) + \cdots = 1</span></p>
-<p>For this to work, we extend the additivity axiom:</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Countable Additivity
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If <span class="math inline">A_1, A_2, A_3, \ldots</span> is an infinite sequence of pairwise disjoint events, then: <span class="math display">P\!\left(\bigcup_{i=1}^{\infty} A_i\right) = \sum_{i=1}^{\infty} P(A_i)</span></p>
-</div>
-</div>
-<p>The word <strong>sequence</strong> here is critical — we need the events to be arrangeable in a list (countably many). This works for coin tosses, dice rolls, integers. It does <em>not</em> apply to uncountable collections like every individual point in <span class="math inline">[0,1]</span> — we will see why shortly.</p>
-<hr>
-</section>
-</section>
-<section id="derived-properties-of-probability" class="level2" data-number="3.10">
-<h2 data-number="3.10" class="anchored" data-anchor-id="derived-properties-of-probability"><span class="header-section-number">3.10</span> Derived Properties of Probability</h2>
-<p>From just the three axioms, we can derive every useful property of probability:</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>▶ Show the math — Useful consequences of the axioms
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-30" class="callout-30-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>1. <span class="math inline">P(\emptyset) = 0</span>.</strong></p>
-<p><em>Proof.</em> <span class="math inline">\Omega = \Omega \cup \emptyset</span> and these are disjoint, so by (A3): <span class="math inline">P(\Omega) = P(\Omega) + P(\emptyset)</span>, which gives <span class="math inline">P(\emptyset) = 0</span>. <span class="math inline">\blacksquare</span></p>
-<p><strong>2. Complement rule: <span class="math inline">P(A^c) = 1 - P(A)</span>.</strong></p>
-<p><em>Proof.</em> <span class="math inline">A</span> and <span class="math inline">A^c</span> are disjoint and <span class="math inline">A \cup A^c = \Omega</span>. By (A3): <span class="math inline">P(A) + P(A^c) = P(\Omega) = 1</span>. <span class="math inline">\blacksquare</span></p>
-<p><strong>3. Upper bound: <span class="math inline">P(A) \le 1</span>.</strong></p>
-<p><em>Proof.</em> From (2), <span class="math inline">P(A) = 1 - P(A^c) \le 1</span> since <span class="math inline">P(A^c) \ge 0</span> by (A1). <span class="math inline">\blacksquare</span></p>
-<p><strong>4. Monotonicity: if <span class="math inline">A \subseteq B</span>, then <span class="math inline">P(A) \le P(B)</span>.</strong></p>
-<p><em>Proof.</em> Write <span class="math inline">B</span> as a disjoint union: <span class="math inline">B = A \cup (B \cap A^c)</span>. By (A3): <span class="math inline">P(B) = P(A) + P(B \cap A^c) \ge P(A)</span>. <span class="math inline">\blacksquare</span></p>
-<p><strong>5. Inclusion–exclusion (two events):</strong> <span class="math display">P(A \cup B) = P(A) + P(B) - P(A \cap B).</span></p>
-<p><em>Proof.</em> Decompose <span class="math inline">A \cup B</span> into three disjoint pieces: <span class="math display">A \cup B = (A \cap B^c) \;\sqcup\; (A^c \cap B) \;\sqcup\; (A \cap B).</span> Apply (A3) and rearrange. <span class="math inline">\blacksquare</span></p>
-<p><strong>6. Union bound (Boole’s inequality):</strong> <span class="math display">P(A \cup B) \le P(A) + P(B), \qquad P\!\left(\bigcup_i A_i\right) \le \sum_i P(A_i).</span></p>
-<p><em>Proof.</em> For two events, this is (5) plus <span class="math inline">P(A \cap B) \ge 0</span>. <span class="math inline">\blacksquare</span></p>
-<p>The union bound looks weak — it just throws away the intersection — but it’s used constantly in machine learning theory because it requires no assumptions about how the events relate to each other.</p>
-</div>
-</div>
-</div>
-<div id="293328cb" class="cell" data-execution_count="11">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify all properties numerically on the dice example</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>omega_set <span class="op">=</span> <span class="bu">set</span>(outcomes)</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">len</span>(omega_set)  <span class="co"># 36</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> P_check(event):</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">len</span>(event) <span class="op">/</span> n</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>A_ev <span class="op">=</span> {(i, j) <span class="cf">for</span> i, j <span class="kw">in</span> omega_set <span class="cf">if</span> i <span class="op">==</span> <span class="dv">1</span>}        <span class="co"># first die = 1</span></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>B_ev <span class="op">=</span> {(i, j) <span class="cf">for</span> i, j <span class="kw">in</span> omega_set <span class="cf">if</span> i <span class="op">+</span> j <span class="op">&gt;=</span> <span class="dv">10</span>}   <span class="co"># sum &gt;= 10</span></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P(A) = </span><span class="sc">{</span>P_check(A_ev)<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P(B) = </span><span class="sc">{</span>P_check(B_ev)<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P(A^c) = </span><span class="sc">{</span>P_check(omega_set <span class="op">-</span> A_ev)<span class="sc">:.4f}</span><span class="ss">  (should be 1 - P(A) = </span><span class="sc">{</span><span class="dv">1</span> <span class="op">-</span> P_check(A_ev)<span class="sc">:.4f}</span><span class="ss">)"</span>)</span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P(A ∩ B) = </span><span class="sc">{</span>P_check(A_ev <span class="op">&amp;</span> B_ev)<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P(A ∪ B) = </span><span class="sc">{</span>P_check(A_ev <span class="op">|</span> B_ev)<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P(A) + P(B) - P(A ∩ B) = </span><span class="sc">{</span>P_check(A_ev) <span class="op">+</span> P_check(B_ev) <span class="op">-</span> P_check(A_ev <span class="op">&amp;</span> B_ev)<span class="sc">:.4f}</span><span class="ss">  (inclusion-exclusion ✓)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>P(A) = 0.1667
-P(B) = 0.1667
-P(A^c) = 0.8333  (should be 1 - P(A) = 0.8333)
-P(A ∩ B) = 0.0000
-P(A ∪ B) = 0.3333
-P(A) + P(B) - P(A ∩ B) = 0.3333  (inclusion-exclusion ✓)</code></pre>
-</div>
-</div>
-<hr>
 </section>
 <section id="the-discrete-probability-law" class="level2" data-number="3.11">
 <h2 data-number="3.11" class="anchored" data-anchor-id="the-discrete-probability-law"><span class="header-section-number">3.11</span> The Discrete Probability Law</h2>
@@ -2182,7 +2192,7 @@ P(A) + P(B) - P(A ∩ B) = 0.3333  (inclusion-exclusion ✓)</code></pre>
 </tr>
 </tbody>
 </table>
-<div id="01a238ee" class="cell" data-execution_count="12">
+<div id="1c84c131" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> product</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>omega_3 <span class="op">=</span> <span class="bu">list</span>(product([<span class="st">'H'</span>,<span class="st">'T'</span>], repeat<span class="op">=</span><span class="dv">3</span>))</span>
@@ -2227,7 +2237,7 @@ P(A) \;=\; \frac{|A|}{|\Omega|} \;=\; \frac{\text{number of outcomes in } A}{\te
 </div>
 </div>
 <p><strong>Example: two dice, sum = 7.</strong></p>
-<div id="62b8bde4" class="cell" data-execution_count="13">
+<div id="20154bc3" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># By the equally-likely-outcomes formula</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>event_sum_7 <span class="op">=</span> {(d1, d2) <span class="cf">for</span> d1, d2 <span class="kw">in</span> omega <span class="cf">if</span> d1 <span class="op">+</span> d2 <span class="op">==</span> <span class="dv">7</span>}</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>p_analytical <span class="op">=</span> <span class="bu">len</span>(event_sum_7) <span class="op">/</span> <span class="dv">36</span></span>
@@ -2239,7 +2249,7 @@ P(A) \;=\; \frac{|A|}{|\Omega|} \;=\; \frac{\text{number of outcomes in } A}{\te
 </div>
 </div>
 <p>Let’s verify by simulation and picture:</p>
-<div id="b9e6c8f3" class="cell" data-execution_count="14">
+<div id="df604cea" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Roll a million pairs of dice and count the fraction with sum = 7.</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>n_rolls <span class="op">=</span> <span class="dv">1_000_000</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>d1_sim <span class="op">=</span> rng.integers(<span class="dv">1</span>, <span class="dv">7</span>, size<span class="op">=</span>n_rolls)</span>
@@ -2278,7 +2288,7 @@ P(A) \;=\; \frac{|A|}{|\Omega|} \;=\; \frac{\text{number of outcomes in } A}{\te
 <p><strong>What is <span class="math inline">P(x + y \le 0.5)</span>?</strong></p>
 <p>The event is the triangle below the line <span class="math inline">y = 0.5 - x</span>: <span class="math display">\text{Area} = \frac{1}{2} \times \frac{1}{2} \times \frac{1}{2} = \frac{1}{8}</span></p>
 <p><strong>What is <span class="math inline">P(\text{dart lands on exactly } (0.5, 0.3))</span>?</strong> A single point has zero area, so <span class="math inline">P = 0</span>. In continuous models, individual outcomes have zero probability; <em>regions</em> have positive probability.</p>
-<div id="16f40d5e" class="cell" data-execution_count="15">
+<div id="a8e09d6c" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2352,7 +2362,7 @@ P(A) \;=\; \frac{|A|}{|\Omega|} \;=\; \frac{\text{number of outcomes in } A}{\te
 <p>Check normalization: <span class="math display">\sum_{n=1}^{\infty} \frac{1}{2^n} = \frac{1/2}{1 - 1/2} = 1 \checkmark</span></p>
 <p>What is the probability the outcome is even? Let <span class="math inline">A = \{2, 4, 6, \ldots\}</span>:</p>
 <p><span class="math display">P(A) = \sum_{k=1}^{\infty} P(2k) = \sum_{k=1}^{\infty} \left(\frac{1}{2}\right)^{2k} = \sum_{k=1}^{\infty} \frac{1}{4^k} = \frac{1/4}{1 - 1/4} = \frac{1}{3}</span></p>
-<div id="4aaa8720" class="cell" data-execution_count="16">
+<div id="42b0747e" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">0</span>)</span>
@@ -2413,7 +2423,7 @@ P(even) by formula:    0.3333</code></pre>
 <p><strong>Example</strong>: A system requires two components to both work. Component 1 works with probability 0.95, component 2 with probability 0.90. The Bonferroni Inequality gives:</p>
 <p><span class="math display">P(\text{both work}) \ge 0.95 + 0.90 - 1 = 0.85</span></p>
 <p>The exact answer (if independent) is <span class="math inline">0.95 \times 0.90 = 0.855</span> — so the bound is tight.</p>
-<div id="a458294f" class="cell" data-execution_count="17">
+<div id="810feec4" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>p1, p2 <span class="op">=</span> <span class="fl">0.95</span>, <span class="fl">0.90</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>bonferroni_lower <span class="op">=</span> p1 <span class="op">+</span> p2 <span class="op">-</span> <span class="dv">1</span></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>exact <span class="op">=</span> p1 <span class="op">*</span> p2  <span class="co"># assuming independence</span></span>
@@ -2473,7 +2483,7 @@ Gap: 0.0050</code></pre>
 </table>
 <p>Transition matrix: <span class="math inline">P = \begin{pmatrix} 0.8 &amp; 0.2 \\ 0.5 &amp; 0.5 \end{pmatrix}</span></p>
 <p><strong>Steady state.</strong> After many steps, the chain converges to a fixed distribution — regardless of where it started. For this model: approximately <strong>71.4 % Sunny, 28.6 % Rainy</strong> in the long run.</p>
-<div id="124fb8b2" class="cell" data-execution_count="18">
+<div id="9644f076" class="cell" data-execution_count="18">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
